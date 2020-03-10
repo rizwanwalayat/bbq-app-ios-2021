@@ -12,8 +12,18 @@ import SwiftyJSON
 class Language {
     static var instance=Language()
     var jsondata:JSON!
+    let defaults = UserDefaults.standard
+
     init() {
-        readjson(fileName: "")
+        let language=defaults.string(forKey: Constants.languageKey)
+        if(language==nil)
+        {
+            readjson(fileName: "en")
+        }else
+        {
+            readjson(fileName: language!)
+        }
+        
     }
     
     static func getInstance() -> Language
@@ -35,7 +45,8 @@ class Language {
     
     func readjson(fileName: String) {
         
-        let path = Bundle.main.path(forResource: "en.json", ofType: nil)
+        let langauge=fileName+".json"
+        let path = Bundle.main.path(forResource: langauge, ofType: nil)
         //        let jsonData = NSData(contentsOfMappedFile: path!)
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path!), options: .alwaysMapped)

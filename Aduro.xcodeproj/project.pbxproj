@@ -39,6 +39,9 @@
 		04A5A55223FFA50C00EB19B6 /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5A54723FFA50C00EB19B6 /* Encryption.swift */; };
 		04A5A55323FFA50C00EB19B6 /* InternetAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5A54923FFA50C00EB19B6 /* InternetAddress.swift */; };
 		04A5A55A24000B1000EB19B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5A55924000B1000EB19B6 /* HomeViewController.swift */; };
+		04CD5E832416384900F56C53 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E822416384900F56C53 /* LanguageViewController.swift */; };
+		04CD5E8524163DCC00F56C53 /* agreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E8424163DCC00F56C53 /* agreementViewController.swift */; };
+		04CD5E872416407000F56C53 /* da.json in Resources */ = {isa = PBXBuildFile; fileRef = 04CD5E862416407000F56C53 /* da.json */; };
 		9FE5671A18F54EE249D33F35 /* Pods_Aduro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E5A4D34032FB1D93037606 /* Pods_Aduro.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +86,9 @@
 		04A5A54923FFA50C00EB19B6 /* InternetAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetAddress.swift; sourceTree = "<group>"; };
 		04A5A55423FFAFEF00EB19B6 /* Aduro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aduro.entitlements; sourceTree = "<group>"; };
 		04A5A55924000B1000EB19B6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		04CD5E822416384900F56C53 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		04CD5E8424163DCC00F56C53 /* agreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = agreementViewController.swift; sourceTree = "<group>"; };
+		04CD5E862416407000F56C53 /* da.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = da.json; sourceTree = "<group>"; };
 		33E5A4D34032FB1D93037606 /* Pods_Aduro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aduro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E00B3FBEEE9D91D514F776 /* Pods-Aduro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aduro.release.xcconfig"; path = "Target Support Files/Pods-Aduro/Pods-Aduro.release.xcconfig"; sourceTree = "<group>"; };
 		7DE1D332DA4F905E6A96FAB1 /* Pods-Aduro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aduro.debug.xcconfig"; path = "Target Support Files/Pods-Aduro/Pods-Aduro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 		04A5A50223FFA25000EB19B6 = {
 			isa = PBXGroup;
 			children = (
+				04CD5E862416407000F56C53 /* da.json */,
 				042638572405506E0011DA8F /* en.json */,
 				04A5A53A23FFA4F000EB19B6 /* common */,
 				04A5A53523FFA48300EB19B6 /* utils */,
@@ -125,6 +132,7 @@
 		04A5A50D23FFA25000EB19B6 /* Aduro */ = {
 			isa = PBXGroup;
 			children = (
+				04CD5E8424163DCC00F56C53 /* agreementViewController.swift */,
 				04A5A55423FFAFEF00EB19B6 /* Aduro.entitlements */,
 				04A5A50E23FFA25000EB19B6 /* AppDelegate.swift */,
 				04A5A51023FFA25000EB19B6 /* ViewController.swift */,
@@ -134,6 +142,7 @@
 				04A5A51A23FFA25300EB19B6 /* Info.plist */,
 				04A5A55924000B1000EB19B6 /* HomeViewController.swift */,
 				042638552403A42D0011DA8F /* WizardMainViewController.swift */,
+				04CD5E822416384900F56C53 /* LanguageViewController.swift */,
 			);
 			path = Aduro;
 			sourceTree = "<group>";
@@ -277,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CD5E872416407000F56C53 /* da.json in Resources */,
 				04A5A51923FFA25300EB19B6 /* LaunchScreen.storyboard in Resources */,
 				04A5A51623FFA25300EB19B6 /* Assets.xcassets in Resources */,
 				042638582405506E0011DA8F /* en.json in Resources */,
@@ -337,6 +347,7 @@
 				04A5A55223FFA50C00EB19B6 /* Encryption.swift in Sources */,
 				04A5A54E23FFA50C00EB19B6 /* NSData+SHA.m in Sources */,
 				04A5A52C23FFA43400EB19B6 /* ControllerResponseImpl.swift in Sources */,
+				04CD5E832416384900F56C53 /* LanguageViewController.swift in Sources */,
 				04A5A51123FFA25000EB19B6 /* ViewController.swift in Sources */,
 				04A5A52B23FFA43400EB19B6 /* ControllerRequest.swift in Sources */,
 				04A5A53923FFA4A000EB19B6 /* MyCustomView.swift in Sources */,
@@ -355,6 +366,7 @@
 				04A5A53123FFA43400EB19B6 /* XTEAHelper.swift in Sources */,
 				04A5A53423FFA43400EB19B6 /* ControllerConnection.swift in Sources */,
 				04A5A55123FFA50C00EB19B6 /* Message.swift in Sources */,
+				04CD5E8524163DCC00F56C53 /* agreementViewController.swift in Sources */,
 				0426385A240561510011DA8F /* Language.swift in Sources */,
 				04A5A54B23FFA50C00EB19B6 /* Key.swift in Sources */,
 				04A5A53023FFA43400EB19B6 /* ControllerResponse.swift in Sources */,

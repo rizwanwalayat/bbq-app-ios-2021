@@ -12,5 +12,7 @@ import Foundation
 class Constants {
     static var serialKey:String="serial"
     static var passwordKey:String="password"
+    static var languageKey:String="lang"
+    static var term1Accept="term1"
     
 }

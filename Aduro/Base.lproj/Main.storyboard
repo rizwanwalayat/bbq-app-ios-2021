@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O4o-m0-c1a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VMB-GH-O9E">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -211,6 +211,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hLL-rL-Aqa"/>
                     </view>
+                    <connections>
+                        <outlet property="wizard_1_description" destination="lGR-6q-dak" id="YWX-nn-xCA"/>
+                        <outlet property="wizard_1_description2" destination="Ocy-Zx-e7T" id="efa-pP-ARq"/>
+                        <outlet property="wizard_1_description3" destination="r8R-1S-nNG" id="QMV-TU-Cvb"/>
+                        <outlet property="wizard_1_title" destination="rRg-wS-wDG" id="cKw-b1-uCc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ZY-HZ-mwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -538,8 +544,8 @@
                     </view>
                     <connections>
                         <outlet property="connectwarningtext" destination="6CE-1X-GKl" id="QOt-TU-TXy"/>
-                        <outlet property="currentwork" destination="ZQn-ie-1oh" id="U1n-0c-Llm"/>
                         <outlet property="directRadio" destination="lcN-o8-HgP" id="mVJ-SW-3Kq"/>
+                        <outlet property="first_time_connect_check_box" destination="aZm-HA-0Nq" id="Rtf-MU-M0o"/>
                         <outlet property="passwordText" destination="pxB-7V-c7F" id="pEz-Ot-TED"/>
                         <outlet property="resultView" destination="8W7-ex-hLV" id="gww-sz-saw"/>
                         <outlet property="resultbtntitle" destination="ifi-o5-ZtB" id="Fin-He-bfG"/>
@@ -547,17 +553,444 @@
                         <outlet property="serialView" destination="hkI-Y1-VK1" id="hO1-Pn-JEY"/>
                         <outlet property="serialbtntitle" destination="viv-KE-16i" id="cKa-02-vrK"/>
                         <outlet property="setupwifiBTN" destination="U6U-eS-V4w" id="X9e-Cz-I20"/>
+                        <outlet property="wifi_connect_current" destination="ZQn-ie-1oh" id="2p3-DY-L5x"/>
                         <outlet property="withoutstepBTN" destination="sil-iR-DrX" id="Pn0-cY-Avl"/>
+                        <outlet property="wizard_2_description" destination="gWA-Uv-dc3" id="CQs-WS-JXD"/>
+                        <outlet property="wizard_2_dont_wifi_button" destination="QgE-bH-JwG" id="EhS-mg-P33"/>
+                        <outlet property="wizard_2_subtitle_1" destination="eFk-oe-5TV" id="LzJ-KE-QNl"/>
+                        <outlet property="wizard_2_subtitle_2" destination="7Ot-Px-3Cr" id="0fX-iq-DlE"/>
+                        <outlet property="wizard_2_subtitle_3" destination="MoW-La-p9Q" id="N7r-FX-40E"/>
+                        <outlet property="wizard_2_subtitle_3_success" destination="gTG-Cy-SZK" id="Bar-Yd-oAF"/>
+                        <outlet property="wizard_2_subtitle_3_success2" destination="6CE-1X-GKl" id="GF0-V8-OeS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHt-wj-1Yt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-33.333333333333336" y="28.794642857142854"/>
         </scene>
+        <!--Language View Controller-->
+        <scene sceneID="CtX-Ek-m9Y">
+            <objects>
+                <viewController storyboardIdentifier="LanguageViewController" id="VMB-GH-O9E" customClass="LanguageViewController" customModule="Aduro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ktc-hq-IrY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEu-T2-V1s" userLabel="main">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iag-Gy-246">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="1"/>
+                                        <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="KjC-Ji-dBt"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select your language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeT-bq-0ip">
+                                        <rect key="frame" x="8" y="53" width="398" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="4a6-bv-co6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0G-FG-xKG" userLabel="top lang">
+                                        <rect key="frame" x="63" y="85" width="288" height="75"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pix-LV-pB2">
+                                                <rect key="frame" x="8" y="8" width="272" height="59"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fE7-n6-uY7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="59"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FL3-qV-2dD">
+                                                                <rect key="frame" x="7" y="7" width="46" height="45"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <state key="normal" title="Button" image="da"/>
+                                                                <connections>
+                                                                    <action selector="danish:" destination="VMB-GH-O9E" eventType="touchUpInside" id="rpM-dE-wim"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WdU-VU-Q8t">
+                                                        <rect key="frame" x="70" y="0.0" width="60" height="59"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RE2-e7-fPs">
+                                                                <rect key="frame" x="7" y="7" width="46" height="45"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <state key="normal" title="Button" image="en"/>
+                                                                <connections>
+                                                                    <action selector="english:" destination="VMB-GH-O9E" eventType="touchUpInside" id="u7j-8w-vii"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbK-so-5C9">
+                                                        <rect key="frame" x="140" y="0.0" width="60" height="59"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OZ-eo-0tf">
+                                                                <rect key="frame" x="7" y="7" width="46" height="45"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <state key="normal" title="Button" image="es"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiY-kU-Cb2">
+                                                        <rect key="frame" x="210" y="0.0" width="62" height="59"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bl-uc-OOM">
+                                                                <rect key="frame" x="7" y="7" width="48" height="45"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <state key="normal" title="Button" image="fr"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="xiY-kU-Cb2" secondAttribute="trailing" id="BrZ-21-8rm"/>
+                                                    <constraint firstAttribute="bottom" secondItem="xiY-kU-Cb2" secondAttribute="bottom" id="Dbh-Ez-P3h"/>
+                                                    <constraint firstItem="WdU-VU-Q8t" firstAttribute="leading" secondItem="fE7-n6-uY7" secondAttribute="trailing" constant="10" id="Fje-I5-SZ3"/>
+                                                    <constraint firstItem="WdU-VU-Q8t" firstAttribute="leading" secondItem="pix-LV-pB2" secondAttribute="leading" constant="70" id="GyR-pj-eBc"/>
+                                                    <constraint firstItem="pbK-so-5C9" firstAttribute="leading" secondItem="WdU-VU-Q8t" secondAttribute="trailing" constant="10" id="H9s-bX-G0n"/>
+                                                    <constraint firstItem="xiY-kU-Cb2" firstAttribute="leading" secondItem="pbK-so-5C9" secondAttribute="trailing" constant="10" id="HQm-eN-15d"/>
+                                                    <constraint firstAttribute="bottom" secondItem="fE7-n6-uY7" secondAttribute="bottom" id="Stg-Gd-4H2"/>
+                                                    <constraint firstItem="xiY-kU-Cb2" firstAttribute="leading" secondItem="pix-LV-pB2" secondAttribute="leading" constant="210" id="T3b-ts-vxM"/>
+                                                    <constraint firstItem="WdU-VU-Q8t" firstAttribute="leading" secondItem="fE7-n6-uY7" secondAttribute="trailing" constant="10" id="UdP-AB-xhl"/>
+                                                    <constraint firstItem="pbK-so-5C9" firstAttribute="leading" secondItem="pix-LV-pB2" secondAttribute="leading" constant="140" id="XYG-1H-tCc"/>
+                                                    <constraint firstItem="fE7-n6-uY7" firstAttribute="top" secondItem="pix-LV-pB2" secondAttribute="top" id="Xgd-Ys-VyL"/>
+                                                    <constraint firstItem="fE7-n6-uY7" firstAttribute="leading" secondItem="pix-LV-pB2" secondAttribute="leading" id="dgs-JS-glS"/>
+                                                    <constraint firstItem="xiY-kU-Cb2" firstAttribute="top" secondItem="pix-LV-pB2" secondAttribute="top" id="fbL-hg-zof"/>
+                                                    <constraint firstItem="WdU-VU-Q8t" firstAttribute="top" secondItem="pix-LV-pB2" secondAttribute="top" id="hNz-S8-udE"/>
+                                                    <constraint firstItem="pbK-so-5C9" firstAttribute="top" secondItem="pix-LV-pB2" secondAttribute="top" id="l5t-em-4wd"/>
+                                                    <constraint firstItem="pbK-so-5C9" firstAttribute="leading" secondItem="WdU-VU-Q8t" secondAttribute="trailing" constant="10" id="oDd-FZ-Pfn"/>
+                                                    <constraint firstItem="xiY-kU-Cb2" firstAttribute="leading" secondItem="pbK-so-5C9" secondAttribute="trailing" constant="10" id="qSl-sY-hfk"/>
+                                                    <constraint firstAttribute="bottom" secondItem="pbK-so-5C9" secondAttribute="bottom" id="xcl-0f-4Mb"/>
+                                                    <constraint firstAttribute="bottom" secondItem="WdU-VU-Q8t" secondAttribute="bottom" id="yfh-ea-ceJ"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="pix-LV-pB2" secondAttribute="bottom" constant="8" id="02T-XO-Q9M"/>
+                                            <constraint firstAttribute="trailing" secondItem="pix-LV-pB2" secondAttribute="trailing" constant="8" id="O0T-4z-Pdv"/>
+                                            <constraint firstAttribute="width" constant="288" id="R0X-rr-4YI"/>
+                                            <constraint firstItem="pix-LV-pB2" firstAttribute="leading" secondItem="B0G-FG-xKG" secondAttribute="leading" constant="8" id="Ujx-qi-P05"/>
+                                            <constraint firstAttribute="height" constant="75" id="haw-4b-dse"/>
+                                            <constraint firstItem="pix-LV-pB2" firstAttribute="top" secondItem="B0G-FG-xKG" secondAttribute="top" constant="8" id="pbu-uj-CVL"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9v-w1-HSw" userLabel="bottom lang">
+                                        <rect key="frame" x="63" y="168" width="288" height="75"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="W3Q-SZ-PuE">
+                                                <rect key="frame" x="8" y="8" width="272" height="59"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="332-CW-RGt">
+                                                        <rect key="frame" x="0.0" y="0.0" width="62" height="59"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5CC-4m-0nu">
+                                                                <rect key="frame" x="7" y="7" width="48" height="45"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <state key="normal" title="Button" image="ge"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zij-EL-vex">
+                                                        <rect key="frame" x="72" y="0.0" width="60" height="59"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhb-Dm-SRl">
+                                                                <rect key="frame" x="7" y="7" width="46" height="45"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <state key="normal" title="Button" image="it"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZr-h9-isH">
+                                                        <rect key="frame" x="142" y="0.0" width="60" height="59"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1t6-WD-qkt">
+                                                                <rect key="frame" x="7" y="7" width="46" height="45"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <state key="normal" title="Button" image="ru"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHI-nJ-SCE">
+                                                        <rect key="frame" x="212" y="0.0" width="60" height="59"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KX4-Oc-RUe">
+                                                                <rect key="frame" x="7" y="7" width="46" height="45"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <state key="normal" title="Button" image="ua"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="oHI-nJ-SCE" firstAttribute="leading" secondItem="RZr-h9-isH" secondAttribute="trailing" constant="10" id="2HP-Ja-JZc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="332-CW-RGt" secondAttribute="bottom" id="3pJ-xb-KTy"/>
+                                                    <constraint firstAttribute="bottom" secondItem="zij-EL-vex" secondAttribute="bottom" id="5Bb-f1-9ch"/>
+                                                    <constraint firstItem="332-CW-RGt" firstAttribute="leading" secondItem="W3Q-SZ-PuE" secondAttribute="leading" id="5FY-aU-YNQ"/>
+                                                    <constraint firstItem="RZr-h9-isH" firstAttribute="leading" secondItem="W3Q-SZ-PuE" secondAttribute="leading" constant="142" id="8SW-jt-boQ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="oHI-nJ-SCE" secondAttribute="trailing" id="BOx-ec-UcF"/>
+                                                    <constraint firstItem="RZr-h9-isH" firstAttribute="leading" secondItem="zij-EL-vex" secondAttribute="trailing" constant="10" id="F2r-UU-yNp"/>
+                                                    <constraint firstItem="oHI-nJ-SCE" firstAttribute="leading" secondItem="RZr-h9-isH" secondAttribute="trailing" constant="10" id="ITj-Xa-nPr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="oHI-nJ-SCE" secondAttribute="bottom" id="O2Q-em-cOW"/>
+                                                    <constraint firstItem="oHI-nJ-SCE" firstAttribute="top" secondItem="W3Q-SZ-PuE" secondAttribute="top" id="UMG-t0-DI1"/>
+                                                    <constraint firstItem="oHI-nJ-SCE" firstAttribute="leading" secondItem="W3Q-SZ-PuE" secondAttribute="leading" constant="212" id="Uqp-3A-fds"/>
+                                                    <constraint firstAttribute="bottom" secondItem="RZr-h9-isH" secondAttribute="bottom" id="VZe-A8-Y3g"/>
+                                                    <constraint firstItem="332-CW-RGt" firstAttribute="top" secondItem="W3Q-SZ-PuE" secondAttribute="top" id="iyh-5V-GMr"/>
+                                                    <constraint firstItem="zij-EL-vex" firstAttribute="leading" secondItem="332-CW-RGt" secondAttribute="trailing" constant="10" id="on2-T2-TbQ"/>
+                                                    <constraint firstItem="zij-EL-vex" firstAttribute="leading" secondItem="W3Q-SZ-PuE" secondAttribute="leading" constant="72" id="q35-yj-ksV"/>
+                                                    <constraint firstItem="RZr-h9-isH" firstAttribute="top" secondItem="W3Q-SZ-PuE" secondAttribute="top" id="wQu-kk-bnt"/>
+                                                    <constraint firstItem="zij-EL-vex" firstAttribute="top" secondItem="W3Q-SZ-PuE" secondAttribute="top" id="yLK-6G-bm1"/>
+                                                    <constraint firstItem="zij-EL-vex" firstAttribute="leading" secondItem="332-CW-RGt" secondAttribute="trailing" constant="10" id="yZm-7i-jaA"/>
+                                                    <constraint firstItem="RZr-h9-isH" firstAttribute="leading" secondItem="zij-EL-vex" secondAttribute="trailing" constant="10" id="yfX-2H-D0u"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="W3Q-SZ-PuE" firstAttribute="top" secondItem="r9v-w1-HSw" secondAttribute="top" constant="8" id="DgR-S8-g9N"/>
+                                            <constraint firstAttribute="height" constant="75" id="F6w-bb-X9V"/>
+                                            <constraint firstItem="W3Q-SZ-PuE" firstAttribute="leading" secondItem="r9v-w1-HSw" secondAttribute="leading" constant="8" id="NqY-Gx-0BU"/>
+                                            <constraint firstAttribute="bottom" secondItem="W3Q-SZ-PuE" secondAttribute="bottom" constant="8" id="mlu-qN-wHj"/>
+                                            <constraint firstAttribute="trailing" secondItem="W3Q-SZ-PuE" secondAttribute="trailing" constant="8" id="nUm-Ma-gSQ"/>
+                                            <constraint firstAttribute="width" constant="288" id="pgv-vj-dqs"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.08235294118" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="xeT-bq-0ip" secondAttribute="trailing" constant="8" id="A4n-Wy-bMq"/>
+                                    <constraint firstItem="r9v-w1-HSw" firstAttribute="top" secondItem="B0G-FG-xKG" secondAttribute="bottom" constant="8" id="AFR-9X-2cp"/>
+                                    <constraint firstItem="Iag-Gy-246" firstAttribute="leading" secondItem="xEu-T2-V1s" secondAttribute="leading" id="IZD-Yu-5iN"/>
+                                    <constraint firstItem="B0G-FG-xKG" firstAttribute="centerX" secondItem="xEu-T2-V1s" secondAttribute="centerX" id="JHC-fe-AC5"/>
+                                    <constraint firstItem="xeT-bq-0ip" firstAttribute="top" secondItem="Iag-Gy-246" secondAttribute="bottom" constant="8" id="Qhg-Iu-w5h"/>
+                                    <constraint firstAttribute="trailing" secondItem="Iag-Gy-246" secondAttribute="trailing" id="Vwh-l1-xyN"/>
+                                    <constraint firstItem="xeT-bq-0ip" firstAttribute="centerX" secondItem="xEu-T2-V1s" secondAttribute="centerX" id="hrC-4e-baS"/>
+                                    <constraint firstItem="Iag-Gy-246" firstAttribute="top" secondItem="xEu-T2-V1s" secondAttribute="top" constant="44" id="mPZ-z1-I1C"/>
+                                    <constraint firstItem="B0G-FG-xKG" firstAttribute="top" secondItem="xeT-bq-0ip" secondAttribute="bottom" constant="8" id="pzM-7A-hRp"/>
+                                    <constraint firstItem="xeT-bq-0ip" firstAttribute="leading" secondItem="xEu-T2-V1s" secondAttribute="leading" constant="8" id="uZu-T5-LwC"/>
+                                    <constraint firstItem="r9v-w1-HSw" firstAttribute="centerX" secondItem="xEu-T2-V1s" secondAttribute="centerX" id="vHH-g7-WD1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.08235294118" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xEu-T2-V1s" firstAttribute="leading" secondItem="qE0-PA-7yh" secondAttribute="leading" id="0kb-ez-nsJ"/>
+                            <constraint firstItem="xEu-T2-V1s" firstAttribute="bottom" secondItem="qE0-PA-7yh" secondAttribute="bottom" id="DAM-4F-R1G"/>
+                            <constraint firstItem="xEu-T2-V1s" firstAttribute="trailing" secondItem="qE0-PA-7yh" secondAttribute="trailing" id="XNL-Iu-wYI"/>
+                            <constraint firstItem="xEu-T2-V1s" firstAttribute="top" secondItem="qE0-PA-7yh" secondAttribute="top" id="me1-z6-Q2W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qE0-PA-7yh"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PrY-HI-ykq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2146" y="29"/>
+        </scene>
+        <!--Agreement View Controller-->
+        <scene sceneID="rh3-g1-quF">
+            <objects>
+                <viewController storyboardIdentifier="agreementViewController" id="40h-Gk-a25" customClass="agreementViewController" customModule="Aduro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PAB-83-Y5R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="2150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfS-ZN-Uxg" userLabel="main">
+                                <rect key="frame" x="0.0" y="44" width="375" height="2072"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjG-lx-lD1">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="tww-GC-mDE"/>
+                                        </constraints>
+                                    </view>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aY4-5Z-o5L">
+                                        <rect key="frame" x="0.0" y="45" width="375" height="2027"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MW-dm-O2q">
+                                                <rect key="frame" x="8" y="8" width="359" height="2035"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2035" id="TnR-FE-lfc"/>
+                                                    <constraint firstAttribute="width" constant="359" id="utr-w3-tJl"/>
+                                                </constraints>
+                                                <string key="text"> 1.Vilkår ved opstart af RTB Grill appen
+
+For at få mest mulig glæde og nytte af din nye grill, er det vigtigt, at du læser betjeningsvejledningen grundigt, inden grillen installeres og tages i brug. Fejl eller forkerte indstillinger kan forårsage farlige forhold.
+
+RTB grillen er CE mærket og er dermed godkendt til montering og brug i Europa.
+
+RTB grillen overholder følgende direktiver: EMC DIRECTIVE 2014 30 EU, LVD DIRECTIVE 2014 35 EU, 2006
+
+42 Maskindirektiv. Wi-fi modulet er godkendt i henhold til CMIIT ID: 2016DP3252. Alle lokale bestemmelser, herunder dem, der henviser til nationale og europæiske standarder, skal overholdes, når grillen installeres.
+
+ADVARSEL OG SIKKERHEDSFORANSTALTNINGER
+
+∙Produktet skal opbevares tørt og må ikke udsættes for fugt / regn.
+
+∙Afbryd strømmen til grillen og vent til den er kold, inden vedligeholdelsesarbejde udføres.
+
+∙Forkert brug eller manglende vedligeholdelse af produktet kan forårsage farlige situationer.
+
+∙Anbring ikke brændbare materialer på ovnen for at tørre. Hold brændbare materialer i sikker afstand til grillen.
+
+∙Sluk for produktet, hvis der opstår fejl eller funktionsfejl.
+
+∙Brug kun træpiller.
+
+∙Produktet skal være forsynet med et elektrisk system, der er udstyret med en effektiv jordforbindelse.
+
+∙I tilfælde af fedt brand, skal du holde grillen lukket, evt afbryde strømmen.
+
+∙Denne grill kan bruges af børn fra 16 år og op. Børn må ikke lege med grillen. Børn uden tilsyn må ikke udføre rengøring og vedligeholdelse.
+
+∙Personer med nedsat fysisk, sensorisk eller mental kapacitet eller manglende erfaring og viden kan bruge grillen, hvis de har fået vejledning eller instruktion om brug af grillen på en sikker måde og forstår de involverede farer.
+
+∙Det er vigtigt at være opmærksom på, at alle lokale forordninger og regler, inklusive dem der henviser til nationale og europæiske standarder, skal overholdes ved installation og brug af grillen.
+
+∙Eventuelle brændbare genstande skal opbevares i sikker afstand fra grillen.
+
+∙Brug kun det brændsel, der anbefales af NBE. Det er forbudt at anvende flydende brændstoffer og bioethanol væsker til optænding af træpiller.
+
+∙Nogle af overfladerne på produktet kan blive meget varme (låge, sider, front, røgrør osv.). Undgå direkte kontakt med disse dele uden passende beskyttelsestøj eller egnede redskaber, såsom handsker med termisk beskyttelse.
+
+∙Akkumulerede og uforbrændte piller i brænderen efter "fejlagtig opstart" skal fjernes før optænding igen. Kontroller, at brænderen er ren og placeret korrekt, før du tænder op igen.
+
+NBE afviser ethvert ansvar for skader, direkte eller indirekte, på personer, dyr eller genstande - som følge af manglende overholdelse af bestemmelserne i manualen, især advarsler vedrørende installation, brug og vedligeholdelse af grillen.
+
+Ansvaret for ukorrekt brug af produktet bæres fuldstændigt af brugeren og fratager producenten ethvert civilretligt og strafferetligt ansvar. Ændring af produktet eller uautoriseret udskiftning af reservedele kan være farlig for din sikkerhed og fratager NBE ethvert civilretligt og strafferetligt ansvar.
+
+Accept ()
+
+2. Vilkår og betingelser ved oprettelse af cloud forbindelse
+
+Ved at bruge vores cloud giver du dit samtykke til indsamling og brug af dine data til begrænsede formål på de betingelser, der er fastsat i denne erklæring. Med denne accept er du i stand til at få adgang til RTB grillen uanset hvor du er, samt fjernstyring af grillen. Den eneste betingelse er, at du har et tilstrækkeligt stabilt og stærkt wi-fi-signal / adgang til internettet.
+
+Hvis du ikke ønsker at være forbundet til vores cloud, skal du ikke klikke på "Jeg accepterer". Hvis du ikke accepterer vores betingelser og vilkår vedrørende clouden, vil du kun kunne betjene din RTB grill, når du er i nærheden.
+
+Fortrolighedspolitik
+
+De indsamlede oplysninger giver NBE mulighed for at holde dig orienteret om de nyeste softwareopdateringer til grillen og appen. Vi bruger ligeledes de tilgængelige oplysninger om grillene til at udvikle, administrere og forbedre vores produkter og tjenester.
+
+Offentliggørelse af oplysninger til tredjepart:
+
+Vores cloud løsning er udviklet af NBE Production A/S. NBE Production A/S videregiver ikke dine personlige data eller grillens driftsdata til tredjepart. Når du bruger RTB Cloud, accepterer du følgende betingelser:
+
+1.Brug af RTB Cloud er på eget ansvar. Clouden gør det muligt at justere parametre, der påvirker grillens indstillinger. Derfor skal du altid være i samme rum som grillen, når du ændrer i ovnens indstillinger.
+
+2.NBE Production A/S understreger, at alarmafbrydelse ikke må udføres, medmindre du er helt klar over årsagen til alarmen og efterfølgende har mulighed for fysisk overvågning af grillen.
+
+3.NBE Production A/S kan ikke holdes ansvarlige for eventuelle følgevirkninger af forkert indstillede værdier, som både tilsigtet og utilsigtet er mulige, på grund af fejl og andre problemer i cloud softwaren.
+
+4.Hvis du er i tvivl om opsætning via cloud-systemet, skal du søge kvalificeret support hos NBE.
+
+5.Cloud tjenesten kan nogle gange have forbindelsesproblemer, men disse vil blive rettet hurtigst muligt. NBE Production A/S kan ikke holdes ansvarlige for tab på grund af manglende forbindelse.
+
+6.Enhver form for hacking, herunder simpel hentning af andre brugeres adgangskoder, vil resultere i politianmeldelse og permanent udelukkelse fra tjenesten.
+
+Tilladelse
+
+Jeg giver hermed NBE tilladelse til at indsamle og anvende forbrændingsdata mv. for at forbedre brug, service og kvalitet. NBE må kontakte mig med både tekniske services og markedsføringsanliggender.
+
+I accept ()</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <string key="userLabel">1.Vilkår ved opstart af RTB Grill appen  For at få mest mulig glæde og nytte af din nye grill, er det vigtigt, at du læser betjeningsvejledningen grundigt, inden grillen installeres og tages i brug. Fejl eller forkerte indstillinger kan forårsage farlige forhold.  RTB grillen er CE mærket og er dermed godkendt til montering og brug i Europa.  RTB grillen overholder følgende direktiver: EMC DIRECTIVE 2014 30 EU, LVD DIRECTIVE 2014 35 EU, 2006  42 Maskindirektiv. Wi-fi modulet er godkendt i henhold til CMIIT ID: 2016DP3252. Alle lokale bestemmelser, herunder dem, der henviser til nationale og europæiske standarder, skal overholdes, når grillen installeres.  ADVARSEL OG SIKKERHEDSFORANSTALTNINGER  ∙Produktet skal opbevares tørt og må ikke udsættes for fugt / regn.  ∙Afbryd strømmen til grillen og vent til den er kold, inden vedligeholdelsesarbejde udføres.  ∙Forkert brug eller manglende vedligeholdelse af produktet kan forårsage farlige situationer.  ∙Anbring ikke brændbare materialer på ovnen for at tørre. Hold brændbare materialer i sikker afstand til grillen.  ∙Sluk for produktet, hvis der opstår fejl eller funktionsfejl.  ∙Brug kun træpiller.  ∙Produktet skal være forsynet med et elektrisk system, der er udstyret med en effektiv jordforbindelse.  ∙I tilfælde af fedt brand, skal du holde grillen lukket, evt afbryde strømmen.  ∙Denne grill kan bruges af børn fra 16 år og op. Børn må ikke lege med grillen. Børn uden tilsyn må ikke udføre rengøring og vedligeholdelse.  ∙Personer med nedsat fysisk, sensorisk eller mental kapacitet eller manglende erfaring og viden kan bruge grillen, hvis de har fået vejledning eller instruktion om brug af grillen på en sikker måde og forstår de involverede farer.  ∙Det er vigtigt at være opmærksom på, at alle lokale forordninger og regler, inklusive dem der henviser til nationale og europæiske standarder, skal overholdes ved installation og brug af grillen.  ∙Eventuelle brændbare genstande skal opbevares i sikker afstand fra grillen.  ∙Brug kun det brændsel, der anbefales af NBE. Det er forbudt at anvende flydende brændstoffer og bioethanol væsker til optænding af træpiller.  ∙Nogle af overfladerne på produktet kan blive meget varme (låge, sider, front, røgrør osv.). Undgå direkte kontakt med disse dele uden passende beskyttelsestøj eller egnede redskaber, såsom handsker med termisk beskyttelse.  ∙Akkumulerede og uforbrændte piller i brænderen efter "fejlagtig opstart" skal fjernes før optænding igen. Kontroller, at brænderen er ren og placeret korrekt, før du tænder op igen.  NBE afviser ethvert ansvar for skader, direkte eller indirekte, på personer, dyr eller genstande - som følge af manglende overholdelse af bestemmelserne i manualen, især advarsler vedrørende installation, brug og vedligeholdelse af grillen.  Ansvaret for ukorrekt brug af produktet bæres fuldstændigt af brugeren og fratager producenten ethvert civilretligt og strafferetligt ansvar. Ændring af produktet eller uautoriseret udskiftning af reservedele kan være farlig for din sikkerhed og fratager NBE ethvert civilretligt og strafferetligt ansvar.  Accept ()  2. Vilkår og betingelser ved oprettelse af cloud forbindelse  Ved at bruge vores cloud giver du dit samtykke til indsamling og brug af dine data til begrænsede formål på de betingelser, der er fastsat i denne erklæring. Med denne accept er du i stand til at få adgang til RTB grillen uanset hvor du er, samt fjernstyring af grillen. Den eneste betingelse er, at du har et tilstrækkeligt stabilt og stærkt wi-fi-signal / adgang til internettet.  Hvis du ikke ønsker at være forbundet til vores cloud, skal du ikke klikke på "Jeg accepterer". Hvis du ikke accepterer vores betingelser og vilkår vedrørende clouden, vil du kun kunne betjene din RTB grill, når du er i nærheden.  Fortrolighedspolitik  De indsamlede oplysninger giver NBE mulighed for at holde dig orienteret om de nyeste softwareopdateringer til grillen og appen. Vi bruger ligeledes de tilgængelige oplysninger om grillene til at udvikle, administrere og forbedre vores produkter og tjenester.  Offentliggørelse af oplysninger til tredjepart:  Vores cloud løsning er udviklet af NBE Production A/S. NBE Production A/S videregiver ikke dine personlige data eller grillens driftsdata til tredjepart. Når du bruger RTB Cloud, accepterer du følgende betingelser:  1.Brug af RTB Cloud er på eget ansvar. Clouden gør det muligt at justere parametre, der påvirker grillens indstillinger. Derfor skal du altid være i samme rum som grillen, når du ændrer i ovnens indstillinger.  2.NBE Production A/S understreger, at alarmafbrydelse ikke må udføres, medmindre du er helt klar over årsagen til alarmen og efterfølgende har mulighed for fysisk overvågning af grillen.  3.NBE Production A/S kan ikke holdes ansvarlige for eventuelle følgevirkninger af forkert indstillede værdier, som både tilsigtet og utilsigtet er mulige, på grund af fejl og andre problemer i cloud softwaren.  4.Hvis du er i tvivl om opsætning via cloud-systemet, skal du søge kvalificeret support hos NBE.  5.Cloud tjenesten kan nogle gange have forbindelsesproblemer, men disse vil blive rettet hurtigst muligt. NBE Production A/S kan ikke holdes ansvarlige for tab på grund af manglende forbindelse.  6.Enhver form for hacking, herunder simpel hentning af andre brugeres adgangskoder, vil resultere i politianmeldelse og permanent udelukkelse fra tjenesten.  Tilladelse  Jeg giver hermed NBE tilladelse til at indsamle og anvende forbrændingsdata mv. for at forbedre brug, service og kvalitet. NBE må kontakte mig med både tekniske services og markedsføringsanliggender.  I accept ()</string>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMq-eb-c7e" userLabel="Decline">
+                                                <rect key="frame" x="8" y="2051" width="178" height="30"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="QKC-v0-Hiq"/>
+                                                </constraints>
+                                                <state key="normal" title="DECLINE">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="decline:" destination="40h-Gk-a25" eventType="touchUpInside" id="FDb-0h-6Ir"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wx-Ql-m83" userLabel="Accept">
+                                                <rect key="frame" x="189" y="2051" width="178" height="30"/>
+                                                <color key="backgroundColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="H2R-Gc-5RV"/>
+                                                </constraints>
+                                                <state key="normal" title="ACCEPT">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="accept:" destination="40h-Gk-a25" eventType="touchUpInside" id="Aum-zw-XtW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="9Wx-Ql-m83" firstAttribute="leading" secondItem="IMq-eb-c7e" secondAttribute="trailing" constant="3" id="1fO-Kn-dxV"/>
+                                            <constraint firstItem="9Wx-Ql-m83" firstAttribute="leading" secondItem="IMq-eb-c7e" secondAttribute="trailing" constant="3" id="78h-Z6-O3D"/>
+                                            <constraint firstItem="IMq-eb-c7e" firstAttribute="width" secondItem="9Wx-Ql-m83" secondAttribute="width" id="8Uc-Cc-Pm6"/>
+                                            <constraint firstAttribute="trailing" secondItem="9Wx-Ql-m83" secondAttribute="trailing" constant="8" id="AeB-Sz-UmX"/>
+                                            <constraint firstItem="0MW-dm-O2q" firstAttribute="top" secondItem="aY4-5Z-o5L" secondAttribute="top" constant="8" id="aHb-Ft-Foz"/>
+                                            <constraint firstItem="IMq-eb-c7e" firstAttribute="top" secondItem="0MW-dm-O2q" secondAttribute="bottom" constant="8" id="cyg-j5-4k0"/>
+                                            <constraint firstAttribute="bottom" secondItem="0MW-dm-O2q" secondAttribute="bottom" constant="84" id="doE-aN-cJm"/>
+                                            <constraint firstAttribute="trailing" secondItem="0MW-dm-O2q" secondAttribute="trailing" constant="8" id="kSE-AU-2wn"/>
+                                            <constraint firstItem="IMq-eb-c7e" firstAttribute="leading" secondItem="aY4-5Z-o5L" secondAttribute="leading" constant="8" id="kaH-6c-v2G"/>
+                                            <constraint firstItem="9Wx-Ql-m83" firstAttribute="top" secondItem="0MW-dm-O2q" secondAttribute="bottom" constant="8" id="tbw-Wh-6kb"/>
+                                            <constraint firstItem="0MW-dm-O2q" firstAttribute="leading" secondItem="aY4-5Z-o5L" secondAttribute="leading" constant="8" id="zpp-10-isz"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="aY4-5Z-o5L" secondAttribute="trailing" id="JGL-fc-Ivp"/>
+                                    <constraint firstItem="aY4-5Z-o5L" firstAttribute="leading" secondItem="jfS-ZN-Uxg" secondAttribute="leading" id="PfJ-3y-pxb"/>
+                                    <constraint firstItem="SjG-lx-lD1" firstAttribute="leading" secondItem="jfS-ZN-Uxg" secondAttribute="leading" id="aad-ZA-7JE"/>
+                                    <constraint firstAttribute="bottom" secondItem="aY4-5Z-o5L" secondAttribute="bottom" id="ikW-gD-Jwx"/>
+                                    <constraint firstAttribute="trailing" secondItem="SjG-lx-lD1" secondAttribute="trailing" id="oIj-Er-YOb"/>
+                                    <constraint firstItem="aY4-5Z-o5L" firstAttribute="top" secondItem="SjG-lx-lD1" secondAttribute="bottom" id="p0R-jt-IBm"/>
+                                    <constraint firstItem="SjG-lx-lD1" firstAttribute="top" secondItem="jfS-ZN-Uxg" secondAttribute="top" constant="44" id="vMa-gf-ckf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.08235294118" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="jfS-ZN-Uxg" firstAttribute="bottom" secondItem="ORb-GA-6Yl" secondAttribute="bottom" id="Nr3-LY-uWb"/>
+                            <constraint firstItem="jfS-ZN-Uxg" firstAttribute="leading" secondItem="ORb-GA-6Yl" secondAttribute="leading" id="fEz-gS-HQd"/>
+                            <constraint firstItem="jfS-ZN-Uxg" firstAttribute="top" secondItem="ORb-GA-6Yl" secondAttribute="top" id="fgM-th-pfo"/>
+                            <constraint firstItem="jfS-ZN-Uxg" firstAttribute="trailing" secondItem="ORb-GA-6Yl" secondAttribute="trailing" id="kXW-67-LeY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ORb-GA-6Yl"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="2150"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q0n-4Y-6D4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1483" y="448"/>
+        </scene>
     </scenes>
     <resources>
         <image name="aduro_logo_no_stick" width="146" height="41"/>
+        <image name="da" width="128" height="128"/>
+        <image name="en" width="128" height="128"/>
+        <image name="es" width="128" height="128"/>
+        <image name="fr" width="128" height="128"/>
+        <image name="ge" width="128" height="128"/>
+        <image name="it" width="128" height="128"/>
         <image name="ovn" width="134" height="351"/>
         <image name="ovn_open_serial" width="134" height="351"/>
+        <image name="ru" width="128" height="128"/>
+        <image name="ua" width="128" height="128"/>
     </resources>
 </document>

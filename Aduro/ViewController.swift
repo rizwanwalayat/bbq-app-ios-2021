@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var directRadio: UISwitch!
     @IBOutlet weak var setupwifiBTN: UIButton!
     @IBOutlet weak var withoutstepBTN: UIButton!
-    @IBOutlet weak var currentwork: UILabel!
     @IBOutlet weak var connectwarningtext: UILabel!
     @IBOutlet weak var serialbtntitle: UIButton!
     @IBOutlet weak var resultbtntitle: UIButton!
@@ -28,10 +27,39 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultView: UIView!
     
     
+    @IBOutlet weak var wizard_2_description: UILabel!
+    @IBOutlet weak var wizard_2_subtitle_1: UILabel!
+    @IBOutlet weak var wizard_2_subtitle_2: UILabel!
+    @IBOutlet weak var wizard_2_subtitle_3: UILabel!
+    @IBOutlet weak var wizard_2_subtitle_3_success: UILabel!
+    @IBOutlet weak var wizard_2_subtitle_3_success2: UILabel!
+    @IBOutlet weak var wifi_connect_current: UILabel!
+    @IBOutlet weak var wizard_2_dont_wifi_button: UIButton!
     
+    @IBOutlet weak var first_time_connect_check_box: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        wizard_2_description.text=Language.getInstance().getlangauge(key: "wizard_2_description")
+        wizard_2_subtitle_1.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_1")
+        wizard_2_subtitle_2.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_2")
+        
+        wizard_2_subtitle_3.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_3")
+        wizard_2_subtitle_3_success.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_3_success")
+        wizard_2_subtitle_3_success2.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_3_success2")
+        
+        wifi_connect_current.text=Language.getInstance().getlangauge(key: "wifi_connect_current")
+        
+        withoutstepBTN.setTitle(Language.getInstance().getlangauge(key: "wizard_2_wifi_button_use_existing"), for: .normal)
+        
+        
+        setupwifiBTN.setTitle(Language.getInstance().getlangauge(key: "wizard_2_wifi_button"), for: .normal)
+        
+        wizard_2_dont_wifi_button.setTitle(Language.getInstance().getlangauge(key: "wizard_2_dont_wifi_button"), for: .normal)
+        
+        first_time_connect_check_box.text=Language.getInstance().getlangauge(key: "first_time_connect_check_box")
+        
+        
         serialText.text = "38043"
         passwordText.text = "9267673412"
         resultView.isHidden=true
@@ -227,7 +255,7 @@ class ViewController: UIViewController {
                     self.withoutstepBTN.isHidden=true
                     self.setupwifiBTN.backgroundColor = UIColor(red: 61/255, green: 203/255, blue: 100/255, alpha: 1.0)
                     self.setupwifiBTN.setTitleColor(.white, for: .normal)
-                    self.currentwork.text="Current network : "
+                    self.wifi_connect_current.text="Current network : "
                 }
                 else
                 {
@@ -235,7 +263,7 @@ class ViewController: UIViewController {
                     self.withoutstepBTN.isHidden=false
                     self.setupwifiBTN.backgroundColor = UIColor.white
                     self.setupwifiBTN.setTitleColor(.black, for: .normal)
-                    self.currentwork.text="Current network : " + String(item![0])
+                    self.wifi_connect_current.text="Current network : " + String(item![0])
                 }
             }
             
