@@ -15,6 +15,8 @@ import Network
 
 class ViewController: UIViewController {
     let defaults = UserDefaults.standard
+    
+    var currentWifi=""
     @IBOutlet weak var serialText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var directRadio: UISwitch!
@@ -83,6 +85,20 @@ class ViewController: UIViewController {
     
     
     @IBAction func setupwifi(_ sender: Any) {
+        var showterm=defaults.bool(forKey: Constants.term2Accept)
+        if(showterm==true)
+        {
+            guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "setupWifiControllerViewController") as? setupWifiControllerViewController else { return}
+            sVC.currentnetworkvale=currentWifi
+            self.present(sVC, animated: true)
+            print("show wifi setting")
+
+        }else
+        {
+            guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "Agreement2ViewController") as? Agreement2ViewController else { return}
+            self.present(sVC, animated: true)
+                        print("show term")
+        }
         
     }
     
@@ -235,40 +251,56 @@ class ViewController: UIViewController {
     
     func checkControllerConnectedToWifi()
     {
-        ControllerconnectionImpl.getInstance().requestRead(key: "wifi.router")
-        {
-            (ControllerResponseImpl) in
-            if(ControllerResponseImpl.getPayload().contains("nothing"))
+        ControllerconnectionImpl.getInstance().requestF11Identified
             {
-                //                print("error")
-                //                self.showToast(message: "TimeOut Error Try Again")
-                self.checkControllerConnectedToWifi()
-            }
-            else
-            {
-                let string = ControllerResponseImpl.GetReadValue()["router"]
-                let item = string?.split(separator: ",")
-                let s : String = String(item![1])
-                if(s != "2")
+                (ControllerResponseImpl) in
+                if(ControllerResponseImpl.getPayload().contains("nothing"))
                 {
-                    self.connectwarningtext.isHidden=false
-                    self.withoutstepBTN.isHidden=true
-                    self.setupwifiBTN.backgroundColor = UIColor(red: 61/255, green: 203/255, blue: 100/255, alpha: 1.0)
-                    self.setupwifiBTN.setTitleColor(.white, for: .normal)
-                    self.wifi_connect_current.text="Current network : "
+                    print("error")
+                    //                self.showToast(message: "TimeOut Error Try Again")
                 }
                 else
                 {
-                    self.connectwarningtext.isHidden=true
-                    self.withoutstepBTN.isHidden=false
-                    self.setupwifiBTN.backgroundColor = UIColor.white
-                    self.setupwifiBTN.setTitleColor(.black, for: .normal)
-                    self.wifi_connect_current.text="Current network : " + String(item![0])
+                    let string = ControllerResponseImpl.getF11Values()["wifi.router"]
+//                    let item = string?.split(separator: ",")
+//                    let s : String = String(item![1])
+                    if(string == "")
+                    {
+                        self.connectwarningtext.isHidden=false
+                        self.withoutstepBTN.isHidden=true
+                        self.setupwifiBTN.backgroundColor = UIColor(red: 61/255, green: 203/255, blue: 100/255, alpha: 1.0)
+                        self.setupwifiBTN.setTitleColor(.white, for: .normal)
+                        self.wifi_connect_current.text="Current network : "
+                    }
+                    else
+                    {
+                        self.connectwarningtext.isHidden=true
+                        self.withoutstepBTN.isHidden=false
+                        self.setupwifiBTN.backgroundColor = UIColor.white
+                        self.setupwifiBTN.setTitleColor(.black, for: .normal)
+                        self.currentWifi=string!
+                        self.wifi_connect_current.text="Current network : " + string!
+                    }
+                    //                    print(map)
                 }
-            }
-            
-            
+                
         }
+//        ControllerconnectionImpl.getInstance().requestRead(key: "wifi.router")
+//        {
+//            (ControllerResponseImpl) in
+//            if(ControllerResponseImpl.getPayload().contains("nothing"))
+//            {
+//                //                print("error")
+//                //                self.showToast(message: "TimeOut Error Try Again")
+//                self.checkControllerConnectedToWifi()
+//            }
+//            else
+//            {
+//
+//            }
+//
+//
+//        }
     }
     
     

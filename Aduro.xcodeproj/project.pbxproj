@@ -42,6 +42,8 @@
 		04CD5E832416384900F56C53 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E822416384900F56C53 /* LanguageViewController.swift */; };
 		04CD5E8524163DCC00F56C53 /* agreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E8424163DCC00F56C53 /* agreementViewController.swift */; };
 		04CD5E872416407000F56C53 /* da.json in Resources */ = {isa = PBXBuildFile; fileRef = 04CD5E862416407000F56C53 /* da.json */; };
+		04CD5E89241769F900F56C53 /* Agreement2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E88241769F900F56C53 /* Agreement2ViewController.swift */; };
+		04CD5E8B24176FAE00F56C53 /* setupWifiControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E8A24176FAD00F56C53 /* setupWifiControllerViewController.swift */; };
 		9FE5671A18F54EE249D33F35 /* Pods_Aduro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E5A4D34032FB1D93037606 /* Pods_Aduro.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +91,8 @@
 		04CD5E822416384900F56C53 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		04CD5E8424163DCC00F56C53 /* agreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = agreementViewController.swift; sourceTree = "<group>"; };
 		04CD5E862416407000F56C53 /* da.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = da.json; sourceTree = "<group>"; };
+		04CD5E88241769F900F56C53 /* Agreement2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agreement2ViewController.swift; sourceTree = "<group>"; };
+		04CD5E8A24176FAD00F56C53 /* setupWifiControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setupWifiControllerViewController.swift; sourceTree = "<group>"; };
 		33E5A4D34032FB1D93037606 /* Pods_Aduro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aduro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E00B3FBEEE9D91D514F776 /* Pods-Aduro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aduro.release.xcconfig"; path = "Target Support Files/Pods-Aduro/Pods-Aduro.release.xcconfig"; sourceTree = "<group>"; };
 		7DE1D332DA4F905E6A96FAB1 /* Pods-Aduro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aduro.debug.xcconfig"; path = "Target Support Files/Pods-Aduro/Pods-Aduro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 		04A5A50D23FFA25000EB19B6 /* Aduro */ = {
 			isa = PBXGroup;
 			children = (
+				04CD5E8A24176FAD00F56C53 /* setupWifiControllerViewController.swift */,
 				04CD5E8424163DCC00F56C53 /* agreementViewController.swift */,
 				04A5A55423FFAFEF00EB19B6 /* Aduro.entitlements */,
 				04A5A50E23FFA25000EB19B6 /* AppDelegate.swift */,
@@ -143,6 +148,7 @@
 				04A5A55924000B1000EB19B6 /* HomeViewController.swift */,
 				042638552403A42D0011DA8F /* WizardMainViewController.swift */,
 				04CD5E822416384900F56C53 /* LanguageViewController.swift */,
+				04CD5E88241769F900F56C53 /* Agreement2ViewController.swift */,
 			);
 			path = Aduro;
 			sourceTree = "<group>";
@@ -348,8 +354,10 @@
 				04A5A54E23FFA50C00EB19B6 /* NSData+SHA.m in Sources */,
 				04A5A52C23FFA43400EB19B6 /* ControllerResponseImpl.swift in Sources */,
 				04CD5E832416384900F56C53 /* LanguageViewController.swift in Sources */,
+				04CD5E8B24176FAE00F56C53 /* setupWifiControllerViewController.swift in Sources */,
 				04A5A51123FFA25000EB19B6 /* ViewController.swift in Sources */,
 				04A5A52B23FFA43400EB19B6 /* ControllerRequest.swift in Sources */,
+				04CD5E89241769F900F56C53 /* Agreement2ViewController.swift in Sources */,
 				04A5A53923FFA4A000EB19B6 /* MyCustomView.swift in Sources */,
 				04A5A53323FFA43400EB19B6 /* ControllerConnectionImpl.swift in Sources */,
 				042638562403A42D0011DA8F /* WizardMainViewController.swift in Sources */,

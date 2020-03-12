@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07x-PZ-sGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708.69565217391312" y="28.794642857142854"/>
+            <point key="canvasLocation" x="872" y="29"/>
         </scene>
         <!--Wizard Main View Controller-->
         <scene sceneID="kM7-kc-KJu">
@@ -460,6 +460,7 @@
                                                                         </state>
                                                                         <connections>
                                                                             <action selector="useExistingWifiBtn:" destination="7Hr-Yh-msm" eventType="touchUpInside" id="Hdw-BF-rFt"/>
+                                                                            <segue destination="4B7-WN-646" kind="show" id="YoC-TT-3I6"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6U-eS-V4w">
@@ -979,6 +980,617 @@ I accept ()</string>
             </objects>
             <point key="canvasLocation" x="-1483" y="448"/>
         </scene>
+        <!--Agreement2 View Controller-->
+        <scene sceneID="DXK-HC-EWZ">
+            <objects>
+                <viewController storyboardIdentifier="Agreement2ViewController" id="QKI-8M-d5l" customClass="Agreement2ViewController" customModule="Aduro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fLy-xu-e8o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="2150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixN-pZ-GJO" userLabel="main">
+                                <rect key="frame" x="0.0" y="44" width="375" height="2072"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LuE-AP-jxm">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="nYU-9H-E6l"/>
+                                        </constraints>
+                                    </view>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-zP-2jy">
+                                        <rect key="frame" x="0.0" y="45" width="375" height="2027"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iut-zb-Ivg">
+                                                <rect key="frame" x="8" y="8" width="359" height="2035"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="359" id="WZV-fS-4rL"/>
+                                                    <constraint firstAttribute="height" constant="2035" id="aGp-Ny-hSv"/>
+                                                </constraints>
+                                                <string key="text"> 1.Vilkår ved opstart af RTB Grill appen
+
+For at få mest mulig glæde og nytte af din nye grill, er det vigtigt, at du læser betjeningsvejledningen grundigt, inden grillen installeres og tages i brug. Fejl eller forkerte indstillinger kan forårsage farlige forhold.
+
+RTB grillen er CE mærket og er dermed godkendt til montering og brug i Europa.
+
+RTB grillen overholder følgende direktiver: EMC DIRECTIVE 2014 30 EU, LVD DIRECTIVE 2014 35 EU, 2006
+
+42 Maskindirektiv. Wi-fi modulet er godkendt i henhold til CMIIT ID: 2016DP3252. Alle lokale bestemmelser, herunder dem, der henviser til nationale og europæiske standarder, skal overholdes, når grillen installeres.
+
+ADVARSEL OG SIKKERHEDSFORANSTALTNINGER
+
+∙Produktet skal opbevares tørt og må ikke udsættes for fugt / regn.
+
+∙Afbryd strømmen til grillen og vent til den er kold, inden vedligeholdelsesarbejde udføres.
+
+∙Forkert brug eller manglende vedligeholdelse af produktet kan forårsage farlige situationer.
+
+∙Anbring ikke brændbare materialer på ovnen for at tørre. Hold brændbare materialer i sikker afstand til grillen.
+
+∙Sluk for produktet, hvis der opstår fejl eller funktionsfejl.
+
+∙Brug kun træpiller.
+
+∙Produktet skal være forsynet med et elektrisk system, der er udstyret med en effektiv jordforbindelse.
+
+∙I tilfælde af fedt brand, skal du holde grillen lukket, evt afbryde strømmen.
+
+∙Denne grill kan bruges af børn fra 16 år og op. Børn må ikke lege med grillen. Børn uden tilsyn må ikke udføre rengøring og vedligeholdelse.
+
+∙Personer med nedsat fysisk, sensorisk eller mental kapacitet eller manglende erfaring og viden kan bruge grillen, hvis de har fået vejledning eller instruktion om brug af grillen på en sikker måde og forstår de involverede farer.
+
+∙Det er vigtigt at være opmærksom på, at alle lokale forordninger og regler, inklusive dem der henviser til nationale og europæiske standarder, skal overholdes ved installation og brug af grillen.
+
+∙Eventuelle brændbare genstande skal opbevares i sikker afstand fra grillen.
+
+∙Brug kun det brændsel, der anbefales af NBE. Det er forbudt at anvende flydende brændstoffer og bioethanol væsker til optænding af træpiller.
+
+∙Nogle af overfladerne på produktet kan blive meget varme (låge, sider, front, røgrør osv.). Undgå direkte kontakt med disse dele uden passende beskyttelsestøj eller egnede redskaber, såsom handsker med termisk beskyttelse.
+
+∙Akkumulerede og uforbrændte piller i brænderen efter "fejlagtig opstart" skal fjernes før optænding igen. Kontroller, at brænderen er ren og placeret korrekt, før du tænder op igen.
+
+NBE afviser ethvert ansvar for skader, direkte eller indirekte, på personer, dyr eller genstande - som følge af manglende overholdelse af bestemmelserne i manualen, især advarsler vedrørende installation, brug og vedligeholdelse af grillen.
+
+Ansvaret for ukorrekt brug af produktet bæres fuldstændigt af brugeren og fratager producenten ethvert civilretligt og strafferetligt ansvar. Ændring af produktet eller uautoriseret udskiftning af reservedele kan være farlig for din sikkerhed og fratager NBE ethvert civilretligt og strafferetligt ansvar.
+
+Accept ()
+
+2. Vilkår og betingelser ved oprettelse af cloud forbindelse
+
+Ved at bruge vores cloud giver du dit samtykke til indsamling og brug af dine data til begrænsede formål på de betingelser, der er fastsat i denne erklæring. Med denne accept er du i stand til at få adgang til RTB grillen uanset hvor du er, samt fjernstyring af grillen. Den eneste betingelse er, at du har et tilstrækkeligt stabilt og stærkt wi-fi-signal / adgang til internettet.
+
+Hvis du ikke ønsker at være forbundet til vores cloud, skal du ikke klikke på "Jeg accepterer". Hvis du ikke accepterer vores betingelser og vilkår vedrørende clouden, vil du kun kunne betjene din RTB grill, når du er i nærheden.
+
+Fortrolighedspolitik
+
+De indsamlede oplysninger giver NBE mulighed for at holde dig orienteret om de nyeste softwareopdateringer til grillen og appen. Vi bruger ligeledes de tilgængelige oplysninger om grillene til at udvikle, administrere og forbedre vores produkter og tjenester.
+
+Offentliggørelse af oplysninger til tredjepart:
+
+Vores cloud løsning er udviklet af NBE Production A/S. NBE Production A/S videregiver ikke dine personlige data eller grillens driftsdata til tredjepart. Når du bruger RTB Cloud, accepterer du følgende betingelser:
+
+1.Brug af RTB Cloud er på eget ansvar. Clouden gør det muligt at justere parametre, der påvirker grillens indstillinger. Derfor skal du altid være i samme rum som grillen, når du ændrer i ovnens indstillinger.
+
+2.NBE Production A/S understreger, at alarmafbrydelse ikke må udføres, medmindre du er helt klar over årsagen til alarmen og efterfølgende har mulighed for fysisk overvågning af grillen.
+
+3.NBE Production A/S kan ikke holdes ansvarlige for eventuelle følgevirkninger af forkert indstillede værdier, som både tilsigtet og utilsigtet er mulige, på grund af fejl og andre problemer i cloud softwaren.
+
+4.Hvis du er i tvivl om opsætning via cloud-systemet, skal du søge kvalificeret support hos NBE.
+
+5.Cloud tjenesten kan nogle gange have forbindelsesproblemer, men disse vil blive rettet hurtigst muligt. NBE Production A/S kan ikke holdes ansvarlige for tab på grund af manglende forbindelse.
+
+6.Enhver form for hacking, herunder simpel hentning af andre brugeres adgangskoder, vil resultere i politianmeldelse og permanent udelukkelse fra tjenesten.
+
+Tilladelse
+
+Jeg giver hermed NBE tilladelse til at indsamle og anvende forbrændingsdata mv. for at forbedre brug, service og kvalitet. NBE må kontakte mig med både tekniske services og markedsføringsanliggender.
+
+I accept ()</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <string key="userLabel">1.Vilkår ved opstart af RTB Grill appen  For at få mest mulig glæde og nytte af din nye grill, er det vigtigt, at du læser betjeningsvejledningen grundigt, inden grillen installeres og tages i brug. Fejl eller forkerte indstillinger kan forårsage farlige forhold.  RTB grillen er CE mærket og er dermed godkendt til montering og brug i Europa.  RTB grillen overholder følgende direktiver: EMC DIRECTIVE 2014 30 EU, LVD DIRECTIVE 2014 35 EU, 2006  42 Maskindirektiv. Wi-fi modulet er godkendt i henhold til CMIIT ID: 2016DP3252. Alle lokale bestemmelser, herunder dem, der henviser til nationale og europæiske standarder, skal overholdes, når grillen installeres.  ADVARSEL OG SIKKERHEDSFORANSTALTNINGER  ∙Produktet skal opbevares tørt og må ikke udsættes for fugt / regn.  ∙Afbryd strømmen til grillen og vent til den er kold, inden vedligeholdelsesarbejde udføres.  ∙Forkert brug eller manglende vedligeholdelse af produktet kan forårsage farlige situationer.  ∙Anbring ikke brændbare materialer på ovnen for at tørre. Hold brændbare materialer i sikker afstand til grillen.  ∙Sluk for produktet, hvis der opstår fejl eller funktionsfejl.  ∙Brug kun træpiller.  ∙Produktet skal være forsynet med et elektrisk system, der er udstyret med en effektiv jordforbindelse.  ∙I tilfælde af fedt brand, skal du holde grillen lukket, evt afbryde strømmen.  ∙Denne grill kan bruges af børn fra 16 år og op. Børn må ikke lege med grillen. Børn uden tilsyn må ikke udføre rengøring og vedligeholdelse.  ∙Personer med nedsat fysisk, sensorisk eller mental kapacitet eller manglende erfaring og viden kan bruge grillen, hvis de har fået vejledning eller instruktion om brug af grillen på en sikker måde og forstår de involverede farer.  ∙Det er vigtigt at være opmærksom på, at alle lokale forordninger og regler, inklusive dem der henviser til nationale og europæiske standarder, skal overholdes ved installation og brug af grillen.  ∙Eventuelle brændbare genstande skal opbevares i sikker afstand fra grillen.  ∙Brug kun det brændsel, der anbefales af NBE. Det er forbudt at anvende flydende brændstoffer og bioethanol væsker til optænding af træpiller.  ∙Nogle af overfladerne på produktet kan blive meget varme (låge, sider, front, røgrør osv.). Undgå direkte kontakt med disse dele uden passende beskyttelsestøj eller egnede redskaber, såsom handsker med termisk beskyttelse.  ∙Akkumulerede og uforbrændte piller i brænderen efter "fejlagtig opstart" skal fjernes før optænding igen. Kontroller, at brænderen er ren og placeret korrekt, før du tænder op igen.  NBE afviser ethvert ansvar for skader, direkte eller indirekte, på personer, dyr eller genstande - som følge af manglende overholdelse af bestemmelserne i manualen, især advarsler vedrørende installation, brug og vedligeholdelse af grillen.  Ansvaret for ukorrekt brug af produktet bæres fuldstændigt af brugeren og fratager producenten ethvert civilretligt og strafferetligt ansvar. Ændring af produktet eller uautoriseret udskiftning af reservedele kan være farlig for din sikkerhed og fratager NBE ethvert civilretligt og strafferetligt ansvar.  Accept ()  2. Vilkår og betingelser ved oprettelse af cloud forbindelse  Ved at bruge vores cloud giver du dit samtykke til indsamling og brug af dine data til begrænsede formål på de betingelser, der er fastsat i denne erklæring. Med denne accept er du i stand til at få adgang til RTB grillen uanset hvor du er, samt fjernstyring af grillen. Den eneste betingelse er, at du har et tilstrækkeligt stabilt og stærkt wi-fi-signal / adgang til internettet.  Hvis du ikke ønsker at være forbundet til vores cloud, skal du ikke klikke på "Jeg accepterer". Hvis du ikke accepterer vores betingelser og vilkår vedrørende clouden, vil du kun kunne betjene din RTB grill, når du er i nærheden.  Fortrolighedspolitik  De indsamlede oplysninger giver NBE mulighed for at holde dig orienteret om de nyeste softwareopdateringer til grillen og appen. Vi bruger ligeledes de tilgængelige oplysninger om grillene til at udvikle, administrere og forbedre vores produkter og tjenester.  Offentliggørelse af oplysninger til tredjepart:  Vores cloud løsning er udviklet af NBE Production A/S. NBE Production A/S videregiver ikke dine personlige data eller grillens driftsdata til tredjepart. Når du bruger RTB Cloud, accepterer du følgende betingelser:  1.Brug af RTB Cloud er på eget ansvar. Clouden gør det muligt at justere parametre, der påvirker grillens indstillinger. Derfor skal du altid være i samme rum som grillen, når du ændrer i ovnens indstillinger.  2.NBE Production A/S understreger, at alarmafbrydelse ikke må udføres, medmindre du er helt klar over årsagen til alarmen og efterfølgende har mulighed for fysisk overvågning af grillen.  3.NBE Production A/S kan ikke holdes ansvarlige for eventuelle følgevirkninger af forkert indstillede værdier, som både tilsigtet og utilsigtet er mulige, på grund af fejl og andre problemer i cloud softwaren.  4.Hvis du er i tvivl om opsætning via cloud-systemet, skal du søge kvalificeret support hos NBE.  5.Cloud tjenesten kan nogle gange have forbindelsesproblemer, men disse vil blive rettet hurtigst muligt. NBE Production A/S kan ikke holdes ansvarlige for tab på grund af manglende forbindelse.  6.Enhver form for hacking, herunder simpel hentning af andre brugeres adgangskoder, vil resultere i politianmeldelse og permanent udelukkelse fra tjenesten.  Tilladelse  Jeg giver hermed NBE tilladelse til at indsamle og anvende forbrændingsdata mv. for at forbedre brug, service og kvalitet. NBE må kontakte mig med både tekniske services og markedsføringsanliggender.  I accept ()</string>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoB-Si-ze9" userLabel="Decline">
+                                                <rect key="frame" x="8" y="2051" width="178" height="30"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="B4F-gE-G0g"/>
+                                                </constraints>
+                                                <state key="normal" title="DECLINE">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="decline:" destination="QKI-8M-d5l" eventType="touchUpInside" id="KMx-Ho-kos"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnO-y5-yMj" userLabel="Accept">
+                                                <rect key="frame" x="189" y="2051" width="178" height="30"/>
+                                                <color key="backgroundColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="EkI-zx-QRF"/>
+                                                </constraints>
+                                                <state key="normal" title="ACCEPT">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="accept:" destination="QKI-8M-d5l" eventType="touchUpInside" id="4HU-rD-JB7"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="iut-zb-Ivg" secondAttribute="trailing" constant="8" id="18K-np-kf7"/>
+                                            <constraint firstItem="iut-zb-Ivg" firstAttribute="top" secondItem="ckv-zP-2jy" secondAttribute="top" constant="8" id="5eh-9X-Thv"/>
+                                            <constraint firstAttribute="bottom" secondItem="iut-zb-Ivg" secondAttribute="bottom" constant="84" id="6bS-oE-pi5"/>
+                                            <constraint firstItem="hnO-y5-yMj" firstAttribute="top" secondItem="iut-zb-Ivg" secondAttribute="bottom" constant="8" id="FvZ-DV-y5s"/>
+                                            <constraint firstItem="PoB-Si-ze9" firstAttribute="width" secondItem="hnO-y5-yMj" secondAttribute="width" id="Ix9-hm-qCE"/>
+                                            <constraint firstItem="iut-zb-Ivg" firstAttribute="leading" secondItem="ckv-zP-2jy" secondAttribute="leading" constant="8" id="P7I-V1-HnO"/>
+                                            <constraint firstItem="hnO-y5-yMj" firstAttribute="leading" secondItem="PoB-Si-ze9" secondAttribute="trailing" constant="3" id="ait-dd-rBz"/>
+                                            <constraint firstItem="hnO-y5-yMj" firstAttribute="leading" secondItem="PoB-Si-ze9" secondAttribute="trailing" constant="3" id="hoJ-m7-S3A"/>
+                                            <constraint firstItem="PoB-Si-ze9" firstAttribute="top" secondItem="iut-zb-Ivg" secondAttribute="bottom" constant="8" id="mRY-YO-FPj"/>
+                                            <constraint firstItem="PoB-Si-ze9" firstAttribute="leading" secondItem="ckv-zP-2jy" secondAttribute="leading" constant="8" id="nko-r3-MiP"/>
+                                            <constraint firstAttribute="trailing" secondItem="hnO-y5-yMj" secondAttribute="trailing" constant="8" id="tLZ-Yl-rgi"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ckv-zP-2jy" secondAttribute="trailing" id="CAB-7T-9pj"/>
+                                    <constraint firstItem="LuE-AP-jxm" firstAttribute="top" secondItem="ixN-pZ-GJO" secondAttribute="top" constant="44" id="ERT-of-6Fv"/>
+                                    <constraint firstItem="LuE-AP-jxm" firstAttribute="leading" secondItem="ixN-pZ-GJO" secondAttribute="leading" id="GG2-Kv-akY"/>
+                                    <constraint firstItem="ckv-zP-2jy" firstAttribute="leading" secondItem="ixN-pZ-GJO" secondAttribute="leading" id="K50-un-cqs"/>
+                                    <constraint firstAttribute="bottom" secondItem="ckv-zP-2jy" secondAttribute="bottom" id="LUv-eR-dx1"/>
+                                    <constraint firstAttribute="trailing" secondItem="LuE-AP-jxm" secondAttribute="trailing" id="PAF-yW-oAB"/>
+                                    <constraint firstItem="ckv-zP-2jy" firstAttribute="top" secondItem="LuE-AP-jxm" secondAttribute="bottom" id="l9s-xg-dbk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.08235294118" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ixN-pZ-GJO" firstAttribute="trailing" secondItem="RoK-tB-DQQ" secondAttribute="trailing" id="Y44-xl-1kZ"/>
+                            <constraint firstItem="ixN-pZ-GJO" firstAttribute="top" secondItem="RoK-tB-DQQ" secondAttribute="top" id="cwb-FN-opX"/>
+                            <constraint firstItem="ixN-pZ-GJO" firstAttribute="leading" secondItem="RoK-tB-DQQ" secondAttribute="leading" id="k2i-I0-aSB"/>
+                            <constraint firstItem="ixN-pZ-GJO" firstAttribute="bottom" secondItem="RoK-tB-DQQ" secondAttribute="bottom" id="w4r-Qh-yVF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RoK-tB-DQQ"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="2150"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EX3-ZX-nlo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-775" y="1106"/>
+        </scene>
+        <!--Setup Wifi Controller View Controller-->
+        <scene sceneID="bk5-Xp-Nak">
+            <objects>
+                <viewController storyboardIdentifier="setupWifiControllerViewController" id="rFm-oL-66o" customClass="setupWifiControllerViewController" customModule="Aduro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J9e-ZB-T7m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNT-6F-86T">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5b-Wo-SbT" userLabel="mainview">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="662.66666666666663"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="j55-jt-omZ">
+                                                <rect key="frame" x="8" y="8" width="398" height="634.66666666666663"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current network : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26h-Ob-qhN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="20.666666666666668"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20.5" id="tTI-50-hzX"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gI-Ta-agZ">
+                                                        <rect key="frame" x="0.0" y="21.666666666666671" width="398" height="3"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="3" id="TT9-qY-aJP"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WpU-4o-mHc" userLabel="network list label">
+                                                        <rect key="frame" x="0.0" y="25.666666666666671" width="398" height="28"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Available network List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axz-FU-NL8">
+                                                                <rect key="frame" x="5" y="0.0" width="158" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VsA-IT-axp">
+                                                                <rect key="frame" x="0.0" y="25" width="359" height="3"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0f-Z0-Ujd">
+                                                                <rect key="frame" x="312" y="0.0" width="46" height="20"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <state key="normal" title="+">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="networklist:" destination="rFm-oL-66o" eventType="touchUpInside" id="vPl-S3-ZBE"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="28" id="yyq-uj-Hth"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rey-Ig-LVk" userLabel="network list view">
+                                                        <rect key="frame" x="0.0" y="54.666666666666686" width="398" height="200"/>
+                                                        <subviews>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hNZ-2g-Xzs">
+                                                                <rect key="frame" x="8" y="3" width="347" height="151"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </tableView>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H82-Yf-NtQ">
+                                                                <rect key="frame" x="8" y="162" width="293" height="30"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" red="0.019607843140000001" green="0.019607843140000001" blue="0.019607843140000001" alpha="0.66572131850000005" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <state key="normal" title="Enter Manually">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIw-Ev-YwB">
+                                                                <rect key="frame" x="304" y="162" width="51" height="30"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" red="0.019607843140000001" green="0.019607843140000001" blue="0.019607843140000001" alpha="0.66572131850000005" colorSpace="calibratedRGB"/>
+                                                                <state key="normal" image="ic_menu_revert">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="200" id="tKw-D6-ktd"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wkw-81-Kpr" userLabel="SSID label">
+                                                        <rect key="frame" x="0.0" y="255.66666666666669" width="398" height="28"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter SSID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHR-gw-0oS">
+                                                                <rect key="frame" x="5" y="0.0" width="80" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SeL-5D-YKV">
+                                                                <rect key="frame" x="0.0" y="25" width="359" height="3"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Vn-GM-M6g">
+                                                                <rect key="frame" x="313" y="0.0" width="46" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <state key="normal" title="+">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="SSIDButton:" destination="rFm-oL-66o" eventType="touchUpInside" id="bRX-bC-C7v"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="28" id="rd8-5b-UNL"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10s-r2-5JT" userLabel="SSID view">
+                                                        <rect key="frame" x="0.0" y="284.66666666666669" width="398" height="81"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter SSID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rOy-9w-hII">
+                                                                <rect key="frame" x="8" y="8" width="347" height="30"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaK-KY-WBr">
+                                                                <rect key="frame" x="8" y="46" width="347" height="30"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" red="0.019607843140000001" green="0.019607843140000001" blue="0.019607843140000001" alpha="0.66572131850000005" colorSpace="calibratedRGB"/>
+                                                                <state key="normal" title="Continue">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="ssidcontinuebtn:" destination="rFm-oL-66o" eventType="touchUpInside" id="aCx-w6-ZhD"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="81" id="1zH-p9-AqL"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6Z-91-hMh" userLabel="Password label">
+                                                        <rect key="frame" x="0.0" y="366.66666666666669" width="398" height="28"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password for WIFI network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIx-b2-tuV">
+                                                                <rect key="frame" x="5" y="0.0" width="198" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mnn-nx-r1i">
+                                                                <rect key="frame" x="0.0" y="25" width="359" height="3"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeH-R9-mcp">
+                                                                <rect key="frame" x="313" y="0.0" width="46" height="20"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <state key="normal" title="+">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="Passwordbutt:" destination="rFm-oL-66o" eventType="touchUpInside" id="csu-dG-kcq"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="28" id="nmP-f2-B26"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sl-jP-MBX" userLabel="password View">
+                                                        <rect key="frame" x="0.0" y="395.66666666666669" width="398" height="81"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DRE-Ed-pJH">
+                                                                <rect key="frame" x="8" y="8" width="347" height="30"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57A-ca-pbZ">
+                                                                <rect key="frame" x="8" y="46" width="347" height="30"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" red="0.019607843140000001" green="0.019607843140000001" blue="0.019607843140000001" alpha="0.66572131850000005" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <state key="normal" title="Continue">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="passwordcontinuebtn:" destination="rFm-oL-66o" eventType="touchUpInside" id="M9a-ZM-rTC"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="81" id="Ghi-sO-Qhu"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ea-XK-DOc" userLabel="connect grill to wifi">
+                                                        <rect key="frame" x="0.0" y="477.66666666666663" width="398" height="28"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="connect grill to wifi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aC6-La-lFh">
+                                                                <rect key="frame" x="5" y="0.0" width="136" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W7L-3o-2T0">
+                                                                <rect key="frame" x="0.0" y="25" width="359" height="3"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="28" id="owZ-m5-OPv"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rb6-fj-gJg">
+                                                        <rect key="frame" x="0.0" y="506.66666666666663" width="398" height="128"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbB-Tt-Dm3">
+                                                                <rect key="frame" x="8" y="8" width="382" height="112"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wifi Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAR-mz-Fxg">
+                                                                        <rect key="frame" x="8" y="0.0" width="75.333333333333329" height="19"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="19" id="5vV-Ta-bKq"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Uk-qC-GV5" userLabel="wifinameLable">
+                                                                        <rect key="frame" x="334" y="0.0" width="40" height="16"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="16" id="Mtf-QQ-voj"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RnA-rC-nZK">
+                                                                        <rect key="frame" x="8.0000000000000071" y="22" width="113.66666666666669" height="18"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="18" id="npv-it-DMt"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkH-im-6cp" userLabel="networkStatusLabel">
+                                                                        <rect key="frame" x="334" y="24" width="40" height="18"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="18" id="og0-Ot-JHl"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goS-WL-uDV">
+                                                                        <rect key="frame" x="0.0" y="46" width="382" height="2"/>
+                                                                        <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="2" id="4Vo-MP-keQ"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connection status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LN-pf-1Dn">
+                                                                        <rect key="frame" x="8" y="47" width="133.33333333333334" height="21"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="21" id="CBq-II-DuR"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rs-t6-NMR" userLabel="conectionStatusLabel">
+                                                                        <rect key="frame" x="334" y="49" width="40" height="18"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="18" id="S0t-l6-kVu"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpP-tm-omm" userLabel="connectionGrillButton">
+                                                                        <rect key="frame" x="8" y="74" width="366" height="30"/>
+                                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="30" id="W7U-90-DIo"/>
+                                                                        </constraints>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <connections>
+                                                                            <action selector="connectButton:" destination="rFm-oL-66o" eventType="touchUpInside" id="Uwd-I6-LPv"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdn-Dn-8Zi">
+                                                                        <rect key="frame" x="0.0" y="20" width="382" height="2"/>
+                                                                        <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="2" id="bmG-WU-aht"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
+                                                                <color key="backgroundColor" red="0.08235294118" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="qpP-tm-omm" firstAttribute="top" secondItem="8LN-pf-1Dn" secondAttribute="bottom" constant="6" id="65m-ec-nKR"/>
+                                                                    <constraint firstItem="8LN-pf-1Dn" firstAttribute="top" secondItem="RnA-rC-nZK" secondAttribute="bottom" constant="7" id="ALQ-Md-ScM"/>
+                                                                    <constraint firstItem="tAR-mz-Fxg" firstAttribute="top" secondItem="hbB-Tt-Dm3" secondAttribute="top" id="DiL-p5-Lhk"/>
+                                                                    <constraint firstItem="qpP-tm-omm" firstAttribute="leading" secondItem="hbB-Tt-Dm3" secondAttribute="leading" constant="8" id="F4K-f5-XG7"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="1Uk-qC-GV5" secondAttribute="trailing" constant="8" id="Lun-Bp-bmM"/>
+                                                                    <constraint firstItem="sdn-Dn-8Zi" firstAttribute="leading" secondItem="hbB-Tt-Dm3" secondAttribute="leading" id="O4Z-Cp-gYZ"/>
+                                                                    <constraint firstItem="goS-WL-uDV" firstAttribute="leading" secondItem="hbB-Tt-Dm3" secondAttribute="leading" id="OSX-gS-M6s"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="nkH-im-6cp" secondAttribute="trailing" constant="8" id="RO8-Dr-by3"/>
+                                                                    <constraint firstItem="RnA-rC-nZK" firstAttribute="leading" secondItem="hbB-Tt-Dm3" secondAttribute="leading" constant="8" id="S7H-FC-3i6"/>
+                                                                    <constraint firstItem="RnA-rC-nZK" firstAttribute="top" secondItem="sdn-Dn-8Zi" secondAttribute="bottom" id="U42-M6-Np2"/>
+                                                                    <constraint firstItem="tAR-mz-Fxg" firstAttribute="leading" secondItem="hbB-Tt-Dm3" secondAttribute="leading" constant="8" id="UdU-je-uR3"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="goS-WL-uDV" secondAttribute="trailing" id="XW1-rA-I6x"/>
+                                                                    <constraint firstItem="1Uk-qC-GV5" firstAttribute="top" secondItem="hbB-Tt-Dm3" secondAttribute="top" id="Ztt-6q-9kf"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="5rs-t6-NMR" secondAttribute="trailing" constant="8" id="fGm-Qw-jLl"/>
+                                                                    <constraint firstItem="goS-WL-uDV" firstAttribute="top" secondItem="nkH-im-6cp" secondAttribute="bottom" constant="4" id="gAd-R3-2p7"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="sdn-Dn-8Zi" secondAttribute="trailing" id="gbO-bX-rsD"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="qpP-tm-omm" secondAttribute="trailing" constant="8" id="jeA-wb-d9q"/>
+                                                                    <constraint firstItem="nkH-im-6cp" firstAttribute="top" secondItem="sdn-Dn-8Zi" secondAttribute="bottom" constant="2" id="kkU-61-NSN"/>
+                                                                    <constraint firstItem="5rs-t6-NMR" firstAttribute="top" secondItem="goS-WL-uDV" secondAttribute="bottom" constant="1" id="l2B-ce-Jbt"/>
+                                                                    <constraint firstItem="8LN-pf-1Dn" firstAttribute="leading" secondItem="hbB-Tt-Dm3" secondAttribute="leading" constant="8" id="nVP-HR-grp"/>
+                                                                    <constraint firstItem="sdn-Dn-8Zi" firstAttribute="top" secondItem="tAR-mz-Fxg" secondAttribute="bottom" constant="1" id="r4R-8i-13G"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="hbB-Tt-Dm3" firstAttribute="leading" secondItem="Rb6-fj-gJg" secondAttribute="leading" constant="8" id="3ba-WT-UEW"/>
+                                                            <constraint firstItem="hbB-Tt-Dm3" firstAttribute="top" secondItem="Rb6-fj-gJg" secondAttribute="top" constant="8" id="Ya6-QF-rcM"/>
+                                                            <constraint firstAttribute="height" constant="128" id="eZT-7C-B6e"/>
+                                                            <constraint firstAttribute="bottom" secondItem="hbB-Tt-Dm3" secondAttribute="bottom" constant="8" id="tR5-mq-jPG"/>
+                                                            <constraint firstAttribute="trailing" secondItem="hbB-Tt-Dm3" secondAttribute="trailing" constant="8" id="vWb-f1-2hn"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="26h-Ob-qhN" firstAttribute="top" secondItem="j55-jt-omZ" secondAttribute="top" id="0rW-RN-Bcr"/>
+                                                    <constraint firstItem="7ea-XK-DOc" firstAttribute="top" secondItem="7Sl-jP-MBX" secondAttribute="bottom" constant="1" id="3MU-a3-8eD"/>
+                                                    <constraint firstItem="10s-r2-5JT" firstAttribute="top" secondItem="Wkw-81-Kpr" secondAttribute="bottom" constant="1" id="45s-KP-YTK"/>
+                                                    <constraint firstItem="6gI-Ta-agZ" firstAttribute="top" secondItem="26h-Ob-qhN" secondAttribute="bottom" constant="1" id="7Qs-OU-N5C"/>
+                                                    <constraint firstItem="7ea-XK-DOc" firstAttribute="leading" secondItem="j55-jt-omZ" secondAttribute="leading" id="BWY-ke-IKA"/>
+                                                    <constraint firstItem="WpU-4o-mHc" firstAttribute="leading" secondItem="j55-jt-omZ" secondAttribute="leading" id="DJm-TA-GXV"/>
+                                                    <constraint firstItem="Rb6-fj-gJg" firstAttribute="leading" secondItem="j55-jt-omZ" secondAttribute="leading" id="Eg5-bh-p1D"/>
+                                                    <constraint firstItem="Y6Z-91-hMh" firstAttribute="top" secondItem="10s-r2-5JT" secondAttribute="bottom" constant="1" id="H9c-8a-wq1"/>
+                                                    <constraint firstItem="7Sl-jP-MBX" firstAttribute="top" secondItem="Y6Z-91-hMh" secondAttribute="bottom" constant="1" id="O5t-SK-CAr"/>
+                                                    <constraint firstItem="7Sl-jP-MBX" firstAttribute="leading" secondItem="j55-jt-omZ" secondAttribute="leading" id="QSr-45-7pH"/>
+                                                    <constraint firstItem="Rey-Ig-LVk" firstAttribute="top" secondItem="WpU-4o-mHc" secondAttribute="bottom" constant="1" id="TSB-eZ-NHn"/>
+                                                    <constraint firstItem="6gI-Ta-agZ" firstAttribute="leading" secondItem="j55-jt-omZ" secondAttribute="leading" id="bNv-FY-ZoC"/>
+                                                    <constraint firstItem="WpU-4o-mHc" firstAttribute="top" secondItem="6gI-Ta-agZ" secondAttribute="bottom" constant="1" id="eUh-dC-wUZ"/>
+                                                    <constraint firstItem="Y6Z-91-hMh" firstAttribute="leading" secondItem="j55-jt-omZ" secondAttribute="leading" id="kyd-YW-GP6"/>
+                                                    <constraint firstItem="26h-Ob-qhN" firstAttribute="leading" secondItem="j55-jt-omZ" secondAttribute="leading" id="nsA-Pi-e9b"/>
+                                                    <constraint firstItem="Wkw-81-Kpr" firstAttribute="top" secondItem="Rey-Ig-LVk" secondAttribute="bottom" constant="1" id="nwx-0Z-8Be"/>
+                                                    <constraint firstItem="Rey-Ig-LVk" firstAttribute="leading" secondItem="j55-jt-omZ" secondAttribute="leading" id="rs7-W6-UqH"/>
+                                                    <constraint firstItem="10s-r2-5JT" firstAttribute="leading" secondItem="j55-jt-omZ" secondAttribute="leading" id="uwe-aZ-p7M"/>
+                                                    <constraint firstItem="Wkw-81-Kpr" firstAttribute="leading" secondItem="j55-jt-omZ" secondAttribute="leading" id="xlS-Dm-HNr"/>
+                                                    <constraint firstItem="Rb6-fj-gJg" firstAttribute="top" secondItem="7ea-XK-DOc" secondAttribute="bottom" constant="1" id="zdE-4j-gu7"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.08235294118" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="j55-jt-omZ" firstAttribute="leading" secondItem="r5b-Wo-SbT" secondAttribute="leading" constant="8" id="OYA-ub-HB4"/>
+                                            <constraint firstItem="j55-jt-omZ" firstAttribute="top" secondItem="r5b-Wo-SbT" secondAttribute="top" constant="8" id="STm-ZM-CgH"/>
+                                            <constraint firstAttribute="bottom" secondItem="j55-jt-omZ" secondAttribute="bottom" constant="20" id="TSy-1s-Ayd"/>
+                                            <constraint firstAttribute="trailing" secondItem="j55-jt-omZ" secondAttribute="trailing" constant="8" id="fpk-FR-aO0"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.08235294118" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="r5b-Wo-SbT" secondAttribute="trailing" id="9mB-sq-mjO"/>
+                                    <constraint firstItem="r5b-Wo-SbT" firstAttribute="leading" secondItem="kNT-6F-86T" secondAttribute="leading" id="RAM-IY-65J"/>
+                                    <constraint firstItem="r5b-Wo-SbT" firstAttribute="top" secondItem="kNT-6F-86T" secondAttribute="top" id="ouR-xJ-Eyw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kNT-6F-86T" firstAttribute="bottom" secondItem="d2C-Cn-Qhu" secondAttribute="bottom" id="Dbx-ds-2gV"/>
+                            <constraint firstItem="kNT-6F-86T" firstAttribute="leading" secondItem="d2C-Cn-Qhu" secondAttribute="leading" id="FRw-nx-PW9"/>
+                            <constraint firstItem="kNT-6F-86T" firstAttribute="top" secondItem="d2C-Cn-Qhu" secondAttribute="top" id="wXf-rJ-hec"/>
+                            <constraint firstItem="kNT-6F-86T" firstAttribute="trailing" secondItem="d2C-Cn-Qhu" secondAttribute="trailing" id="ylX-U9-7GL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="d2C-Cn-Qhu"/>
+                    </view>
+                    <connections>
+                        <outlet property="ConnectionStatus" destination="5rs-t6-NMR" id="WgZ-ZZ-eTz"/>
+                        <outlet property="connectbtnlabel" destination="qpP-tm-omm" id="KfO-g2-SSs"/>
+                        <outlet property="connectgrillview" destination="Rb6-fj-gJg" id="s0B-55-ix9"/>
+                        <outlet property="currentNetwork" destination="26h-Ob-qhN" id="rpv-Wx-1mV"/>
+                        <outlet property="networdbtn" destination="O0f-Z0-Ujd" id="gui-Fb-5bv"/>
+                        <outlet property="networkStatus" destination="nkH-im-6cp" id="Yag-kO-flL"/>
+                        <outlet property="networkView" destination="Rey-Ig-LVk" id="HBa-sm-qaO"/>
+                        <outlet property="passwordView" destination="7Sl-jP-MBX" id="qp0-5u-BEf"/>
+                        <outlet property="passwordbtn" destination="PeH-R9-mcp" id="Y2d-LY-ZHH"/>
+                        <outlet property="passwordfield" destination="DRE-Ed-pJH" id="l6y-I0-JQp"/>
+                        <outlet property="ssidView" destination="10s-r2-5JT" id="d13-78-HbW"/>
+                        <outlet property="ssidbtn" destination="4Vn-GM-M6g" id="tIB-ah-tfk"/>
+                        <outlet property="ssidfield" destination="rOy-9w-hII" id="jGF-D0-etl"/>
+                        <outlet property="tableView" destination="hNZ-2g-Xzs" id="d71-8N-GAP"/>
+                        <outlet property="wifiName" destination="1Uk-qC-GV5" id="HFQ-yZ-hTL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4p-ia-aVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-33" y="732"/>
+        </scene>
     </scenes>
     <resources>
         <image name="aduro_logo_no_stick" width="146" height="41"/>
@@ -987,6 +1599,7 @@ I accept ()</string>
         <image name="es" width="128" height="128"/>
         <image name="fr" width="128" height="128"/>
         <image name="ge" width="128" height="128"/>
+        <image name="ic_menu_revert" width="64" height="64"/>
         <image name="it" width="128" height="128"/>
         <image name="ovn" width="134" height="351"/>
         <image name="ovn_open_serial" width="134" height="351"/>

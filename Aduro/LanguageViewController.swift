@@ -34,14 +34,14 @@ class LanguageViewController: UIViewController {
                     
                 }
                 self.present(sVC, animated: true)
-                print("show wizard")
+//                print("show wizard")
             }
             
         }
-        else
-        {
-            print("do nothing")
-        }
+//        else
+//        {
+//            print("do nothing")
+//        }
     }
     func loadmain(serial:String,password:String)  {
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else { return}

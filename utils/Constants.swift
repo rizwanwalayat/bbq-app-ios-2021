@@ -14,5 +14,6 @@ class Constants {
     static var passwordKey:String="password"
     static var languageKey:String="lang"
     static var term1Accept="term1"
+    static var term2Accept="term2"
     
 }
