@@ -8,6 +8,7 @@
 
 import Foundation
 import SystemConfiguration.CaptiveNetwork
+import FGRoute
 class Util
 {
     
@@ -42,6 +43,33 @@ class Util
             freeifaddrs(ifaddr)
         }
         return address ?? ""
+    }
+    
+   static func GetSSID() -> String {
+    let ssid=FGRoute.getSSID() ?? ""
+        return ssid
+    }
+    
+    static func GetDefaultsString(key:String) -> String
+    {
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: key) ?? "nothing"
+    }
+    
+    static func SetDefaults(key:String,value:String)  {
+        let defaults = UserDefaults.standard
+        defaults.set(value, forKey: key)
+    }
+    
+    static func GetDefaultsBool(key:String) -> Bool
+    {
+        let defaults = UserDefaults.standard
+        return defaults.bool(forKey: key)
+    }
+    
+    static func SetDefaultsBool(key:String,value:Bool)  {
+        let defaults = UserDefaults.standard
+        defaults.set(value, forKey: key)
     }
 //    static func getWiFiAddress() -> String? {
 //        var address : String?
@@ -168,6 +196,11 @@ class Util
             return Util.appid
         }
         
+    }
+    
+    static func showDialog(view: UIViewController)
+    {
+      
     }
     
 }

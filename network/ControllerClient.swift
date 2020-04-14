@@ -20,6 +20,7 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
     var gotresponse = false
     var errorfound = false
     var timeout = false
+    
 //    var udpsocket = UDPClient?.self
     override init() {
         super.init()
@@ -140,12 +141,19 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
         request.setEncryption(mode: encryptionMode)
         if(apprelay==true)
         {
-            request.setLocalIp(ip: Util.getHostIpAddress(hostDomainNama: receiverAddr as CFString)!)
-            request.setPort(port: "1901")
-            let stringrequest = request.getRawRequest()
-           
-            skt.send(stringrequest, toHost: Util.getHostIpAddress(hostDomainNama: receiverAddr as CFString)!, port: 8483, withTimeout: 3000, tag: 0)
-            print("request send " + String(decoding: stringrequest, as: UTF8.self))
+            var ip=Util.getHostIpAddress(hostDomainNama: receiverAddr as CFString )
+            if(ip != nil)
+            {
+                request.setLocalIp(ip: ip!)
+                request.setPort(port: "1901")
+                let stringrequest = request.getRawRequest()
+                
+                skt.send(stringrequest, toHost: Util.getHostIpAddress(hostDomainNama: receiverAddr as CFString)!, port: 8483, withTimeout: 3000, tag: 0)
+                print("request send " + String(decoding: stringrequest, as: UTF8.self))
+            }else
+            {
+                print("no internet apprelay case")
+            }
 
         }else
         {
@@ -159,13 +167,6 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
             
             print("request send " + String(decoding: stringrequest, as: UTF8.self))
         }
-
-//        let data1 = stringrequest.data(using: String.Encoding(rawValue: String.Encoding.ascii.rawValue), allowLossyConversion: true)
-//        if let newdata = stringrequest {
-//        skt.send(stringrequest, toHost: "192.168.0.129", port: self.PORT, withTimeout: 3000, tag: 0)
-//
-//        }
-
         var runtime: Int=0
         let timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true)
         { (timer) in
@@ -197,10 +198,6 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
 
         }
         RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
-//      while(gotresponse == true || timeout == true || errorfound == true)
-//      {
-//
-//        }
         
     }
     

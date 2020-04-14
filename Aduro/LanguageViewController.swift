@@ -55,6 +55,8 @@ class LanguageViewController: UIViewController {
     @IBAction func english(_ sender: Any) {
         defaults.set("en", forKey: Constants.languageKey)
         Language.getInstance().readjson(fileName: "en")
+        Language.getInstance().ReadTerm(fileName: "en")
+        Language.getInstance().ReadTerm2(fileName: "en")
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "agreementViewController") as? agreementViewController else
         {
             return
@@ -65,6 +67,8 @@ class LanguageViewController: UIViewController {
     @IBAction func danish(_ sender: Any) {
         defaults.set("da", forKey: Constants.languageKey)
         Language.getInstance().readjson(fileName: "da")
+        Language.getInstance().ReadTerm(fileName: "de")
+        Language.getInstance().ReadTerm2(fileName: "de")
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "agreementViewController") as? agreementViewController else
         {
             return
@@ -73,6 +77,85 @@ class LanguageViewController: UIViewController {
         self.present(sVC, animated: true)
     }
     
+    @IBAction func spain(_ sender: Any) {
+        defaults.set("da", forKey: Constants.languageKey)
+        Language.getInstance().readjson(fileName: "es")
+        Language.getInstance().ReadTerm(fileName: "es")
+        Language.getInstance().ReadTerm2(fileName: "es")
+        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "agreementViewController") as? agreementViewController else
+        {
+            return
+            
+        }
+        self.present(sVC, animated: true)
+    }
+    
+    @IBAction func dutch(_ sender: UIButton) {
+        defaults.set("du", forKey: Constants.languageKey)
+        Language.getInstance().readjson(fileName: "du")
+        Language.getInstance().ReadTerm(fileName: "en")
+        Language.getInstance().ReadTerm2(fileName: "en")
+        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "agreementViewController") as? agreementViewController else
+        {
+            return
+            
+        }
+        self.present(sVC, animated: true)
+    }
+    
+    
+    
+    
+    
+    @IBAction func German(_ sender: UIButton) {
+        defaults.set("ge", forKey: Constants.languageKey)
+        Language.getInstance().readjson(fileName: "ge")
+        Language.getInstance().ReadTerm(fileName: "en")
+        Language.getInstance().ReadTerm2(fileName: "en")
+        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "agreementViewController") as? agreementViewController else
+        {
+            return
+            
+        }
+        self.present(sVC, animated: true)
+    }
+    
+    @IBAction func ukrain(_ sender: UIButton) {
+        defaults.set("ua", forKey: Constants.languageKey)
+        Language.getInstance().readjson(fileName: "ua")
+        Language.getInstance().ReadTerm(fileName: "en")
+        Language.getInstance().ReadTerm2(fileName: "en")
+        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "agreementViewController") as? agreementViewController else
+        {
+            return
+            
+        }
+        self.present(sVC, animated: true)
+    }
+    @IBAction func italy(_ sender: UIButton) {
+        defaults.set("it", forKey: Constants.languageKey)
+        Language.getInstance().readjson(fileName: "it")
+        Language.getInstance().ReadTerm(fileName: "it")
+        Language.getInstance().ReadTerm2(fileName: "it")
+        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "agreementViewController") as? agreementViewController else
+        {
+            return
+            
+        }
+        self.present(sVC, animated: true)
+    }
+    @IBAction func russia(_ sender: UIButton) {
+        defaults.set("ru", forKey: Constants.languageKey)
+        Language.getInstance().readjson(fileName: "ru")
+        Language.getInstance().ReadTerm(fileName: "en")
+        Language.getInstance().ReadTerm2(fileName: "en")
+        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "agreementViewController") as? agreementViewController else
+        {
+            return
+            
+        }
+        self.present(sVC, animated: true)
+    }
     /*
     // MARK: - Navigation
 

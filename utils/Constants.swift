@@ -15,5 +15,6 @@ class Constants {
     static var languageKey:String="lang"
     static var term1Accept="term1"
     static var term2Accept="term2"
+    static var directConnectFlag="directConnectFlag"
     
 }

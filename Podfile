@@ -9,6 +9,7 @@ target 'Aduro' do
   pod 'CocoaAsyncSocket'
   pod 'SwiftyJSON', '~> 4.0'
 pod "FGRoute"
+pod 'MBProgressHUD', '~> 1.1.0'
 #pod "ExpandableTableViewController"
 
 

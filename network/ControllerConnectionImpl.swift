@@ -17,7 +17,8 @@ class ControllerconnectionImpl
     static var instance=ControllerconnectionImpl()
     var controller : Controller
     var frontData: [String : String] = [:]
-    
+//    private let serialQueue = DispatchQueue(label: "SerialQueue")
+
     
     init()
     {
@@ -57,42 +58,48 @@ class ControllerconnectionImpl
     
     func requestSet(key: String, value: String, encryptionMode: String, requestCompletionHandler: @escaping (_ controlerResponse: ControllerResponseImpl) -> Void)
     {
-        let request : ControllerRequestImpl = ControllerRequestImpl()
-        request.setSetRequest(password: controller.getPassword(), key: key, value: value)
-        client.sendRequest(senderAddr: Util.getWiFiAddress()!, receiverAddr: controller.getIp(), request: request, appId: Util.getAppId(), serial: controller.getSerial(), encryptionMode: encryptionMode, apprelay: connectedOnAppRelay()) { (ControllerResponseImpl) in
-            requestCompletionHandler(ControllerResponseImpl)
-        }
+//        serialQueue.sync{
+            let request : ControllerRequestImpl = ControllerRequestImpl()
+            request.setSetRequest(password: self.controller.getPassword(), key: key, value: value)
+            self.client.sendRequest(senderAddr: Util.getWiFiAddress()!, receiverAddr: self.controller.getIp(), request: request, appId: Util.getAppId(), serial: self.controller.getSerial(), encryptionMode: encryptionMode, apprelay: self.connectedOnAppRelay()) { (ControllerResponseImpl) in
+                requestCompletionHandler(ControllerResponseImpl)
+            }
+//        }
+  
 
 //    return true
     }
     
     func requestRead(key: String, completionfinal: @escaping (_ controlerResponse: ControllerResponseImpl) -> Void)
     {
-    
-//        var completion : Bool = false
-        let request : ControllerRequestImpl = ControllerRequestImpl()
-        request.setReadRequest(password: controller.getPassword(), value: key)
-        client.sendRequest(
-            senderAddr: Util.getWiFiAddress()!, receiverAddr: controller.getIp(), request: request, appId: Util.getAppId(), serial: controller.getSerial(), encryptionMode: " ", apprelay: connectedOnAppRelay())
-        { (ControllerResponseImpl) in
-            completionfinal(ControllerResponseImpl)
-        }
-
+//        serialQueue.sync{
+            //        var completion : Bool = false
+            let request : ControllerRequestImpl = ControllerRequestImpl()
+            request.setReadRequest(password: self.controller.getPassword(), value: key)
+            self.client.sendRequest(
+                senderAddr: Util.getWiFiAddress()!, receiverAddr: self.controller.getIp(), request: request, appId: Util.getAppId(), serial: self.controller.getSerial(), encryptionMode: " ", apprelay: self.connectedOnAppRelay())
+            { (ControllerResponseImpl) in
+                completionfinal(ControllerResponseImpl)
+            }
+//        }
     }
 
     func readF11(completionF11: @escaping (_ controlerResponse: ControllerResponseImpl) -> Void)
     {
-        let request : ControllerRequestImpl = ControllerRequestImpl()
-        request.setF11Request(password: controller.getPassword(), value: "*")
-        client.sendRequest(senderAddr: Util.getWiFiAddress()!, receiverAddr: controller.getIp(),
-                           request: request,
-                           appId: Util.getAppId(),
-                           serial: controller.getSerial(),
-                           encryptionMode: " ",
-                           apprelay: connectedOnAppRelay())
-        { (ControllerResponseImpl) in
-            completionF11(ControllerResponseImpl)
-        }
+//        serialQueue.sync {
+            let request : ControllerRequestImpl = ControllerRequestImpl()
+            request.setF11Request(password: self.controller.getPassword(), value: "*")
+            self.client.sendRequest(senderAddr: Util.getWiFiAddress()!, receiverAddr: self.controller.getIp(),
+                               request: request,
+                               appId: Util.getAppId(),
+                               serial: self.controller.getSerial(),
+                               encryptionMode: " ",
+                               apprelay: self.connectedOnAppRelay())
+            { (ControllerResponseImpl) in
+                completionF11(ControllerResponseImpl)
+            }
+//    }
+      
     }
     
     func requestF11Identified(controllerResponsef11: @escaping (_ controllerResponseF11: ControllerResponseImpl) -> Void)

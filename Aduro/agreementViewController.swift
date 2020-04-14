@@ -8,11 +8,18 @@
 
 import UIKit
 
-class agreementViewController: UIViewController {
+class agreementViewController: UIViewController{
     let defaults = UserDefaults.standard
+
+    @IBOutlet weak var acceptbtn: UIButton!
+    @IBOutlet weak var declinebtn: UIButton!
+    
+    @IBOutlet weak var textAgreement: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        acceptbtn.layer.cornerRadius = 10
+//        acceptbtn.clipsToBounds = true
+        textAgreement.attributedText=Language.getInstance().getFirstTerm().htmlToAttributedString
         // Do any additional setup after loading the view.
     }
     
@@ -38,4 +45,17 @@ class agreementViewController: UIViewController {
             self.present(sVC, animated: true)
 
 }
+}
+extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return NSAttributedString() }
+        do {
+            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            return NSAttributedString()
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
 }

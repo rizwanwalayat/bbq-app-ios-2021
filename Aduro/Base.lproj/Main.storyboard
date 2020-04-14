@@ -62,6 +62,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="re4-pU-tye">
+                                        <rect key="frame" x="21" y="227" width="87" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Open wizard"/>
+                                        <connections>
+                                            <action selector="openWizard:" destination="4B7-WN-646" eventType="touchUpInside" id="8mm-VE-jto"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <constraints>
@@ -175,6 +183,12 @@
                                             <segue destination="7Hr-Yh-msm" kind="show" id="eId-IX-BLD"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aduro_logo_no_stick" translatesAutoresizingMaskIntoConstraints="NO" id="UFy-8R-Vnu">
+                                        <rect key="frame" x="8" y="16" width="100" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="PD5-B5-NEX"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -192,6 +206,8 @@
                                     <constraint firstAttribute="trailing" secondItem="lGR-6q-dak" secondAttribute="trailing" constant="8" id="VMm-57-9e6"/>
                                     <constraint firstItem="jat-Z1-ICS" firstAttribute="top" secondItem="r8R-1S-nNG" secondAttribute="bottom" constant="8" id="WZJ-Ug-TUB"/>
                                     <constraint firstAttribute="trailing" secondItem="rRg-wS-wDG" secondAttribute="trailing" constant="8" id="X8d-tb-nOr"/>
+                                    <constraint firstItem="VTY-es-KLz" firstAttribute="top" secondItem="UFy-8R-Vnu" secondAttribute="bottom" constant="1" id="Zuf-Xw-wDG"/>
+                                    <constraint firstItem="UFy-8R-Vnu" firstAttribute="leading" secondItem="dly-cU-pBz" secondAttribute="leading" constant="8" id="iLW-fA-6Jg"/>
                                     <constraint firstItem="lGR-6q-dak" firstAttribute="top" secondItem="rRg-wS-wDG" secondAttribute="bottom" constant="8" id="kIZ-xs-1of"/>
                                     <constraint firstItem="VTY-es-KLz" firstAttribute="top" secondItem="dly-cU-pBz" secondAttribute="top" constant="44" id="ndt-vp-MsC"/>
                                     <constraint firstAttribute="trailing" secondItem="VTY-es-KLz" secondAttribute="trailing" id="plB-rp-LDV"/>
@@ -199,6 +215,7 @@
                                     <constraint firstAttribute="trailing" secondItem="jat-Z1-ICS" secondAttribute="trailing" constant="45" id="qdP-cu-KJ1"/>
                                     <constraint firstItem="rRg-wS-wDG" firstAttribute="top" secondItem="VTY-es-KLz" secondAttribute="bottom" constant="7" id="rVj-xT-Qdc"/>
                                     <constraint firstItem="r8R-1S-nNG" firstAttribute="top" secondItem="Ocy-Zx-e7T" secondAttribute="bottom" constant="8" id="yPa-KU-lbv"/>
+                                    <constraint firstItem="UFy-8R-Vnu" firstAttribute="top" secondItem="dly-cU-pBz" secondAttribute="top" constant="16" id="zlm-TF-okt"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -241,10 +258,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUf-O9-YLd">
-                                        <rect key="frame" x="8" y="50" width="398" height="566.66666666666663"/>
+                                        <rect key="frame" x="8" y="50" width="398" height="695.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="uVk-pZ-vnU">
-                                                <rect key="frame" x="8" y="8" width="382" height="518.66666666666663"/>
+                                                <rect key="frame" x="8" y="8" width="382" height="647.66666666666663"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the 5-6 digit serial number and 10 digit password provided to connect to your grill." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWA-Uv-dc3" userLabel="please enter">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="28.666666666666668"/>
@@ -386,29 +403,65 @@
                                                             <constraint firstAttribute="bottom" secondItem="0jv-qo-hxc" secondAttribute="bottom" id="wO7-cC-fht"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fi-FI-tsa">
+                                                        <rect key="frame" x="0.0" y="258.66666666666669" width="382" height="128"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dC-Ch-uff">
+                                                                <rect key="frame" x="8" y="8" width="366" height="74"/>
+                                                                <string key="text">We're having trouble getting you connected, please go to Settings -&gt; Wifi and connect to Aduro-{{serial}} with no password. Then return to this app and press continue button. On older software go to RTB-xxxx where xxxx is your serialnumber and use the password \"12345678\".</string>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRU-ie-wRk">
+                                                                <rect key="frame" x="8" y="90" width="366" height="30"/>
+                                                                <color key="backgroundColor" red="0.1842643917" green="0.1841786504" blue="0.19244447349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="C9L-p5-g61"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Connect">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="ConnectBtnSecond:" destination="7Hr-Yh-msm" eventType="touchUpInside" id="qxW-1H-Qqi"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.28235294117647058" green="0.29411764705882354" blue="0.27843137254901962" alpha="0.81165988869863015" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="6dC-Ch-uff" secondAttribute="trailing" constant="8" id="29C-lG-wzO"/>
+                                                            <constraint firstItem="6dC-Ch-uff" firstAttribute="top" secondItem="6fi-FI-tsa" secondAttribute="top" constant="8" id="IGY-tx-0nG"/>
+                                                            <constraint firstAttribute="trailing" secondItem="uRU-ie-wRk" secondAttribute="trailing" constant="8" id="M3U-8u-WRi"/>
+                                                            <constraint firstAttribute="bottom" secondItem="uRU-ie-wRk" secondAttribute="bottom" constant="8" id="XpM-jK-rgx"/>
+                                                            <constraint firstItem="uRU-ie-wRk" firstAttribute="top" secondItem="6dC-Ch-uff" secondAttribute="bottom" constant="8" id="bki-eG-jLb"/>
+                                                            <constraint firstItem="uRU-ie-wRk" firstAttribute="leading" secondItem="6fi-FI-tsa" secondAttribute="leading" constant="8" id="huy-fW-qiM"/>
+                                                            <constraint firstItem="6dC-Ch-uff" firstAttribute="leading" secondItem="6fi-FI-tsa" secondAttribute="leading" constant="8" id="oSW-wY-HRF"/>
+                                                            <constraint firstAttribute="height" constant="128" id="uLL-ff-zjr"/>
+                                                        </constraints>
+                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hk0-4N-n96" userLabel="result view">
-                                                        <rect key="frame" x="0.0" y="258.66666666666669" width="382" height="30"/>
+                                                        <rect key="frame" x="0.0" y="387.66666666666669" width="382" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoW-La-p9Q">
                                                                 <rect key="frame" x="5" y="5" width="40.333333333333336" height="18"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="18" id="yuX-ms-3cJ"/>
+                                                                    <constraint firstAttribute="height" constant="18" id="Y0a-IK-vmG"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suX-sk-eTm">
-                                                                <rect key="frame" x="0.0" y="28" width="382" height="2"/>
+                                                                <rect key="frame" x="0.0" y="27.999999999999943" width="382" height="2"/>
                                                                 <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="2" id="JU2-FB-7tp"/>
+                                                                    <constraint firstAttribute="height" constant="2" id="BxJ-ly-epG"/>
                                                                 </constraints>
                                                             </view>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifi-o5-ZtB">
-                                                                <rect key="frame" x="352" y="0.0" width="30" height="25"/>
+                                                                <rect key="frame" x="352" y="2" width="30" height="25"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="25" id="k3g-B2-vAE"/>
+                                                                    <constraint firstAttribute="height" constant="25" id="GvK-Pq-CjB"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                 <state key="normal" title="+"/>
@@ -418,18 +471,23 @@
                                                             </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="suX-sk-eTm" secondAttribute="trailing" id="B7b-BU-Ga4"/>
-                                                            <constraint firstAttribute="trailing" secondItem="ifi-o5-ZtB" secondAttribute="trailing" id="HoD-3R-vfW"/>
-                                                            <constraint firstItem="MoW-La-p9Q" firstAttribute="leading" secondItem="Hk0-4N-n96" secondAttribute="leading" constant="5" id="VkQ-Fx-Qg0"/>
-                                                            <constraint firstItem="MoW-La-p9Q" firstAttribute="top" secondItem="Hk0-4N-n96" secondAttribute="top" constant="5" id="d3I-b9-sMs"/>
-                                                            <constraint firstItem="suX-sk-eTm" firstAttribute="leading" secondItem="Hk0-4N-n96" secondAttribute="leading" id="tUp-x4-qk6"/>
-                                                            <constraint firstAttribute="bottom" secondItem="suX-sk-eTm" secondAttribute="bottom" id="ti0-9F-rff"/>
-                                                            <constraint firstAttribute="height" constant="30" id="x1v-b7-P54"/>
-                                                            <constraint firstItem="ifi-o5-ZtB" firstAttribute="top" secondItem="Hk0-4N-n96" secondAttribute="top" id="xZO-39-rnz"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ifi-o5-ZtB" secondAttribute="trailing" id="9tb-PU-BTM"/>
+                                                            <constraint firstAttribute="bottom" secondItem="suX-sk-eTm" secondAttribute="bottom" id="IEF-6y-g0r"/>
+                                                            <constraint firstAttribute="height" constant="30" id="L5h-n1-bu5"/>
+                                                            <constraint firstItem="MoW-La-p9Q" firstAttribute="leading" secondItem="Hk0-4N-n96" secondAttribute="leading" constant="5" id="TVw-Vf-2Ee"/>
+                                                            <constraint firstItem="MoW-La-p9Q" firstAttribute="top" secondItem="Hk0-4N-n96" secondAttribute="top" constant="5" id="aBb-8W-thx"/>
+                                                            <constraint firstItem="suX-sk-eTm" firstAttribute="leading" secondItem="Hk0-4N-n96" secondAttribute="leading" id="bZJ-eL-8Yf"/>
+                                                            <constraint firstItem="ifi-o5-ZtB" firstAttribute="top" secondItem="Hk0-4N-n96" secondAttribute="top" constant="2" id="rIc-es-OtG"/>
+                                                            <constraint firstAttribute="trailing" secondItem="suX-sk-eTm" secondAttribute="trailing" id="sUF-5C-I9L"/>
                                                         </constraints>
+                                                        <variation key="default">
+                                                            <mask key="subviews">
+                                                                <exclude reference="ifi-o5-ZtB"/>
+                                                            </mask>
+                                                        </variation>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8W7-ex-hLV" userLabel="setupwifi View">
-                                                        <rect key="frame" x="0.0" y="289.66666666666669" width="382" height="229.00000000000006"/>
+                                                        <rect key="frame" x="0.0" y="418.66666666666663" width="382" height="229"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cNq-sy-ww9">
                                                                 <rect key="frame" x="5" y="5" width="372" height="204"/>
@@ -441,19 +499,19 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We recommend you setup your grill to a wifi router, so it can access the Internet and can be controlled from remotely." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CE-1X-GKl">
-                                                                        <rect key="frame" x="0.0" y="22.333333333333318" width="372" height="53.333333333333343"/>
+                                                                        <rect key="frame" x="0.0" y="22.333333333333375" width="372" height="53.333333333333343"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current network : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQn-ie-1oh">
-                                                                        <rect key="frame" x="0.0" y="80.666666666666629" width="372" height="18"/>
+                                                                        <rect key="frame" x="0.0" y="80.666666666666742" width="372" height="18"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sil-iR-DrX">
-                                                                        <rect key="frame" x="0.0" y="103.66666666666663" width="372" height="30.333333333333343"/>
+                                                                        <rect key="frame" x="0.0" y="103.66666666666674" width="372" height="30.333333333333343"/>
                                                                         <color key="backgroundColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <state key="normal" title="USE EXISTING WIFI SETTINGS">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -464,7 +522,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6U-eS-V4w">
-                                                                        <rect key="frame" x="0.0" y="138.99999999999994" width="372" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="139" width="372" height="30"/>
                                                                         <color key="backgroundColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <state key="normal" title="SETUP WIFI">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -474,11 +532,14 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgE-bH-JwG">
-                                                                        <rect key="frame" x="0.0" y="173.99999999999994" width="372" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="174" width="372" height="30"/>
                                                                         <color key="backgroundColor" red="0.92549019610000005" green="0.28627450980000002" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <state key="normal" title="DO NOT USE INTERNET (CLEAR SETTINGS)">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="DoNotUserInternet:" destination="7Hr-Yh-msm" eventType="touchUpInside" id="nBX-kR-tL1"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
@@ -494,22 +555,24 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="gWA-Uv-dc3" firstAttribute="top" secondItem="uVk-pZ-vnU" secondAttribute="top" id="3Ap-v0-Gzb"/>
-                                                    <constraint firstItem="8W7-ex-hLV" firstAttribute="top" secondItem="Hk0-4N-n96" secondAttribute="bottom" constant="1" id="B0l-OD-TlG"/>
                                                     <constraint firstItem="RT0-eM-ZVJ" firstAttribute="leading" secondItem="uVk-pZ-vnU" secondAttribute="leading" id="B7q-Fn-mfL"/>
+                                                    <constraint firstItem="6fi-FI-tsa" firstAttribute="top" secondItem="RT0-eM-ZVJ" secondAttribute="bottom" constant="1" id="Cad-Wn-GRJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="RT0-eM-ZVJ" secondAttribute="trailing" id="GMA-Kc-3oI"/>
                                                     <constraint firstItem="hkI-Y1-VK1" firstAttribute="top" secondItem="djE-TK-lHr" secondAttribute="bottom" constant="1" id="Gh4-Rb-BKR"/>
+                                                    <constraint firstItem="Hk0-4N-n96" firstAttribute="top" secondItem="6fi-FI-tsa" secondAttribute="bottom" constant="1" id="HCh-R2-vRR"/>
                                                     <constraint firstItem="8W7-ex-hLV" firstAttribute="leading" secondItem="uVk-pZ-vnU" secondAttribute="leading" id="Jmg-MV-YBi"/>
                                                     <constraint firstItem="djE-TK-lHr" firstAttribute="top" secondItem="gWA-Uv-dc3" secondAttribute="bottom" constant="1" id="KYo-a3-jJI"/>
                                                     <constraint firstAttribute="trailing" secondItem="gWA-Uv-dc3" secondAttribute="trailing" id="OFN-Zk-DnO"/>
                                                     <constraint firstItem="gWA-Uv-dc3" firstAttribute="leading" secondItem="uVk-pZ-vnU" secondAttribute="leading" id="R2z-XM-r10"/>
+                                                    <constraint firstItem="6fi-FI-tsa" firstAttribute="leading" secondItem="uVk-pZ-vnU" secondAttribute="leading" id="R9T-XB-8jB"/>
                                                     <constraint firstItem="hkI-Y1-VK1" firstAttribute="leading" secondItem="uVk-pZ-vnU" secondAttribute="leading" id="RGM-bB-Woc"/>
                                                     <constraint firstAttribute="trailing" secondItem="djE-TK-lHr" secondAttribute="trailing" id="SD1-54-fdX"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Hk0-4N-n96" secondAttribute="trailing" id="Tj5-3W-xIp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6fi-FI-tsa" secondAttribute="trailing" id="VnU-Wj-K6X"/>
                                                     <constraint firstItem="djE-TK-lHr" firstAttribute="leading" secondItem="uVk-pZ-vnU" secondAttribute="leading" id="ZiR-yu-s66"/>
-                                                    <constraint firstItem="Hk0-4N-n96" firstAttribute="leading" secondItem="uVk-pZ-vnU" secondAttribute="leading" id="aNF-ic-lhw"/>
-                                                    <constraint firstItem="Hk0-4N-n96" firstAttribute="top" secondItem="RT0-eM-ZVJ" secondAttribute="bottom" constant="1" id="acn-67-Ua0"/>
                                                     <constraint firstAttribute="trailing" secondItem="hkI-Y1-VK1" secondAttribute="trailing" id="g5a-DT-02o"/>
                                                     <constraint firstAttribute="trailing" secondItem="8W7-ex-hLV" secondAttribute="trailing" id="grv-xc-Op5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Hk0-4N-n96" secondAttribute="trailing" id="hqi-DT-AVJ"/>
+                                                    <constraint firstItem="Hk0-4N-n96" firstAttribute="leading" secondItem="uVk-pZ-vnU" secondAttribute="leading" id="u6y-DT-qcK"/>
                                                     <constraint firstItem="RT0-eM-ZVJ" firstAttribute="top" secondItem="hkI-Y1-VK1" secondAttribute="bottom" constant="1" id="vbC-gz-gAP"/>
                                                 </constraints>
                                             </stackView>
@@ -522,19 +585,28 @@
                                             <constraint firstAttribute="bottom" secondItem="uVk-pZ-vnU" secondAttribute="bottom" constant="40" id="zND-tG-UCN"/>
                                         </constraints>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aduro_logo_no_stick" translatesAutoresizingMaskIntoConstraints="NO" id="MVE-4r-2FB">
+                                        <rect key="frame" x="8" y="15" width="100" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="2JH-DU-dtY"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zUf-O9-YLd" secondAttribute="trailing" constant="8" id="0Pz-bT-hdU"/>
                                     <constraint firstItem="PR9-ce-DCG" firstAttribute="top" secondItem="mKM-BX-fPv" secondAttribute="top" constant="44" id="0sk-Bj-cpi"/>
                                     <constraint firstItem="PR9-ce-DCG" firstAttribute="leading" secondItem="mKM-BX-fPv" secondAttribute="leading" id="C8Z-on-KcS"/>
+                                    <constraint firstItem="MVE-4r-2FB" firstAttribute="leading" secondItem="mKM-BX-fPv" secondAttribute="leading" constant="8" id="Djr-T6-AyX"/>
+                                    <constraint firstItem="PR9-ce-DCG" firstAttribute="top" secondItem="MVE-4r-2FB" secondAttribute="bottom" constant="1" id="OFv-GZ-Rdh"/>
                                     <constraint firstItem="zUf-O9-YLd" firstAttribute="leading" secondItem="mKM-BX-fPv" secondAttribute="leading" constant="8" id="TEY-kz-flG"/>
                                     <constraint firstItem="zUf-O9-YLd" firstAttribute="top" secondItem="PR9-ce-DCG" secondAttribute="bottom" constant="5" id="TkV-sI-Nww"/>
+                                    <constraint firstItem="MVE-4r-2FB" firstAttribute="top" secondItem="mKM-BX-fPv" secondAttribute="top" constant="15" id="fJ6-TA-ybg"/>
                                     <constraint firstAttribute="trailing" secondItem="PR9-ce-DCG" secondAttribute="trailing" id="oTA-qg-Ock"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mKM-BX-fPv" firstAttribute="trailing" secondItem="Ws1-fN-uOv" secondAttribute="trailing" id="BLi-Pm-rle"/>
                             <constraint firstAttribute="bottom" secondItem="mKM-BX-fPv" secondAttribute="bottom" id="MEf-6K-uI0"/>
@@ -544,7 +616,10 @@
                         <viewLayoutGuide key="safeArea" id="Ws1-fN-uOv"/>
                     </view>
                     <connections>
+                        <outlet property="btncontinueOutlet" destination="xYA-wU-kbI" id="FTv-9N-fKB"/>
+                        <outlet property="connectionView" destination="6fi-FI-tsa" id="I00-Ja-xvn"/>
                         <outlet property="connectwarningtext" destination="6CE-1X-GKl" id="QOt-TU-TXy"/>
+                        <outlet property="directConnectionAlert" destination="6dC-Ch-uff" id="rI6-tz-E3l"/>
                         <outlet property="directRadio" destination="lcN-o8-HgP" id="mVJ-SW-3Kq"/>
                         <outlet property="first_time_connect_check_box" destination="aZm-HA-0Nq" id="Rtf-MU-M0o"/>
                         <outlet property="passwordText" destination="pxB-7V-c7F" id="pEz-Ot-TED"/>
@@ -698,6 +773,9 @@
                                                                 <rect key="frame" x="7" y="7" width="48" height="45"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <state key="normal" title="Button" image="ge"/>
+                                                                <connections>
+                                                                    <action selector="German:" destination="VMB-GH-O9E" eventType="touchUpInside" id="LPv-JA-GwM"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -709,6 +787,9 @@
                                                                 <rect key="frame" x="7" y="7" width="46" height="45"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <state key="normal" title="Button" image="it"/>
+                                                                <connections>
+                                                                    <action selector="ireland:" destination="VMB-GH-O9E" eventType="touchUpInside" id="K1y-YK-kOz"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -768,6 +849,12 @@
                                             <constraint firstAttribute="width" constant="288" id="pgv-vj-dqs"/>
                                         </constraints>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aduro_logo_no_stick" translatesAutoresizingMaskIntoConstraints="NO" id="fNb-3X-lDW">
+                                        <rect key="frame" x="8" y="9" width="100" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="6rI-bw-dUG"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.08235294118" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -777,8 +864,11 @@
                                     <constraint firstItem="B0G-FG-xKG" firstAttribute="centerX" secondItem="xEu-T2-V1s" secondAttribute="centerX" id="JHC-fe-AC5"/>
                                     <constraint firstItem="xeT-bq-0ip" firstAttribute="top" secondItem="Iag-Gy-246" secondAttribute="bottom" constant="8" id="Qhg-Iu-w5h"/>
                                     <constraint firstAttribute="trailing" secondItem="Iag-Gy-246" secondAttribute="trailing" id="Vwh-l1-xyN"/>
+                                    <constraint firstItem="fNb-3X-lDW" firstAttribute="top" secondItem="xEu-T2-V1s" secondAttribute="top" constant="9" id="hNZ-3t-ety"/>
                                     <constraint firstItem="xeT-bq-0ip" firstAttribute="centerX" secondItem="xEu-T2-V1s" secondAttribute="centerX" id="hrC-4e-baS"/>
                                     <constraint firstItem="Iag-Gy-246" firstAttribute="top" secondItem="xEu-T2-V1s" secondAttribute="top" constant="44" id="mPZ-z1-I1C"/>
+                                    <constraint firstItem="Iag-Gy-246" firstAttribute="top" secondItem="fNb-3X-lDW" secondAttribute="bottom" constant="1" id="nWg-tP-1E2"/>
+                                    <constraint firstItem="fNb-3X-lDW" firstAttribute="leading" secondItem="xEu-T2-V1s" secondAttribute="leading" constant="8" id="npn-8n-Fzc"/>
                                     <constraint firstItem="B0G-FG-xKG" firstAttribute="top" secondItem="xeT-bq-0ip" secondAttribute="bottom" constant="8" id="pzM-7A-hRp"/>
                                     <constraint firstItem="xeT-bq-0ip" firstAttribute="leading" secondItem="xEu-T2-V1s" secondAttribute="leading" constant="8" id="uZu-T5-LwC"/>
                                     <constraint firstItem="r9v-w1-HSw" firstAttribute="centerX" secondItem="xEu-T2-V1s" secondAttribute="centerX" id="vHH-g7-WD1"/>
@@ -806,358 +896,244 @@
             <objects>
                 <viewController storyboardIdentifier="agreementViewController" id="40h-Gk-a25" customClass="agreementViewController" customModule="Aduro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PAB-83-Y5R">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="2150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfS-ZN-Uxg" userLabel="main">
-                                <rect key="frame" x="0.0" y="44" width="375" height="2072"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="1056"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aduro_logo_no_stick" translatesAutoresizingMaskIntoConstraints="NO" id="Pmv-Jd-ofD">
+                                        <rect key="frame" x="8" y="8" width="100" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="5cj-8u-uos"/>
+                                            <constraint firstAttribute="height" constant="41" id="n14-Tw-iFC"/>
+                                        </constraints>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjG-lx-lD1">
                                         <rect key="frame" x="0.0" y="44" width="375" height="1"/>
                                         <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="tww-GC-mDE"/>
+                                            <constraint firstAttribute="height" constant="1" id="wLj-YF-EIZ"/>
                                         </constraints>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aY4-5Z-o5L">
-                                        <rect key="frame" x="0.0" y="45" width="375" height="2027"/>
+                                        <rect key="frame" x="0.0" y="45" width="375" height="1005"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MW-dm-O2q">
-                                                <rect key="frame" x="8" y="8" width="359" height="2035"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="2035" id="TnR-FE-lfc"/>
-                                                    <constraint firstAttribute="width" constant="359" id="utr-w3-tJl"/>
-                                                </constraints>
-                                                <string key="text"> 1.Vilkår ved opstart af RTB Grill appen
-
-For at få mest mulig glæde og nytte af din nye grill, er det vigtigt, at du læser betjeningsvejledningen grundigt, inden grillen installeres og tages i brug. Fejl eller forkerte indstillinger kan forårsage farlige forhold.
-
-RTB grillen er CE mærket og er dermed godkendt til montering og brug i Europa.
-
-RTB grillen overholder følgende direktiver: EMC DIRECTIVE 2014 30 EU, LVD DIRECTIVE 2014 35 EU, 2006
-
-42 Maskindirektiv. Wi-fi modulet er godkendt i henhold til CMIIT ID: 2016DP3252. Alle lokale bestemmelser, herunder dem, der henviser til nationale og europæiske standarder, skal overholdes, når grillen installeres.
-
-ADVARSEL OG SIKKERHEDSFORANSTALTNINGER
-
-∙Produktet skal opbevares tørt og må ikke udsættes for fugt / regn.
-
-∙Afbryd strømmen til grillen og vent til den er kold, inden vedligeholdelsesarbejde udføres.
-
-∙Forkert brug eller manglende vedligeholdelse af produktet kan forårsage farlige situationer.
-
-∙Anbring ikke brændbare materialer på ovnen for at tørre. Hold brændbare materialer i sikker afstand til grillen.
-
-∙Sluk for produktet, hvis der opstår fejl eller funktionsfejl.
-
-∙Brug kun træpiller.
-
-∙Produktet skal være forsynet med et elektrisk system, der er udstyret med en effektiv jordforbindelse.
-
-∙I tilfælde af fedt brand, skal du holde grillen lukket, evt afbryde strømmen.
-
-∙Denne grill kan bruges af børn fra 16 år og op. Børn må ikke lege med grillen. Børn uden tilsyn må ikke udføre rengøring og vedligeholdelse.
-
-∙Personer med nedsat fysisk, sensorisk eller mental kapacitet eller manglende erfaring og viden kan bruge grillen, hvis de har fået vejledning eller instruktion om brug af grillen på en sikker måde og forstår de involverede farer.
-
-∙Det er vigtigt at være opmærksom på, at alle lokale forordninger og regler, inklusive dem der henviser til nationale og europæiske standarder, skal overholdes ved installation og brug af grillen.
-
-∙Eventuelle brændbare genstande skal opbevares i sikker afstand fra grillen.
-
-∙Brug kun det brændsel, der anbefales af NBE. Det er forbudt at anvende flydende brændstoffer og bioethanol væsker til optænding af træpiller.
-
-∙Nogle af overfladerne på produktet kan blive meget varme (låge, sider, front, røgrør osv.). Undgå direkte kontakt med disse dele uden passende beskyttelsestøj eller egnede redskaber, såsom handsker med termisk beskyttelse.
-
-∙Akkumulerede og uforbrændte piller i brænderen efter "fejlagtig opstart" skal fjernes før optænding igen. Kontroller, at brænderen er ren og placeret korrekt, før du tænder op igen.
-
-NBE afviser ethvert ansvar for skader, direkte eller indirekte, på personer, dyr eller genstande - som følge af manglende overholdelse af bestemmelserne i manualen, især advarsler vedrørende installation, brug og vedligeholdelse af grillen.
-
-Ansvaret for ukorrekt brug af produktet bæres fuldstændigt af brugeren og fratager producenten ethvert civilretligt og strafferetligt ansvar. Ændring af produktet eller uautoriseret udskiftning af reservedele kan være farlig for din sikkerhed og fratager NBE ethvert civilretligt og strafferetligt ansvar.
-
-Accept ()
-
-2. Vilkår og betingelser ved oprettelse af cloud forbindelse
-
-Ved at bruge vores cloud giver du dit samtykke til indsamling og brug af dine data til begrænsede formål på de betingelser, der er fastsat i denne erklæring. Med denne accept er du i stand til at få adgang til RTB grillen uanset hvor du er, samt fjernstyring af grillen. Den eneste betingelse er, at du har et tilstrækkeligt stabilt og stærkt wi-fi-signal / adgang til internettet.
-
-Hvis du ikke ønsker at være forbundet til vores cloud, skal du ikke klikke på "Jeg accepterer". Hvis du ikke accepterer vores betingelser og vilkår vedrørende clouden, vil du kun kunne betjene din RTB grill, når du er i nærheden.
-
-Fortrolighedspolitik
-
-De indsamlede oplysninger giver NBE mulighed for at holde dig orienteret om de nyeste softwareopdateringer til grillen og appen. Vi bruger ligeledes de tilgængelige oplysninger om grillene til at udvikle, administrere og forbedre vores produkter og tjenester.
-
-Offentliggørelse af oplysninger til tredjepart:
-
-Vores cloud løsning er udviklet af NBE Production A/S. NBE Production A/S videregiver ikke dine personlige data eller grillens driftsdata til tredjepart. Når du bruger RTB Cloud, accepterer du følgende betingelser:
-
-1.Brug af RTB Cloud er på eget ansvar. Clouden gør det muligt at justere parametre, der påvirker grillens indstillinger. Derfor skal du altid være i samme rum som grillen, når du ændrer i ovnens indstillinger.
-
-2.NBE Production A/S understreger, at alarmafbrydelse ikke må udføres, medmindre du er helt klar over årsagen til alarmen og efterfølgende har mulighed for fysisk overvågning af grillen.
-
-3.NBE Production A/S kan ikke holdes ansvarlige for eventuelle følgevirkninger af forkert indstillede værdier, som både tilsigtet og utilsigtet er mulige, på grund af fejl og andre problemer i cloud softwaren.
-
-4.Hvis du er i tvivl om opsætning via cloud-systemet, skal du søge kvalificeret support hos NBE.
-
-5.Cloud tjenesten kan nogle gange have forbindelsesproblemer, men disse vil blive rettet hurtigst muligt. NBE Production A/S kan ikke holdes ansvarlige for tab på grund af manglende forbindelse.
-
-6.Enhver form for hacking, herunder simpel hentning af andre brugeres adgangskoder, vil resultere i politianmeldelse og permanent udelukkelse fra tjenesten.
-
-Tilladelse
-
-Jeg giver hermed NBE tilladelse til at indsamle og anvende forbrændingsdata mv. for at forbedre brug, service og kvalitet. NBE må kontakte mig med både tekniske services og markedsføringsanliggender.
-
-I accept ()</string>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MW-dm-O2q">
+                                                <rect key="frame" x="8" y="5" width="359" height="942"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" none="YES"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
-                                                <string key="userLabel">1.Vilkår ved opstart af RTB Grill appen  For at få mest mulig glæde og nytte af din nye grill, er det vigtigt, at du læser betjeningsvejledningen grundigt, inden grillen installeres og tages i brug. Fejl eller forkerte indstillinger kan forårsage farlige forhold.  RTB grillen er CE mærket og er dermed godkendt til montering og brug i Europa.  RTB grillen overholder følgende direktiver: EMC DIRECTIVE 2014 30 EU, LVD DIRECTIVE 2014 35 EU, 2006  42 Maskindirektiv. Wi-fi modulet er godkendt i henhold til CMIIT ID: 2016DP3252. Alle lokale bestemmelser, herunder dem, der henviser til nationale og europæiske standarder, skal overholdes, når grillen installeres.  ADVARSEL OG SIKKERHEDSFORANSTALTNINGER  ∙Produktet skal opbevares tørt og må ikke udsættes for fugt / regn.  ∙Afbryd strømmen til grillen og vent til den er kold, inden vedligeholdelsesarbejde udføres.  ∙Forkert brug eller manglende vedligeholdelse af produktet kan forårsage farlige situationer.  ∙Anbring ikke brændbare materialer på ovnen for at tørre. Hold brændbare materialer i sikker afstand til grillen.  ∙Sluk for produktet, hvis der opstår fejl eller funktionsfejl.  ∙Brug kun træpiller.  ∙Produktet skal være forsynet med et elektrisk system, der er udstyret med en effektiv jordforbindelse.  ∙I tilfælde af fedt brand, skal du holde grillen lukket, evt afbryde strømmen.  ∙Denne grill kan bruges af børn fra 16 år og op. Børn må ikke lege med grillen. Børn uden tilsyn må ikke udføre rengøring og vedligeholdelse.  ∙Personer med nedsat fysisk, sensorisk eller mental kapacitet eller manglende erfaring og viden kan bruge grillen, hvis de har fået vejledning eller instruktion om brug af grillen på en sikker måde og forstår de involverede farer.  ∙Det er vigtigt at være opmærksom på, at alle lokale forordninger og regler, inklusive dem der henviser til nationale og europæiske standarder, skal overholdes ved installation og brug af grillen.  ∙Eventuelle brændbare genstande skal opbevares i sikker afstand fra grillen.  ∙Brug kun det brændsel, der anbefales af NBE. Det er forbudt at anvende flydende brændstoffer og bioethanol væsker til optænding af træpiller.  ∙Nogle af overfladerne på produktet kan blive meget varme (låge, sider, front, røgrør osv.). Undgå direkte kontakt med disse dele uden passende beskyttelsestøj eller egnede redskaber, såsom handsker med termisk beskyttelse.  ∙Akkumulerede og uforbrændte piller i brænderen efter "fejlagtig opstart" skal fjernes før optænding igen. Kontroller, at brænderen er ren og placeret korrekt, før du tænder op igen.  NBE afviser ethvert ansvar for skader, direkte eller indirekte, på personer, dyr eller genstande - som følge af manglende overholdelse af bestemmelserne i manualen, især advarsler vedrørende installation, brug og vedligeholdelse af grillen.  Ansvaret for ukorrekt brug af produktet bæres fuldstændigt af brugeren og fratager producenten ethvert civilretligt og strafferetligt ansvar. Ændring af produktet eller uautoriseret udskiftning af reservedele kan være farlig for din sikkerhed og fratager NBE ethvert civilretligt og strafferetligt ansvar.  Accept ()  2. Vilkår og betingelser ved oprettelse af cloud forbindelse  Ved at bruge vores cloud giver du dit samtykke til indsamling og brug af dine data til begrænsede formål på de betingelser, der er fastsat i denne erklæring. Med denne accept er du i stand til at få adgang til RTB grillen uanset hvor du er, samt fjernstyring af grillen. Den eneste betingelse er, at du har et tilstrækkeligt stabilt og stærkt wi-fi-signal / adgang til internettet.  Hvis du ikke ønsker at være forbundet til vores cloud, skal du ikke klikke på "Jeg accepterer". Hvis du ikke accepterer vores betingelser og vilkår vedrørende clouden, vil du kun kunne betjene din RTB grill, når du er i nærheden.  Fortrolighedspolitik  De indsamlede oplysninger giver NBE mulighed for at holde dig orienteret om de nyeste softwareopdateringer til grillen og appen. Vi bruger ligeledes de tilgængelige oplysninger om grillene til at udvikle, administrere og forbedre vores produkter og tjenester.  Offentliggørelse af oplysninger til tredjepart:  Vores cloud løsning er udviklet af NBE Production A/S. NBE Production A/S videregiver ikke dine personlige data eller grillens driftsdata til tredjepart. Når du bruger RTB Cloud, accepterer du følgende betingelser:  1.Brug af RTB Cloud er på eget ansvar. Clouden gør det muligt at justere parametre, der påvirker grillens indstillinger. Derfor skal du altid være i samme rum som grillen, når du ændrer i ovnens indstillinger.  2.NBE Production A/S understreger, at alarmafbrydelse ikke må udføres, medmindre du er helt klar over årsagen til alarmen og efterfølgende har mulighed for fysisk overvågning af grillen.  3.NBE Production A/S kan ikke holdes ansvarlige for eventuelle følgevirkninger af forkert indstillede værdier, som både tilsigtet og utilsigtet er mulige, på grund af fejl og andre problemer i cloud softwaren.  4.Hvis du er i tvivl om opsætning via cloud-systemet, skal du søge kvalificeret support hos NBE.  5.Cloud tjenesten kan nogle gange have forbindelsesproblemer, men disse vil blive rettet hurtigst muligt. NBE Production A/S kan ikke holdes ansvarlige for tab på grund af manglende forbindelse.  6.Enhver form for hacking, herunder simpel hentning af andre brugeres adgangskoder, vil resultere i politianmeldelse og permanent udelukkelse fra tjenesten.  Tilladelse  Jeg giver hermed NBE tilladelse til at indsamle og anvende forbrændingsdata mv. for at forbedre brug, service og kvalitet. NBE må kontakte mig med både tekniske services og markedsføringsanliggender.  I accept ()</string>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMq-eb-c7e" userLabel="Decline">
-                                                <rect key="frame" x="8" y="2051" width="178" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMq-eb-c7e" userLabel="Decline" customClass="RoundButton" customModule="Aduro" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="969" width="179" height="30"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="QKC-v0-Hiq"/>
+                                                    <constraint firstAttribute="width" constant="179" id="F9D-vc-8l7"/>
+                                                    <constraint firstAttribute="height" constant="30" id="Lhn-z6-b9r"/>
                                                 </constraints>
                                                 <state key="normal" title="DECLINE">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="decline:" destination="40h-Gk-a25" eventType="touchUpInside" id="FDb-0h-6Ir"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wx-Ql-m83" userLabel="Accept">
-                                                <rect key="frame" x="189" y="2051" width="178" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wx-Ql-m83" userLabel="Accept" customClass="RoundButton" customModule="Aduro" customModuleProvider="target">
+                                                <rect key="frame" x="188" y="969" width="179" height="30"/>
                                                 <color key="backgroundColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="H2R-Gc-5RV"/>
+                                                    <constraint firstAttribute="height" constant="30" id="KGf-lP-Fvx"/>
+                                                    <constraint firstAttribute="width" constant="179" id="NW9-1W-yVB"/>
                                                 </constraints>
                                                 <state key="normal" title="ACCEPT">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="accept:" destination="40h-Gk-a25" eventType="touchUpInside" id="Aum-zw-XtW"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="9Wx-Ql-m83" firstAttribute="leading" secondItem="IMq-eb-c7e" secondAttribute="trailing" constant="3" id="1fO-Kn-dxV"/>
-                                            <constraint firstItem="9Wx-Ql-m83" firstAttribute="leading" secondItem="IMq-eb-c7e" secondAttribute="trailing" constant="3" id="78h-Z6-O3D"/>
-                                            <constraint firstItem="IMq-eb-c7e" firstAttribute="width" secondItem="9Wx-Ql-m83" secondAttribute="width" id="8Uc-Cc-Pm6"/>
-                                            <constraint firstAttribute="trailing" secondItem="9Wx-Ql-m83" secondAttribute="trailing" constant="8" id="AeB-Sz-UmX"/>
-                                            <constraint firstItem="0MW-dm-O2q" firstAttribute="top" secondItem="aY4-5Z-o5L" secondAttribute="top" constant="8" id="aHb-Ft-Foz"/>
-                                            <constraint firstItem="IMq-eb-c7e" firstAttribute="top" secondItem="0MW-dm-O2q" secondAttribute="bottom" constant="8" id="cyg-j5-4k0"/>
-                                            <constraint firstAttribute="bottom" secondItem="0MW-dm-O2q" secondAttribute="bottom" constant="84" id="doE-aN-cJm"/>
-                                            <constraint firstAttribute="trailing" secondItem="0MW-dm-O2q" secondAttribute="trailing" constant="8" id="kSE-AU-2wn"/>
-                                            <constraint firstItem="IMq-eb-c7e" firstAttribute="leading" secondItem="aY4-5Z-o5L" secondAttribute="leading" constant="8" id="kaH-6c-v2G"/>
-                                            <constraint firstItem="9Wx-Ql-m83" firstAttribute="top" secondItem="0MW-dm-O2q" secondAttribute="bottom" constant="8" id="tbw-Wh-6kb"/>
-                                            <constraint firstItem="0MW-dm-O2q" firstAttribute="leading" secondItem="aY4-5Z-o5L" secondAttribute="leading" constant="8" id="zpp-10-isz"/>
+                                            <constraint firstAttribute="bottom" secondItem="IMq-eb-c7e" secondAttribute="bottom" constant="6" id="7kr-Iy-smH"/>
+                                            <constraint firstItem="IMq-eb-c7e" firstAttribute="leading" secondItem="aY4-5Z-o5L" secondAttribute="leading" constant="8" id="7xI-Sg-bh1"/>
+                                            <constraint firstAttribute="trailing" secondItem="9Wx-Ql-m83" secondAttribute="trailing" constant="8" id="HMF-0p-vCG"/>
+                                            <constraint firstAttribute="trailing" secondItem="0MW-dm-O2q" secondAttribute="trailing" constant="8" id="ML6-ZT-nrt"/>
+                                            <constraint firstAttribute="bottom" secondItem="9Wx-Ql-m83" secondAttribute="bottom" constant="6" id="Pw5-eh-o1u"/>
+                                            <constraint firstItem="IMq-eb-c7e" firstAttribute="top" secondItem="aY4-5Z-o5L" secondAttribute="top" constant="969" id="Wgm-cB-W4e"/>
+                                            <constraint firstItem="9Wx-Ql-m83" firstAttribute="leading" secondItem="IMq-eb-c7e" secondAttribute="trailing" constant="1" id="cpH-Fb-1XM"/>
+                                            <constraint firstItem="IMq-eb-c7e" firstAttribute="leading" secondItem="0MW-dm-O2q" secondAttribute="leading" id="dse-55-LVm"/>
+                                            <constraint firstItem="9Wx-Ql-m83" firstAttribute="leading" secondItem="IMq-eb-c7e" secondAttribute="trailing" constant="1" id="gWR-n6-u3x"/>
+                                            <constraint firstAttribute="bottom" secondItem="0MW-dm-O2q" secondAttribute="bottom" constant="58" id="gdh-4h-hEl"/>
+                                            <constraint firstItem="0MW-dm-O2q" firstAttribute="top" secondItem="aY4-5Z-o5L" secondAttribute="top" constant="5" id="mSY-Vy-GAP"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="aY4-5Z-o5L" secondAttribute="trailing" id="JGL-fc-Ivp"/>
-                                    <constraint firstItem="aY4-5Z-o5L" firstAttribute="leading" secondItem="jfS-ZN-Uxg" secondAttribute="leading" id="PfJ-3y-pxb"/>
-                                    <constraint firstItem="SjG-lx-lD1" firstAttribute="leading" secondItem="jfS-ZN-Uxg" secondAttribute="leading" id="aad-ZA-7JE"/>
-                                    <constraint firstAttribute="bottom" secondItem="aY4-5Z-o5L" secondAttribute="bottom" id="ikW-gD-Jwx"/>
-                                    <constraint firstAttribute="trailing" secondItem="SjG-lx-lD1" secondAttribute="trailing" id="oIj-Er-YOb"/>
-                                    <constraint firstItem="aY4-5Z-o5L" firstAttribute="top" secondItem="SjG-lx-lD1" secondAttribute="bottom" id="p0R-jt-IBm"/>
-                                    <constraint firstItem="SjG-lx-lD1" firstAttribute="top" secondItem="jfS-ZN-Uxg" secondAttribute="top" constant="44" id="vMa-gf-ckf"/>
+                                    <constraint firstItem="Pmv-Jd-ofD" firstAttribute="leading" secondItem="jfS-ZN-Uxg" secondAttribute="leading" constant="8" id="0Kf-FW-Qff"/>
+                                    <constraint firstAttribute="trailing" secondItem="aY4-5Z-o5L" secondAttribute="trailing" id="5uV-cg-zIf"/>
+                                    <constraint firstItem="aY4-5Z-o5L" firstAttribute="leading" secondItem="jfS-ZN-Uxg" secondAttribute="leading" id="J8B-oc-QEX"/>
+                                    <constraint firstItem="SjG-lx-lD1" firstAttribute="leading" secondItem="jfS-ZN-Uxg" secondAttribute="leading" id="Stf-aK-Qor"/>
+                                    <constraint firstAttribute="trailing" secondItem="SjG-lx-lD1" secondAttribute="trailing" id="cRY-JW-k8Y"/>
+                                    <constraint firstItem="aY4-5Z-o5L" firstAttribute="top" secondItem="SjG-lx-lD1" secondAttribute="bottom" id="hiC-QM-1ZT"/>
+                                    <constraint firstItem="SjG-lx-lD1" firstAttribute="top" secondItem="jfS-ZN-Uxg" secondAttribute="top" constant="44" id="o2u-yh-j1U"/>
+                                    <constraint firstItem="Pmv-Jd-ofD" firstAttribute="top" secondItem="jfS-ZN-Uxg" secondAttribute="top" constant="8" id="oqB-eQ-jz8"/>
+                                    <constraint firstAttribute="bottom" secondItem="aY4-5Z-o5L" secondAttribute="bottom" constant="6" id="r9q-Qi-r7S"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.08235294118" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jfS-ZN-Uxg" firstAttribute="bottom" secondItem="ORb-GA-6Yl" secondAttribute="bottom" id="Nr3-LY-uWb"/>
-                            <constraint firstItem="jfS-ZN-Uxg" firstAttribute="leading" secondItem="ORb-GA-6Yl" secondAttribute="leading" id="fEz-gS-HQd"/>
-                            <constraint firstItem="jfS-ZN-Uxg" firstAttribute="top" secondItem="ORb-GA-6Yl" secondAttribute="top" id="fgM-th-pfo"/>
-                            <constraint firstItem="jfS-ZN-Uxg" firstAttribute="trailing" secondItem="ORb-GA-6Yl" secondAttribute="trailing" id="kXW-67-LeY"/>
+                            <constraint firstAttribute="bottom" secondItem="jfS-ZN-Uxg" secondAttribute="bottom" id="QIJ-8l-Ine"/>
+                            <constraint firstItem="jfS-ZN-Uxg" firstAttribute="trailing" secondItem="ORb-GA-6Yl" secondAttribute="trailing" id="g8o-UX-Fmg"/>
+                            <constraint firstItem="jfS-ZN-Uxg" firstAttribute="leading" secondItem="ORb-GA-6Yl" secondAttribute="leading" id="pVd-Y3-Kmf"/>
+                            <constraint firstItem="jfS-ZN-Uxg" firstAttribute="top" secondItem="ORb-GA-6Yl" secondAttribute="top" id="qp9-UQ-pDw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ORb-GA-6Yl"/>
                     </view>
-                    <size key="freeformSize" width="375" height="2150"/>
+                    <size key="freeformSize" width="375" height="1100"/>
+                    <connections>
+                        <outlet property="acceptbtn" destination="9Wx-Ql-m83" id="2IH-fm-4Mx"/>
+                        <outlet property="declinebtn" destination="IMq-eb-c7e" id="gFZ-eX-yJF"/>
+                        <outlet property="textAgreement" destination="0MW-dm-O2q" id="uBM-we-GjA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0n-4Y-6D4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1483" y="448"/>
+            <point key="canvasLocation" x="-1483.3333333333335" y="447.99107142857139"/>
         </scene>
         <!--Agreement2 View Controller-->
         <scene sceneID="DXK-HC-EWZ">
             <objects>
                 <viewController storyboardIdentifier="Agreement2ViewController" id="QKI-8M-d5l" customClass="Agreement2ViewController" customModule="Aduro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fLy-xu-e8o">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="2150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixN-pZ-GJO" userLabel="main">
-                                <rect key="frame" x="0.0" y="44" width="375" height="2072"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="956"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aduro_logo_no_stick" translatesAutoresizingMaskIntoConstraints="NO" id="Tqc-8j-xsP">
+                                        <rect key="frame" x="8" y="15" width="146" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="dDv-gw-rhZ"/>
+                                        </constraints>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LuE-AP-jxm">
                                         <rect key="frame" x="0.0" y="44" width="375" height="1"/>
                                         <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="nYU-9H-E6l"/>
+                                            <constraint firstAttribute="height" constant="1" id="Wb3-sd-z4k"/>
                                         </constraints>
                                     </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-zP-2jy">
-                                        <rect key="frame" x="0.0" y="45" width="375" height="2027"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-zP-2jy" userLabel="ScrollView">
+                                        <rect key="frame" x="0.0" y="45" width="375" height="905"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iut-zb-Ivg">
-                                                <rect key="frame" x="8" y="8" width="359" height="2035"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="359" id="WZV-fS-4rL"/>
-                                                    <constraint firstAttribute="height" constant="2035" id="aGp-Ny-hSv"/>
-                                                </constraints>
-                                                <string key="text"> 1.Vilkår ved opstart af RTB Grill appen
-
-For at få mest mulig glæde og nytte af din nye grill, er det vigtigt, at du læser betjeningsvejledningen grundigt, inden grillen installeres og tages i brug. Fejl eller forkerte indstillinger kan forårsage farlige forhold.
-
-RTB grillen er CE mærket og er dermed godkendt til montering og brug i Europa.
-
-RTB grillen overholder følgende direktiver: EMC DIRECTIVE 2014 30 EU, LVD DIRECTIVE 2014 35 EU, 2006
-
-42 Maskindirektiv. Wi-fi modulet er godkendt i henhold til CMIIT ID: 2016DP3252. Alle lokale bestemmelser, herunder dem, der henviser til nationale og europæiske standarder, skal overholdes, når grillen installeres.
-
-ADVARSEL OG SIKKERHEDSFORANSTALTNINGER
-
-∙Produktet skal opbevares tørt og må ikke udsættes for fugt / regn.
-
-∙Afbryd strømmen til grillen og vent til den er kold, inden vedligeholdelsesarbejde udføres.
-
-∙Forkert brug eller manglende vedligeholdelse af produktet kan forårsage farlige situationer.
-
-∙Anbring ikke brændbare materialer på ovnen for at tørre. Hold brændbare materialer i sikker afstand til grillen.
-
-∙Sluk for produktet, hvis der opstår fejl eller funktionsfejl.
-
-∙Brug kun træpiller.
-
-∙Produktet skal være forsynet med et elektrisk system, der er udstyret med en effektiv jordforbindelse.
-
-∙I tilfælde af fedt brand, skal du holde grillen lukket, evt afbryde strømmen.
-
-∙Denne grill kan bruges af børn fra 16 år og op. Børn må ikke lege med grillen. Børn uden tilsyn må ikke udføre rengøring og vedligeholdelse.
-
-∙Personer med nedsat fysisk, sensorisk eller mental kapacitet eller manglende erfaring og viden kan bruge grillen, hvis de har fået vejledning eller instruktion om brug af grillen på en sikker måde og forstår de involverede farer.
-
-∙Det er vigtigt at være opmærksom på, at alle lokale forordninger og regler, inklusive dem der henviser til nationale og europæiske standarder, skal overholdes ved installation og brug af grillen.
-
-∙Eventuelle brændbare genstande skal opbevares i sikker afstand fra grillen.
-
-∙Brug kun det brændsel, der anbefales af NBE. Det er forbudt at anvende flydende brændstoffer og bioethanol væsker til optænding af træpiller.
-
-∙Nogle af overfladerne på produktet kan blive meget varme (låge, sider, front, røgrør osv.). Undgå direkte kontakt med disse dele uden passende beskyttelsestøj eller egnede redskaber, såsom handsker med termisk beskyttelse.
-
-∙Akkumulerede og uforbrændte piller i brænderen efter "fejlagtig opstart" skal fjernes før optænding igen. Kontroller, at brænderen er ren og placeret korrekt, før du tænder op igen.
-
-NBE afviser ethvert ansvar for skader, direkte eller indirekte, på personer, dyr eller genstande - som følge af manglende overholdelse af bestemmelserne i manualen, især advarsler vedrørende installation, brug og vedligeholdelse af grillen.
-
-Ansvaret for ukorrekt brug af produktet bæres fuldstændigt af brugeren og fratager producenten ethvert civilretligt og strafferetligt ansvar. Ændring af produktet eller uautoriseret udskiftning af reservedele kan være farlig for din sikkerhed og fratager NBE ethvert civilretligt og strafferetligt ansvar.
-
-Accept ()
-
-2. Vilkår og betingelser ved oprettelse af cloud forbindelse
-
-Ved at bruge vores cloud giver du dit samtykke til indsamling og brug af dine data til begrænsede formål på de betingelser, der er fastsat i denne erklæring. Med denne accept er du i stand til at få adgang til RTB grillen uanset hvor du er, samt fjernstyring af grillen. Den eneste betingelse er, at du har et tilstrækkeligt stabilt og stærkt wi-fi-signal / adgang til internettet.
-
-Hvis du ikke ønsker at være forbundet til vores cloud, skal du ikke klikke på "Jeg accepterer". Hvis du ikke accepterer vores betingelser og vilkår vedrørende clouden, vil du kun kunne betjene din RTB grill, når du er i nærheden.
-
-Fortrolighedspolitik
-
-De indsamlede oplysninger giver NBE mulighed for at holde dig orienteret om de nyeste softwareopdateringer til grillen og appen. Vi bruger ligeledes de tilgængelige oplysninger om grillene til at udvikle, administrere og forbedre vores produkter og tjenester.
-
-Offentliggørelse af oplysninger til tredjepart:
-
-Vores cloud løsning er udviklet af NBE Production A/S. NBE Production A/S videregiver ikke dine personlige data eller grillens driftsdata til tredjepart. Når du bruger RTB Cloud, accepterer du følgende betingelser:
-
-1.Brug af RTB Cloud er på eget ansvar. Clouden gør det muligt at justere parametre, der påvirker grillens indstillinger. Derfor skal du altid være i samme rum som grillen, når du ændrer i ovnens indstillinger.
-
-2.NBE Production A/S understreger, at alarmafbrydelse ikke må udføres, medmindre du er helt klar over årsagen til alarmen og efterfølgende har mulighed for fysisk overvågning af grillen.
-
-3.NBE Production A/S kan ikke holdes ansvarlige for eventuelle følgevirkninger af forkert indstillede værdier, som både tilsigtet og utilsigtet er mulige, på grund af fejl og andre problemer i cloud softwaren.
-
-4.Hvis du er i tvivl om opsætning via cloud-systemet, skal du søge kvalificeret support hos NBE.
-
-5.Cloud tjenesten kan nogle gange have forbindelsesproblemer, men disse vil blive rettet hurtigst muligt. NBE Production A/S kan ikke holdes ansvarlige for tab på grund af manglende forbindelse.
-
-6.Enhver form for hacking, herunder simpel hentning af andre brugeres adgangskoder, vil resultere i politianmeldelse og permanent udelukkelse fra tjenesten.
-
-Tilladelse
-
-Jeg giver hermed NBE tilladelse til at indsamle og anvende forbrændingsdata mv. for at forbedre brug, service og kvalitet. NBE må kontakte mig med både tekniske services og markedsføringsanliggender.
-
-I accept ()</string>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                                <string key="userLabel">1.Vilkår ved opstart af RTB Grill appen  For at få mest mulig glæde og nytte af din nye grill, er det vigtigt, at du læser betjeningsvejledningen grundigt, inden grillen installeres og tages i brug. Fejl eller forkerte indstillinger kan forårsage farlige forhold.  RTB grillen er CE mærket og er dermed godkendt til montering og brug i Europa.  RTB grillen overholder følgende direktiver: EMC DIRECTIVE 2014 30 EU, LVD DIRECTIVE 2014 35 EU, 2006  42 Maskindirektiv. Wi-fi modulet er godkendt i henhold til CMIIT ID: 2016DP3252. Alle lokale bestemmelser, herunder dem, der henviser til nationale og europæiske standarder, skal overholdes, når grillen installeres.  ADVARSEL OG SIKKERHEDSFORANSTALTNINGER  ∙Produktet skal opbevares tørt og må ikke udsættes for fugt / regn.  ∙Afbryd strømmen til grillen og vent til den er kold, inden vedligeholdelsesarbejde udføres.  ∙Forkert brug eller manglende vedligeholdelse af produktet kan forårsage farlige situationer.  ∙Anbring ikke brændbare materialer på ovnen for at tørre. Hold brændbare materialer i sikker afstand til grillen.  ∙Sluk for produktet, hvis der opstår fejl eller funktionsfejl.  ∙Brug kun træpiller.  ∙Produktet skal være forsynet med et elektrisk system, der er udstyret med en effektiv jordforbindelse.  ∙I tilfælde af fedt brand, skal du holde grillen lukket, evt afbryde strømmen.  ∙Denne grill kan bruges af børn fra 16 år og op. Børn må ikke lege med grillen. Børn uden tilsyn må ikke udføre rengøring og vedligeholdelse.  ∙Personer med nedsat fysisk, sensorisk eller mental kapacitet eller manglende erfaring og viden kan bruge grillen, hvis de har fået vejledning eller instruktion om brug af grillen på en sikker måde og forstår de involverede farer.  ∙Det er vigtigt at være opmærksom på, at alle lokale forordninger og regler, inklusive dem der henviser til nationale og europæiske standarder, skal overholdes ved installation og brug af grillen.  ∙Eventuelle brændbare genstande skal opbevares i sikker afstand fra grillen.  ∙Brug kun det brændsel, der anbefales af NBE. Det er forbudt at anvende flydende brændstoffer og bioethanol væsker til optænding af træpiller.  ∙Nogle af overfladerne på produktet kan blive meget varme (låge, sider, front, røgrør osv.). Undgå direkte kontakt med disse dele uden passende beskyttelsestøj eller egnede redskaber, såsom handsker med termisk beskyttelse.  ∙Akkumulerede og uforbrændte piller i brænderen efter "fejlagtig opstart" skal fjernes før optænding igen. Kontroller, at brænderen er ren og placeret korrekt, før du tænder op igen.  NBE afviser ethvert ansvar for skader, direkte eller indirekte, på personer, dyr eller genstande - som følge af manglende overholdelse af bestemmelserne i manualen, især advarsler vedrørende installation, brug og vedligeholdelse af grillen.  Ansvaret for ukorrekt brug af produktet bæres fuldstændigt af brugeren og fratager producenten ethvert civilretligt og strafferetligt ansvar. Ændring af produktet eller uautoriseret udskiftning af reservedele kan være farlig for din sikkerhed og fratager NBE ethvert civilretligt og strafferetligt ansvar.  Accept ()  2. Vilkår og betingelser ved oprettelse af cloud forbindelse  Ved at bruge vores cloud giver du dit samtykke til indsamling og brug af dine data til begrænsede formål på de betingelser, der er fastsat i denne erklæring. Med denne accept er du i stand til at få adgang til RTB grillen uanset hvor du er, samt fjernstyring af grillen. Den eneste betingelse er, at du har et tilstrækkeligt stabilt og stærkt wi-fi-signal / adgang til internettet.  Hvis du ikke ønsker at være forbundet til vores cloud, skal du ikke klikke på "Jeg accepterer". Hvis du ikke accepterer vores betingelser og vilkår vedrørende clouden, vil du kun kunne betjene din RTB grill, når du er i nærheden.  Fortrolighedspolitik  De indsamlede oplysninger giver NBE mulighed for at holde dig orienteret om de nyeste softwareopdateringer til grillen og appen. Vi bruger ligeledes de tilgængelige oplysninger om grillene til at udvikle, administrere og forbedre vores produkter og tjenester.  Offentliggørelse af oplysninger til tredjepart:  Vores cloud løsning er udviklet af NBE Production A/S. NBE Production A/S videregiver ikke dine personlige data eller grillens driftsdata til tredjepart. Når du bruger RTB Cloud, accepterer du følgende betingelser:  1.Brug af RTB Cloud er på eget ansvar. Clouden gør det muligt at justere parametre, der påvirker grillens indstillinger. Derfor skal du altid være i samme rum som grillen, når du ændrer i ovnens indstillinger.  2.NBE Production A/S understreger, at alarmafbrydelse ikke må udføres, medmindre du er helt klar over årsagen til alarmen og efterfølgende har mulighed for fysisk overvågning af grillen.  3.NBE Production A/S kan ikke holdes ansvarlige for eventuelle følgevirkninger af forkert indstillede værdier, som både tilsigtet og utilsigtet er mulige, på grund af fejl og andre problemer i cloud softwaren.  4.Hvis du er i tvivl om opsætning via cloud-systemet, skal du søge kvalificeret support hos NBE.  5.Cloud tjenesten kan nogle gange have forbindelsesproblemer, men disse vil blive rettet hurtigst muligt. NBE Production A/S kan ikke holdes ansvarlige for tab på grund af manglende forbindelse.  6.Enhver form for hacking, herunder simpel hentning af andre brugeres adgangskoder, vil resultere i politianmeldelse og permanent udelukkelse fra tjenesten.  Tilladelse  Jeg giver hermed NBE tilladelse til at indsamle og anvende forbrændingsdata mv. for at forbedre brug, service og kvalitet. NBE må kontakte mig med både tekniske services og markedsføringsanliggender.  I accept ()</string>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoB-Si-ze9" userLabel="Decline">
-                                                <rect key="frame" x="8" y="2051" width="178" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoB-Si-ze9" userLabel="Decline" customClass="RoundButton" customModule="Aduro" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="871" width="179" height="30"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="B4F-gE-G0g"/>
+                                                    <constraint firstAttribute="width" constant="179" id="DEL-sW-TmF"/>
+                                                    <constraint firstAttribute="height" constant="30" id="bso-0d-Hfp"/>
                                                 </constraints>
                                                 <state key="normal" title="DECLINE">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="decline:" destination="QKI-8M-d5l" eventType="touchUpInside" id="KMx-Ho-kos"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnO-y5-yMj" userLabel="Accept">
-                                                <rect key="frame" x="189" y="2051" width="178" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnO-y5-yMj" userLabel="Accept" customClass="RoundButton" customModule="Aduro" customModuleProvider="target">
+                                                <rect key="frame" x="188" y="871" width="179" height="30"/>
                                                 <color key="backgroundColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="EkI-zx-QRF"/>
+                                                    <constraint firstAttribute="height" constant="30" id="Vq6-EQ-pLA"/>
+                                                    <constraint firstAttribute="width" constant="179" id="fSM-nj-y8l"/>
                                                 </constraints>
                                                 <state key="normal" title="ACCEPT">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="accept:" destination="QKI-8M-d5l" eventType="touchUpInside" id="4HU-rD-JB7"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="1000" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iut-zb-Ivg" userLabel="text">
+                                                <rect key="frame" x="8" y="8" width="359" height="855"/>
+                                                <string key="text">dasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdaddasdasdasdasdasdasdasdasdasdasdasdasdad</string>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="iut-zb-Ivg" secondAttribute="trailing" constant="8" id="18K-np-kf7"/>
-                                            <constraint firstItem="iut-zb-Ivg" firstAttribute="top" secondItem="ckv-zP-2jy" secondAttribute="top" constant="8" id="5eh-9X-Thv"/>
-                                            <constraint firstAttribute="bottom" secondItem="iut-zb-Ivg" secondAttribute="bottom" constant="84" id="6bS-oE-pi5"/>
-                                            <constraint firstItem="hnO-y5-yMj" firstAttribute="top" secondItem="iut-zb-Ivg" secondAttribute="bottom" constant="8" id="FvZ-DV-y5s"/>
-                                            <constraint firstItem="PoB-Si-ze9" firstAttribute="width" secondItem="hnO-y5-yMj" secondAttribute="width" id="Ix9-hm-qCE"/>
-                                            <constraint firstItem="iut-zb-Ivg" firstAttribute="leading" secondItem="ckv-zP-2jy" secondAttribute="leading" constant="8" id="P7I-V1-HnO"/>
-                                            <constraint firstItem="hnO-y5-yMj" firstAttribute="leading" secondItem="PoB-Si-ze9" secondAttribute="trailing" constant="3" id="ait-dd-rBz"/>
-                                            <constraint firstItem="hnO-y5-yMj" firstAttribute="leading" secondItem="PoB-Si-ze9" secondAttribute="trailing" constant="3" id="hoJ-m7-S3A"/>
-                                            <constraint firstItem="PoB-Si-ze9" firstAttribute="top" secondItem="iut-zb-Ivg" secondAttribute="bottom" constant="8" id="mRY-YO-FPj"/>
-                                            <constraint firstItem="PoB-Si-ze9" firstAttribute="leading" secondItem="ckv-zP-2jy" secondAttribute="leading" constant="8" id="nko-r3-MiP"/>
-                                            <constraint firstAttribute="trailing" secondItem="hnO-y5-yMj" secondAttribute="trailing" constant="8" id="tLZ-Yl-rgi"/>
+                                            <constraint firstItem="PoB-Si-ze9" firstAttribute="top" secondItem="iut-zb-Ivg" secondAttribute="bottom" constant="8" symbolic="YES" id="6jF-WG-1pM"/>
+                                            <constraint firstAttribute="bottom" secondItem="iut-zb-Ivg" secondAttribute="bottom" constant="42" id="Ixe-94-kJg"/>
+                                            <constraint firstItem="PoB-Si-ze9" firstAttribute="top" secondItem="ckv-zP-2jy" secondAttribute="top" constant="871" id="LEr-08-iRC"/>
+                                            <constraint firstItem="PoB-Si-ze9" firstAttribute="leading" secondItem="iut-zb-Ivg" secondAttribute="leading" id="U6l-vk-HrP"/>
+                                            <constraint firstItem="PoB-Si-ze9" firstAttribute="leading" secondItem="ckv-zP-2jy" secondAttribute="leading" constant="8" id="XIG-wI-Oa8"/>
+                                            <constraint firstItem="hnO-y5-yMj" firstAttribute="trailing" secondItem="iut-zb-Ivg" secondAttribute="trailing" id="Ynk-XW-bkE"/>
+                                            <constraint firstAttribute="bottom" secondItem="PoB-Si-ze9" secondAttribute="bottom" constant="4" id="Z5L-D7-ztk"/>
+                                            <constraint firstItem="hnO-y5-yMj" firstAttribute="leading" secondItem="PoB-Si-ze9" secondAttribute="trailing" constant="1" id="ZDb-A7-kjK"/>
+                                            <constraint firstItem="iut-zb-Ivg" firstAttribute="top" secondItem="ckv-zP-2jy" secondAttribute="top" constant="8" id="eiv-uE-xeX"/>
+                                            <constraint firstItem="iut-zb-Ivg" firstAttribute="leading" secondItem="ckv-zP-2jy" secondAttribute="leading" constant="8" id="gVj-jp-kWW"/>
+                                            <constraint firstAttribute="trailing" secondItem="hnO-y5-yMj" secondAttribute="trailing" constant="8" id="nMG-h8-EWL"/>
+                                            <constraint firstAttribute="bottom" secondItem="hnO-y5-yMj" secondAttribute="bottom" constant="4" id="psw-kC-je6"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ckv-zP-2jy" secondAttribute="trailing" id="CAB-7T-9pj"/>
-                                    <constraint firstItem="LuE-AP-jxm" firstAttribute="top" secondItem="ixN-pZ-GJO" secondAttribute="top" constant="44" id="ERT-of-6Fv"/>
-                                    <constraint firstItem="LuE-AP-jxm" firstAttribute="leading" secondItem="ixN-pZ-GJO" secondAttribute="leading" id="GG2-Kv-akY"/>
-                                    <constraint firstItem="ckv-zP-2jy" firstAttribute="leading" secondItem="ixN-pZ-GJO" secondAttribute="leading" id="K50-un-cqs"/>
-                                    <constraint firstAttribute="bottom" secondItem="ckv-zP-2jy" secondAttribute="bottom" id="LUv-eR-dx1"/>
-                                    <constraint firstAttribute="trailing" secondItem="LuE-AP-jxm" secondAttribute="trailing" id="PAF-yW-oAB"/>
-                                    <constraint firstItem="ckv-zP-2jy" firstAttribute="top" secondItem="LuE-AP-jxm" secondAttribute="bottom" id="l9s-xg-dbk"/>
+                                    <constraint firstAttribute="trailing" secondItem="LuE-AP-jxm" secondAttribute="trailing" id="2Eu-Cr-p0P"/>
+                                    <constraint firstItem="ckv-zP-2jy" firstAttribute="leading" secondItem="ixN-pZ-GJO" secondAttribute="leading" id="7yE-zy-XBN"/>
+                                    <constraint firstItem="Tqc-8j-xsP" firstAttribute="leading" secondItem="ixN-pZ-GJO" secondAttribute="leading" constant="8" id="80o-qn-ANs"/>
+                                    <constraint firstItem="LuE-AP-jxm" firstAttribute="top" secondItem="Tqc-8j-xsP" secondAttribute="bottom" constant="1" id="8IJ-xt-A7T"/>
+                                    <constraint firstItem="Tqc-8j-xsP" firstAttribute="top" secondItem="ixN-pZ-GJO" secondAttribute="top" constant="15" id="Ka8-Kx-owA"/>
+                                    <constraint firstItem="LuE-AP-jxm" firstAttribute="leading" secondItem="ixN-pZ-GJO" secondAttribute="leading" id="aeY-L1-otb"/>
+                                    <constraint firstAttribute="bottom" secondItem="ckv-zP-2jy" secondAttribute="bottom" constant="6" id="iBC-dB-MH6"/>
+                                    <constraint firstItem="ckv-zP-2jy" firstAttribute="top" secondItem="LuE-AP-jxm" secondAttribute="bottom" id="iRv-IV-EQN"/>
+                                    <constraint firstAttribute="trailing" secondItem="ckv-zP-2jy" secondAttribute="trailing" id="lJn-Wo-PaN"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.08235294118" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ixN-pZ-GJO" firstAttribute="trailing" secondItem="RoK-tB-DQQ" secondAttribute="trailing" id="Y44-xl-1kZ"/>
-                            <constraint firstItem="ixN-pZ-GJO" firstAttribute="top" secondItem="RoK-tB-DQQ" secondAttribute="top" id="cwb-FN-opX"/>
-                            <constraint firstItem="ixN-pZ-GJO" firstAttribute="leading" secondItem="RoK-tB-DQQ" secondAttribute="leading" id="k2i-I0-aSB"/>
-                            <constraint firstItem="ixN-pZ-GJO" firstAttribute="bottom" secondItem="RoK-tB-DQQ" secondAttribute="bottom" id="w4r-Qh-yVF"/>
+                            <constraint firstItem="ixN-pZ-GJO" firstAttribute="leading" secondItem="RoK-tB-DQQ" secondAttribute="leading" id="9SH-Kj-mP1"/>
+                            <constraint firstItem="ixN-pZ-GJO" firstAttribute="trailing" secondItem="RoK-tB-DQQ" secondAttribute="trailing" id="DZD-FE-KWa"/>
+                            <constraint firstItem="ixN-pZ-GJO" firstAttribute="top" secondItem="RoK-tB-DQQ" secondAttribute="top" id="bve-Dx-Frr"/>
+                            <constraint firstAttribute="bottom" secondItem="ixN-pZ-GJO" secondAttribute="bottom" id="l4r-mf-GCk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RoK-tB-DQQ"/>
                     </view>
-                    <size key="freeformSize" width="375" height="2150"/>
+                    <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="textAgreement2" destination="iut-zb-Ivg" id="yZn-8y-vc2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EX3-ZX-nlo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-775" y="1106"/>
+            <point key="canvasLocation" x="-776.08695652173924" y="1105.5803571428571"/>
         </scene>
         <!--Setup Wifi Controller View Controller-->
         <scene sceneID="bk5-Xp-Nak">
@@ -1171,10 +1147,23 @@ I accept ()</string>
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5b-Wo-SbT" userLabel="mainview">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="662.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="699.66666666666663"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aduro_logo_no_stick" translatesAutoresizingMaskIntoConstraints="NO" id="YEQ-vX-pMc">
+                                                <rect key="frame" x="8" y="15" width="100" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="fe8-Ad-egc"/>
+                                                </constraints>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eFN-kd-Gri" userLabel="divider">
+                                                <rect key="frame" x="0.0" y="44" width="414" height="1"/>
+                                                <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="j72-wl-wMa"/>
+                                                </constraints>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="j55-jt-omZ">
-                                                <rect key="frame" x="8" y="8" width="398" height="634.66666666666663"/>
+                                                <rect key="frame" x="8" y="45" width="398" height="634.66666666666663"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current network : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26h-Ob-qhN">
                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="20.666666666666668"/>
@@ -1187,7 +1176,7 @@ I accept ()</string>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gI-Ta-agZ">
                                                         <rect key="frame" x="0.0" y="21.666666666666671" width="398" height="3"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="3" id="TT9-qY-aJP"/>
                                                         </constraints>
@@ -1195,17 +1184,21 @@ I accept ()</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WpU-4o-mHc" userLabel="network list label">
                                                         <rect key="frame" x="0.0" y="25.666666666666671" width="398" height="28"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Available network List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axz-FU-NL8">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available network List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axz-FU-NL8">
                                                                 <rect key="frame" x="5" y="0.0" width="158" height="21"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="RGB-SX-4Uh"/>
+                                                                </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VsA-IT-axp">
-                                                                <rect key="frame" x="0.0" y="25" width="359" height="3"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VsA-IT-axp">
+                                                                <rect key="frame" x="0.0" y="24.999999999999986" width="398" height="3"/>
                                                                 <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="3" id="Gi3-GL-NL1"/>
+                                                                </constraints>
                                                             </view>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0f-Z0-Ujd">
                                                                 <rect key="frame" x="312" y="0.0" width="46" height="20"/>
@@ -1219,53 +1212,76 @@ I accept ()</string>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="VsA-IT-axp" secondAttribute="trailing" id="MSx-Jd-ZaW"/>
+                                                            <constraint firstItem="VsA-IT-axp" firstAttribute="leading" secondItem="WpU-4o-mHc" secondAttribute="leading" id="PPg-1e-13X"/>
+                                                            <constraint firstItem="VsA-IT-axp" firstAttribute="top" secondItem="axz-FU-NL8" secondAttribute="bottom" constant="4" id="ezm-tv-p3X"/>
+                                                            <constraint firstItem="axz-FU-NL8" firstAttribute="leading" secondItem="WpU-4o-mHc" secondAttribute="leading" constant="5" id="nLn-Fc-hia"/>
+                                                            <constraint firstItem="axz-FU-NL8" firstAttribute="top" secondItem="WpU-4o-mHc" secondAttribute="top" id="rvE-n6-xnL"/>
                                                             <constraint firstAttribute="height" constant="28" id="yyq-uj-Hth"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rey-Ig-LVk" userLabel="network list view">
-                                                        <rect key="frame" x="0.0" y="54.666666666666686" width="398" height="200"/>
+                                                        <rect key="frame" x="0.0" y="54.666666666666657" width="398" height="200"/>
                                                         <subviews>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hNZ-2g-Xzs">
-                                                                <rect key="frame" x="8" y="3" width="347" height="151"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hNZ-2g-Xzs">
+                                                                <rect key="frame" x="8" y="3" width="382" height="151"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </tableView>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H82-Yf-NtQ">
-                                                                <rect key="frame" x="8" y="162" width="293" height="30"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H82-Yf-NtQ">
+                                                                <rect key="frame" x="8" y="162.00000000000003" width="323" height="30"/>
                                                                 <color key="backgroundColor" red="0.019607843140000001" green="0.019607843140000001" blue="0.019607843140000001" alpha="0.66572131850000005" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="YO1-ax-lr1"/>
+                                                                </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                                 <state key="normal" title="Enter Manually">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIw-Ev-YwB">
-                                                                <rect key="frame" x="304" y="162" width="51" height="30"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIw-Ev-YwB">
+                                                                <rect key="frame" x="339" y="161.00000000000003" width="51" height="30"/>
                                                                 <color key="backgroundColor" red="0.019607843140000001" green="0.019607843140000001" blue="0.019607843140000001" alpha="0.66572131850000005" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="0HY-rj-vlX"/>
+                                                                    <constraint firstAttribute="width" constant="51" id="FS1-Sp-jmm"/>
+                                                                </constraints>
                                                                 <state key="normal" image="ic_menu_revert">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="refreshWifiList:" destination="rFm-oL-66o" eventType="touchUpInside" id="8Wv-rT-D4k"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstItem="NIw-Ev-YwB" firstAttribute="top" secondItem="hNZ-2g-Xzs" secondAttribute="bottom" constant="7" id="1yh-oZ-U89"/>
+                                                            <constraint firstAttribute="trailing" secondItem="NIw-Ev-YwB" secondAttribute="trailing" constant="8" id="3zR-KP-W6m"/>
+                                                            <constraint firstItem="NIw-Ev-YwB" firstAttribute="leading" secondItem="H82-Yf-NtQ" secondAttribute="trailing" constant="8" id="4uN-dD-uJy"/>
+                                                            <constraint firstItem="H82-Yf-NtQ" firstAttribute="top" secondItem="hNZ-2g-Xzs" secondAttribute="bottom" constant="8" id="GbR-Sv-eim"/>
+                                                            <constraint firstItem="hNZ-2g-Xzs" firstAttribute="leading" secondItem="Rey-Ig-LVk" secondAttribute="leading" constant="8" id="JBx-ea-SbV"/>
+                                                            <constraint firstItem="H82-Yf-NtQ" firstAttribute="bottom" secondItem="Rey-Ig-LVk" secondAttribute="bottomMargin" id="Zw3-hu-E1G"/>
+                                                            <constraint firstItem="hNZ-2g-Xzs" firstAttribute="top" secondItem="Rey-Ig-LVk" secondAttribute="top" constant="3" id="b2j-gk-lnX"/>
+                                                            <constraint firstItem="H82-Yf-NtQ" firstAttribute="leading" secondItem="Rey-Ig-LVk" secondAttribute="leading" constant="8" id="bm6-ZX-lAM"/>
+                                                            <constraint firstItem="H82-Yf-NtQ" firstAttribute="top" secondItem="hNZ-2g-Xzs" secondAttribute="bottom" constant="8" id="cpF-hl-ges"/>
                                                             <constraint firstAttribute="height" constant="200" id="tKw-D6-ktd"/>
+                                                            <constraint firstAttribute="trailing" secondItem="hNZ-2g-Xzs" secondAttribute="trailing" constant="8" id="zQb-M9-o9S"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wkw-81-Kpr" userLabel="SSID label">
                                                         <rect key="frame" x="0.0" y="255.66666666666669" width="398" height="28"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter SSID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHR-gw-0oS">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter SSID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHR-gw-0oS">
                                                                 <rect key="frame" x="5" y="0.0" width="80" height="21"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="rMV-EM-srK"/>
+                                                                </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SeL-5D-YKV">
-                                                                <rect key="frame" x="0.0" y="25" width="359" height="3"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeL-5D-YKV">
+                                                                <rect key="frame" x="0.0" y="25" width="398" height="3"/>
                                                                 <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             </view>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Vn-GM-M6g">
@@ -1281,7 +1297,13 @@ I accept ()</string>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstItem="yHR-gw-0oS" firstAttribute="top" secondItem="Wkw-81-Kpr" secondAttribute="top" id="Olq-8P-qO4"/>
+                                                            <constraint firstAttribute="trailing" secondItem="SeL-5D-YKV" secondAttribute="trailing" id="cmz-tc-I04"/>
+                                                            <constraint firstAttribute="bottom" secondItem="SeL-5D-YKV" secondAttribute="bottom" id="gAT-ap-uIa"/>
+                                                            <constraint firstItem="SeL-5D-YKV" firstAttribute="leading" secondItem="Wkw-81-Kpr" secondAttribute="leading" id="kA9-qq-BLG"/>
                                                             <constraint firstAttribute="height" constant="28" id="rd8-5b-UNL"/>
+                                                            <constraint firstItem="yHR-gw-0oS" firstAttribute="leading" secondItem="Wkw-81-Kpr" secondAttribute="leading" constant="5" id="vOl-GM-Xsj"/>
+                                                            <constraint firstItem="SeL-5D-YKV" firstAttribute="top" secondItem="yHR-gw-0oS" secondAttribute="bottom" constant="4" id="z1m-tc-asr"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10s-r2-5JT" userLabel="SSID view">
@@ -1317,17 +1339,21 @@ I accept ()</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6Z-91-hMh" userLabel="Password label">
                                                         <rect key="frame" x="0.0" y="366.66666666666669" width="398" height="28"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password for WIFI network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIx-b2-tuV">
-                                                                <rect key="frame" x="5" y="0.0" width="198" height="21"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password for WIFI network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIx-b2-tuV">
+                                                                <rect key="frame" x="5" y="0.0" width="197.33333333333334" height="21"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="MwY-TG-J7y"/>
+                                                                </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mnn-nx-r1i">
-                                                                <rect key="frame" x="0.0" y="25" width="359" height="3"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mnn-nx-r1i">
+                                                                <rect key="frame" x="0.0" y="25" width="398" height="3"/>
                                                                 <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="3" id="zpA-gV-D7J"/>
+                                                                </constraints>
                                                             </view>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeH-R9-mcp">
                                                                 <rect key="frame" x="313" y="0.0" width="46" height="20"/>
@@ -1342,6 +1368,12 @@ I accept ()</string>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstItem="Mnn-nx-r1i" firstAttribute="top" secondItem="bIx-b2-tuV" secondAttribute="bottom" constant="4" id="6pg-11-7lr"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Mnn-nx-r1i" secondAttribute="trailing" id="CFt-6q-Mq3"/>
+                                                            <constraint firstItem="Mnn-nx-r1i" firstAttribute="leading" secondItem="Y6Z-91-hMh" secondAttribute="leading" id="Mxt-Tq-7Qv"/>
+                                                            <constraint firstItem="bIx-b2-tuV" firstAttribute="top" secondItem="Y6Z-91-hMh" secondAttribute="top" id="Nda-Yf-Kqy"/>
+                                                            <constraint firstItem="Mnn-nx-r1i" firstAttribute="top" secondItem="bIx-b2-tuV" secondAttribute="bottom" constant="4" id="VZb-F6-Dtf"/>
+                                                            <constraint firstItem="bIx-b2-tuV" firstAttribute="leading" secondItem="Y6Z-91-hMh" secondAttribute="leading" constant="5" id="dRU-MW-feQ"/>
                                                             <constraint firstAttribute="height" constant="28" id="nmP-f2-B26"/>
                                                         </constraints>
                                                     </view>
@@ -1379,21 +1411,31 @@ I accept ()</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ea-XK-DOc" userLabel="connect grill to wifi">
                                                         <rect key="frame" x="0.0" y="477.66666666666663" width="398" height="28"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="connect grill to wifi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aC6-La-lFh">
-                                                                <rect key="frame" x="5" y="0.0" width="136" height="21"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="connect grill to wifi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aC6-La-lFh">
+                                                                <rect key="frame" x="5" y="0.0" width="135.66666666666666" height="21"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="3wF-Va-YSJ"/>
+                                                                </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W7L-3o-2T0">
-                                                                <rect key="frame" x="0.0" y="25" width="359" height="3"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7L-3o-2T0">
+                                                                <rect key="frame" x="0.0" y="25" width="398" height="3"/>
                                                                 <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="3" id="OMg-qF-KR1"/>
+                                                                </constraints>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstItem="aC6-La-lFh" firstAttribute="leading" secondItem="7ea-XK-DOc" secondAttribute="leading" constant="5" id="JIj-pC-4OR"/>
+                                                            <constraint firstItem="W7L-3o-2T0" firstAttribute="top" secondItem="aC6-La-lFh" secondAttribute="bottom" constant="4" id="Y9b-Sb-eB4"/>
                                                             <constraint firstAttribute="height" constant="28" id="owZ-m5-OPv"/>
+                                                            <constraint firstAttribute="trailing" secondItem="W7L-3o-2T0" secondAttribute="trailing" id="uPw-2u-ayf"/>
+                                                            <constraint firstItem="aC6-La-lFh" firstAttribute="top" secondItem="7ea-XK-DOc" secondAttribute="top" id="vDJ-3u-QvN"/>
+                                                            <constraint firstItem="W7L-3o-2T0" firstAttribute="top" secondItem="aC6-La-lFh" secondAttribute="bottom" constant="4" id="vEd-tN-785"/>
+                                                            <constraint firstItem="W7L-3o-2T0" firstAttribute="leading" secondItem="7ea-XK-DOc" secondAttribute="leading" id="xZC-wl-gun"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rb6-fj-gJg">
@@ -1542,13 +1584,35 @@ I accept ()</string>
                                                     <constraint firstItem="Rb6-fj-gJg" firstAttribute="top" secondItem="7ea-XK-DOc" secondAttribute="bottom" constant="1" id="zdE-4j-gu7"/>
                                                 </constraints>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Rf-pg-rzO">
+                                                <rect key="frame" x="376" y="12" width="30" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="ufN-Yq-sCK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <state key="normal" title="X">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="closeBtn:" destination="rFm-oL-66o" eventType="touchUpInside" id="GdX-3k-hcd"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.08235294118" green="0.086274509799999996" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="eFN-kd-Gri" secondAttribute="trailing" id="43A-ab-Q2s"/>
+                                            <constraint firstItem="eFN-kd-Gri" firstAttribute="top" secondItem="r5b-Wo-SbT" secondAttribute="top" constant="44" id="FnI-Ph-3Th"/>
                                             <constraint firstItem="j55-jt-omZ" firstAttribute="leading" secondItem="r5b-Wo-SbT" secondAttribute="leading" constant="8" id="OYA-ub-HB4"/>
-                                            <constraint firstItem="j55-jt-omZ" firstAttribute="top" secondItem="r5b-Wo-SbT" secondAttribute="top" constant="8" id="STm-ZM-CgH"/>
+                                            <constraint firstItem="eFN-kd-Gri" firstAttribute="top" secondItem="1Rf-pg-rzO" secondAttribute="bottom" constant="1" id="R1J-Wm-Mof"/>
+                                            <constraint firstItem="j55-jt-omZ" firstAttribute="top" secondItem="r5b-Wo-SbT" secondAttribute="top" constant="45" id="STm-ZM-CgH"/>
                                             <constraint firstAttribute="bottom" secondItem="j55-jt-omZ" secondAttribute="bottom" constant="20" id="TSy-1s-Ayd"/>
                                             <constraint firstAttribute="trailing" secondItem="j55-jt-omZ" secondAttribute="trailing" constant="8" id="fpk-FR-aO0"/>
+                                            <constraint firstAttribute="trailing" secondItem="1Rf-pg-rzO" secondAttribute="trailing" constant="8" id="gKV-XK-v96"/>
+                                            <constraint firstItem="1Rf-pg-rzO" firstAttribute="top" secondItem="r5b-Wo-SbT" secondAttribute="top" constant="12" id="ged-du-7bu"/>
+                                            <constraint firstItem="eFN-kd-Gri" firstAttribute="top" secondItem="YEQ-vX-pMc" secondAttribute="bottom" constant="1" id="jBV-d2-Tli"/>
+                                            <constraint firstItem="eFN-kd-Gri" firstAttribute="leading" secondItem="r5b-Wo-SbT" secondAttribute="leading" id="lbS-Wm-CZ8"/>
+                                            <constraint firstItem="YEQ-vX-pMc" firstAttribute="top" secondItem="r5b-Wo-SbT" secondAttribute="top" constant="15" id="qXx-OW-Hkg"/>
+                                            <constraint firstItem="YEQ-vX-pMc" firstAttribute="leading" secondItem="r5b-Wo-SbT" secondAttribute="leading" constant="8" id="w5f-LS-2yc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1560,7 +1624,7 @@ I accept ()</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kNT-6F-86T" firstAttribute="bottom" secondItem="d2C-Cn-Qhu" secondAttribute="bottom" id="Dbx-ds-2gV"/>
                             <constraint firstItem="kNT-6F-86T" firstAttribute="leading" secondItem="d2C-Cn-Qhu" secondAttribute="leading" id="FRw-nx-PW9"/>
@@ -1571,13 +1635,23 @@ I accept ()</string>
                     </view>
                     <connections>
                         <outlet property="ConnectionStatus" destination="5rs-t6-NMR" id="WgZ-ZZ-eTz"/>
+                        <outlet property="NetworkStatusLabel" destination="RnA-rC-nZK" id="gTP-z7-gQl"/>
+                        <outlet property="WifiNnameLabel" destination="tAR-mz-Fxg" id="4Ru-bg-X6B"/>
+                        <outlet property="availableNetworkList" destination="axz-FU-NL8" id="oKl-2x-tR6"/>
+                        <outlet property="connectOvenLabel" destination="aC6-La-lFh" id="GNK-br-U7q"/>
                         <outlet property="connectbtnlabel" destination="qpP-tm-omm" id="KfO-g2-SSs"/>
                         <outlet property="connectgrillview" destination="Rb6-fj-gJg" id="s0B-55-ix9"/>
-                        <outlet property="currentNetwork" destination="26h-Ob-qhN" id="rpv-Wx-1mV"/>
+                        <outlet property="currentNetwork" destination="26h-Ob-qhN" id="4PE-yh-YuL"/>
+                        <outlet property="enterManuallyBtn" destination="H82-Yf-NtQ" id="6TI-57-R0F"/>
+                        <outlet property="enterSSIDbtnLabel" destination="xaK-KY-WBr" id="6jE-Q3-Yli"/>
+                        <outlet property="enterSSIDlabel" destination="yHR-gw-0oS" id="INn-4q-ayY"/>
+                        <outlet property="finishbtnLabel" destination="qpP-tm-omm" id="iQp-hn-k5r"/>
                         <outlet property="networdbtn" destination="O0f-Z0-Ujd" id="gui-Fb-5bv"/>
                         <outlet property="networkStatus" destination="nkH-im-6cp" id="Yag-kO-flL"/>
                         <outlet property="networkView" destination="Rey-Ig-LVk" id="HBa-sm-qaO"/>
+                        <outlet property="passwordEnterbtnLabel" destination="57A-ca-pbZ" id="wAj-I2-Vdb"/>
                         <outlet property="passwordView" destination="7Sl-jP-MBX" id="qp0-5u-BEf"/>
+                        <outlet property="passwordWifiLabel" destination="bIx-b2-tuV" id="yVo-Eo-FKN"/>
                         <outlet property="passwordbtn" destination="PeH-R9-mcp" id="Y2d-LY-ZHH"/>
                         <outlet property="passwordfield" destination="DRE-Ed-pJH" id="l6y-I0-JQp"/>
                         <outlet property="ssidView" destination="10s-r2-5JT" id="d13-78-HbW"/>
@@ -1589,7 +1663,7 @@ I accept ()</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4p-ia-aVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-33" y="732"/>
+            <point key="canvasLocation" x="-33.333333333333336" y="731.91964285714278"/>
         </scene>
     </scenes>
     <resources>

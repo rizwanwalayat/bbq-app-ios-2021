@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		042638562403A42D0011DA8F /* WizardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042638552403A42D0011DA8F /* WizardMainViewController.swift */; };
-		042638582405506E0011DA8F /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 042638572405506E0011DA8F /* en.json */; };
 		0426385A240561510011DA8F /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04263859240561510011DA8F /* Language.swift */; };
 		04263862240D348D0011DA8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04263861240D348D0011DA8F /* Constants.swift */; };
+		046127042434ABA100BAF62E /* IWatchDogDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046127032434ABA100BAF62E /* IWatchDogDelegate.swift */; };
+		046127062434B00500BAF62E /* WifiWatchDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046127052434B00500BAF62E /* WifiWatchDog.swift */; };
 		04A5A50F23FFA25000EB19B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5A50E23FFA25000EB19B6 /* AppDelegate.swift */; };
 		04A5A51123FFA25000EB19B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5A51023FFA25000EB19B6 /* ViewController.swift */; };
 		04A5A51423FFA25000EB19B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A5A51223FFA25000EB19B6 /* Main.storyboard */; };
@@ -41,17 +42,40 @@
 		04A5A55A24000B1000EB19B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5A55924000B1000EB19B6 /* HomeViewController.swift */; };
 		04CD5E832416384900F56C53 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E822416384900F56C53 /* LanguageViewController.swift */; };
 		04CD5E8524163DCC00F56C53 /* agreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E8424163DCC00F56C53 /* agreementViewController.swift */; };
-		04CD5E872416407000F56C53 /* da.json in Resources */ = {isa = PBXBuildFile; fileRef = 04CD5E862416407000F56C53 /* da.json */; };
 		04CD5E89241769F900F56C53 /* Agreement2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E88241769F900F56C53 /* Agreement2ViewController.swift */; };
 		04CD5E8B24176FAE00F56C53 /* setupWifiControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E8A24176FAD00F56C53 /* setupWifiControllerViewController.swift */; };
+		04F05B032444472F007F941B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F05B022444472F007F941B /* RoundButton.swift */; };
+		04F05B0F24444AF4007F941B /* sw.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B0524444AF3007F941B /* sw.json */; };
+		04F05B1024444AF4007F941B /* es.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B0624444AF3007F941B /* es.json */; };
+		04F05B1124444AF4007F941B /* ua.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B0724444AF3007F941B /* ua.json */; };
+		04F05B1224444AF4007F941B /* ge.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B0824444AF3007F941B /* ge.json */; };
+		04F05B1324444AF4007F941B /* fr.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B0924444AF3007F941B /* fr.json */; };
+		04F05B1424444AF4007F941B /* ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B0A24444AF3007F941B /* ru.json */; };
+		04F05B1524444AF4007F941B /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B0B24444AF3007F941B /* en.json */; };
+		04F05B1624444AF4007F941B /* da.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B0C24444AF4007F941B /* da.json */; };
+		04F05B1724444AF4007F941B /* du.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B0D24444AF4007F941B /* du.json */; };
+		04F05B1824444AF4007F941B /* it.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B0E24444AF4007F941B /* it.json */; };
+		04F05B2624444EBB007F941B /* aduro_terms_en_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B1A24444EBA007F941B /* aduro_terms_en_wifi.htm */; };
+		04F05B2724444EBB007F941B /* aduro_terms_it_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B1B24444EBA007F941B /* aduro_terms_it_wifi.htm */; };
+		04F05B2824444EBB007F941B /* aduro_terms_dk.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B1C24444EBA007F941B /* aduro_terms_dk.htm */; };
+		04F05B2924444EBB007F941B /* aduro_terms_en.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B1D24444EBB007F941B /* aduro_terms_en.htm */; };
+		04F05B2A24444EBB007F941B /* aduro_terms_fr_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B1E24444EBB007F941B /* aduro_terms_fr_wifi.htm */; };
+		04F05B2B24444EBB007F941B /* aduro_terms_it.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B1F24444EBB007F941B /* aduro_terms_it.htm */; };
+		04F05B2C24444EBB007F941B /* aduro_terms_es_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B2024444EBB007F941B /* aduro_terms_es_wifi.htm */; };
+		04F05B2D24444EBB007F941B /* aduro_terms_es.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B2124444EBB007F941B /* aduro_terms_es.htm */; };
+		04F05B2E24444EBB007F941B /* aduro_terms_de_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B2224444EBB007F941B /* aduro_terms_de_wifi.htm */; };
+		04F05B2F24444EBB007F941B /* aduro_terms_de.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B2324444EBB007F941B /* aduro_terms_de.htm */; };
+		04F05B3024444EBB007F941B /* aduro_terms_dk_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B2424444EBB007F941B /* aduro_terms_dk_wifi.htm */; };
+		04F05B3124444EBB007F941B /* aduro_terms_fr.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B2524444EBB007F941B /* aduro_terms_fr.htm */; };
 		9FE5671A18F54EE249D33F35 /* Pods_Aduro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33E5A4D34032FB1D93037606 /* Pods_Aduro.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		042638552403A42D0011DA8F /* WizardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardMainViewController.swift; sourceTree = "<group>"; };
-		042638572405506E0011DA8F /* en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = en.json; path = assets/json/translations/en.json; sourceTree = "<group>"; };
 		04263859240561510011DA8F /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		04263861240D348D0011DA8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		046127032434ABA100BAF62E /* IWatchDogDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWatchDogDelegate.swift; sourceTree = "<group>"; };
+		046127052434B00500BAF62E /* WifiWatchDog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiWatchDog.swift; sourceTree = "<group>"; };
 		04A5A50B23FFA25000EB19B6 /* Aduro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aduro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A5A50E23FFA25000EB19B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A5A51023FFA25000EB19B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,9 +114,31 @@
 		04A5A55924000B1000EB19B6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		04CD5E822416384900F56C53 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		04CD5E8424163DCC00F56C53 /* agreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = agreementViewController.swift; sourceTree = "<group>"; };
-		04CD5E862416407000F56C53 /* da.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = da.json; sourceTree = "<group>"; };
 		04CD5E88241769F900F56C53 /* Agreement2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agreement2ViewController.swift; sourceTree = "<group>"; };
 		04CD5E8A24176FAD00F56C53 /* setupWifiControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setupWifiControllerViewController.swift; sourceTree = "<group>"; };
+		04F05B022444472F007F941B /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		04F05B0524444AF3007F941B /* sw.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sw.json; sourceTree = "<group>"; };
+		04F05B0624444AF3007F941B /* es.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = es.json; sourceTree = "<group>"; };
+		04F05B0724444AF3007F941B /* ua.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ua.json; sourceTree = "<group>"; };
+		04F05B0824444AF3007F941B /* ge.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ge.json; sourceTree = "<group>"; };
+		04F05B0924444AF3007F941B /* fr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fr.json; sourceTree = "<group>"; };
+		04F05B0A24444AF3007F941B /* ru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ru.json; sourceTree = "<group>"; };
+		04F05B0B24444AF3007F941B /* en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
+		04F05B0C24444AF4007F941B /* da.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = da.json; sourceTree = "<group>"; };
+		04F05B0D24444AF4007F941B /* du.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = du.json; sourceTree = "<group>"; };
+		04F05B0E24444AF4007F941B /* it.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = it.json; sourceTree = "<group>"; };
+		04F05B1A24444EBA007F941B /* aduro_terms_en_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_en_wifi.htm; sourceTree = "<group>"; };
+		04F05B1B24444EBA007F941B /* aduro_terms_it_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_it_wifi.htm; sourceTree = "<group>"; };
+		04F05B1C24444EBA007F941B /* aduro_terms_dk.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_dk.htm; sourceTree = "<group>"; };
+		04F05B1D24444EBB007F941B /* aduro_terms_en.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_en.htm; sourceTree = "<group>"; };
+		04F05B1E24444EBB007F941B /* aduro_terms_fr_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_fr_wifi.htm; sourceTree = "<group>"; };
+		04F05B1F24444EBB007F941B /* aduro_terms_it.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_it.htm; sourceTree = "<group>"; };
+		04F05B2024444EBB007F941B /* aduro_terms_es_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_es_wifi.htm; sourceTree = "<group>"; };
+		04F05B2124444EBB007F941B /* aduro_terms_es.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_es.htm; sourceTree = "<group>"; };
+		04F05B2224444EBB007F941B /* aduro_terms_de_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_de_wifi.htm; sourceTree = "<group>"; };
+		04F05B2324444EBB007F941B /* aduro_terms_de.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_de.htm; sourceTree = "<group>"; };
+		04F05B2424444EBB007F941B /* aduro_terms_dk_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_dk_wifi.htm; sourceTree = "<group>"; };
+		04F05B2524444EBB007F941B /* aduro_terms_fr.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_fr.htm; sourceTree = "<group>"; };
 		33E5A4D34032FB1D93037606 /* Pods_Aduro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aduro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E00B3FBEEE9D91D514F776 /* Pods-Aduro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aduro.release.xcconfig"; path = "Target Support Files/Pods-Aduro/Pods-Aduro.release.xcconfig"; sourceTree = "<group>"; };
 		7DE1D332DA4F905E6A96FAB1 /* Pods-Aduro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aduro.debug.xcconfig"; path = "Target Support Files/Pods-Aduro/Pods-Aduro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,8 +159,8 @@
 		04A5A50223FFA25000EB19B6 = {
 			isa = PBXGroup;
 			children = (
-				04CD5E862416407000F56C53 /* da.json */,
-				042638572405506E0011DA8F /* en.json */,
+				04F05B1924444E9A007F941B /* TermFiles */,
+				04F05B0424444A13007F941B /* LanguageFiles */,
 				04A5A53A23FFA4F000EB19B6 /* common */,
 				04A5A53523FFA48300EB19B6 /* utils */,
 				04A5A52023FFA41600EB19B6 /* network */,
@@ -166,6 +212,8 @@
 				04A5A52223FFA43400EB19B6 /* ControllerResponseImpl.swift */,
 				04A5A52423FFA43400EB19B6 /* RSAHelper.swift */,
 				04A5A52723FFA43400EB19B6 /* XTEAHelper.swift */,
+				046127032434ABA100BAF62E /* IWatchDogDelegate.swift */,
+				046127052434B00500BAF62E /* WifiWatchDog.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -177,6 +225,7 @@
 				04A5A53623FFA4A000EB19B6 /* Util.swift */,
 				04263859240561510011DA8F /* Language.swift */,
 				04263861240D348D0011DA8F /* Constants.swift */,
+				04F05B022444472F007F941B /* RoundButton.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -201,6 +250,42 @@
 				04A5A53B23FFA50B00EB19B6 /* Aduro-Bridging-Header.h */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		04F05B0424444A13007F941B /* LanguageFiles */ = {
+			isa = PBXGroup;
+			children = (
+				04F05B0C24444AF4007F941B /* da.json */,
+				04F05B0D24444AF4007F941B /* du.json */,
+				04F05B0B24444AF3007F941B /* en.json */,
+				04F05B0624444AF3007F941B /* es.json */,
+				04F05B0924444AF3007F941B /* fr.json */,
+				04F05B0824444AF3007F941B /* ge.json */,
+				04F05B0E24444AF4007F941B /* it.json */,
+				04F05B0A24444AF3007F941B /* ru.json */,
+				04F05B0524444AF3007F941B /* sw.json */,
+				04F05B0724444AF3007F941B /* ua.json */,
+			);
+			path = LanguageFiles;
+			sourceTree = "<group>";
+		};
+		04F05B1924444E9A007F941B /* TermFiles */ = {
+			isa = PBXGroup;
+			children = (
+				04F05B2224444EBB007F941B /* aduro_terms_de_wifi.htm */,
+				04F05B2324444EBB007F941B /* aduro_terms_de.htm */,
+				04F05B2424444EBB007F941B /* aduro_terms_dk_wifi.htm */,
+				04F05B1C24444EBA007F941B /* aduro_terms_dk.htm */,
+				04F05B1A24444EBA007F941B /* aduro_terms_en_wifi.htm */,
+				04F05B1D24444EBB007F941B /* aduro_terms_en.htm */,
+				04F05B2024444EBB007F941B /* aduro_terms_es_wifi.htm */,
+				04F05B2124444EBB007F941B /* aduro_terms_es.htm */,
+				04F05B1E24444EBB007F941B /* aduro_terms_fr_wifi.htm */,
+				04F05B2524444EBB007F941B /* aduro_terms_fr.htm */,
+				04F05B1B24444EBA007F941B /* aduro_terms_it_wifi.htm */,
+				04F05B1F24444EBB007F941B /* aduro_terms_it.htm */,
+			);
+			path = TermFiles;
 			sourceTree = "<group>";
 		};
 		E9A9F39BF8E1023EE216E217 /* Pods */ = {
@@ -292,10 +377,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04CD5E872416407000F56C53 /* da.json in Resources */,
+				04F05B2C24444EBB007F941B /* aduro_terms_es_wifi.htm in Resources */,
+				04F05B3124444EBB007F941B /* aduro_terms_fr.htm in Resources */,
+				04F05B2E24444EBB007F941B /* aduro_terms_de_wifi.htm in Resources */,
+				04F05B1324444AF4007F941B /* fr.json in Resources */,
+				04F05B2624444EBB007F941B /* aduro_terms_en_wifi.htm in Resources */,
+				04F05B2D24444EBB007F941B /* aduro_terms_es.htm in Resources */,
+				04F05B1724444AF4007F941B /* du.json in Resources */,
+				04F05B2F24444EBB007F941B /* aduro_terms_de.htm in Resources */,
+				04F05B3024444EBB007F941B /* aduro_terms_dk_wifi.htm in Resources */,
+				04F05B1824444AF4007F941B /* it.json in Resources */,
+				04F05B2924444EBB007F941B /* aduro_terms_en.htm in Resources */,
 				04A5A51923FFA25300EB19B6 /* LaunchScreen.storyboard in Resources */,
 				04A5A51623FFA25300EB19B6 /* Assets.xcassets in Resources */,
-				042638582405506E0011DA8F /* en.json in Resources */,
+				04F05B1024444AF4007F941B /* es.json in Resources */,
+				04F05B1624444AF4007F941B /* da.json in Resources */,
+				04F05B1224444AF4007F941B /* ge.json in Resources */,
+				04F05B2724444EBB007F941B /* aduro_terms_it_wifi.htm in Resources */,
+				04F05B2B24444EBB007F941B /* aduro_terms_it.htm in Resources */,
+				04F05B1424444AF4007F941B /* ru.json in Resources */,
+				04F05B1524444AF4007F941B /* en.json in Resources */,
+				04F05B2824444EBB007F941B /* aduro_terms_dk.htm in Resources */,
+				04F05B2A24444EBB007F941B /* aduro_terms_fr_wifi.htm in Resources */,
+				04F05B0F24444AF4007F941B /* sw.json in Resources */,
+				04F05B1124444AF4007F941B /* ua.json in Resources */,
 				04A5A51423FFA25000EB19B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,11 +470,13 @@
 				04A5A52D23FFA43400EB19B6 /* ControllerRequestImpl.swift in Sources */,
 				04263862240D348D0011DA8F /* Constants.swift in Sources */,
 				04A5A54F23FFA50C00EB19B6 /* Signature.swift in Sources */,
+				04F05B032444472F007F941B /* RoundButton.swift in Sources */,
 				04A5A53223FFA43400EB19B6 /* Controller.swift in Sources */,
 				04A5A54C23FFA50C00EB19B6 /* XTEA.swift in Sources */,
 				04A5A53823FFA4A000EB19B6 /* Util.swift in Sources */,
 				04A5A52E23FFA43400EB19B6 /* RSAHelper.swift in Sources */,
 				04A5A54A23FFA50C00EB19B6 /* Extensions.swift in Sources */,
+				046127062434B00500BAF62E /* WifiWatchDog.swift in Sources */,
 				04A5A55023FFA50C00EB19B6 /* SwiftyRSA.swift in Sources */,
 				04A5A53123FFA43400EB19B6 /* XTEAHelper.swift in Sources */,
 				04A5A53423FFA43400EB19B6 /* ControllerConnection.swift in Sources */,
@@ -380,6 +487,7 @@
 				04A5A53023FFA43400EB19B6 /* ControllerResponse.swift in Sources */,
 				04A5A54D23FFA50C00EB19B6 /* Base64.m in Sources */,
 				04A5A50F23FFA25000EB19B6 /* AppDelegate.swift in Sources */,
+				046127042434ABA100BAF62E /* IWatchDogDelegate.swift in Sources */,
 				04A5A55323FFA50C00EB19B6 /* InternetAddress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,8 +637,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Aduro/Aduro.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4S74ZAM22X;
 				INFOPLIST_FILE = Aduro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -540,7 +648,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nbe.Aduro.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "aduro-native-adhoc";
 				SWIFT_OBJC_BRIDGING_HEADER = "common/Aduro-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -555,8 +663,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Aduro/Aduro.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4S74ZAM22X;
 				INFOPLIST_FILE = Aduro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -566,7 +674,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nbe.Aduro.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "aduro-native-adhoc";
 				SWIFT_OBJC_BRIDGING_HEADER = "common/Aduro-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

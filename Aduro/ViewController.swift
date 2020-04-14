@@ -9,11 +9,13 @@
 import UIKit
 import SystemConfiguration.CaptiveNetwork
 import Network
-//import MBProgressHUD
+import MBProgressHUD
+import FGRoute
 
 
-
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITextFieldDelegate {
+ 
+    
     let defaults = UserDefaults.standard
     
     var currentWifi=""
@@ -27,6 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultbtntitle: UIButton!
     @IBOutlet weak var serialView: UIView!
     @IBOutlet weak var resultView: UIView!
+    @IBOutlet weak var connectionView: UIView!
     
     
     @IBOutlet weak var wizard_2_description: UILabel!
@@ -39,6 +42,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var wizard_2_dont_wifi_button: UIButton!
     
     @IBOutlet weak var first_time_connect_check_box: UILabel!
+    
+    @IBOutlet weak var btncontinueOutlet: UIButton!
+    
+    @IBOutlet weak var directConnectionAlert: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,16 +68,47 @@ class ViewController: UIViewController {
         wizard_2_dont_wifi_button.setTitle(Language.getInstance().getlangauge(key: "wizard_2_dont_wifi_button"), for: .normal)
         
         first_time_connect_check_box.text=Language.getInstance().getlangauge(key: "first_time_connect_check_box")
+        directConnectionAlert.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_2_description")
         
         
         serialText.text = "38043"
         passwordText.text = "9267673412"
+        PasswordtextFieldDidChange(self.view)
         resultView.isHidden=true
         resultbtntitle.setTitle("+", for: .normal)
         serialbtntitle.setTitle("-", for: .normal)
+        connectionView.isHidden=true
         serialText.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-//        getWiFiSsid()
-        // Do any additional setup after loading the view.
+        passwordText.addTarget(self, action: #selector(PasswordtextFieldDidChange(_:)), for: .editingChanged)
+        serialText.returnKeyType=UIReturnKeyType.done
+        passwordText.returnKeyType=UIReturnKeyType.done
+        serialText.delegate = self
+        passwordText.delegate = self
+
+        
+
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("true")
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func addDoneButtonOnKeyboard(){
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.donepassword))
+        
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        passwordText.inputAccessoryView = doneToolbar
+    }
+    @objc func donepassword()  {
+
     }
 @objc func textFieldDidChange(_ sender: UIView) {
 //    print("text change \(serialText.text)")
@@ -83,9 +122,23 @@ class ViewController: UIViewController {
     }
     }
     
+    @objc func PasswordtextFieldDidChange(_ sender: UIView) {
+        if(passwordText.text?.count==10)
+        {
+            btncontinueOutlet.isEnabled=true
+            btncontinueOutlet.backgroundColor=UIColor(red: 61.0/255.0, green: 203.0/255.0, blue: 100.0/255.0, alpha: 1.0)
+        }else
+        {
+            btncontinueOutlet.isEnabled=false
+            btncontinueOutlet.backgroundColor=UIColor(red: 47.0/255.0, green: 47.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        }
+    }
+    
     
     @IBAction func setupwifi(_ sender: Any) {
-        var showterm=defaults.bool(forKey: Constants.term2Accept)
+        let showterm=defaults.bool(forKey: Constants.term2Accept)
+        self.defaults.set(self.serialText.text, forKey: Constants.serialKey)
+        self.defaults.set(self.passwordText.text, forKey: Constants.passwordKey)
         if(showterm==true)
         {
             guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "setupWifiControllerViewController") as? setupWifiControllerViewController else { return}
@@ -115,6 +168,10 @@ class ViewController: UIViewController {
                 resultView.isHidden = true
                 resultbtntitle.setTitle("+", for: .normal)
             }
+            if(!connectionView.isHidden)
+            {
+                connectionView.isHidden=true
+            }
             //            let viewHeight:CGFloat = 100
             //            serialView.visiblity(gone: false, dimension: viewHeight)
         }else
@@ -122,6 +179,10 @@ class ViewController: UIViewController {
             serialView.isHidden = true
             serialbtntitle.setTitle("+", for: .normal)
             serialView.layoutIfNeeded()
+            if(!connectionView.isHidden)
+            {
+                connectionView.isHidden=true
+            }
             //            let viewHeight:CGFloat = 0.0
             //            serialView.visiblity(gone: true, dimension: viewHeight)
         }
@@ -138,6 +199,10 @@ class ViewController: UIViewController {
                 serialbtntitle.setTitle("+", for: .normal)
             }
             resultView.layoutIfNeeded()
+            if(!connectionView.isHidden)
+            {
+                connectionView.isHidden=true
+            }
             //            let viewHeight:CGFloat = 100
             //            serialView.visiblity(gone: false, dimension: viewHeight)
         }else
@@ -145,20 +210,61 @@ class ViewController: UIViewController {
             resultView.isHidden = true
             resultbtntitle.setTitle("+", for: .normal)
             resultView.layoutIfNeeded()
+            if(!connectionView.isHidden)
+            {
+                connectionView.isHidden=true
+            }
             //            let viewHeight:CGFloat = 0.0
             //            serialView.visiblity(gone: true, dimension: viewHeight)
         }
     }
     
     @IBAction func btnconnect(_ sender: Any) {
+        var ssid=FGRoute.getSSID()!
+       
         if (directRadio.isOn)
         {
-            directConnect()
+            if(ssid.contains("Aduro"))
+            {
+                Util.SetDefaultsBool(key: Constants.directConnectFlag, value: true)
+                directConnect()
+            }else
+            {
+                serialView.isHidden = true
+                serialbtntitle.setTitle("+", for: .normal)
+                connectionView.isHidden=false
+            }
+          
+        }else
+        {
+            getIP()
+        }
+      
+    }
+    
+    @IBAction func ConnectBtnSecond(_ sender: UIButton) {
+        var ssid=FGRoute.getSSID()!
+        
+        if (directRadio.isOn)
+        {
+            if(ssid.contains("Aduro"))
+            {
+                Util.SetDefaultsBool(key: Constants.directConnectFlag, value: true)
+                directConnect()
+            }else
+            {
+                serialView.isHidden = true
+                serialbtntitle.setTitle("+", for: .normal)
+                connectionView.isHidden=false
+            }
+            
         }else
         {
             getIP()
         }
     }
+    
+    
     func directConnect()
     {
         ControllerconnectionImpl.getInstance().getController().setSerial(serial: serialText.text!)
@@ -174,10 +280,10 @@ class ViewController: UIViewController {
     
     func exchangeKeys()
     {
-//        let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
-//        loadingNotification.mode = MBProgressHUDMode.indeterminate
-//        loadingNotification.label.text = "Loading"
-//        loadingNotification.detailsLabel.text = "Connecting"
+        let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
+        loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key:"connecting")
         ControllerconnectionImpl.getInstance().requestRead(key: "misc.rsa_key")
         {
             (ControllerResponseImpl) in
@@ -185,7 +291,7 @@ class ViewController: UIViewController {
             {
                 print("error")
                 self.showToast(message: "TimeOut Error Try Again")
-//                loadingNotification.hide(animated: true)
+                loadingNotification.hide(animated: true)
             }
             else
             {
@@ -197,8 +303,8 @@ class ViewController: UIViewController {
                 //                loadingNotification1.mode = MBProgressHUDMode.indeterminate
                 
                 
-//                loadingNotification.label.text = "Loading"
-//                loadingNotification.detailsLabel.text = "Exchanging Keys"
+                loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
+                loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key:"connecting")
                 ControllerconnectionImpl.getInstance().requestSet(key: "misc.xtea_key", value: xteakey, encryptionMode: "*", requestCompletionHandler:
                     {
                         (ControllerResponseImpl) in
@@ -206,11 +312,11 @@ class ViewController: UIViewController {
                         {
                             print("error")
                             self.showToast(message: "TimeOut Error Try Again")
-//                            loadingNotification.hide(animated: true)
+                            loadingNotification.hide(animated: true)
                         }
                         else
                         {
-//                            loadingNotification.hide(animated: true)
+                            loadingNotification.hide(animated: true)
                             self.showToast(message: "Keys Exchange Done")
                             
                             if(ControllerconnectionImpl.getInstance().getController().isAccessPoint())
@@ -319,16 +425,50 @@ class ViewController: UIViewController {
             
         })
     }
-
+    
+    @IBAction func DoNotUserInternet(_ sender: UIButton) {
+        removeWifi();
+    }
+    func removeWifi()  {
+        let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading"
+        loadingNotification.detailsLabel.text = "Removing Wifi"
+        ControllerconnectionImpl.getInstance().reuqestSetWithoutEncrypt(key: "wifi.router", value: ",")
+        { (ControllerResponseImpl) in
+            if(ControllerResponseImpl.getPayload().contains("nothing"))
+            {
+                print("error")
+                loadingNotification.hide(animated: true)
+            }
+            else
+            {
+                loadingNotification.hide(animated: true)
+                self.defaults.set(self.passwordText.text, forKey: self.serialText.text!)
+                guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else { return}
+                //                                self.navigationController?.pushViewController(sVC, animated: true)
+                //                                self.dismiss(animated: true)
+                self.defaults.set(self.serialText.text, forKey: Constants.serialKey)
+                self.defaults.set(self.passwordText.text, forKey: Constants.passwordKey)
+                sVC.serial=self.serialText.text!
+                sVC.password=self.passwordText.text!
+                sVC.fromSplash=false
+                self.present(sVC, animated: true, completion: {
+                    
+                })
+            }
+        }
+    }
+    
     func getIP()
     {
 //        defaults.string(forKey: "serial")!
 //        defaults.string(forKey: "password")!
         
-//        let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
-//        loadingNotification.mode = MBProgressHUDMode.indeterminate
-//        loadingNotification.label.text = "Loading"
-//        loadingNotification.detailsLabel.text = "Getting Controller IP"
+        let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
+        loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key: "getip")
         ControllerconnectionImpl.getInstance().getController().setSerial(serial: serialText.text! )
         ControllerconnectionImpl.getInstance().getController().setPassword(password: passwordText.text!)
         ControllerconnectionImpl.getInstance().getController().SetIp(ip: "255.255.255.255")
@@ -341,6 +481,7 @@ class ViewController: UIViewController {
                 print("no controller go app relay")
                 ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
 //                self.getF11(setip: false)
+                loadingNotification.hide(animated: true)
                 self.exchangeKeys()
             }else
             {
@@ -348,6 +489,7 @@ class ViewController: UIViewController {
                 print(values[0])
                 ControllerconnectionImpl.getInstance().getController().SetIp(ip: values[0])
 //                self.getF11(setip: false)
+                loadingNotification.hide(animated: true)
                 self.exchangeKeys()
                 
             }
@@ -355,13 +497,12 @@ class ViewController: UIViewController {
         }
     }
 
-
     
     
 }
 
 
-extension ViewController: UITextViewDelegate
+extension ViewController
 {
     
     func showToast(message : String) {

@@ -11,10 +11,12 @@ import UIKit
 class Agreement2ViewController: UIViewController {
     let defaults = UserDefaults.standard
 
+    @IBOutlet weak var textAgreement2: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Do any add        textAgreement.attributedText=Language.getInstance().getFirstTerm().htmlToAttributedString
+        textAgreement2.attributedText=Language.getInstance().GetWifiTerm().htmlToAttributedString
     }
     
     @IBAction func decline(_ sender: UIButton) {
@@ -33,7 +35,12 @@ class Agreement2ViewController: UIViewController {
             return
             
         }
-        self.present(sVC, animated: true)
+        
+       
+        self.present(sVC, animated: true) {
+            
+        }
+//        self.present(sVC, animated: true)
 
     }
     

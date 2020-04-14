@@ -15,8 +15,8 @@ import SystemConfiguration
 
 class HomeViewController: UIViewController,CLLocationManagerDelegate {
 
-    var serial=""
-    var password=""
+    var serial:String!
+    var password:String!
     var fromSplash:Bool!
     var locationManager:CLLocationManager!
     @IBOutlet weak var connectionLabel: UILabel!
@@ -24,7 +24,8 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var ovn_image: UIImageView!
     
     @IBOutlet weak var f11values: UILabel!
-    
+    var timer : Timer!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,55 +35,41 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
 //        print(Language.getInstance().getlangauge(key: "lng_selectLng"))
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        stopHandler()
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         if(fromSplash==true)
         {
-            checkInternet()
+            Checklocation()
         }
         else
         {
-            if(ControllerconnectionImpl.getInstance().getController().isAccessPoint())
+            if(!ControllerconnectionImpl.getInstance().getController().isAccessPoint())
             {
                 connectionLabel.text="apprelay"
+            }else
+            {
+                connectionLabel.text="direct"
             }
             getF11(setip: false, directfourg: false)
         }
     }
 
-    func checkInternet() {
+    func Checklocation() {
         if CLLocationManager.locationServicesEnabled()
         {
             switch CLLocationManager.authorizationStatus() {
             case .notDetermined, .restricted, .denied:
                 print("No access")
-                locationManager.requestWhenInUseAuthorization()
+//                locationManager.requestWhenInUseAuthorization()
                 break
             case .authorizedAlways, .authorizedWhenInUse:
 //                print("Access")
-                if(FGRoute.isWifiConnected())
-                {
-                    var ssid=FGRoute.getSSID()!
-                    if(ssid.contains("Aduro"))
-                    {
-                        print("aduro wifi")
-                        self.f11label.text="direct  connection"
-                        connectionLabel.text="aduro wifi"
-                        getF11(setip: true,directfourg: false)
-                    }else
-                    {
-                        print("non aduro wifi")
-                        self.f11label.text="not aduro wifi going for discovery"
-                        getIP()
-                    }
-                    
-                }
-                else
-                {
-                    connectionLabel.text="4G apprelay case"
-                    self.getF11(setip: false,directfourg: true)
-                }
-                
+                checkConnectionType()
+                break
             }
         }
         else
@@ -90,34 +77,47 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
             print("not enable")
         }
     }
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .notDetermined:
-            // If status has not yet been determied, ask for authorization
-            manager.requestWhenInUseAuthorization()
-            break
-        case .authorizedWhenInUse:
-            // If authorized when in use
-            manager.startUpdatingLocation()
-//            print(FGRoute.getSSID()!)
-
-            break
-        case .authorizedAlways:
-            // If always authorized
-//            manager.startUpdatingLocation()
-//            print(FGRoute.getSSID())
-
-            break
-        case .restricted:
-            // If restricted by e.g. parental controls. User can't enable Location Services
-            break
-        case .denied:
-            // If user denied your app access to Location Services, but can grant access from Settings.app
-            break
-        default:
-            break
-        }
+    
+    @IBAction func openWizard(_ sender: UIButton) {
+         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "WizardMainViewController") as? WizardMainViewController else { return}
+        self.present(sVC, animated: true)
+//        dismiss(animated: true)
     }
+    
+    
+    func checkConnectionType() {
+        if(FGRoute.isWifiConnected())
+        {
+            var ssid=FGRoute.getSSID()!
+            if(ssid.contains("Aduro"))
+            {
+//                let serialQueue = DispatchQueue(label: "SerialQueue")
+                print("aduro wifi")
+                self.f11label.text="direct  connection"
+                connectionLabel.text="aduro wifi"
+//                serialQueue.sync {
+                    getF11(setip: true,directfourg: false)
+//                }
+//                serialQueue.sync {
+//                    exchangeKeys()
+//
+//                }
+            }else
+            {
+                print("non aduro wifi")
+                self.f11label.text="not aduro wifi going for discovery"
+                getIP()
+            }
+            
+        }
+        else
+        {
+            connectionLabel.text="4G apprelay case"
+            self.getF11(setip: false,directfourg: true)
+        }
+        
+    }
+ 
     func getIP()
     {
         
@@ -156,9 +156,18 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
         }
     }
     func getF11(setip : Bool,directfourg:Bool)  {
-        ControllerconnectionImpl.getInstance().getController().setSerial(serial: serial)
-        ControllerconnectionImpl.getInstance().getController().setPassword(password: password)
-        if(setip==true)
+        if(serial==nil)
+        {
+            ControllerconnectionImpl.getInstance().getController().setSerial(serial: Util.GetDefaultsString(key: Constants.serialKey))
+            ControllerconnectionImpl.getInstance().getController().setPassword(password: Util.GetDefaultsString(key: Constants.passwordKey))
+            
+        }else
+        {
+            ControllerconnectionImpl.getInstance().getController().setSerial(serial: serial)
+            ControllerconnectionImpl.getInstance().getController().setPassword(password: password)
+            
+        }
+       if(setip)
         {
             ControllerconnectionImpl.getInstance().getController().SetIp(ip: Controller.CONTROLLER_DEFAULT_IP)
             
@@ -175,14 +184,14 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
                 {
                     print("error")
                     self.f11label.text=" f11 error"
-                    self.getF11(setip: setip, directfourg: directfourg)
+//                    self.getF11(setip: setip, directfourg: directfourg)
                     //                self.showToast(message: "TimeOut Error Try Again")
                 }
                 else
                 {
 //                    print(map)
                     self.f11values.text=ControllerResponseImpl.getPayload()
-                    self.setimage()
+//                    self.setimage()
                     self.f11label.text="got f11 values"
                     self.exchangeKeys()
                 }
@@ -213,7 +222,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
                         }
                         else
                         {
-                            
+                            self.starthandler()
                         }
                         
                 })
@@ -275,5 +284,44 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
     }
     
 
+    func starthandler()
+    {
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) {
+            (Timer) in
+            //            print("start timer")
+            //            let queue = DispatchQueue(label: "f11")
+            //            queue.async {
+            ControllerconnectionImpl.getInstance().requestF11Identified { (ControllerResponseImpl) in
+                if(ControllerResponseImpl.getPayload().contains("nothing"))
+                {
+                    //                print("error")
+                    //                self.showToast(message: "TimeOut Error Try Again")
+                    self.f11label.text=" f11 error"
 
+                }
+                else
+                {
+                    //                        DispatchQueue.main.async {
+//                    self.updatevalues(response: ControllerResponseImpl)
+                    self.f11values.text=ControllerResponseImpl.getPayload()
+                    //                    self.setimage()
+                    self.f11label.text="got f11 values"
+                    //                        }
+                }
+                
+            }
+            //            }
+            
+        }
+        RunLoop.current.add(timer, forMode: .common)
+    }
+    func stopHandler() {
+        
+        if(timer != nil)
+        {
+            timer!.invalidate()
+            print("stop timer")
+        }
+        
+    }
 }
