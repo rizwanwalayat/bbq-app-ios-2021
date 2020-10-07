@@ -10,6 +10,7 @@ import UIKit
 
 class LanguageViewController: UIViewController {
     let defaults = UserDefaults.standard
+    var fromsetting:Bool=false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,26 +19,35 @@ class LanguageViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let langSelected=defaults.bool(forKey: Constants.term1Accept)
-        if(langSelected==true)
+    
+        if(fromsetting)
         {
-            let serial=defaults.string(forKey: Constants.serialKey)
-            let password=defaults.string(forKey: Constants.passwordKey)
-            if(serial != nil)
-            {
-                loadmain(serial: serial!, password: password!)
-            }else
-            {
-                guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "WizardMainViewController") as? WizardMainViewController else
-                {
-                    return
-                    
-                }
-                self.present(sVC, animated: true)
-//                print("show wizard")
-            }
             
+        }else
+        {
+            let langSelected=defaults.bool(forKey: Constants.term1Accept)
+            if(langSelected==true)
+            {
+                let serial=defaults.string(forKey: Constants.serialKey)
+                let password=defaults.string(forKey: Constants.passwordKey)
+                if(serial != nil)
+                {
+                    loadmain(serial: serial!, password: password!)
+                }else
+                {
+                    guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "WizardMainViewController") as? WizardMainViewController else
+                    {
+                        return
+                        
+                    }
+                    sVC.modalPresentationStyle = .fullScreen
+                    self.present(sVC, animated: true)
+                    //                print("show wizard")
+                }
+                
+            }
         }
+       
 //        else
 //        {
 //            print("do nothing")
@@ -48,7 +58,14 @@ class LanguageViewController: UIViewController {
         sVC.serial=serial
         sVC.password=password
         sVC.fromSplash=true
+        sVC.modalPresentationStyle = .fullScreen
+        let parentvs=self.presentingViewController
+//        self.dismiss(animated: true) {
+//            parentvs!.present(sVC, animated: true)
+//        }
         self.present(sVC, animated: true)
+
+       
         //        self.dismiss(animated: true)
     }
     
@@ -62,18 +79,22 @@ class LanguageViewController: UIViewController {
             return
             
         }
+        
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
     }
     @IBAction func danish(_ sender: Any) {
         defaults.set("da", forKey: Constants.languageKey)
         Language.getInstance().readjson(fileName: "da")
-        Language.getInstance().ReadTerm(fileName: "de")
-        Language.getInstance().ReadTerm2(fileName: "de")
+        Language.getInstance().ReadTerm(fileName: "dk")
+        Language.getInstance().ReadTerm2(fileName: "dk")
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "agreementViewController") as? agreementViewController else
         {
             return
             
         }
+        
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
     }
     
@@ -87,19 +108,23 @@ class LanguageViewController: UIViewController {
             return
             
         }
+        
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
     }
     
     @IBAction func dutch(_ sender: UIButton) {
-        defaults.set("du", forKey: Constants.languageKey)
-        Language.getInstance().readjson(fileName: "du")
-        Language.getInstance().ReadTerm(fileName: "en")
-        Language.getInstance().ReadTerm2(fileName: "en")
+        defaults.set("fr", forKey: Constants.languageKey)
+        Language.getInstance().readjson(fileName: "fr")
+        Language.getInstance().ReadTerm(fileName: "fr")
+        Language.getInstance().ReadTerm2(fileName: "fr")
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "agreementViewController") as? agreementViewController else
         {
             return
             
         }
+        
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
     }
     
@@ -117,6 +142,8 @@ class LanguageViewController: UIViewController {
             return
             
         }
+        
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
     }
     
@@ -130,6 +157,8 @@ class LanguageViewController: UIViewController {
             return
             
         }
+        
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
     }
     @IBAction func italy(_ sender: UIButton) {
@@ -142,6 +171,8 @@ class LanguageViewController: UIViewController {
             return
             
         }
+        
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
     }
     @IBAction func russia(_ sender: UIButton) {
@@ -154,6 +185,8 @@ class LanguageViewController: UIViewController {
             return
             
         }
+        
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
     }
     /*

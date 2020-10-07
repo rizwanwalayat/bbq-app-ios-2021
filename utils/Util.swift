@@ -9,6 +9,7 @@
 import Foundation
 import SystemConfiguration.CaptiveNetwork
 import FGRoute
+import MBProgressHUD
 class Util
 {
     
@@ -71,6 +72,7 @@ class Util
         let defaults = UserDefaults.standard
         defaults.set(value, forKey: key)
     }
+    
 //    static func getWiFiAddress() -> String? {
 //        var address : String?
 //
@@ -108,10 +110,11 @@ class Util
     static func getWiFiSsid() -> String? {
         var ssid: String?
         if let interfaces = CNCopySupportedInterfaces() as NSArray? {
-            for interface in interfaces {
+            for (index , interface) in interfaces.enumerated() {
                 if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
                     ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
-                    break
+                    print(ssid! + " : " + String(index))
+//                    break
                 }
             }
         }
@@ -198,9 +201,14 @@ class Util
         
     }
     
-    static func showDialog(view: UIViewController)
+    static func showDialog(view: UIView,label:String) -> MBProgressHUD
     {
-      
+        let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
+        loadingNotification.detailsLabel.text = label
+        
+        return loadingNotification
     }
     
 }

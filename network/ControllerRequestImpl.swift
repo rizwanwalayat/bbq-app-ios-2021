@@ -71,6 +71,11 @@ class ControllerRequestImpl: ControllerRequest
         self.setCode(code: password)
         self.setPayload(payload: value)
     }
+    func setMinMaxRequest(password: String, value: String) {
+        self.setFunctionId(functionId: "03")
+        self.setCode(code: password)
+        self.setPayload(payload: value)
+    }
     
     func setDiscoveryRequest(password: String) {
         self.setFunctionId(functionId: "00")
@@ -191,6 +196,12 @@ class ControllerRequestImpl: ControllerRequest
 //        print(port.count)
         
         let length = messagesend.count
+//        if (length<84)
+//        {
+//            messagesend.append("0")
+//            messagesend.append("0")
+//            messagesend.append("0")
+//        }
 //        let string : String=messagesend as String
 //        let array: [UInt8] = Array(string.utf8)
 //        print("\(array)")

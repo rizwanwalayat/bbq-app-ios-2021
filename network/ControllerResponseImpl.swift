@@ -61,8 +61,8 @@ class ControllerResponseImpl: ControllerResponse {
                 for value in item
                 {
                     let keyValue = value
-                    var keyvaluepart = keyValue.split(separator: "=", maxSplits: 1, omittingEmptySubsequences: false)
-                    emptyDict=[String(keyvaluepart[0]):String(keyvaluepart[1])]
+                    var keyvaluepart = keyValue.split(separator: "=", maxSplits: .max, omittingEmptySubsequences: false)
+                     emptyDict[String(keyvaluepart[0])] = String(keyvaluepart[1])
                 }
             }
          
@@ -70,6 +70,66 @@ class ControllerResponseImpl: ControllerResponse {
       
         return emptyDict
     }
+    
+    func getMinMaxValue() -> Dictionary<String,String> {
+         var emptyDict: [String: String] = [:]
+        if(payload.contains("nothing"))
+        {
+            
+        }else
+        {
+             let temp = self.payload
+            if(temp != "")
+            {
+                var item = self.payload.split(separator: ";")
+                for value in item
+                {
+                    let keyValue = value
+                    var keyvaluepart = keyValue.split(separator: "=", maxSplits: .max, omittingEmptySubsequences: false)
+                    emptyDict[String(keyvaluepart[0])] = String(keyvaluepart[1])
+                }
+
+            }
+        }
+        return emptyDict
+
+    }
+    func GetReadValueForKeyExchange() -> Dictionary<String,String>
+    {
+        var emptyDict: [String: String] = [:]
+        //        print("got payload : " + payload)
+        if(payload.contains("nothing"))
+        {
+            
+        }else
+        {
+            let temp = self.payload
+            if(temp != "")
+            {
+                
+                var item = self.payload.split(separator: ";")
+                if(item[0] != nil && item[0].contains("networklist") )
+                {
+                    //                    print("network list closure")
+                    //                    emptyDict = ["network_list" : String(item[0])]
+                    item[0] = String.SubSequence(item[0].replacingOccurrences(of: "networklist=", with: ""))
+                    return self.parseNetworkListResponse(data : item)
+                }
+                
+                for value in item
+                {
+                    let keyValue = value
+                    var keyvaluepart = keyValue.split(separator: "=", maxSplits: 1, omittingEmptySubsequences: false)
+                    emptyDict=[String(keyvaluepart[0]):String(keyvaluepart[1])]
+                }
+            }
+            
+        }
+        
+        return emptyDict
+    }
+    
+    
     func getDiscoveryValues() -> [String] {
          var values = [String]()
         if(payload.contains("nothing"))

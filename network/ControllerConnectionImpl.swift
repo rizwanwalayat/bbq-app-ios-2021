@@ -17,7 +17,7 @@ class ControllerconnectionImpl
     static var instance=ControllerconnectionImpl()
     var controller : Controller
     var frontData: [String : String] = [:]
-//    private let serialQueue = DispatchQueue(label: "SerialQueue")
+    private let serialQueue = DispatchQueue(label: "SerialQueue")
 
     
     init()
@@ -58,38 +58,58 @@ class ControllerconnectionImpl
     
     func requestSet(key: String, value: String, encryptionMode: String, requestCompletionHandler: @escaping (_ controlerResponse: ControllerResponseImpl) -> Void)
     {
-//        serialQueue.sync{
+//        serialQueue.async{
+//            self.semaphore.wait()
+
             let request : ControllerRequestImpl = ControllerRequestImpl()
             request.setSetRequest(password: self.controller.getPassword(), key: key, value: value)
             self.client.sendRequest(senderAddr: Util.getWiFiAddress()!, receiverAddr: self.controller.getIp(), request: request, appId: Util.getAppId(), serial: self.controller.getSerial(), encryptionMode: encryptionMode, apprelay: self.connectedOnAppRelay()) { (ControllerResponseImpl) in
                 requestCompletionHandler(ControllerResponseImpl)
+//                self.semaphore.signal()
             }
 //        }
   
 
 //    return true
     }
-    
+    let semaphore = DispatchSemaphore(value: 1)
+
     func requestRead(key: String, completionfinal: @escaping (_ controlerResponse: ControllerResponseImpl) -> Void)
     {
-//        serialQueue.sync{
+//        serialQueue.async{
             //        var completion : Bool = false
+//            self.semaphore.wait()
             let request : ControllerRequestImpl = ControllerRequestImpl()
             request.setReadRequest(password: self.controller.getPassword(), value: key)
-            self.client.sendRequest(
+        self.client.sendRequest(
                 senderAddr: Util.getWiFiAddress()!, receiverAddr: self.controller.getIp(), request: request, appId: Util.getAppId(), serial: self.controller.getSerial(), encryptionMode: " ", apprelay: self.connectedOnAppRelay())
             { (ControllerResponseImpl) in
                 completionfinal(ControllerResponseImpl)
+//                self.semaphore.signal()
             }
 //        }
     }
-
+    func requestMinMax(key: String, completionfinal: @escaping (_ controlerResponse: ControllerResponseImpl) -> Void)
+    {
+        //        serialQueue.sync{
+        //        var completion : Bool = false
+        let request : ControllerRequestImpl = ControllerRequestImpl()
+        request.setMinMaxRequest(password: self.controller.getPassword(), value: key)
+        self.client.sendRequest(
+            senderAddr: Util.getWiFiAddress()!, receiverAddr: self.controller.getIp(), request: request, appId: Util.getAppId(), serial: self.controller.getSerial(), encryptionMode: " ", apprelay: self.connectedOnAppRelay())
+        { (ControllerResponseImpl) in
+            completionfinal(ControllerResponseImpl)
+        }
+        //        }
+    }
     func readF11(completionF11: @escaping (_ controlerResponse: ControllerResponseImpl) -> Void)
     {
 //        serialQueue.sync {
+//        self.semaphore.wait()
+
             let request : ControllerRequestImpl = ControllerRequestImpl()
             request.setF11Request(password: self.controller.getPassword(), value: "*")
-            self.client.sendRequest(senderAddr: Util.getWiFiAddress()!, receiverAddr: self.controller.getIp(),
+        self.client.sendRequest(senderAddr: Util.getWiFiAddress()!, receiverAddr: self.controller.getIp(),
                                request: request,
                                appId: Util.getAppId(),
                                serial: self.controller.getSerial(),
@@ -97,6 +117,7 @@ class ControllerconnectionImpl
                                apprelay: self.connectedOnAppRelay())
             { (ControllerResponseImpl) in
                 completionF11(ControllerResponseImpl)
+//                self.semaphore.signal()
             }
 //    }
       
@@ -124,16 +145,22 @@ class ControllerconnectionImpl
     
     func requestDiscovery(controllerResponse: @escaping (_ responseGot: ControllerResponseImpl) -> Void)
     {
+//        serialQueue.async {
+//        self.semaphore.wait()
+
         let request : ControllerRequestImpl = ControllerRequestImpl()
-        request.setDiscoveryRequest(password: controller.getPassword())
-        client.sendRequest(senderAddr: Util.getWiFiAddress()!, receiverAddr: controller.getIp(),
+            request.setDiscoveryRequest(password: self.controller.getPassword())
+        self.client.sendRequest(senderAddr: Util.getWiFiAddress()!, receiverAddr: self.controller.getIp(),
                            request: request, appId: Util.getAppId(),
-                           serial: controller.getSerial(), encryptionMode: " ",
-                           apprelay: connectedOnAppRelay())
+                           serial: self.controller.getSerial(), encryptionMode: " ",
+                           apprelay: self.connectedOnAppRelay())
         {
             (ControllerResponseImpl) in
             controllerResponse(ControllerResponseImpl)
+//            self.semaphore.signal()
+
         }
+//        }
 
     }
     func requestSetFirmwareUpdate(key: String, value: [UInt8], encryptionMode: String, requestCompletionHandler: @escaping (_ controlerResponse: ControllerResponseImpl) -> Void)

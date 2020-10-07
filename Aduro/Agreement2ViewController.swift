@@ -17,6 +17,7 @@ class Agreement2ViewController: UIViewController {
 
         // Do any add        textAgreement.attributedText=Language.getInstance().getFirstTerm().htmlToAttributedString
         textAgreement2.attributedText=Language.getInstance().GetWifiTerm().htmlToAttributedString
+        textAgreement2.textColor=UIColor.white
     }
     
     @IBAction func decline(_ sender: UIButton) {

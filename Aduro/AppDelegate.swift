@@ -8,6 +8,7 @@
 
 import UIKit
 import Network
+import Sentry
 
 
 @UIApplicationMain
@@ -20,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Language.getInstance()
    
         // Override point for customization after application launch.
+        SentrySDK.start { options in
+               options.dsn = "https://c8a4d2191f59429984b562b1bb7bac11@o399454.ingest.sentry.io/5450800"
+               options.debug = true // Enabled debug when first installing is always helpful
+           }
+
         return true
     }
 

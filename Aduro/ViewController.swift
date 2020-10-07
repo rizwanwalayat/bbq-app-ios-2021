@@ -15,7 +15,8 @@ import FGRoute
 
 class ViewController: UIViewController,UITextFieldDelegate {
  
-    
+    let concurrentQueue = DispatchQueue(label: "view Queue", attributes: .concurrent)
+
     let defaults = UserDefaults.standard
     
     var currentWifi=""
@@ -85,6 +86,17 @@ class ViewController: UIViewController,UITextFieldDelegate {
         serialText.delegate = self
         passwordText.delegate = self
 
+        if(defaults.bool(forKey: Constants.secondtime))
+        {
+            defaults.set(true, forKey: Constants.secondtime)
+            directRadio.isOn=false
+        }
+        else
+        {
+            
+            defaults.set(true, forKey: Constants.secondtime)
+            directRadio.isOn=true
+        }
         
 
     }
@@ -220,16 +232,20 @@ class ViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func btnconnect(_ sender: Any) {
-        var ssid=FGRoute.getSSID()!
-       
+        let ssid=FGRoute.getSSID()
+       passwordText.resignFirstResponder()
+        serialText.resignFirstResponder()
         if (directRadio.isOn)
         {
-            if(ssid.contains("Aduro"))
+            if((ssid?.contains("Aduro"))!)
             {
                 Util.SetDefaultsBool(key: Constants.directConnectFlag, value: true)
                 directConnect()
             }else
             {
+                
+                let replace = Language.getInstance().getlangauge(key: "wizard_2_subtitle_2_description").replacingOccurrences(of: "{{serial}}", with: serialText.text!)
+                directConnectionAlert.text=replace
                 serialView.isHidden = true
                 serialbtntitle.setTitle("+", for: .normal)
                 connectionView.isHidden=false
@@ -237,7 +253,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
           
         }else
         {
-            getIP()
+//            concurrentQueue.async(flags:.barrier) {
+                self.getIP()
+//            }
         }
       
     }
@@ -253,6 +271,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 directConnect()
             }else
             {
+                 let replace = Language.getInstance().getlangauge(key: "wizard_2_subtitle_2_description").replacingOccurrences(of: "{{serial}}", with: serialText.text!)
+                directConnectionAlert.text=replace
                 serialView.isHidden = true
                 serialbtntitle.setTitle("+", for: .normal)
                 connectionView.isHidden=false
@@ -280,80 +300,110 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     func exchangeKeys()
     {
-        let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
-        loadingNotification.mode = MBProgressHUDMode.indeterminate
-        loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
-        loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key:"connecting")
+        var loadingNotification : MBProgressHUD!
+        
+        DispatchQueue.main.async {
+             loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
+            loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key:"connecting")
+        }
         ControllerconnectionImpl.getInstance().requestRead(key: "misc.rsa_key")
         {
             (ControllerResponseImpl) in
             if(ControllerResponseImpl.getPayload().contains("nothing"))
             {
                 print("error")
-                self.showToast(message: "TimeOut Error Try Again")
-                loadingNotification.hide(animated: true)
+                DispatchQueue.main.async {
+                    self.showToast(message: "TimeOut Error Try Again")
+                    loadingNotification.hide(animated: true)
+                }
             }
             else
             {
                 //            print(ControllerResponseImpl.GetReadValue()["rsa_key"]!)
-                RSAHelper().loadPubKey(key: ControllerResponseImpl.GetReadValue()["rsa_key"]!)
-                let xteakey = XTEAHelper().loadKey()
+                RSAHelper().loadPubKey(key: ControllerResponseImpl.GetReadValueForKeyExchange()["rsa_key"]!)
                 //                let loadingNotification1 = MBProgressHUD.showAdded(to: self.view, animated: true)
                 //                loadingNotification1.hide(animated: true)
                 //                loadingNotification1.mode = MBProgressHUDMode.indeterminate
+                self.concurrentQueue.async(flags:.barrier) {
+                    self.setXtea(loadingNotification: loadingNotification)
+                }
                 
-                
-                loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
-                loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key:"connecting")
-                ControllerconnectionImpl.getInstance().requestSet(key: "misc.xtea_key", value: xteakey, encryptionMode: "*", requestCompletionHandler:
-                    {
-                        (ControllerResponseImpl) in
-                        if(ControllerResponseImpl.getPayload().contains("nothing"))
-                        {
-                            print("error")
-                            self.showToast(message: "TimeOut Error Try Again")
-                            loadingNotification.hide(animated: true)
-                        }
-                        else
-                        {
-                            loadingNotification.hide(animated: true)
-                            self.showToast(message: "Keys Exchange Done")
-                            
-                            if(ControllerconnectionImpl.getInstance().getController().isAccessPoint())
-                            {
-                                self.checkControllerConnectedToWifi()
-                                if(!self.serialView.isHidden)
-                                {
-                                    self.serialView.isHidden=true
-                                    self.resultView.isHidden=false
-                                }
-                            }else
-                            {
-                                self.showToast(message: "Move To Main")
-                                self.defaults.set(self.passwordText.text, forKey: self.serialText.text!)
-                                guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else { return}
-//                                self.navigationController?.pushViewController(sVC, animated: true)
-//                                self.dismiss(animated: true)
-                                self.defaults.set(self.serialText.text, forKey: Constants.serialKey)
-                                self.defaults.set(self.passwordText.text, forKey: Constants.passwordKey)
-                                sVC.serial=self.serialText.text!
-                                sVC.password=self.passwordText.text!
-                                sVC.fromSplash=false
-                                self.present(sVC, animated: true, completion: {
-                                    
-                                })
-                            }
-                            
-                        }
-                        
-                })
+         
             }
         }
     }
     
     
     
-    
+    func setXtea(loadingNotification:MBProgressHUD)  {
+        let xteakey = XTEAHelper().loadKey()
+
+             DispatchQueue.main.async {
+                        loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
+                                      loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key:"connecting")
+                    }
+                  
+                    ControllerconnectionImpl.getInstance().requestSet(key: "misc.xtea_key", value: xteakey, encryptionMode: "*", requestCompletionHandler:
+                        {
+                            (ControllerResponseImpl) in
+                            if(ControllerResponseImpl.getPayload().contains("nothing"))
+                            {
+                                print("error")
+                                self.showToast(message: "TimeOut Error Try Again")
+                                loadingNotification.hide(animated: true)
+                            }
+                            else
+                            {
+                                
+                                DispatchQueue.main.async {
+                                    loadingNotification.hide(animated: true)
+                                }
+                                self.showToast(message: "Keys Exchange Done")
+                                self.defaults.set(self.passwordText.text, forKey: self.serialText.text!)
+                                self.defaults.set(self.serialText.text, forKey: Constants.serialKey)
+                                self.defaults.set(self.passwordText.text, forKey: Constants.passwordKey)
+                                if(ControllerconnectionImpl.getInstance().getController().isAccessPoint())
+                                {
+                                    self.concurrentQueue.async(flags:.barrier) {
+
+                                        self.checkControllerConnectedToWifi()
+                                                    }
+                                    if(!self.serialView.isHidden)
+                                    {
+                                        self.serialView.isHidden=true
+                                        self.resultView.isHidden=false
+                                    }
+                                    if(!self.connectionView.isHidden)
+                                    {
+                                        self.serialView.isHidden=true
+                                        self.connectionView.isHidden=true
+                                        self.resultView.isHidden=false
+                                    }
+                                }else
+                                {
+
+                                    self.concurrentQueue.async(flags:.barrier) {
+                                        self.checkControllerConnectedToWifi()
+                                                 }
+                                    if(!self.serialView.isHidden)
+                                    {
+                                        self.serialView.isHidden=true
+                                        self.resultView.isHidden=false
+                                    }
+                                    if(!self.connectionView.isHidden)
+                                    {
+                                        self.serialView.isHidden=true
+                                        self.connectionView.isHidden=true
+                                        self.resultView.isHidden=false
+                                    }
+                                }
+                                
+                            }
+                            
+                    })
+      }
     
     func checkControllerConnectedToWifi()
     {
@@ -391,22 +441,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 }
                 
         }
-//        ControllerconnectionImpl.getInstance().requestRead(key: "wifi.router")
-//        {
-//            (ControllerResponseImpl) in
-//            if(ControllerResponseImpl.getPayload().contains("nothing"))
-//            {
-//                //                print("error")
-//                //                self.showToast(message: "TimeOut Error Try Again")
-//                self.checkControllerConnectedToWifi()
-//            }
-//            else
-//            {
-//
-//            }
-//
-//
-//        }
     }
     
     
@@ -427,7 +461,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func DoNotUserInternet(_ sender: UIButton) {
-        removeWifi();
+//        removeWifi();
     }
     func removeWifi()  {
         let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
@@ -464,11 +498,13 @@ class ViewController: UIViewController,UITextFieldDelegate {
     {
 //        defaults.string(forKey: "serial")!
 //        defaults.string(forKey: "password")!
-        
-        let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
-        loadingNotification.mode = MBProgressHUDMode.indeterminate
-        loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
-        loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key: "getip")
+        var loadingNotification : MBProgressHUD!
+        DispatchQueue.main.async {
+             loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
+            loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key: "getip")
+        }
         ControllerconnectionImpl.getInstance().getController().setSerial(serial: serialText.text! )
         ControllerconnectionImpl.getInstance().getController().setPassword(password: passwordText.text!)
         ControllerconnectionImpl.getInstance().getController().SetIp(ip: "255.255.255.255")
@@ -481,17 +517,29 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 print("no controller go app relay")
                 ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
 //                self.getF11(setip: false)
-                loadingNotification.hide(animated: true)
-                self.exchangeKeys()
+                DispatchQueue.main.async {
+                    loadingNotification.hide(animated: true)
+                }
+
+                self.concurrentQueue.async(flags:.barrier) {
+
+                    self.exchangeKeys()
+//                    self.getIP()
+                }
             }else
             {
                 //                normal case change the ip of controller got in response and exchange keys
                 print(values[0])
                 ControllerconnectionImpl.getInstance().getController().SetIp(ip: values[0])
 //                self.getF11(setip: false)
-                loadingNotification.hide(animated: true)
-                self.exchangeKeys()
-                
+                DispatchQueue.main.async {
+                    loadingNotification.hide(animated: true)
+                }
+                self.concurrentQueue.async(flags:.barrier) {
+
+                                    self.exchangeKeys()
+                //                    self.getIP()
+                                }
             }
             
         }

@@ -20,6 +20,7 @@ class agreementViewController: UIViewController{
 //        acceptbtn.layer.cornerRadius = 10
 //        acceptbtn.clipsToBounds = true
         textAgreement.attributedText=Language.getInstance().getFirstTerm().htmlToAttributedString
+        textAgreement.textColor=UIColor.white
         // Do any additional setup after loading the view.
     }
     

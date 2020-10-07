@@ -20,12 +20,13 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
     var gotresponse = false
     var errorfound = false
     var timeout = false
-    
+    var timer : Timer!
+    let serialQueue = DispatchQueue(label: "Serial Queue") // custom dispatch queues are serial by default
+
 //    var udpsocket = UDPClient?.self
     override init() {
         super.init()
         skt = GCDAsyncUdpSocket(delegate: self, delegateQueue: .main)
-        
     }
 
    
@@ -42,6 +43,7 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
             try skt.bind(toPort: 1901)
             try skt.beginReceiving()
             try skt.enableBroadcast(true)
+            
         }
         catch let myError
         {
@@ -57,7 +59,8 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
             request.setPort(port: "1901")
             let stringrequest = request.getRawRequest()
             
-            skt.send(stringrequest, toHost: Util.getHostIpAddress(hostDomainNama: receiverAddr as CFString)!, port: 8484, withTimeout: 3000, tag: 0)
+            skt.send(stringrequest, toHost: Util.getHostIpAddress(hostDomainNama: receiverAddr as CFString)!
+                , port: 8484, withTimeout: 1, tag: 0)
             print("request send " + String(decoding: stringrequest, as: UTF8.self))
             
         }else
@@ -68,7 +71,7 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
             let stringrequest = request.getRawRequestFirmware()
             //            print(stringrequest.toArray(type: UInt8.self).count)
 //            print(stringrequest.toArray(type: UInt8.self))
-            skt.send(stringrequest, toHost: receiverAddr, port: self.PORT, withTimeout: 3000, tag: 0)
+            skt.send(stringrequest, toHost: receiverAddr, port: self.PORT, withTimeout: 1, tag: 0)
             
             print("request send" + String(decoding: stringrequest, as: UTF8.self))
         }
@@ -76,6 +79,8 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
         var runtime: Int=0
         let timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true)
         { (timer) in
+            var currentSec = timer.timeInterval
+            
             // do stuff 42 seconds later
             if(runtime<=7)
             {
@@ -110,94 +115,110 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
         //        }
 
     }
-    func sendRequest(senderAddr: String, receiverAddr: String ,request: ControllerRequestImpl,appId: String, serial: String,encryptionMode: String,apprelay: Bool ,CompletionHandler: @escaping (ControllerResponseImpl)->())
+    
+    var testing :((ControllerResponseImpl)->())?
+    let semaphore = DispatchSemaphore(value: 1)
+
+    func sendRequest(senderAddr: String, receiverAddr: String ,request: ControllerRequestImpl,appId: String, serial: String,encryptionMode: String,apprelay: Bool ,CompletionHandler:  @escaping (ControllerResponseImpl)->())
     {
-        self.resp = ControllerResponseImpl()
-        gotresponse = false
-        errorfound = false
-        timeout = false
-            do
-            {
+        semaphore.wait()
+//        serialQueue.sync {
+            testing=CompletionHandler
+                self.resp = ControllerResponseImpl()
+            self.gotresponse = false
+            self.errorfound = false
+            self.timeout = false
+                        do
+                        {
 
-//                try skt.enableReusePort(true)
-//                skt.setPreferIPv4()
-//                skt.setIPv6Enabled(false)
-                skt.close()
-                try skt.bind(toPort: 1901)
-//                try skt.connect(toHost: SERVER_IP, onPort: PORT)
-                try skt.beginReceiving()
-                try skt.enableBroadcast(true)
-            }
-            catch let myError
-            {
-                print("caught: \(myError)")
-            }
+            //                try skt.enableReusePort(true)
+            //                skt.setPreferIPv4()
+            //                skt.setIPv6Enabled(false)
+                            self.skt.close()
+                            try self.skt.bind(toPort: 1901)
+                            try skt.enableReusePort(true)
+
+//                            try skt.connect(toHost: SERVER_IP, onPort: PORT)
+                            try self.skt.beginReceiving()
+                            try self.skt.enableBroadcast(true)
+                        }
+                        catch let myError
+                        {
+                            print("caught: \(myError)")
+                        }
 
 
 
-        let serialtemp = sanitizeSerial(serial: serial)
-        request.setAppId(appid: appId)
-        request.setSerial(serial: serialtemp)
-        request.setEncryption(mode: encryptionMode)
-        if(apprelay==true)
-        {
-            var ip=Util.getHostIpAddress(hostDomainNama: receiverAddr as CFString )
-            if(ip != nil)
-            {
-                request.setLocalIp(ip: ip!)
-                request.setPort(port: "1901")
-                let stringrequest = request.getRawRequest()
-                
-                skt.send(stringrequest, toHost: Util.getHostIpAddress(hostDomainNama: receiverAddr as CFString)!, port: 8483, withTimeout: 3000, tag: 0)
-                print("request send " + String(decoding: stringrequest, as: UTF8.self))
-            }else
-            {
-                print("no internet apprelay case")
-            }
+            let serialtemp = self.sanitizeSerial(serial: serial)
+                    request.setAppId(appid: appId)
+                    request.setSerial(serial: serialtemp)
+                    request.setEncryption(mode: encryptionMode)
+                    if(apprelay==true)
+                    {
+                        var ip=Util.getHostIpAddress(hostDomainNama: receiverAddr as CFString )
+                        if(ip != nil)
+                        {
+                            request.setLocalIp(ip: ip!)
+                            request.setPort(port: "1901")
+                            let stringrequest = request.getRawRequest()
+                            
+                            self.skt.send(stringrequest, toHost: Util.getHostIpAddress(hostDomainNama: receiverAddr as CFString)!, port: 8483, withTimeout: 3, tag: 0)
+                            print("request send " + String(decoding: stringrequest, as: UTF8.self))
+                        }else
+                        {
+                            print("no internet apprelay case")
+                        }
 
-        }else
-        {
-            request.setLocalIp(ip: "192.168.4.1")
-//            request.setLocalIp(ip: senderAddr)
-            request.setPort(port: "1901")
-            let stringrequest = request.getRawRequest()
-//            print(stringrequest.toArray(type: UInt8.self).count)
-//            print(stringrequest.toArray(type: UInt8.self))
-            skt.send(stringrequest, toHost: receiverAddr, port: self.PORT, withTimeout: 3000, tag: 0)
-            
-            print("request send " + String(decoding: stringrequest, as: UTF8.self))
-        }
-        var runtime: Int=0
-        let timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true)
-        { (timer) in
-            // do stuff 42 seconds later
-            if(runtime<=7)
-            {
-//                print("runing")
-                print(self.resp)
-                runtime+=1
-                if(self.gotresponse)
-                {
-                    timer.invalidate()
-//                    print("got response")
-                    CompletionHandler(self.resp)
-                }
-            }
-            else
-            {
-//                print("4 sec is over")
-                self.skt.close()
-                print("timeout error")
-                self.resp.setpayload(payload: "nothing")
-                self.errorfound = true
-                self.gotresponse=false
-                self.timeout = true
-                timer.invalidate()
-                CompletionHandler(self.resp)
-            }
+                    }else
+                    {
+                        request.setLocalIp(ip: "192.168.4.1")
+            //            request.setLocalIp(ip: senderAddr)
+                        request.setPort(port: "1901")
+                        let stringrequest = request.getRawRequest()
+            //            print(stringrequest.toArray(type: UInt8.self).count)
+            //            print(stringrequest.toArray(type: UInt8.self))
+                        self.skt.send(stringrequest, toHost: receiverAddr, port: self.PORT, withTimeout: 1, tag: 0)
 
-        }
-        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
+                        print("request send " + String(decoding: stringrequest, as: UTF8.self))
+                    }
+        DispatchQueue.main.async {
+//                   print("This is run on the main queue, after the previous code in outer block")
+            var runtime: Int=0
+            self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true)
+                                { (timer) in
+                                    if(runtime<=7)
+                                    {
+                                        print(self.resp)
+                                        runtime+=1
+                                        if(self.gotresponse)
+                                        {
+                                            timer.invalidate()
+            //                                CompletionHandler(self.resp)
+                                        }
+                                    }
+                                    else
+                                    {
+                                        self.skt.close()
+                                        print("timeout error")
+                                        self.resp.setpayload(payload: "nothing")
+                                        self.errorfound = true
+                                        self.gotresponse=false
+                                        self.timeout = true
+                                        timer.invalidate()
+                                        CompletionHandler(self.resp)
+                                        self.semaphore.signal()
+
+                                    }
+
+                                }
+            RunLoop.current.add(self.timer, forMode: RunLoop.Mode.common)
+               }
+                    
+//            semaphore.signal()
+
+//        }
+        
+    
         
     }
     
@@ -214,6 +235,7 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
     }
     
     
+    
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?)
     {
 //        print("got response")
@@ -222,12 +244,26 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
         print("response : " + incomingDisc)
         self.resp.setData(response: data)
         skt.close()
+        timer.invalidate()
+        testing!(self.resp)
+        semaphore.signal()
+
+
     }
     func udpSocket(_ sock: GCDAsyncUdpSocket, didNotSendDataWithTag tag: Int, dueToError error: Error?)
     {
         print("data not send \(String(describing: error))")
-        errorfound = true
+//        errorfound = true
+//        self.skt.close()
+        print("timeout error")
+        self.resp.setpayload(payload: "nothing")
+        self.errorfound = true
+        self.gotresponse=false
+        self.timeout = true
+        timer.invalidate()
         skt.close()
+        testing!(self.resp)
+        semaphore.signal()
     }
     func udpSocket(_ sock: GCDAsyncUdpSocket, didNotConnect error: Error?) {
         print("did Not Connect \(error)")
@@ -238,7 +274,8 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
     }
     func udpSocket(_ sock: GCDAsyncUdpSocket, didSendDataWithTag tag: Int) {
         print("data send " )
-//        GCDAsyncUdpSocket.host(fromAddress: <#T##Data#>)
+
+//        GCDAsyncUdpSocket.host(fromAddress: T##Data)
 //        GCDAsyncUdpSocket.host(fromAddress: sock.connectedPort())
 //        print(" address " + String(data: sock.connectedAddress() as! Data, encoding: String.Encoding(rawValue: String.Encoding.ascii.rawValue))!)
 //        print(" port " + String(sock.connectedPort()))

@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>5</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -28,6 +28,12 @@
 	<string>this app need access to your location </string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>this app need access to your location </string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>fontawesome-webfont.ttf</string>
+		<string>icomoon.ttf</string>
+		<string>ionic.ttf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

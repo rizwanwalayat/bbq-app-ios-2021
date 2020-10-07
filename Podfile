@@ -10,6 +10,8 @@ target 'Aduro' do
   pod 'SwiftyJSON', '~> 4.0'
 pod "FGRoute"
 pod 'MBProgressHUD', '~> 1.1.0'
+pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '6.0.0'
+
 #pod "ExpandableTableViewController"
 
 

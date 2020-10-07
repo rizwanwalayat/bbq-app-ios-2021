@@ -16,5 +16,6 @@ class Constants {
     static var term1Accept="term1"
     static var term2Accept="term2"
     static var directConnectFlag="directConnectFlag"
+    static var secondtime="secondTime"
     
 }

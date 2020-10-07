@@ -24,6 +24,15 @@ import JavaScriptCore
             let data = requestString.data(using: .utf8, allowLossyConversion: true)
 
             var byteArray = data?.toArray(type: Int8.self)
+        if(byteArray!.count<85)
+            {
+                while byteArray!.count < 85 {
+                    byteArray?.append(Int8("0")!)
+                    byteArray?.append(Int8("0")!)
+                    byteArray?.append(Int8("0")!)                }
+               
+                
+        }
             let indexesToEncrypt = byteArray?[fromIndex..<(fromIndex + 64)]
             var indexesToEncryptArray = Array(indexesToEncrypt!)
             let encryptedData = self.xteaHelper?.encrypt(bs: &indexesToEncryptArray)//self.rsaHelper?.encrypt(bs: indexesToEncryptArray)
