@@ -8,8 +8,11 @@
 
 import UIKit
 import FGRoute
+import MBProgressHUD
 
 class InfoViewController: UIViewController {
+
+    let concurrentQueue = DispatchQueue(label: "info Queue", attributes: .concurrent)
 
     @IBOutlet weak var serialLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -34,6 +37,7 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var MacValue: UILabel!
     @IBOutlet weak var ovenPowerValue: UILabel!
     
+    @IBOutlet weak var cancelInternetSetting: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +45,11 @@ class InfoViewController: UIViewController {
         overdateValue.addGestureRecognizer(tap)
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(timeclicked))
         ovenTimeValue.addGestureRecognizer(tap1)
+        
+        
+        let tap2 = UITapGestureRecognizer(target: self, action: #selector(clearSetting))
+        cancelInternetSetting.addGestureRecognizer(tap2)
+        
     labelset()
 
         // Do any additional setup after loading the view.
@@ -54,6 +63,36 @@ class InfoViewController: UIViewController {
         showTimePicker()
     }
     
+    @objc func clearSetting(){
+        
+        concurrentQueue.async(flags:.barrier) {
+            self.removeWifi()
+        }
+    }
+    func removeWifi()  {
+        
+        var loadingNotification  : MBProgressHUD!
+        DispatchQueue.main.async {
+            loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+                loadingNotification.mode = MBProgressHUDMode.indeterminate
+                loadingNotification.label.text = "Loading"
+                loadingNotification.detailsLabel.text = "Removing Wifi"
+        }
+      
+          ControllerconnectionImpl.getInstance().reuqestSetWithoutEncrypt(key: "wifi.router", value: ",")
+          { (ControllerResponseImpl) in
+            DispatchQueue.main.async {
+                loadingNotification.hide(animated: true)
+            }
+              if(ControllerResponseImpl.getPayload().contains("nothing"))
+              {
+                  print("error")
+              }
+              else
+              {
+              }
+          }
+      }
     func labelset() {
         serialLabel.text=Language.getInstance().getlangauge(key: "Serial")
         passwordLabel.text=Language.getInstance().getlangauge(key: "Password")
@@ -64,6 +103,7 @@ class InfoViewController: UIViewController {
         SSIDLabel.text=Language.getInstance().getlangauge(key: "info_ssid")
         MacLabel.text=Language.getInstance().getlangauge(key: "info_mac")
         OvenPowerLabel.text=Language.getInstance().getlangauge(key: "info_wifipower")
+        cancelInternetSetting.text=Language.getInstance().getlangauge(key: "wizard_2_dont_wifi_button")
         
         getvalue()
     }
@@ -72,15 +112,20 @@ class InfoViewController: UIViewController {
     }
     
     func getvalue()  {
-        ControllerconnectionImpl.getInstance().requestRead(key: "wifi.router")
-        { (ControllerResponseImpl) in
-            
-            if(ControllerResponseImpl.getPayload().contains("nothing"))
-            {
-                self.getvalue()
-            }else
-            {
-                self.updateUI(map: ControllerResponseImpl.GetReadValue())
+        concurrentQueue.async(flags:.barrier) {
+
+            ControllerconnectionImpl.getInstance().requestRead(key: "wifi.router")
+            { (ControllerResponseImpl) in
+                
+                if(ControllerResponseImpl.getPayload().contains("nothing"))
+                {
+//                    self.getvalue()
+                }else
+                {
+                    DispatchQueue.main.async {
+                        self.updateUI(map: ControllerResponseImpl.GetReadValue())
+                    }
+                }
             }
         }
     }
@@ -233,7 +278,30 @@ class InfoViewController: UIViewController {
         {
             Month=String(components.month!)
         }
-        updateDateyear(year: String(components.year! - 2000), month: Month, date: String(components.day!), hour: String(timecomponents1.hour!), mint: String(timecomponents1.minute!), payload: "misc.clock_year")
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_year", value: String(components.year! - 2000))
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_month", value: Month)
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_date", value: String(components.day!))
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_hour", value: String(timecomponents1.hour!))
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_minute", value: String(timecomponents1.minute!))
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_second", value: "00")
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_changed", value: "1")
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.getf11()
+        }
     }
     
     @objc func ondonetimeClicked()
@@ -251,7 +319,30 @@ class InfoViewController: UIViewController {
         {
             Month=String(datecomponents.month!)
         }
-         updateDateyear(year: String(datecomponents.year! - 2000), month: Month, date: String(datecomponents.day!), hour: String(timecomponents1.hour!), mint: String(timecomponents1.minute!), payload: "misc.clock_year")
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_year", value: String(datecomponents.year! - 2000))
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_month", value: Month)
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_date", value: String(datecomponents.day!))
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_hour", value: String(timecomponents1.hour!))
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_minute", value: String(timecomponents1.minute!))
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_second", value: "00")
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.updateDateTime(payload: "misc.clock_changed", value: "1")
+        }
+        concurrentQueue.async(flags:.barrier) {
+            self.getf11()
+        }
         
   }
     @objc func cancel()  {
@@ -260,78 +351,21 @@ class InfoViewController: UIViewController {
         timePicker.removeFromSuperview()
     }
     
-    func updateDateyear(year:String,month:String,date:String,hour:String,mint:String,payload:String)   {
-        var value:String
-        if(payload=="misc.clock_year")
-        {
-            value=year
-        }
-        else if(payload=="misc.clock_month")
-        {
-            value=month
-        }
-        else if(payload=="misc.clock_date")
-        {
-             value=date
-        }
-        else if(payload=="misc.clock_hour")
-        {
-             value=hour
-        }
-        else if(payload=="misc.clock_minute")
-        {
-             value=mint
-        }
-        else if(payload=="misc.clock_second")
-        {
-            value="00"
-        }else
-        {
-            value="1"
-        }
-        ControllerconnectionImpl.getInstance().requestSet(key: payload, value: value, encryptionMode: "-")
-        { (ControllerResponseImpl) in
+    func updateDateTime(payload:String,value:String)  {
+    
+        ControllerconnectionImpl.getInstance().requestSet(key: payload, value: value, encryptionMode: "-") { (ControllerResponseImpl) in
             if(ControllerResponseImpl.getPayload().contains("nothing"))
             {
-                self.updateDateyear(year: year, month: month, date: date, hour: hour, mint: mint, payload: payload)
-            }else
-            {
-                if(payload=="misc.clock_year")
-                {
-                    self.updateDateyear(year: year, month: month, date: date, hour: hour, mint: mint, payload: "misc.clock_month")
-
-                }
-                else if(payload=="misc.clock_month")
-                {
-                    self.updateDateyear(year: year, month: month, date: date, hour: hour, mint: mint, payload: "misc.clock_date")
-
-                }
-                else if(payload=="misc.clock_date")
-                {
-                    self.updateDateyear(year: year, month: month, date: date, hour: hour, mint: mint, payload: "misc.clock_hour")
-
-                }
-                else if(payload=="misc.clock_hour")
-                {
-                    
-                    self.updateDateyear(year: year, month: month, date: date, hour: hour, mint: mint, payload: "misc.clock_minute")
-                }
-                else if(payload=="misc.clock_minute")
-                {
-                    self.updateDateyear(year: year, month: month, date: date, hour: hour, mint: mint, payload: "misc.clock_second")
-                    
-                }
-                else if(payload=="misc.clock_second")
-                {
-                    self.updateDateyear(year: year, month: month, date: date, hour: hour, mint: mint, payload: "misc.clock_changed")
-                }else if(payload=="misc.clock_changed")
-                {
-                    self.getf11()
-                }
                 
             }
+            else
+            {
+                
+            }
+            
         }
     }
+  
     
     
     func isCloud(value:String) -> Bool {

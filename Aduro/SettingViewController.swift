@@ -72,18 +72,24 @@ class SettingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillDisappear(_ animated: Bool) {
-        if(operationMode != NewoperationMode)
+        if(operationMode != "")
         {
+            if(operationMode != NewoperationMode)
+            {
 
-            concurrentQueue.async(flags:.barrier) {
-                self.setvalue(value: self.NewoperationMode, key: "regulation.operation_mode")
+                concurrentQueue.async(flags:.barrier) {
+                    self.setvalue(value: self.NewoperationMode, key: "regulation.operation_mode")
+                }
             }
         }
-        if(timetableEnabled != NewtimetableEnabled)
+        if(timetableEnabled != "")
         {
-            
-            concurrentQueue.async(flags:.barrier) {
-                self.setvalue(value: self.NewtimetableEnabled, key: "boiler.timer")
+            if(timetableEnabled != NewtimetableEnabled)
+            {
+                
+                concurrentQueue.async(flags:.barrier) {
+                    self.setvalue(value: self.NewtimetableEnabled, key: "boiler.timer")
+                }
             }
         }
     }
@@ -185,26 +191,32 @@ class SettingViewController: UIViewController {
     
     @objc func Adjustmentfunc() {
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "AdjustmentViewController") as? AdjustmentViewController else { return}
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
         
     }
     @objc func timetablefunc() {
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "TimeTableViewController") as? TimeTableViewController else { return}
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
         
     }
     @objc func wizardfunc() {
                  guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "WizardMainViewController") as? WizardMainViewController else { return}
+        
+        sVC.modalPresentationStyle = .fullScreen
                 self.present(sVC, animated: true)
 //                dismiss(animated: true)
     }
     @objc func infofunc() {
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "InfoViewController") as? InfoViewController else { return}
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
     }
     @objc func seleclangfunc() {
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "LanguageViewController") as? LanguageViewController else { return}
         sVC.fromsetting=true
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
     }
 
@@ -462,10 +474,12 @@ class SettingViewController: UIViewController {
             statusText.text=Language.getInstance().getlangauge(key: "setting_off")
             break
         case "2":
-            statusImage.image=UIImage(named: "setting_alarmStop")
+            statusImage.image=UIImage(named: "onoff_red2")
             statusText.text=Language.getInstance().getlangauge(key: "setting_alarmStop")
             break
         default:
+            statusImage.image=UIImage(named: "onoff2")
+            statusText.text=Language.getInstance().getlangauge(key: "setting_on")
             break
         }
     }
@@ -492,7 +506,7 @@ class SettingViewController: UIViewController {
             if(ControllerResponseImpl.getPayload().contains("nothing"))
             {
                 
-                print("set not")
+                print("set not from setting")
             }else
             {
                 print("set ok")

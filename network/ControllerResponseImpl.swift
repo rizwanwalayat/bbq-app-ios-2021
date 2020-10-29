@@ -120,7 +120,10 @@ class ControllerResponseImpl: ControllerResponse {
                 {
                     let keyValue = value
                     var keyvaluepart = keyValue.split(separator: "=", maxSplits: 1, omittingEmptySubsequences: false)
-                    emptyDict=[String(keyvaluepart[0]):String(keyvaluepart[1])]
+                    if(keyvaluepart.count > 1)
+                    {
+                        emptyDict=[String(keyvaluepart[0]):String(keyvaluepart[1])]
+                    }
                 }
             }
             
@@ -144,16 +147,20 @@ class ControllerResponseImpl: ControllerResponse {
                 
             }else
             {
-                var elements = String(payloads[1]).split(separator: "=")
-                values.append( String(elements[1]))
-                elements = String(payloads[0]).split(separator: "=")
-                values.append(String(elements[1]))
-                elements = String(payloads[2]).split(separator: "=")
-                values.append(String(elements[1]))
-                elements = String(payloads[3]).split(separator: "=")
-                values.append(String(elements[1]))
-                elements = String(payloads[4]).split(separator: "=")
-                values.append(String(elements[1]))
+                if(payloads.count > 3)
+                {
+
+                    var elements = String(payloads[1]).split(separator: "=")
+                    values.append( String(elements[1]))
+                    elements = String(payloads[0]).split(separator: "=")
+                    values.append(String(elements[1]))
+                    elements = String(payloads[2]).split(separator: "=")
+                    values.append(String(elements[1]))
+                    elements = String(payloads[3]).split(separator: "=")
+                    values.append(String(elements[1]))
+                    elements = String(payloads[4]).split(separator: "=")
+                    values.append(String(elements[1]))
+                }
             }
 
             

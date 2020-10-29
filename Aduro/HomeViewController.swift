@@ -11,9 +11,17 @@ import FGRoute
 import CoreLocation
 import Network
 import SystemConfiguration
+import MBProgressHUD
 
-class HomeViewController: UIViewController,CLLocationManagerDelegate {
+class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredelegate {
+    func donedialogStartFirmware() {
+//        print("done clicked")
+            self.stopHandler()
+            self.startfirmware()
+    }
+    
 
+    var classvar=0;
     let concurrentQueue = DispatchQueue(label: "Concurrent Queue", attributes: .concurrent)
     let serialQueue = DispatchQueue(label: "serial Queue")
 
@@ -21,6 +29,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
     var serial:String!
     var password:String!
     var fromSplash:Bool!
+    var justlangChange:Bool = false
     var locationManager:CLLocationManager!
     var count=0
 //    @IBOutlet weak var connectionLabel: UILabel!
@@ -63,10 +72,13 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
 //    @IBOutlet weak var f11values: UILabel!
     var timer : Timer!
     var countDownTimermode1 : Timer!
+    var controller : Controller!
     override func viewDidLoad() {
         super.viewDidLoad()
         settext()
-      
+        createNewUIProgressView()
+        createCustomImageViews()
+        addSubViews()
         
         let tapgesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTap))
         wrench.addGestureRecognizer(tapgesture)
@@ -86,7 +98,22 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
         if(fromSplash==true)
         {
         
-            Checklocation()
+            if(justlangChange)
+            {
+                concurrentQueue.async(flags:.barrier)
+                {
+                    self.getf11()
+                }
+                concurrentQueue.async(flags:.barrier)
+                {
+                    self.getVersion()
+                }
+                starthandler()
+             
+            }else
+            {
+                Checklocation()
+            }
         }
         else
         {
@@ -194,8 +221,13 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
             let ssid=FGRoute.getSSID()!
             if(ssid.contains("Aduro"))
             {
+
+                controller = Controller(serial: serial)
+                controller.setPassword(password: password)
+                ControllerconnectionImpl.getInstance().setController(controller: controller)
+                ControllerconnectionImpl.getInstance().getController().swapToLocal()
                 print("aduro wifi")
-//
+                ControllerconnectionImpl.getInstance().getController().swapToLocal()
                 concurrentQueue.async(flags:.barrier) {
                     self.getF11(setip: true, directfourg: false)
 
@@ -206,6 +238,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
                 concurrentQueue.async(flags:.barrier) {
                     self.exchangeKeys()
                 }
+                starthandler()
 //                                    self.getVersion()
 
 
@@ -216,6 +249,9 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
                 concurrentQueue.async(flags:.barrier) {
                     self.getIP()
                 }
+                concurrentQueue.async() {
+                              self.getform()
+                          }
 //                getIP()
             }
             
@@ -223,6 +259,11 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
         else
         {
 //            connectionLabel.text="4G apprelay case"
+            
+            controller = Controller(serial: serial)
+            controller.setPassword(password: password)
+            ControllerconnectionImpl.getInstance().setController(controller: controller)
+            ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
             concurrentQueue.async(flags:.barrier) {
                                self.getF11(setip: false,directfourg: true)
                            }
@@ -232,8 +273,37 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
                         concurrentQueue.async(flags:.barrier) {
                             self.exchangeKeys()
                         }
+            concurrentQueue.async() {
+                self.getform()
+            }
+            starthandler()
         }
         
+    }
+    
+    func getform()  {
+        if(Util.GetDefaultsBool(key: ControllerconnectionImpl.getInstance().getController().getSerial()) == false)
+        {
+            let url = URL(string: "https://aduro.prevas-dev.pw/api/device/" + ControllerconnectionImpl.getInstance().getController().getSerial() + "/nbe/verify")!
+                  var request = URLRequest(url: url)
+                  request.httpMethod = "GEt"
+                  NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) {(response, data, error) in
+                      guard let data = data else { return }
+                      print(String(data: data, encoding: .utf8)!)
+                      let value = String(data: data, encoding: .utf8)!
+                      if(value == "true")
+                      {
+                        Util.SetDefaultsBool(key: ControllerconnectionImpl.getInstance().getController().getSerial(), value: true)
+                      }else if (value == "false")
+                      {
+                          guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "FormViewController") as? FormViewController else { return}
+
+                          sVC.modalPresentationStyle = .fullScreen
+                          self.present(sVC, animated: true)
+                      }
+                  }
+        }
+      
     }
  
     func getIP()
@@ -290,6 +360,31 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
             }
             
         }
+    }
+    func getf11() {
+                 ControllerconnectionImpl.getInstance().requestF11Identified
+                                           {
+                                               (ControllerResponseImpl) in
+                                               if(ControllerResponseImpl.getPayload().contains("nothing"))
+                                               {
+                                                   print(" f11 error")
+                               //                    self.f11label.text=" f11 error"
+                               //                    self.getF11(setip: setip, directfourg: directfourg)
+                                                   //                self.showToast(message: "TimeOut Error Try Again")
+                                               }
+                                               else
+                                               {
+                               //                    print(map)
+                               //                    self.f11values.text=ControllerResponseImpl.getPayload()
+                               //                    self.setimage()
+                               //                    self.f11label.text="got f11 values"
+                                                DispatchQueue.main.async {
+                                                    self.updateValues()
+                                                }
+        //                                           self.exchangeKeys()
+                                               }
+                                               
+                                       }
     }
     func getF11(setip : Bool,directfourg:Bool)  {
                 if(serial==nil)
@@ -353,12 +448,317 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate {
 else
                                                      {
                                                         self.setVersionText(variable: ControllerResponseImpl)
-                                                        //                                                      self.versionText.text=ControllerResponseImpl.getPayload()
+                                                        self.checkfirmwareHasToUpdate(response: ControllerResponseImpl)
+//                                                        self.versionText.text=ControllerResponseImpl.getPayload()
                 }
                    }
            
        
     }
+    func checkfirmwareHasToUpdate(response : ControllerResponseImpl)
+    {
+//        self.UpdateFirmware(payload: "")
+
+        let splitString : [String] = response.getDiscoveryValues()
+        if(splitString.count > 0)
+        {
+            if(Constants.version >= Int(splitString[3])!)
+                   {
+                       if(Constants.build > Int(splitString[4])!)
+                       {
+                           self.UpdateFirmware(payload: "")
+                       }
+                   }
+        }
+       
+    }
+    func UpdateFirmware(payload: String) {
+        
+        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "FirmwareUpdateDialogeViewController") as?
+                 FirmwareUpdateDialogeViewController else { return}
+             sVC.modalPresentationStyle = .overCurrentContext
+             sVC.modalTransitionStyle = .crossDissolve
+             sVC.delegate=self
+//             sVC.delegate=self
+             self.present(sVC, animated: true)
+        
+        
+        
+//          let alert = UIAlertController(title: "", message: "Controller firmware is outdated click to Update?", preferredStyle: UIAlertController.Style.alert)
+//
+//          // add the actions (buttons)
+//          alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.destructive, handler: nil))
+//          alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler:
+//              { action in
+//                  self.stopHandler()
+//                  self.startfirmware()
+//
+//          }))
+//          self.present(alert, animated: true, completion: nil)
+      }
+    func startfirmware() ->  Void {
+          let packetSize = 512
+                let filePath = Bundle.main.path(forResource: "aduro_0705_30_u.dat", ofType: nil)
+                let nsdata = NSData(contentsOfFile: filePath!)
+                let stream: InputStream = InputStream(data: nsdata! as Data)
+                
+                let sendCount = nsdata!.length / packetSize;
+                let remain = nsdata!.length % packetSize
+                print(nsdata!.length)
+                print(String (sendCount))
+                print(String(remain))
+                stream.open()
+                let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+                loadingNotification.mode = MBProgressHUDMode.annularDeterminate
+        //        loadingNotification.label.text = "Loading"
+                loadingNotification.detailsLabel.text = "Updating Firmware"
+                if (stream.hasBytesAvailable){
+                    var buffer = [UInt8](repeating: 0, count: nsdata!.length)
+                    //                     let length1 = stream.read(&buffer, maxLength: buffer.count)
+                    stream.read(&buffer, maxLength: buffer.count)
+                    //                        if(length1 > 0){
+                    let data = Data(_: buffer)
+                    let bytesdata=data.toArray(type: UInt8.self)
+                    var k=0
+//                    concurrentQueue.async(flags:.barrier) {
+//                        self.recursive(start: 0, max: sendCount, bytesdata: bytesdata,packetSize: packetSize,remain: remain,totalLength: String(nsdata!.length),loader: loadingNotification)
+//                    }
+
+                    self.recursive2(start: 0, max: sendCount, bytesdata: bytesdata,packetSize: packetSize,remain: remain,totalLength: String(nsdata!.length),loader: loadingNotification)
+                   
+                }else
+                {
+                    starthandler()
+                    loadingNotification.hide(animated: true)
+                    print("no bytes")
+                }
+    }
+    func recursive2(start:Int,max:Int,bytesdata:[UInt8],packetSize:Int,remain:Int,totalLength:String,loader:MBProgressHUD)
+      {
+          if(start<max){
+              let fromIndex = start * packetSize
+              let bytesbuffer = bytesdata[fromIndex..<(fromIndex + packetSize)]
+              var offset = String(start * packetSize + 1000000)
+              offset = String(offset.dropFirst())
+              var fullbuffer : [UInt8] = [UInt8]()
+              let finaloffset : [UInt8] = Array(offset.utf8)
+              fullbuffer.append(contentsOf: finaloffset)
+              fullbuffer.append(contentsOf: bytesbuffer)
+              var xorcheck : UInt8 = 0
+              for k in 0..<fullbuffer.count
+              {
+                  xorcheck = xorcheck ^ fullbuffer[k]
+              }
+              fullbuffer.append(xorcheck)
+              print("-------------------")
+              var totalsend=Float(offset)
+              var totallengthinfloat=Float(totalLength)
+              loader.progress=totalsend!/totallengthinfloat!
+              ControllerconnectionImpl.getInstance().requestSetFirmwareUpdate(key: "misc.push_version", value: fullbuffer, encryptionMode: " ") { (ControllerResponseImpl) in
+                  if(ControllerResponseImpl.getStatusCode()=="0")
+                  {
+//                      print("got response")
+                    print("success start value perfore \(start) : after increment \(start+1)")
+                      self.recursive2(start: start+1, max: max, bytesdata: bytesdata, packetSize: packetSize,remain: remain,totalLength: totalLength,loader: loader)
+                  }else
+                  {
+//                      print("got error")
+                    print("error happen start value \(start) : now sending again \(start)")
+                      self.recursive2(start: start, max: max, bytesdata: bytesdata, packetSize: packetSize,remain: remain,totalLength: totalLength,loader:loader)
+                      
+                  }
+              }
+          }
+          if(start>=max)
+          {
+              print("last bytes")
+              //            last bytes here
+              let fromIndex = max * packetSize
+              let bytesbuffer = bytesdata[fromIndex..<(fromIndex + remain)]
+              var offset = String(max * packetSize + 1000000)
+              offset = String(offset.dropFirst())
+              var fullbuffer : [UInt8] = [UInt8]()
+              let finaloffset : [UInt8] = Array(offset.utf8)
+              fullbuffer.append(contentsOf: finaloffset)
+              fullbuffer.append(contentsOf: bytesbuffer)
+              var xorcheck : UInt8 = 0
+              for k in 0..<fullbuffer.count
+              {
+                  xorcheck = xorcheck ^ fullbuffer[k]
+              }
+              fullbuffer.append(xorcheck)
+              print(fullbuffer.count)
+              var totalsend=Float(offset)
+              var totallengthinfloat=Float(totalLength)
+              loader.progress=totalsend!/totallengthinfloat!
+              ControllerconnectionImpl.getInstance().requestSetFirmwareUpdate(key: "misc.push_version", value: fullbuffer, encryptionMode: " ")
+              {
+                  (ControllerResponseImpl) in
+                  
+                  if(ControllerResponseImpl.getStatusCode()=="0")
+                  {
+                      print("last bytes got response")
+                      ControllerconnectionImpl.getInstance().requestSet(key: "misc.push_prog_size", value: totalLength, encryptionMode: "-")
+                      {
+                          (ControllerResponseImpl) in
+                          
+                          if(ControllerResponseImpl.getStatusCode()=="0")
+                          {
+                              print(" final of size got response")
+                              self.starthandler()
+                              loader.hide(animated: true)
+                          }else
+                          {
+                              print("got error")
+                               self.starthandler()
+                              loader.hide(animated: true)
+                          }
+                      }
+                  }else
+                  {
+                      print("got error")
+                       self.starthandler()
+                      loader.hide(animated: true)
+                  }
+              }
+          }
+      }
+    func recursive(start:Int,max:Int,bytesdata:[UInt8],packetSize:Int,remain:Int,totalLength:String,loader:MBProgressHUD)
+      {
+          if(classvar<max){
+              let fromIndex = start * packetSize
+              let bytesbuffer = bytesdata[fromIndex..<(fromIndex + packetSize)]
+              var offset = String(start * packetSize + 1000000)
+              offset = String(offset.dropFirst())
+              var fullbuffer : [UInt8] = [UInt8]()
+              let finaloffset : [UInt8] = Array(offset.utf8)
+              fullbuffer.append(contentsOf: finaloffset)
+              fullbuffer.append(contentsOf: bytesbuffer)
+              var xorcheck : UInt8 = 0
+              for k in 0..<fullbuffer.count
+              {
+                  xorcheck = xorcheck ^ fullbuffer[k]
+              }
+              fullbuffer.append(xorcheck)
+              print("-------------------")
+              var totalsend=Float(offset)
+              var totallengthinfloat=Float(totalLength)
+//            DispatchQueue.main.async {
+//                loader.progress=totalsend!/totallengthinfloat!
+//            }
+          
+              ControllerconnectionImpl.getInstance().requestSetFirmwareUpdate(key: "misc.push_version", value: fullbuffer, encryptionMode: " ") { (ControllerResponseImpl) in
+                  if(ControllerResponseImpl.getStatusCode()=="0")
+                  {
+//                      print("got response")
+                    DispatchQueue.main.async {
+                                   loader.progress=totalsend!/totallengthinfloat!
+                               }
+                    self.concurrentQueue.async(flags:.barrier)
+                    {
+                        print("success start value perfore \(self.classvar) : after increment \(self.classvar+1)")
+                        self.classvar=self.classvar+1
+                        self.recursive(start: self.classvar+1
+                            , max: max, bytesdata: bytesdata, packetSize: packetSize,remain: remain,totalLength: totalLength,loader: loader)
+                    }
+                  }else
+                  {
+//                    print("got error")
+                    self.concurrentQueue.async(flags:.barrier)
+                    {
+                        print("error happen start value \(self.classvar) : now sending again \(self.classvar)")
+                        self.recursive(start: self.classvar, max: max, bytesdata: bytesdata, packetSize: packetSize,remain: remain,totalLength: totalLength,loader:loader)
+                    }
+                      
+                  }
+              }
+            }
+          
+          if(start>=max)
+          {
+               print("last bytes")
+            lastbytes(start: start, max: max, bytesdata: bytesdata, packetSize: packetSize, remain: remain, totalLength: totalLength, loader: loader)
+           
+        
+          }
+      }
+    
+    func lastbytes(start:Int,max:Int,bytesdata:[UInt8],packetSize:Int,remain:Int,totalLength:String,loader:MBProgressHUD)
+    {
+     
+                     print("last bytes")
+                     //            last bytes here
+                     let fromIndex = max * packetSize
+                     let bytesbuffer = bytesdata[fromIndex..<(fromIndex + remain)]
+                     var offset = String(max * packetSize + 1000000)
+                     offset = String(offset.dropFirst())
+                     var fullbuffer : [UInt8] = [UInt8]()
+                     let finaloffset : [UInt8] = Array(offset.utf8)
+                     fullbuffer.append(contentsOf: finaloffset)
+                     fullbuffer.append(contentsOf: bytesbuffer)
+                     var xorcheck : UInt8 = 0
+                     for k in 0..<fullbuffer.count
+                     {
+                         xorcheck = xorcheck ^ fullbuffer[k]
+                     }
+                     fullbuffer.append(xorcheck)
+                     print(fullbuffer.count)
+                     var totalsend=Float(offset)
+                     var totallengthinfloat=Float(totalLength)
+        DispatchQueue.main.async {
+
+            loader.progress=totalsend!/totallengthinfloat!
+        }
+                   
+                              
+                     ControllerconnectionImpl.getInstance().requestSetFirmwareUpdate(key: "misc.push_version", value: fullbuffer, encryptionMode: " ")
+                     {
+                         (ControllerResponseImpl) in
+                         
+                         if(ControllerResponseImpl.getStatusCode()=="0")
+                         {
+                                 print("last bytes got response")
+                                self.concurrentQueue.async(flags:.barrier) {
+                                    self.setvalue(key: totalLength, loader: loader)
+                            }
+                            
+                         }else
+                         {
+                            DispatchQueue.main.async {
+                                print("got error")
+                                 self.starthandler()
+                                loader.hide(animated: true)
+                            }
+                         }
+                     
+                    }
+                 
+    }
+    func setvalue(key:String,loader:MBProgressHUD)  {
+          ControllerconnectionImpl.getInstance().requestSet(key: "misc.push_prog_size", value: key, encryptionMode: "-")
+                                   {
+                                       (ControllerResponseImpl) in
+                                       
+                                       if(ControllerResponseImpl.getStatusCode()=="0")
+                                       {
+                                        DispatchQueue.main.async {
+
+                                            print(" final of size got response")
+                                            self.starthandler()
+                                            loader.hide(animated: true)
+                                        }
+                                       }else
+                                       {
+                                        DispatchQueue.main.async {
+                                            
+                                            print("got error")
+                                             self.starthandler()
+                                            loader.hide(animated: true)
+                                        }
+                                       }
+                                   }
+    }
+    
     func setVersionText(variable:ControllerResponseImpl)  {
         //First get the nsObject by defining as an optional anyObject
         let nsObject: AnyObject? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as AnyObject?
@@ -366,10 +766,16 @@ else
         //Then just cast the object as a String, but be careful, you may want to double check for nil
         let version = nsObject as! String
         
-        let slpitstring=variable.getDiscoveryValues()
-                                                             
-        let finalString = "v"+version+"/"+slpitstring[3]+"."+slpitstring[4]+"/"+slpitstring[1]
-        self.versionText.text=finalString
+        let slpitstring : [String] = variable.getDiscoveryValues()
+        if(slpitstring.count > 0)
+        {
+            if(slpitstring[1] == ControllerconnectionImpl.getInstance().getController().getSerial())
+            {
+                let finalString = "v"+version+"/"+slpitstring[3]+"."+slpitstring[4]+"/"+slpitstring[1]
+                self.versionText.text=finalString
+            }
+        }
+                                         
         
         
     }
@@ -385,9 +791,15 @@ else
             }
             else
             {
-                RSAHelper().loadPubKey(key: ControllerResponseImpl.GetReadValueForKeyExchange()["rsa_key"]!)
-               self.concurrentQueue.async(flags:.barrier){
-                self.setXtea()
+                if let val = ControllerResponseImpl.GetReadValueForKeyExchange()["rsa_key"]
+                {
+                     RSAHelper().loadPubKey(key: val)
+                    self.concurrentQueue.async(flags:.barrier){
+                     self.setXtea()
+                     }
+                }else
+                {
+                    print("wrong response")
                 }
             }
         }
@@ -400,7 +812,10 @@ else
                               if(ControllerResponseImpl.getPayload().contains("nothing"))
                               {
                                   print("error")
-                                  self.exchangeKeys()
+                                self.concurrentQueue.async
+                                    {
+                                    self.setXtea()
+                                }
                               }
                               else
                               {
@@ -469,11 +884,29 @@ else
             self.opensetting.alpha=1
         }    }
     func updateValues() {
+        
+    
         let stringMap = ControllerconnectionImpl.getInstance().getFrontData()
         if(stringMap.count>0)
         {
-         
             
+//            update progress bar
+
+            var thisRect = myImageView!.frame
+            let xvalueOfYellow = Float(stringMap[IControllerConstants.coYellow]!)
+            thisRect.origin.x = CGFloat(xvalueOfYellow!/1050*100*1.5)
+            myImageView?.frame=thisRect
+            
+            var thisRect1 = myImageViewRed!.frame
+            let xvalueOfRed = Float(stringMap[IControllerConstants.coRed]!)
+            thisRect1.origin.x = CGFloat(xvalueOfRed!/1050*100*1.5)
+            myImageViewRed?.frame=thisRect1
+            
+            
+            let valueofprogress = Float(stringMap[IControllerConstants.oxygen]!)
+            let finalfloat = valueofprogress!/100
+            myProgressView?.progress=finalfloat
+//            myProgressView?.progress=1.4
             if(stringMap[IControllerConstants.wirelessSensorStatus] == "0")
             {
                 tempIcon.isHidden=true
@@ -714,7 +1147,7 @@ else
 
     func starthandler()
     {
-    
+        print("start handler")
         if(timer == nil)
         {
         
@@ -768,5 +1201,46 @@ else
 //            print("stop timer")
         }
         
+    }
+    //////
+    
+    private var myProgressView:CustomProgressView?
+    private var myImageView : UIImageView?
+    private var myImageViewRed : UIImageView?
+    @IBOutlet weak var myCustomView: UIView!
+    private func createNewUIProgressView() -> Void {
+        myProgressView = CustomProgressView()
+        myProgressView?.progress = 0.5
+        
+        myProgressView?.progressTintColor = UIColor(red: 0/255, green: 229/255, blue: 171/255, alpha: 1)
+        myProgressView?.trackTintColor = UIColor.clear
+        
+        myProgressView!.frame = CGRect(x: 10, y: 8, width: 150, height: 100)          //x is left position, y is right position
+        myProgressView?.trackImage = #imageLiteral(resourceName: "backgroundProgressView")
+    }
+    
+    func createCustomImageViews() -> Void {
+        let yellowXAxisVal = 15, redXAxisVal = 100
+        
+        myImageView = UIImageView(frame: CGRect(x: yellowXAxisVal, y: 8, width: 3, height: 20))
+        myImageViewRed = UIImageView(frame: CGRect(x: redXAxisVal, y: 8, width: 3, height: 20))
+        myImageView?.image = #imageLiteral(resourceName: "yellowImg")
+        myImageViewRed?.image = #imageLiteral(resourceName: "redImg")
+    }
+    
+    private func addSubViews() -> Void {
+        myCustomView.addSubview(myProgressView!)
+        myCustomView.addSubview(myImageView!)
+        myCustomView.addSubview(myImageViewRed!)
+    }
+    
+    
+    class CustomProgressView: UIProgressView {
+        
+        @IBInspectable var trackHeight: CGFloat = 20
+        override func sizeThatFits(_ size: CGSize) -> CGSize {
+            let newSize = CGSize(width: 150, height: trackHeight)
+            return newSize;
+        }
     }
 }

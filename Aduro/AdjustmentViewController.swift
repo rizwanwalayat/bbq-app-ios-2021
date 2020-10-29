@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class AdjustmentViewController: UIViewController {
 
@@ -229,8 +230,18 @@ class AdjustmentViewController: UIViewController {
     
     func setvalue(key:String,value:String) {
         
+        var loadingNotification : MBProgressHUD!
+             DispatchQueue.main.async {
+                 loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+                 loadingNotification.mode = MBProgressHUDMode.indeterminate
+                 loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
+                 loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key:"please_wait")
+                  }
         
         ControllerconnectionImpl.getInstance().requestSet(key: key, value: value, encryptionMode: " ") { (ControllerResponseImpl) in
+            DispatchQueue.main.async {
+                                        loadingNotification.hide(animated: true)
+                                    }
             if(ControllerResponseImpl.getPayload().contains("nothing"))
             {
                 

@@ -79,16 +79,16 @@ class setupWifiControllerViewController: UIViewController , UITableViewDelegate,
     }
     
     @objc func textFieldDidDone(_ textField: UITextField) {
-        print("done password")
-        let serial = self.ssidfield.text!
-                       let password = self.passwordfield.text!
-                       let finalval = "\(serial),\(password)"
-                      
-                      print(finalval)
-        concurrentQueue.async(flags:.barrier) {
-
-            self.setWifiSendSerialAndPassword(finalvalue: finalval)
-        }
+//        print("done password")
+//        let serial = self.ssidfield.text!
+//                       let password = self.passwordfield.text!
+//                       let finalval = "\(serial),\(password)"
+//
+//                      print(finalval)
+//        concurrentQueue.async(flags:.barrier) {
+//
+//            self.setWifiSendSerialAndPassword(finalvalue: finalval)
+//        }
        
         
     }
@@ -114,7 +114,9 @@ class setupWifiControllerViewController: UIViewController , UITableViewDelegate,
         concurrentQueue.async(flags:.barrier) {
 
                    self.setWifiSendSerialAndPassword(finalvalue: finalval)
-               }    }
+               }
+        
+    }
     func setWifiSendSerialAndPassword(finalvalue:String)
     {
        
@@ -128,9 +130,8 @@ class setupWifiControllerViewController: UIViewController , UITableViewDelegate,
                 self.passwordbtn.setTitle("+", for: .normal)
                 self.ssidView.isHidden=true
                 self.ssidbtn.setTitle("+", for: .normal)
-                self.concurrentQueue.async(flags:.barrier) {
                     self.checkWifiConnected()
-                }
+                
             }else
             {
                 
@@ -149,72 +150,72 @@ class setupWifiControllerViewController: UIViewController , UITableViewDelegate,
     
     func checkWifiConnected()
     {
-        var loadingNotification:MBProgressHUD!
-        DispatchQueue.main.async {
-
+        var loadingNotification : MBProgressHUD!
             loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
             loadingNotification.mode = MBProgressHUDMode.indeterminate
             loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
             loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key: "connectwifi")
-        }
         let timer = Timer.scheduledTimer(withTimeInterval: 40, repeats: true)
         { (timer) in
             // do stuff 42 seconds later
             
-            ControllerconnectionImpl.getInstance().requestRead(key: "wifi.router", completionfinal: { (ControllerResponseImpl) in
-                if(ControllerResponseImpl.getPayload().contains("nothing"))
-                {
-                    //                print("error")
-                    //                self.showToast(message: "TimeOut Error Try Again")
-                    DispatchQueue.main.async {
-                        
-                        loadingNotification.hide(animated:true)
-                        timer.invalidate()
-                        self.connectgrillview.isHidden=false
-                    }
-
-                }
-                else
-                {
-                    DispatchQueue.main.async {
-                        timer.invalidate()
-                        loadingNotification.hide(animated:true)
-                        print(ControllerResponseImpl.GetReadValue()["router"] as Any)
-                        self.connectgrillview.isHidden=false
-                        let array = ControllerResponseImpl.GetReadValue()["router"]?.split(separator: ",")
-                        if (String(array![1]) != "2")
-                        {
-                            self.networkStatus.text = "NO connection"
-                            self.ConnectionStatus.textColor = UIColor.red
-                            if(String(array![2]) == "1")
-                            {
-                             self.ConnectionStatus.text = "Timeout"
-                            } else if(String(array![2]) == "2")
-                            {
-                                self.ConnectionStatus.text = "Grill could not be connected - wrong password"
-                            }
-                            else if(String(array![2]) == "3")
-                            {
-                                self.ConnectionStatus.text = "Cannot find target AP (Wrong SSID)"
-                            }else if(String(array![2]) == "4")
-                            {
-                                self.ConnectionStatus.text = "Connection Failed"
-                            }
-                            self.connectbtnlabel.setTitle("Try again", for: .normal)
-                            
-                        }
-                        else
-                        {
-                            self.wifiName.text = String(array![0])
-                            self.ConnectionStatus.text = ""
-                            self.networkStatus.text = "Connected to Stokercloud"
-                            self.connectbtnlabel.setTitle("Finish", for: .normal)
-                            self.connectbtnlabel.backgroundColor = UIColor(red: 61/255, green: 203/255, blue: 100/255, alpha: 1.0)
-                        }
-                    }
-                    
-                }
-            })
+            self.concurrentQueue.async(flags:.barrier){
+                ControllerconnectionImpl.getInstance().requestRead(key: "wifi.router", completionfinal: { (ControllerResponseImpl) in
+                               if(ControllerResponseImpl.getPayload().contains("nothing"))
+                               {
+                                DispatchQueue.main.async {
+                                    loadingNotification.hide(animated:true)
+                                    timer.invalidate()
+                                    self.connectgrillview.isHidden=false
+                                }
+                               }
+                               else
+                               {
+                                
+                                DispatchQueue.main.async {
+                                    timer.invalidate()
+                                        loadingNotification.hide(animated:true)
+                                        print(ControllerResponseImpl.GetReadValue()["router"] as Any)
+                                        self.connectgrillview.isHidden=false
+                                        let array = ControllerResponseImpl.GetReadValue()["router"]?.split(separator: ",")
+                                        if (String(array![1]) != "2")
+                                        {
+                                            self.networkStatus.text = "NO connection"
+                                            self.ConnectionStatus.textColor = UIColor.red
+                                            if(String(array![2]) == "1")
+                                            {
+                                             self.ConnectionStatus.text = "Timeout"
+                                            } else if(String(array![2]) == "2")
+                                            {
+                                                self.ConnectionStatus.text = "Grill could not be connected - wrong password"
+                                            }
+                                            else if(String(array![2]) == "3")
+                                            {
+                                                self.ConnectionStatus.text = "Cannot find target AP (Wrong SSID)"
+                                            }else if(String(array![2]) == "4")
+                                            {
+                                                self.ConnectionStatus.text = "Connection Failed"
+                                            }
+                                            self.connectbtnlabel.setTitle("Try again", for: .normal)
+                                            
+                                        }
+                                        else
+                                        {
+                                            self.wifiName.text = String(array![0])
+                                            self.ConnectionStatus.text = ""
+                                            self.networkStatus.text = "Connected to Stokercloud"
+                                            self.connectbtnlabel.setTitle("Finish", for: .normal)
+                                            self.connectbtnlabel.backgroundColor = UIColor(red: 61/255, green: 203/255, blue: 100/255, alpha: 1.0)
+                                        
+                                    }
+                                    
+                                }
+                                       
+                                   
+                               }
+                           })
+            }
+           
             
         }
         RunLoop.current.add(timer, forMode: RunLoop.Mode.common)

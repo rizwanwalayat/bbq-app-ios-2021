@@ -40,6 +40,8 @@ class agreementViewController: UIViewController{
                 return
                 
             }
+
+        sVC.modalPresentationStyle = .fullScreen
 //            let navController = UINavigationController(rootViewController: sVC)
 //            navController.navigationBar.barTintColor = UIColor(red: 21.0/255.0, green: 22.0/255.0, blue: 24.0/255.0, alpha: 1.0)
 //            navController.navigationBar.barStyle = .black

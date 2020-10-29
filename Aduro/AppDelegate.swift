@@ -9,12 +9,14 @@
 import UIKit
 import Network
 import Sentry
+import FGRoute
 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var monitor:NWPathMonitor!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -25,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                options.dsn = "https://c8a4d2191f59429984b562b1bb7bac11@o399454.ingest.sentry.io/5450800"
                options.debug = true // Enabled debug when first installing is always helpful
            }
+     
+//        registernetwork()
+        registernetwork()
 
         return true
     }
@@ -51,7 +56,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    func checkForReachability()  {
+        print("")
+    }
+        func registernetwork()  {
+            monitor = NWPathMonitor()
+            let queue = DispatchQueue(label: "InternetConnectionMonitor")
+            monitor.pathUpdateHandler = { pathUpdateHandler in
+                if pathUpdateHandler.status == .satisfied {
+    //                print("Internet connection is on.")
+//                    delegate.onAvailable()
+                    if(FGRoute.isWifiConnected())
+                    {
+//                        wifi case
+                        let ssid=FGRoute.getSSID()
+                        if let ssidvalue = ssid
+                        {
+//                            onsame wifi
+                           if(ssidvalue.contains("RTB") || ssidvalue.contains("Aduro"))
+                           {
+                            if (ControllerconnectionImpl.getInstance().getController().getIp() != "")
+                            {
+                                ControllerconnectionImpl.getInstance().getController().swapToLocal()
+                            }
+                            }else
+                           {
+                            if (ControllerconnectionImpl.getInstance().getController().getIp() != "")
+                                                       {
+                                ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
+                            }
+                            }
+                        }
+                    }else
+                    {
+//                        4g case
+                        ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
+                    }
+//                    print("connected change")
+                } else {
+    //                print("There's no internet connection.")
+//                    delegate.onLost()
+//                    print("network  lost")
+                }
+            }
+            monitor.start(queue: queue)
+        }
 
 }
 

@@ -11,16 +11,31 @@
 		040C93DF24D0127100394A09 /* ServiceMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C93DE24D0127100394A09 /* ServiceMenuViewController.swift */; };
 		040C93E124D2EABC00394A09 /* MinMaxDialougeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C93E024D2EABC00394A09 /* MinMaxDialougeViewController.swift */; };
 		040C93E324EA4B9B00394A09 /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C93E224EA4B9B00394A09 /* ManualViewController.swift */; };
+		0414072C2538708500F4147D /* ControllerClientFirmware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414072B2538708500F4147D /* ControllerClientFirmware.swift */; };
+		0414072E25399B5700F4147D /* FirmwareUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414072D25399B5700F4147D /* FirmwareUpdateViewController.swift */; };
 		0415644424C844AB00349973 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415644324C844AB00349973 /* TimeTableViewController.swift */; };
 		042638562403A42D0011DA8F /* WizardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042638552403A42D0011DA8F /* WizardMainViewController.swift */; };
 		0426385A240561510011DA8F /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04263859240561510011DA8F /* Language.swift */; };
 		04263862240D348D0011DA8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04263861240D348D0011DA8F /* Constants.swift */; };
+		04287B12253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04287B11253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift */; };
 		046127042434ABA100BAF62E /* IWatchDogDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046127032434ABA100BAF62E /* IWatchDogDelegate.swift */; };
 		046127062434B00500BAF62E /* WifiWatchDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046127052434B00500BAF62E /* WifiWatchDog.swift */; };
 		04800C3A24B8806C0029D920 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04800C3824B8804D0029D920 /* fontawesome-webfont.ttf */; };
 		048DC08E24BC89D200B9645F /* IControllerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DC08D24BC89D200B9645F /* IControllerConstants.swift */; };
 		048DC09024C04BFE00B9645F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DC08F24C04BFE00B9645F /* SettingViewController.swift */; };
 		048DC09224C5917D00B9645F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DC09124C5917C00B9645F /* InfoViewController.swift */; };
+		0496191B252F1A97002DB1B5 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496191A252F1A97002DB1B5 /* FormViewController.swift */; };
+		04961923252F2D03002DB1B5 /* aduro_personal_es.htm in Resources */ = {isa = PBXBuildFile; fileRef = 0496191D252F2D02002DB1B5 /* aduro_personal_es.htm */; };
+		04961924252F2D03002DB1B5 /* aduro_personal_fr.htm in Resources */ = {isa = PBXBuildFile; fileRef = 0496191E252F2D02002DB1B5 /* aduro_personal_fr.htm */; };
+		04961925252F2D03002DB1B5 /* aduro_personal_it.htm in Resources */ = {isa = PBXBuildFile; fileRef = 0496191F252F2D02002DB1B5 /* aduro_personal_it.htm */; };
+		04961926252F2D03002DB1B5 /* aduro_personal_ge.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04961920252F2D02002DB1B5 /* aduro_personal_ge.htm */; };
+		04961927252F2D03002DB1B5 /* aduro_personal_en.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04961921252F2D02002DB1B5 /* aduro_personal_en.htm */; };
+		04961928252F2D03002DB1B5 /* aduro_personal_da.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04961922252F2D03002DB1B5 /* aduro_personal_da.htm */; };
+		0496192A252F3C87002DB1B5 /* CountryDropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04961929252F3C87002DB1B5 /* CountryDropDownViewController.swift */; };
+		0496192C252F3D1C002DB1B5 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496192B252F3D1B002DB1B5 /* Shared.swift */; };
+		049EB2C62536EE7E00A1A938 /* aduro_0698_u.dat in Resources */ = {isa = PBXBuildFile; fileRef = 049EB2C32536EE7D00A1A938 /* aduro_0698_u.dat */; };
+		049EB2C72536EE7E00A1A938 /* aduro_0705_6_u.dat in Resources */ = {isa = PBXBuildFile; fileRef = 049EB2C42536EE7E00A1A938 /* aduro_0705_6_u.dat */; };
+		049EB2C82536EE7E00A1A938 /* aduro_0705_29.dat in Resources */ = {isa = PBXBuildFile; fileRef = 049EB2C52536EE7E00A1A938 /* aduro_0705_29.dat */; };
 		04A40CC72461634700839361 /* gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A40CC62461634700839361 /* gradient.swift */; };
 		04A40CC9246178BB00839361 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A40CC8246178BB00839361 /* RoundView.swift */; };
 		04A5A50F23FFA25000EB19B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5A50E23FFA25000EB19B6 /* AppDelegate.swift */; };
@@ -51,6 +66,7 @@
 		04A5A55223FFA50C00EB19B6 /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5A54723FFA50C00EB19B6 /* Encryption.swift */; };
 		04A5A55323FFA50C00EB19B6 /* InternetAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5A54923FFA50C00EB19B6 /* InternetAddress.swift */; };
 		04A5A55A24000B1000EB19B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5A55924000B1000EB19B6 /* HomeViewController.swift */; };
+		04AC6FE12542BFA3007F1DB3 /* aduro_0705_30_u.dat in Resources */ = {isa = PBXBuildFile; fileRef = 04AC6FE02542BFA3007F1DB3 /* aduro_0705_30_u.dat */; };
 		04BA19A6252B5AF10083AA4E /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA19A5252B5AF10083AA4E /* testViewController.swift */; };
 		04C4CA62252DADD600311AFB /* du.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C4CA58252DADD400311AFB /* du.json */; };
 		04C4CA63252DADD600311AFB /* es.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C4CA59252DADD400311AFB /* es.json */; };
@@ -87,10 +103,13 @@
 		040C93DE24D0127100394A09 /* ServiceMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMenuViewController.swift; sourceTree = "<group>"; };
 		040C93E024D2EABC00394A09 /* MinMaxDialougeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinMaxDialougeViewController.swift; sourceTree = "<group>"; };
 		040C93E224EA4B9B00394A09 /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
+		0414072B2538708500F4147D /* ControllerClientFirmware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControllerClientFirmware.swift; path = ../../BBQ/Network/ControllerClientFirmware.swift; sourceTree = "<group>"; };
+		0414072D25399B5700F4147D /* FirmwareUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateViewController.swift; sourceTree = "<group>"; };
 		0415644324C844AB00349973 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		042638552403A42D0011DA8F /* WizardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardMainViewController.swift; sourceTree = "<group>"; };
 		04263859240561510011DA8F /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		04263861240D348D0011DA8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		04287B11253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateDialogeViewController.swift; sourceTree = "<group>"; };
 		046127032434ABA100BAF62E /* IWatchDogDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWatchDogDelegate.swift; sourceTree = "<group>"; };
 		046127052434B00500BAF62E /* WifiWatchDog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiWatchDog.swift; sourceTree = "<group>"; };
 		04800C3724B8804D0029D920 /* ionic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionic.ttf; sourceTree = "<group>"; };
@@ -99,6 +118,18 @@
 		048DC08D24BC89D200B9645F /* IControllerConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IControllerConstants.swift; sourceTree = "<group>"; };
 		048DC08F24C04BFE00B9645F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		048DC09124C5917C00B9645F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		0496191A252F1A97002DB1B5 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		0496191D252F2D02002DB1B5 /* aduro_personal_es.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_personal_es.htm; sourceTree = "<group>"; };
+		0496191E252F2D02002DB1B5 /* aduro_personal_fr.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_personal_fr.htm; sourceTree = "<group>"; };
+		0496191F252F2D02002DB1B5 /* aduro_personal_it.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_personal_it.htm; sourceTree = "<group>"; };
+		04961920252F2D02002DB1B5 /* aduro_personal_ge.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_personal_ge.htm; sourceTree = "<group>"; };
+		04961921252F2D02002DB1B5 /* aduro_personal_en.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_personal_en.htm; sourceTree = "<group>"; };
+		04961922252F2D03002DB1B5 /* aduro_personal_da.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_personal_da.htm; sourceTree = "<group>"; };
+		04961929252F3C87002DB1B5 /* CountryDropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDropDownViewController.swift; sourceTree = "<group>"; };
+		0496192B252F3D1B002DB1B5 /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		049EB2C32536EE7D00A1A938 /* aduro_0698_u.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = aduro_0698_u.dat; sourceTree = "<group>"; };
+		049EB2C42536EE7E00A1A938 /* aduro_0705_6_u.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = aduro_0705_6_u.dat; sourceTree = "<group>"; };
+		049EB2C52536EE7E00A1A938 /* aduro_0705_29.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = aduro_0705_29.dat; sourceTree = "<group>"; };
 		04A40CC62461634700839361 /* gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradient.swift; sourceTree = "<group>"; };
 		04A40CC8246178BB00839361 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		04A5A50B23FFA25000EB19B6 /* Aduro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aduro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +168,7 @@
 		04A5A54923FFA50C00EB19B6 /* InternetAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetAddress.swift; sourceTree = "<group>"; };
 		04A5A55423FFAFEF00EB19B6 /* Aduro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aduro.entitlements; sourceTree = "<group>"; };
 		04A5A55924000B1000EB19B6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		04AC6FE02542BFA3007F1DB3 /* aduro_0705_30_u.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = aduro_0705_30_u.dat; sourceTree = "<group>"; };
 		04BA19A5252B5AF10083AA4E /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		04C4CA58252DADD400311AFB /* du.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = du.json; sourceTree = "<group>"; };
 		04C4CA59252DADD400311AFB /* es.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = es.json; sourceTree = "<group>"; };
@@ -192,9 +224,35 @@
 			name = fonts;
 			sourceTree = "<group>";
 		};
+		0496191C252F2CC4002DB1B5 /* formFiles */ = {
+			isa = PBXGroup;
+			children = (
+				04961922252F2D03002DB1B5 /* aduro_personal_da.htm */,
+				04961921252F2D02002DB1B5 /* aduro_personal_en.htm */,
+				0496191D252F2D02002DB1B5 /* aduro_personal_es.htm */,
+				0496191E252F2D02002DB1B5 /* aduro_personal_fr.htm */,
+				04961920252F2D02002DB1B5 /* aduro_personal_ge.htm */,
+				0496191F252F2D02002DB1B5 /* aduro_personal_it.htm */,
+			);
+			path = formFiles;
+			sourceTree = "<group>";
+		};
+		049EB2C22536EE3D00A1A938 /* versionFiles */ = {
+			isa = PBXGroup;
+			children = (
+				04AC6FE02542BFA3007F1DB3 /* aduro_0705_30_u.dat */,
+				049EB2C32536EE7D00A1A938 /* aduro_0698_u.dat */,
+				049EB2C42536EE7E00A1A938 /* aduro_0705_6_u.dat */,
+				049EB2C52536EE7E00A1A938 /* aduro_0705_29.dat */,
+			);
+			path = versionFiles;
+			sourceTree = "<group>";
+		};
 		04A5A50223FFA25000EB19B6 = {
 			isa = PBXGroup;
 			children = (
+				049EB2C22536EE3D00A1A938 /* versionFiles */,
+				0496191C252F2CC4002DB1B5 /* formFiles */,
 				04800C3624B880250029D920 /* fonts */,
 				04F05B1924444E9A007F941B /* TermFiles */,
 				04F05B0424444A13007F941B /* LanguageFiles */,
@@ -240,6 +298,10 @@
 				040C93E024D2EABC00394A09 /* MinMaxDialougeViewController.swift */,
 				040C93E224EA4B9B00394A09 /* ManualViewController.swift */,
 				04BA19A5252B5AF10083AA4E /* testViewController.swift */,
+				0496191A252F1A97002DB1B5 /* FormViewController.swift */,
+				04961929252F3C87002DB1B5 /* CountryDropDownViewController.swift */,
+				0414072D25399B5700F4147D /* FirmwareUpdateViewController.swift */,
+				04287B11253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift */,
 			);
 			path = Aduro;
 			sourceTree = "<group>";
@@ -247,6 +309,7 @@
 		04A5A52023FFA41600EB19B6 /* network */ = {
 			isa = PBXGroup;
 			children = (
+				0414072B2538708500F4147D /* ControllerClientFirmware.swift */,
 				04A5A52823FFA43400EB19B6 /* Controller.swift */,
 				04A5A52523FFA43400EB19B6 /* ControllerClient.swift */,
 				04A5A52A23FFA43400EB19B6 /* ControllerConnection.swift */,
@@ -273,6 +336,7 @@
 				04F05B022444472F007F941B /* RoundButton.swift */,
 				04A40CC62461634700839361 /* gradient.swift */,
 				04A40CC8246178BB00839361 /* RoundView.swift */,
+				0496192B252F3D1B002DB1B5 /* Shared.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -426,24 +490,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C4CA64252DADD600311AFB /* ua.json in Resources */,
+				04961926252F2D03002DB1B5 /* aduro_personal_ge.htm in Resources */,
+				04AC6FE12542BFA3007F1DB3 /* aduro_0705_30_u.dat in Resources */,
 				04F05B2C24444EBB007F941B /* aduro_terms_es_wifi.htm in Resources */,
 				04F05B3124444EBB007F941B /* aduro_terms_fr.htm in Resources */,
+				049EB2C72536EE7E00A1A938 /* aduro_0705_6_u.dat in Resources */,
 				04C4CA65252DADD600311AFB /* fr.json in Resources */,
 				04F05B2E24444EBB007F941B /* aduro_terms_de_wifi.htm in Resources */,
+				049EB2C82536EE7E00A1A938 /* aduro_0705_29.dat in Resources */,
 				04C4CA6B252DADD600311AFB /* sw.json in Resources */,
 				04C4CA63252DADD600311AFB /* es.json in Resources */,
+				04961925252F2D03002DB1B5 /* aduro_personal_it.htm in Resources */,
 				04F05B2624444EBB007F941B /* aduro_terms_en_wifi.htm in Resources */,
 				04F05B2D24444EBB007F941B /* aduro_terms_es.htm in Resources */,
+				04961924252F2D03002DB1B5 /* aduro_personal_fr.htm in Resources */,
 				04F05B2F24444EBB007F941B /* aduro_terms_de.htm in Resources */,
 				04F05B3024444EBB007F941B /* aduro_terms_dk_wifi.htm in Resources */,
+				04961928252F2D03002DB1B5 /* aduro_personal_da.htm in Resources */,
 				04F05B2924444EBB007F941B /* aduro_terms_en.htm in Resources */,
 				04C4CA68252DADD600311AFB /* ge.json in Resources */,
 				04C4CA69252DADD600311AFB /* it.json in Resources */,
 				04A5A51923FFA25300EB19B6 /* LaunchScreen.storyboard in Resources */,
 				04C4CA66252DADD600311AFB /* da.json in Resources */,
 				04A5A51623FFA25300EB19B6 /* Assets.xcassets in Resources */,
+				049EB2C62536EE7E00A1A938 /* aduro_0698_u.dat in Resources */,
 				04C4CA67252DADD600311AFB /* en.json in Resources */,
+				04961927252F2D03002DB1B5 /* aduro_personal_en.htm in Resources */,
 				04800C3A24B8806C0029D920 /* fontawesome-webfont.ttf in Resources */,
+				04961923252F2D03002DB1B5 /* aduro_personal_es.htm in Resources */,
 				04F05B2724444EBB007F941B /* aduro_terms_it_wifi.htm in Resources */,
 				04C4CA6A252DADD600311AFB /* ru.json in Resources */,
 				04F05B2B24444EBB007F941B /* aduro_terms_it.htm in Resources */,
@@ -509,6 +583,7 @@
 				04A5A54E23FFA50C00EB19B6 /* NSData+SHA.m in Sources */,
 				04A5A52C23FFA43400EB19B6 /* ControllerResponseImpl.swift in Sources */,
 				04CD5E832416384900F56C53 /* LanguageViewController.swift in Sources */,
+				0414072C2538708500F4147D /* ControllerClientFirmware.swift in Sources */,
 				04CD5E8B24176FAE00F56C53 /* setupWifiControllerViewController.swift in Sources */,
 				04A5A51123FFA25000EB19B6 /* ViewController.swift in Sources */,
 				04A40CC72461634700839361 /* gradient.swift in Sources */,
@@ -517,9 +592,11 @@
 				04CD5E89241769F900F56C53 /* Agreement2ViewController.swift in Sources */,
 				04A5A53923FFA4A000EB19B6 /* MyCustomView.swift in Sources */,
 				04A5A53323FFA43400EB19B6 /* ControllerConnectionImpl.swift in Sources */,
+				0496192A252F3C87002DB1B5 /* CountryDropDownViewController.swift in Sources */,
 				042638562403A42D0011DA8F /* WizardMainViewController.swift in Sources */,
 				04A5A52F23FFA43400EB19B6 /* ControllerClient.swift in Sources */,
 				048DC09224C5917D00B9645F /* InfoViewController.swift in Sources */,
+				0496191B252F1A97002DB1B5 /* FormViewController.swift in Sources */,
 				04A5A52D23FFA43400EB19B6 /* ControllerRequestImpl.swift in Sources */,
 				04BA19A6252B5AF10083AA4E /* testViewController.swift in Sources */,
 				04263862240D348D0011DA8F /* Constants.swift in Sources */,
@@ -528,6 +605,7 @@
 				04F05B032444472F007F941B /* RoundButton.swift in Sources */,
 				04A5A53223FFA43400EB19B6 /* Controller.swift in Sources */,
 				04A5A54C23FFA50C00EB19B6 /* XTEA.swift in Sources */,
+				0414072E25399B5700F4147D /* FirmwareUpdateViewController.swift in Sources */,
 				04A40CC9246178BB00839361 /* RoundView.swift in Sources */,
 				040C93DD24CAC88A00394A09 /* AdjustmentViewController.swift in Sources */,
 				04A5A53823FFA4A000EB19B6 /* Util.swift in Sources */,
@@ -535,7 +613,9 @@
 				04A5A54A23FFA50C00EB19B6 /* Extensions.swift in Sources */,
 				046127062434B00500BAF62E /* WifiWatchDog.swift in Sources */,
 				04A5A55023FFA50C00EB19B6 /* SwiftyRSA.swift in Sources */,
+				04287B12253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift in Sources */,
 				04A5A53123FFA43400EB19B6 /* XTEAHelper.swift in Sources */,
+				0496192C252F3D1C002DB1B5 /* Shared.swift in Sources */,
 				04A5A53423FFA43400EB19B6 /* ControllerConnection.swift in Sources */,
 				048DC09024C04BFE00B9645F /* SettingViewController.swift in Sources */,
 				0415644424C844AB00349973 /* TimeTableViewController.swift in Sources */,
@@ -699,7 +779,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aduro/Aduro.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 4S74ZAM22X;
 				INFOPLIST_FILE = Aduro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -726,7 +806,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aduro/Aduro.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 4S74ZAM22X;
 				INFOPLIST_FILE = Aduro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;

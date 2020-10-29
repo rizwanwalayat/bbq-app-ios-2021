@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class TimeTableViewController: UIViewController {
 
@@ -217,15 +218,16 @@ class TimeTableViewController: UIViewController {
             self.getValue(key: "boiler.sunday_24")
         }
     }
-    
-
+    override func viewWillDisappear(_ animated: Bool) {
+        saveTimetableToController(showprogress: false)
+    }
     @IBAction func finish(_ sender: UIButton) {
         self.dismiss(animated: true)
         
             }
     
     @IBAction func Save(_ sender: UIButton) {
-        saveTimetableToController()
+        saveTimetableToController(showprogress: true)
     }
     
     @IBAction func Refresh(_ sender: UIButton) {
@@ -245,12 +247,21 @@ class TimeTableViewController: UIViewController {
     
     
     func getValue(key:String)  {
-        
+        var loadingNotification : MBProgressHUD!
+        DispatchQueue.main.async {
+            loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
+            loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key:"please_wait")
+             }
         ControllerconnectionImpl.getInstance().requestRead(key: key)
         { (ControllerResponseImpl) in
+            DispatchQueue.main.async {
+                             loadingNotification.hide(animated: true)
+                         }
             if(ControllerResponseImpl.getPayload().contains("nothing"))
             {
-                self.getValue(key: key)
+//                self.getValue(key: key)
             }else
             {
                 if(key=="boiler.monday_24")
@@ -392,7 +403,8 @@ class TimeTableViewController: UIViewController {
         changeview()
         
     }
-    func saveTimetableToController()  {
+    
+    func saveTimetableToController(showprogress:Bool)  {
         
         
         if(originalarray as NSArray == changearray as NSArray)
@@ -432,35 +444,54 @@ class TimeTableViewController: UIViewController {
                 }
             }
             concurrentQueue.async(flags:.barrier) {
-                self.changevlaue(value: mon, key: "boiler.monday_24")
+                self.changevlaue(value: mon, key: "boiler.monday_24",showpregress: showprogress)
             }
             concurrentQueue.async(flags:.barrier) {
-                self.changevlaue(value: tue, key: "boiler.tuesday_24")
+                self.changevlaue(value: tue, key: "boiler.tuesday_24",showpregress: showprogress)
             }
             concurrentQueue.async(flags:.barrier) {
-                self.changevlaue(value: wed, key: "boiler.wednesday_24")
+                self.changevlaue(value: wed, key: "boiler.wednesday_24",showpregress: showprogress)
             }
             concurrentQueue.async(flags:.barrier) {
-                self.changevlaue(value: thur, key: "boiler.thursday_24")
+                self.changevlaue(value: thur, key: "boiler.thursday_24",showpregress: showprogress)
             }
             concurrentQueue.async(flags:.barrier) {
-                self.changevlaue(value: fri, key: "boiler.friday_24")
+                self.changevlaue(value: fri, key: "boiler.friday_24",showpregress: showprogress)
             }
             concurrentQueue.async(flags:.barrier) {
-                self.changevlaue(value: sat, key: "boiler.saturday_24")
+                self.changevlaue(value: sat, key: "boiler.saturday_24",showpregress: showprogress)
             }
             concurrentQueue.async(flags:.barrier) {
-                self.changevlaue(value: sun, key: "boiler.sunday_24")
+                self.changevlaue(value: sun, key: "boiler.sunday_24",showpregress: showprogress)
             }
         }
         
     }
     
     
-    func changevlaue(value:String,key:String)
+    func changevlaue(value:String,key:String,showpregress:Bool)
     {
+        var loadingNotification : MBProgressHUD!
+
+        if(showpregress)
+        {
+                 DispatchQueue.main.async {
+                      loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+                     loadingNotification.mode = MBProgressHUDMode.indeterminate
+                     loadingNotification.label.text = Language.getInstance().getlangauge(key: "please_wait")
+//                     loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key:"connecting")
+                 }
+        }
       
         ControllerconnectionImpl.getInstance().requestSet(key: key, value: value, encryptionMode: " ") { (ControllerResponseImpl) in
+            
+            if(showpregress)
+            {
+                
+                DispatchQueue.main.async {
+                    loadingNotification.hide(animated: true)
+                }
+            }
             if(ControllerResponseImpl.getPayload().contains("nothing"))
             {
             }else

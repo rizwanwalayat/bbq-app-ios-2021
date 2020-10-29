@@ -593,15 +593,19 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     @objc func electric_ignition_Touch(_ sender:UITapGestureRecognizer )
     {
 //        open manual screen
-        print(Util.getWiFiSsid()!)
+//        print(Util.getWiFiSsid()!)
         
-        print(Util.GetSSID())
+//        print(Util.GetSSID())
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "ManualViewController") as? ManualViewController else { return}
+        sVC.modalPresentationStyle = .fullScreen
               self.present(sVC, animated: true)
     }
     @objc func push_firmwareTouch(_ sender:UITapGestureRecognizer )
     {
 //        open push firmware screen
+        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "FirmwareUpdateViewController") as? FirmwareUpdateViewController else { return}
+             sVC.modalPresentationStyle = .fullScreen
+                   self.present(sVC, animated: true)
     }
     
     

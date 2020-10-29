@@ -14,6 +14,7 @@ class ControllerconnectionImpl
     
 
     var client: ControllerClient
+    var client2: ControllerClientFirmware
     static var instance=ControllerconnectionImpl()
     var controller : Controller
     var frontData: [String : String] = [:]
@@ -23,6 +24,7 @@ class ControllerconnectionImpl
     init()
     {
         self.client=ControllerClient()
+        self.client2=ControllerClientFirmware()
         self.controller = Controller(serial: "654321")
     }
     
@@ -168,7 +170,7 @@ class ControllerconnectionImpl
         let request : ControllerRequestImpl = ControllerRequestImpl()
 //
         request.setSetFirmWareRequest(password: controller.getPassword(), key: key, value: value)
-        client.sendRequestFirmwareIO(senderAddr: Util.getWiFiAddress()!, receiverAddr: controller.getIp(), request: request, appId: Util.getAppId(), serial: controller.getSerial(), encryptionMode: encryptionMode, apprelay: connectedOnAppRelay()) { (ControllerResponseImpl) in
+        client2.sendRequestFirmwareIO(senderAddr: Util.getWiFiAddress()!, receiverAddr: controller.getIp(), request: request, appId: Util.getAppId(), serial: controller.getSerial(), encryptionMode: encryptionMode, apprelay: connectedOnAppRelay()) { (ControllerResponseImpl) in
             requestCompletionHandler(ControllerResponseImpl)
         }
         

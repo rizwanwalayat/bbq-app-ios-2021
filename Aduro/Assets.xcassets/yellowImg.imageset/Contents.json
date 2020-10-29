@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "du.png",
+      "filename" : "Yellow line.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Yellow line@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Yellow line@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

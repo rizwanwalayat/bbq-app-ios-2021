@@ -11,7 +11,7 @@ import Foundation
 
 class Controller {
     public static let CONTROLLER_DEFAULT_IP : String = "192.168.4.1"
-    public static let SSID_PREFIX = "BBQ-";
+    public static let SSID_PREFIX = "Aduro-";
     var ip = "";
     private var serial = "";
     private var password = "";
@@ -41,6 +41,9 @@ class Controller {
     }
     func isAccessPoint() -> Bool {
     return self.ip.contains(Controller.CONTROLLER_DEFAULT_IP);
+    }
+    func swapToLocal()  {
+        self.ip = Controller.CONTROLLER_DEFAULT_IP
     }
     func swapToAppRelay() {
 //        self.ip =  getAppRelayAddress(serial: self.serial)

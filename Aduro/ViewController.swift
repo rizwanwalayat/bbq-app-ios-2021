@@ -18,6 +18,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     let concurrentQueue = DispatchQueue(label: "view Queue", attributes: .concurrent)
 
     let defaults = UserDefaults.standard
+    @IBOutlet weak var connectButton: RoundButton!
     
     var currentWifi=""
     @IBOutlet weak var serialText: UITextField!
@@ -51,6 +52,13 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+             
+             let notificationCenter1 = NotificationCenter.default
+        notificationCenter1.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.didBecomeActiveNotification, object: nil)
+
         wizard_2_description.text=Language.getInstance().getlangauge(key: "wizard_2_description")
         wizard_2_subtitle_1.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_1")
         wizard_2_subtitle_2.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_2")
@@ -72,8 +80,19 @@ class ViewController: UIViewController,UITextFieldDelegate {
         directConnectionAlert.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_2_description")
         
         
-        serialText.text = "38043"
-        passwordText.text = "9267673412"
+//        serialText.text = "38043"
+//        passwordText.text = "9267673412"
+        let serialvalue=Util.GetDefaultsString(key: Constants.serialKey)
+        let passwordvalue=Util.GetDefaultsString(key: Constants.passwordKey)
+        if(serialvalue != "nothing")
+        {
+
+            serialText.text = serialvalue
+        }
+        if(passwordvalue != "nothing")
+        {
+            passwordText.text = passwordvalue
+        }
         PasswordtextFieldDidChange(self.view)
         resultView.isHidden=true
         resultbtntitle.setTitle("+", for: .normal)
@@ -97,13 +116,34 @@ class ViewController: UIViewController,UITextFieldDelegate {
             defaults.set(true, forKey: Constants.secondtime)
             directRadio.isOn=true
         }
-        
+     
+
 
     }
+    
+    @objc func appMovedToForeground() {
+        print("App moved to ForeGround!")
+        connectButton.backgroundColor=UIColor(named: "green")
+
+    }
+    @objc func appMovedToBackground() {
+        print("App moved to Background!")
+    }
+//    var countofscreenappear = 0
+//    override func viewDidAppear(_ animated: Bool) {
+//        if(countofscreenappear > 0)
+//        {
+//            connectButton.backgroundColor=UIColor(named: "green")
+//        }
+//    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//        countofscreenappear=countofscreenappear+1
+//    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("true")
-        textField.resignFirstResponder()
-        return true
+//        textField.resignFirstResponder()
+        self.view.endEditing(true)
+        return false
     }
     
     func addDoneButtonOnKeyboard(){
