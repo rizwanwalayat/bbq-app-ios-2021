@@ -349,5 +349,6 @@
     "failed_exception": "Kunne ikke oprette forbindelse. Sørg for ovnen er tændt. Eventuelt genstart ovn og telefon.",
     "reset_alert": "Er du sikker på at du vil nulstille justeringerne?",
     "city": "By",
-    "country": "Land"
+    "country": "Land",
+    "set_value": "Sæt værdi"
 }

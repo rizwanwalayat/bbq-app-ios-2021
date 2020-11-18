@@ -61,7 +61,7 @@ class LanguageViewController: UIViewController {
         sVC.fromSplash=true
         
         sVC.modalPresentationStyle = .fullScreen
-        let parentvs=self.presentingViewController
+//        let parentvs=self.presentingViewController
 //        self.dismiss(animated: true) {
 //            parentvs!.present(sVC, animated: true)
 //        }
@@ -78,7 +78,7 @@ class LanguageViewController: UIViewController {
                 sVC.fromSplash=true
                 sVC.justlangChange=true
                 sVC.modalPresentationStyle = .fullScreen
-                let parentvs=self.presentingViewController
+//                let parentvs=self.presentingViewController
         //        self.dismiss(animated: true) {
         //            parentvs!.present(sVC, animated: true)
         //        }

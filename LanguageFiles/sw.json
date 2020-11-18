@@ -348,5 +348,6 @@
   "failed_exception": "Kunde inte ansluta. Se till att kaminen är påslagen. Så småningom starta om din spis och telefonen",
   "reset_alert": "Är du säker på att du vill återställa alla justeringar",
   "city": "stad",
-  "country": "Land"
+  "country": "Land",
+  "set_value": "satt värde"
 }

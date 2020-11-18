@@ -180,21 +180,21 @@ class setupWifiControllerViewController: UIViewController , UITableViewDelegate,
                                         let array = ControllerResponseImpl.GetReadValue()["router"]?.split(separator: ",")
                                         if (String(array![1]) != "2")
                                         {
-                                            self.networkStatus.text = "NO connection"
+                                            self.networkStatus.text = Language.getInstance().getlangauge(key: "wifi_connect_no_connection")
                                             self.ConnectionStatus.textColor = UIColor.red
                                             if(String(array![2]) == "1")
                                             {
-                                             self.ConnectionStatus.text = "Timeout"
+                                                self.ConnectionStatus.text = Language.getInstance().getlangauge(key: "timeout")
                                             } else if(String(array![2]) == "2")
                                             {
-                                                self.ConnectionStatus.text = "Grill could not be connected - wrong password"
+                                                self.ConnectionStatus.text = Language.getInstance().getlangauge(key: "wifi_connect_error1")
                                             }
                                             else if(String(array![2]) == "3")
                                             {
-                                                self.ConnectionStatus.text = "Cannot find target AP (Wrong SSID)"
+                                                self.ConnectionStatus.text = Language.getInstance().getlangauge(key: "fail_find_target_ap")
                                             }else if(String(array![2]) == "4")
                                             {
-                                                self.ConnectionStatus.text = "Connection Failed"
+                                                self.ConnectionStatus.text = Language.getInstance().getlangauge(key: "connection_fail")
                                             }
                                             self.connectbtnlabel.setTitle("Try again", for: .normal)
                                             

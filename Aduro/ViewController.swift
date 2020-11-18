@@ -12,6 +12,7 @@ import Network
 import MBProgressHUD
 import FGRoute
 
+import AVFoundation
 
 class ViewController: UIViewController,UITextFieldDelegate {
  
@@ -19,6 +20,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
 
     let defaults = UserDefaults.standard
     @IBOutlet weak var connectButton: RoundButton!
+    @IBOutlet weak var torch: UIImageView!
     
     var currentWifi=""
     @IBOutlet weak var serialText: UITextField!
@@ -58,6 +60,12 @@ class ViewController: UIViewController,UITextFieldDelegate {
              
              let notificationCenter1 = NotificationCenter.default
         notificationCenter1.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.didBecomeActiveNotification, object: nil)
+        
+        
+        
+        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTap))
+        torch.addGestureRecognizer(tapgesture)
+        torch.isUserInteractionEnabled=true
 
         wizard_2_description.text=Language.getInstance().getlangauge(key: "wizard_2_description")
         wizard_2_subtitle_1.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_1")
@@ -78,6 +86,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
         first_time_connect_check_box.text=Language.getInstance().getlangauge(key: "first_time_connect_check_box")
         directConnectionAlert.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_2_description")
+        btncontinueOutlet.setTitle(Language.getInstance().getlangauge(key: "wizard_2_button"), for: .normal)
+        connectButton.setTitle(Language.getInstance().getlangauge(key: "wizard_2_subtitle_2_button"), for: .normal)
         
         
 //        serialText.text = "38043"
@@ -121,6 +131,34 @@ class ViewController: UIViewController,UITextFieldDelegate {
 
     }
     
+     
+      @objc func imageTap()
+        {
+            toggleFlashlight()
+            
+        }
+    
+       /// toggles the device's flashlight, if possible
+       func toggleFlashlight() {
+            guard let device = AVCaptureDevice.default(for: AVMediaType.video), device.hasTorch else { return }
+            do {
+                try device.lockForConfiguration()
+                let torchOn = !device.isTorchActive
+                try device.setTorchModeOn(level: 1.0)
+                device.torchMode = torchOn ? .on : .off
+                if(torchOn)
+                {
+                    
+                    self.torch.image=#imageLiteral(resourceName: "torch_on")
+                }else
+                {
+                    self.torch.image=#imageLiteral(resourceName: "torch_of")
+                }
+                device.unlockForConfiguration()
+            } catch {
+                print("Error toggling Flashlight: \(error)")
+            }
+        }
     @objc func appMovedToForeground() {
         print("App moved to ForeGround!")
         connectButton.backgroundColor=UIColor(named: "green")
@@ -301,7 +339,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func ConnectBtnSecond(_ sender: UIButton) {
-        var ssid=FGRoute.getSSID()!
+        let ssid=FGRoute.getSSID()!
         
         if (directRadio.isOn)
         {
@@ -355,7 +393,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
             {
                 print("error")
                 DispatchQueue.main.async {
-                    self.showToast(message: "TimeOut Error Try Again")
+                    self.showToast(message: "Timeout Error Try Again")
                     loadingNotification.hide(animated: true)
                 }
             }
@@ -391,7 +429,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
                             if(ControllerResponseImpl.getPayload().contains("nothing"))
                             {
                                 print("error")
-                                self.showToast(message: "TimeOut Error Try Again")
+                                self.showToast(message: "Timeout Error Try Again")
                                 loadingNotification.hide(animated: true)
                             }
                             else
@@ -400,7 +438,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
                                 DispatchQueue.main.async {
                                     loadingNotification.hide(animated: true)
                                 }
-                                self.showToast(message: "Keys Exchange Done")
+//                                self.showToast(message: "Keys Exchange Done")
                                 self.defaults.set(self.passwordText.text, forKey: self.serialText.text!)
                                 self.defaults.set(self.serialText.text, forKey: Constants.serialKey)
                                 self.defaults.set(self.passwordText.text, forKey: Constants.passwordKey)

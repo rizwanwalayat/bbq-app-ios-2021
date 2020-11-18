@@ -348,5 +348,6 @@
   "failed_exception": "Could not connect. Make sure oven is turned on. Eventually restart your oven and the phone.",
   "reset_alert": "Are you sure you want to reset all adjustments?",
   "city": "City",
-  "country": "Country"
+  "country": "Country",
+  "set_value": "ingestelde waarde"
 }

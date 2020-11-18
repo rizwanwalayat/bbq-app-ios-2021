@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -21,13 +19,13 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>This app needs access to the location. The location is needed to see the current connected Wi-Fi network on the device. Its necessary to guide the user into connecting properly to the ovens built in Wi-Fi.</string>
+	<string>Denne app har brug for adgang til placeringen. Placeringen er nødvendig for at se det aktuelle tilsluttede Wi-Fi-netværk på enheden. Det er nødvendigt for at guide brugeren til at oprette forbindelse korrekt til ovne indbygget Wi-Fi.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This app needs access to the location. The location is needed to see the current connected Wi-Fi network on the device. Its necessary to guide the user into connecting properly to the ovens built in Wi-Fi.</string>
+	<string>Denne app har brug for adgang til placeringen. Placeringen er nødvendig for at se det aktuelle tilsluttede Wi-Fi-netværk på enheden. Det er nødvendigt for at guide brugeren til at oprette forbindelse korrekt til ovne indbygget Wi-Fi.</string>
 	<key>NSLocationUsageDescription</key>
-	<string>This app needs access to the location. The location is needed to see the current connected Wi-Fi network on the device. Its necessary to guide the user into connecting properly to the ovens built in Wi-Fi.</string>
+	<string>Denne app har brug for adgang til placeringen. Placeringen er nødvendig for at se det aktuelle tilsluttede Wi-Fi-netværk på enheden. Det er nødvendigt for at guide brugeren til at oprette forbindelse korrekt til ovne indbygget Wi-Fi.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app needs access to the location. The location is needed to see the current connected Wi-Fi network on the device. Its necessary to guide the user into connecting properly to the ovens built in Wi-Fi.</string>
+	<string>Denne app har brug for adgang til placeringen. Placeringen er nødvendig for at se det aktuelle tilsluttede Wi-Fi-netværk på enheden. Det er nødvendigt for at guide brugeren til at oprette forbindelse korrekt til ovne indbygget Wi-Fi.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>fontawesome-webfont.ttf</string>

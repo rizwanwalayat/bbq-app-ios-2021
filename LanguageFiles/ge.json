@@ -347,5 +347,6 @@
     "failed_exception": "Verbindung fehlgeschlagen. Stellen Sie sicher, dass Ihr Ofen eingeschaltet ist. Starten Sie ggfs. Ihren Ofen und Ihr Smartphone neu.",
     "reset_alert": "Sind Sie sicher, dass Sie alle Einstellungen zurücksetzen wollen?",
     "city": "Stadt",
-    "country": "Land"
+    "country": "Land",
+    "set_value": "Wert einstellen"
 }

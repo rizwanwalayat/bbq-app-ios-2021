@@ -188,11 +188,25 @@ class TimeTableViewController: UIViewController {
     @IBOutlet weak var hundred68: UIButton!
     
     
+    @IBOutlet weak var monday: UIButton!
+    @IBOutlet weak var tuesday: UIButton!
+    @IBOutlet weak var wednesday: UIButton!
+    @IBOutlet weak var thursday: UIButton!
+    @IBOutlet weak var friday: UIButton!
+    @IBOutlet weak var saturday: UIButton!
+    @IBOutlet weak var sunday: UIButton!
     let concurrentQueue = DispatchQueue(label: "time Queue", attributes: .concurrent)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        monday.setTitle(Language.getInstance().getlangauge(key: "mon"), for: .normal)
+        tuesday.setTitle(Language.getInstance().getlangauge(key: "tue"), for: .normal)
+        wednesday.setTitle(Language.getInstance().getlangauge(key: "wed"), for: .normal)
+        thursday.setTitle(Language.getInstance().getlangauge(key: "thu"), for: .normal)
+        friday.setTitle(Language.getInstance().getlangauge(key: "fri"), for: .normal)
+        saturday.setTitle(Language.getInstance().getlangauge(key: "sat"), for: .normal)
+        sunday.setTitle(Language.getInstance().getlangauge(key: "sun"), for: .normal)
         // Do any additional setup after loading the view.
         setarray()
         concurrentQueue.async(flags:.barrier) {

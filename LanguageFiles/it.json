@@ -351,5 +351,6 @@
     "failed_exception": "Impossibile stabilire una connessione. Assicurarsi che la stufa sia accesa o riavviare stufa e telefono.",
     "reset_alert": "Si è sicuri di voler cancellare tutte le impostazioni?",
     "city": "città",
-    "country": "nazione"
+    "country": "nazione",
+    "set_value": "valore impostato"
 }

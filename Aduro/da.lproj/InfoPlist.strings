@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Aduro
+
+  Created by Macbook Pro on 11/11/2020.
+  Copyright © 2020 nbe. All rights reserved.
+*/
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Denne app har brug for placeringsadgang. Placeringsadgang er nødvendig for at se det aktuelt forbundne WiFi netværk. Det er nødvendigt for at guide til den korrekte forbindelse til WiFi.";
+"NSLocationAlwaysUsageDescription" = "Denne app har brug for placeringsadgang. Placeringsadgang er nødvendig for at se det aktuelt forbundne WiFi netværk. Det er nødvendigt for at guide til den korrekte forbindelse til WiFi.";
+"NSLocationUsageDescription" = "Denne app har brug for placeringsadgang. Placeringsadgang er nødvendig for at se det aktuelt forbundne WiFi netværk. Det er nødvendigt for at guide til den korrekte forbindelse til WiFi.";
+"NSLocationWhenInUseUsageDescription" = "Denne app har brug for placeringsadgang. Placeringsadgang er nødvendig for at se det aktuelt forbundne WiFi netværk. Det er nødvendigt for at guide til den korrekte forbindelse til WiFi.";

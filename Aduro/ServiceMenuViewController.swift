@@ -146,6 +146,8 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     @IBOutlet weak var misc: UILabel!
     
     
+    
+    
     var ignitionValues:[String:String]!
     var augerValues:[String:String]!
     var cleaningValues:[String:String]!
@@ -157,6 +159,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     
         close()
         settext()
+        disable()
         concurrentQueue.async(flags:.barrier){
 
             self.getvaluesFromController(key: "ignition.*")
@@ -177,7 +180,6 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
 
             self.getvaluesFromController(key: "fan.*")
         }
-
 
 
         // Do any additional setup after loading the view.
@@ -447,7 +449,78 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     }
     
 
+    func disable()  {
+        
+        ElectricignitionfuelTouch.isUserInteractionEnabled=false
+        ElectricignitioneffectTouch.isUserInteractionEnabled=false
+        Fanlevel1Touch.isUserInteractionEnabled=false
+        Fanlevel2Touch.isUserInteractionEnabled=false
+        Fanlevel3Touch.isUserInteractionEnabled=false
+        augerlevel1Touch.isUserInteractionEnabled=false
+        augerlevel2Touch.isUserInteractionEnabled=false
+        augerlevel3Touch.isUserInteractionEnabled=false
+        somkelevel1Touch.isUserInteractionEnabled=false
+        somkelevel2Touch.isUserInteractionEnabled=false
+        somkelevel3Touch.isUserInteractionEnabled=false
+        woodburningtempTouch.isUserInteractionEnabled=false
+        fanspeed1Touch.isUserInteractionEnabled=false
+        fanspeed2Touch.isUserInteractionEnabled=false
+        fanspeed3Touch.isUserInteractionEnabled=false
+        cleaning_fan_period_Touch.isUserInteractionEnabled=false
+        cleaning_fan_time_Touch.isUserInteractionEnabled=false
+        cleaning_fan_speed_Touch.isUserInteractionEnabled=false
+        sensor_pressure_t7Touch.isUserInteractionEnabled=false
+        sensor_comp_periodTouch.isUserInteractionEnabled=false
+        sensor_valve_periodTouch.isUserInteractionEnabled=false
+        electric_ignition_Touch.isUserInteractionEnabled=false
+        push_firmwareTouch.isUserInteractionEnabled=false
+        ignition_sub.alpha=0.4
+        auger_sub.alpha=0.4
+        fanspeed_sub.alpha=0.4
+        cleaning_sub.alpha=0.4
+        cosensor_sub.alpha=0.4
+        manual_sub.alpha=0.4
+        misc_sub.alpha=0.4
+    }
+    func enable() {
+
+         ElectricignitionfuelTouch.isUserInteractionEnabled=true
+         ElectricignitioneffectTouch.isUserInteractionEnabled=true
+         Fanlevel1Touch.isUserInteractionEnabled=true
+         Fanlevel2Touch.isUserInteractionEnabled=true
+         Fanlevel3Touch.isUserInteractionEnabled=true
+         augerlevel1Touch.isUserInteractionEnabled=true
+         augerlevel2Touch.isUserInteractionEnabled=true
+         augerlevel3Touch.isUserInteractionEnabled=true
+         somkelevel1Touch.isUserInteractionEnabled=true
+         somkelevel2Touch.isUserInteractionEnabled=true
+         somkelevel3Touch.isUserInteractionEnabled=true
+         woodburningtempTouch.isUserInteractionEnabled=true
+         fanspeed1Touch.isUserInteractionEnabled=true
+         fanspeed2Touch.isUserInteractionEnabled=true
+         fanspeed3Touch.isUserInteractionEnabled=true
+         cleaning_fan_period_Touch.isUserInteractionEnabled=true
+         cleaning_fan_time_Touch.isUserInteractionEnabled=true
+         cleaning_fan_speed_Touch.isUserInteractionEnabled=true
+         sensor_pressure_t7Touch.isUserInteractionEnabled=true
+         sensor_comp_periodTouch.isUserInteractionEnabled=true
+         sensor_valve_periodTouch.isUserInteractionEnabled=true
+         electric_ignition_Touch.isUserInteractionEnabled=true
+         push_firmwareTouch.isUserInteractionEnabled=true
+        ignition_sub.alpha=1
+        auger_sub.alpha=1
+        fanspeed_sub.alpha=1
+        cleaning_sub.alpha=1
+        cosensor_sub.alpha=1
+        manual_sub.alpha=1
+        misc_sub.alpha=1
+
+    }
     
+    @IBAction func lockunlock(_ sender: UIButton) {
+        sender.setTitle("", for: .normal)
+        enable()
+    }
     
     @objc func ElectricignitionfuelTouch(_ sender:UITapGestureRecognizer)
     {

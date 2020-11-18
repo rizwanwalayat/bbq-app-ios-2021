@@ -14,6 +14,7 @@ class WizardMainViewController: UIViewController,CLLocationManagerDelegate  {
     var locationManager:CLLocationManager!
     let defaults = UserDefaults.standard
     
+    @IBOutlet weak var startbtn: RoundButton!
     @IBOutlet weak var wizard_1_title: UILabel!
     @IBOutlet weak var wizard_1_description: UILabel!
     @IBOutlet weak var wizard_1_description2: UILabel!
@@ -26,6 +27,7 @@ class WizardMainViewController: UIViewController,CLLocationManagerDelegate  {
         wizard_1_description.text="A.  "+Language.getInstance().getlangauge(key: "wizard_1_description")
         wizard_1_description2.text="B.  "+Language.getInstance().getlangauge(key: "wizard_1_description2")
         wizard_1_description3.text="C.  "+Language.getInstance().getlangauge(key: "wizard_1_description3")
+        startbtn.setTitle(Language.getInstance().getlangauge(key: "wizard_1_button"), for: .normal)
         
         locationManager=CLLocationManager()
         locationManager.delegate=self

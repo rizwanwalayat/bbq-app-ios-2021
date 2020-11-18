@@ -12,6 +12,7 @@ import CoreLocation
 import Network
 import SystemConfiguration
 import MBProgressHUD
+import AVFoundation
 
 class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredelegate {
     func donedialogStartFirmware() {
@@ -75,6 +76,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
     var controller : Controller!
     override func viewDidLoad() {
         super.viewDidLoad()
+//        UIApplication.shared.isIdleTimerDisabled = true
         settext()
         createNewUIProgressView()
         createCustomImageViews()
@@ -85,6 +87,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
         wrench.isUserInteractionEnabled=true
         let tapgesture2 = UITapGestureRecognizer(target: self, action: #selector(self.imageTap))
         opensetting.addGestureRecognizer(tapgesture2)
+        opensetting.isUserInteractionEnabled=true
        locationManager=CLLocationManager()
        locationManager.delegate=self
         
@@ -134,7 +137,6 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
 
         }
     }
-    
     func settext()  {
         heatTempText.text=Language.getInstance().getlangauge(key: "content_heatLvl")
         smokeTempText.text=Language.getInstance().getlangauge(key: "content_smokeTmp")
@@ -164,6 +166,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
 //                dismiss(animated: true)
         
     }
+   
     
     override func viewWillDisappear(_ animated: Bool) {
         stopHandler()
@@ -182,6 +185,10 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
         }
       }else{
         count = count + 1
+        }
+        if(ControllerconnectionImpl.getInstance().getFrontData().count == 0 )
+        {
+            bottomtext.text=Language.getInstance().getlangauge(key: "lng_trying_reconnect") + "(" + ControllerconnectionImpl.getInstance().getController().getSerial() + ")"
         }
 
     }
@@ -284,24 +291,31 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
     func getform()  {
         if(Util.GetDefaultsBool(key: ControllerconnectionImpl.getInstance().getController().getSerial()) == false)
         {
-            let url = URL(string: "https://aduro.prevas-dev.pw/api/device/" + ControllerconnectionImpl.getInstance().getController().getSerial() + "/nbe/verify")!
-                  var request = URLRequest(url: url)
-                  request.httpMethod = "GEt"
-                  NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) {(response, data, error) in
-                      guard let data = data else { return }
-                      print(String(data: data, encoding: .utf8)!)
-                      let value = String(data: data, encoding: .utf8)!
-                      if(value == "true")
-                      {
-                        Util.SetDefaultsBool(key: ControllerconnectionImpl.getInstance().getController().getSerial(), value: true)
-                      }else if (value == "false")
-                      {
-                          guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "FormViewController") as? FormViewController else { return}
+            let Stringtoencode = "https://aduro.prevas-dev.pw/api/device/" + ControllerconnectionImpl.getInstance().getController().getSerial() + "/nbe/verify"
+            if let encoded = Stringtoencode.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
+            {
+                let url = URL(string: encoded)
+                      var request = URLRequest(url: url!)
+                      request.httpMethod = "GET"
+                      NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main)
+                      {(response, data, error) in
+                          guard let data = data else { return }
+                          print(String(data: data, encoding: .utf8)!)
+                          let value = String(data: data, encoding: .utf8)!
+                          if(value == "true")
+                          {
+                            Util.SetDefaultsBool(key: ControllerconnectionImpl.getInstance().getController().getSerial(), value: true)
+                          }else if (value == "false")
+                          {
+                              guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "FormViewController") as? FormViewController else { return}
 
-                          sVC.modalPresentationStyle = .fullScreen
-                          self.present(sVC, animated: true)
+                              sVC.modalPresentationStyle = .fullScreen
+                              self.present(sVC, animated: true)
+                          }
                       }
-                  }
+                
+            }
+
         }
       
     }
@@ -336,26 +350,44 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
                 self.concurrentQueue.async(flags:.barrier){
                     self.exchangeKeys()
                 }
+                self.starthandler()
                 //                self.exchangeKeys()
             }else
             {
                 //                normal case change the ip of controller got in response and exchange keys
                 print(values[0])
 //                self.f11label.text="got discovery"
-                ControllerconnectionImpl.getInstance().getController().SetIp(ip: values[0])
-//                self.connectionLabel.text="discovery connection"
-                self.concurrentQueue.async {
-                    
-                    self.getF11(setip: false,directfourg: false)
+                if(values[1] == ControllerconnectionImpl.getInstance().getController().getSerial())
+                {
+                    ControllerconnectionImpl.getInstance().getController().SetIp(ip: values[0])
+                    self.concurrentQueue.async
+                        {
+                            self.getF11(setip: false,directfourg: false)
+                        }
+                    self.concurrentQueue.async(flags:.barrier)
+                        {
+                            self.getVersion()
+                        }
+                    self.concurrentQueue.async
+                        {
+                            self.exchangeKeys()
+                        }
+                    self.starthandler()
+                }else
+                {
+                    ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
+                    self.concurrentQueue.async(flags:.barrier)
+                        {
+                            self.getF11(setip: false,directfourg: false)
+                        }
+                    self.concurrentQueue.async(flags:.barrier) {
+                            self.getVersion()
+                        }
+                    self.concurrentQueue.async(flags:.barrier){
+                            self.exchangeKeys()
+                        }
+                    self.starthandler()
                 }
-                self.concurrentQueue.async(flags:.barrier) {
-                                   self.getVersion()
-                               }
-                self.concurrentQueue.async {
-                    self.exchangeKeys()
-                }
-//                self.getF11(setip: false,directfourg: false)
-                //                self.exchangeKeys()
                 
             }
             
@@ -554,6 +586,8 @@ else
               var totalsend=Float(offset)
               var totallengthinfloat=Float(totalLength)
               loader.progress=totalsend!/totallengthinfloat!
+              var stringprogress=Int((totalsend!/totallengthinfloat!)*100)
+              loader.detailsLabel.text=String(stringprogress)+"%"
               ControllerconnectionImpl.getInstance().requestSetFirmwareUpdate(key: "misc.push_version", value: fullbuffer, encryptionMode: " ") { (ControllerResponseImpl) in
                   if(ControllerResponseImpl.getStatusCode()=="0")
                   {
@@ -762,16 +796,27 @@ else
     func setVersionText(variable:ControllerResponseImpl)  {
         //First get the nsObject by defining as an optional anyObject
         let nsObject: AnyObject? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as AnyObject?
+        let build: String? = Bundle.main.infoDictionary!["CFBundleVersion"] as! String?
 
         //Then just cast the object as a String, but be careful, you may want to double check for nil
         let version = nsObject as! String
+        let finaltext : String
+        if(build?.count == 1)
+        {
+            finaltext = version + ".0" + build! as! String
+
+        }else
+        {
+            finaltext = version + "." + build! as! String
+
+        }
         
         let slpitstring : [String] = variable.getDiscoveryValues()
         if(slpitstring.count > 0)
         {
             if(slpitstring[1] == ControllerconnectionImpl.getInstance().getController().getSerial())
             {
-                let finalString = "v"+version+"/"+slpitstring[3]+"."+slpitstring[4]+"/"+slpitstring[1]
+                let finalString = "v"+finaltext+"/"+slpitstring[3]+"."+slpitstring[4]+"/"+slpitstring[1]
                 self.versionText.text=finalString
             }
         }
@@ -868,9 +913,8 @@ else
         }
     }
     func startanimation()  {
-        UIView.animate(withDuration: 0.7, delay: 0.2, options:[.repeat,.autoreverse], animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.2, options:[.repeat,.autoreverse,.allowUserInteraction], animations: {
             self.opensetting.alpha=0.5
-            
         }) { (Bool) in
             self.opensetting.alpha=1
         }
@@ -882,6 +926,7 @@ else
             
         }) { (Bool) in
             self.opensetting.alpha=1
+
         }    }
     func updateValues() {
         
@@ -930,19 +975,33 @@ else
         //        TopText
         let value=stringMap[IControllerConstants.stateSuper]
         let string=Language.getInstance().getlangauge(key: "super_" + value!)
-        if(string.contains("{{name}}"))
-        {
-            
-            let replacestring=string.replacingOccurrences(of: "{{name}}", with: "")
-//            toptext.adjustsFontSizeToFitWidth = true
-//            toptext.sizeToFit()
-            toptext.text=replacestring
-        }else
-        {
-            let key=stringMap[IControllerConstants.stateSuper]
-            let newbvalue = "super_" + key!
-            toptext.text=Language.getInstance().getlangauge(key: newbvalue);
-        }
+            if(value! == "0")
+            {
+                var replacevaleu=""
+                if(stringMap[IControllerConstants.powerPct]! == "10")
+                {
+                    replacevaleu="|"
+                }else if (stringMap[IControllerConstants.powerPct]! == "50")
+                {
+                    replacevaleu="||"
+                }else if(stringMap[IControllerConstants.powerPct]! == "100")
+                {
+                    replacevaleu="|||"
+                }
+                let replacestring=string.replacingOccurrences(of: "{{name}}", with: replacevaleu)
+                toptext.text=replacestring
+                
+            }else if(string.contains("{{name}}"))
+            {
+                 let replacestring=string.replacingOccurrences(of: "{{name}}", with: "")
+                toptext.text=replacestring
+            }else
+            {
+                        let key=stringMap[IControllerConstants.stateSuper]
+                     let newbvalue = "super_" + key!
+                     toptext.text=Language.getInstance().getlangauge(key: newbvalue)
+            }
+  
         
 //        bottom text
         bottomtext.text=Language.getInstance().getlangauge(key: "state_" + stringMap[IControllerConstants.state]!)
@@ -1212,7 +1271,7 @@ else
         myProgressView = CustomProgressView()
         myProgressView?.progress = 0.5
         
-        myProgressView?.progressTintColor = UIColor(red: 0/255, green: 229/255, blue: 171/255, alpha: 1)
+        myProgressView?.progressTintColor = UIColor(named: "defaultprogress")
         myProgressView?.trackTintColor = UIColor.clear
         
         myProgressView!.frame = CGRect(x: 10, y: 8, width: 150, height: 100)          //x is left position, y is right position

@@ -11,13 +11,16 @@
 		040C93DF24D0127100394A09 /* ServiceMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C93DE24D0127100394A09 /* ServiceMenuViewController.swift */; };
 		040C93E124D2EABC00394A09 /* MinMaxDialougeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C93E024D2EABC00394A09 /* MinMaxDialougeViewController.swift */; };
 		040C93E324EA4B9B00394A09 /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C93E224EA4B9B00394A09 /* ManualViewController.swift */; };
-		0414072C2538708500F4147D /* ControllerClientFirmware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414072B2538708500F4147D /* ControllerClientFirmware.swift */; };
 		0414072E25399B5700F4147D /* FirmwareUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414072D25399B5700F4147D /* FirmwareUpdateViewController.swift */; };
 		0415644424C844AB00349973 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415644324C844AB00349973 /* TimeTableViewController.swift */; };
 		042638562403A42D0011DA8F /* WizardMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042638552403A42D0011DA8F /* WizardMainViewController.swift */; };
 		0426385A240561510011DA8F /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04263859240561510011DA8F /* Language.swift */; };
 		04263862240D348D0011DA8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04263861240D348D0011DA8F /* Constants.swift */; };
 		04287B12253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04287B11253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift */; };
+		0458ED7E25557EE4001DB46B /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458ED7D25557EE4001DB46B /* PaddingLabel.swift */; };
+		0458EDA1255BDC10001DB46B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0458ED9F255BDC0F001DB46B /* Info.plist */; };
+		0458EDA5255BE23E001DB46B /* ControllerClientFirmware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458EDA4255BE23E001DB46B /* ControllerClientFirmware.swift */; };
+		0458EDA9255BE666001DB46B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0458EDAB255BE666001DB46B /* InfoPlist.strings */; };
 		046127042434ABA100BAF62E /* IWatchDogDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046127032434ABA100BAF62E /* IWatchDogDelegate.swift */; };
 		046127062434B00500BAF62E /* WifiWatchDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046127052434B00500BAF62E /* WifiWatchDog.swift */; };
 		04800C3A24B8806C0029D920 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04800C3824B8804D0029D920 /* fontawesome-webfont.ttf */; };
@@ -103,13 +106,18 @@
 		040C93DE24D0127100394A09 /* ServiceMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMenuViewController.swift; sourceTree = "<group>"; };
 		040C93E024D2EABC00394A09 /* MinMaxDialougeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinMaxDialougeViewController.swift; sourceTree = "<group>"; };
 		040C93E224EA4B9B00394A09 /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
-		0414072B2538708500F4147D /* ControllerClientFirmware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControllerClientFirmware.swift; path = ../../BBQ/Network/ControllerClientFirmware.swift; sourceTree = "<group>"; };
 		0414072D25399B5700F4147D /* FirmwareUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateViewController.swift; sourceTree = "<group>"; };
 		0415644324C844AB00349973 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		042638552403A42D0011DA8F /* WizardMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardMainViewController.swift; sourceTree = "<group>"; };
 		04263859240561510011DA8F /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		04263861240D348D0011DA8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04287B11253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateDialogeViewController.swift; sourceTree = "<group>"; };
+		0458ED7D25557EE4001DB46B /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		0458EDA2255BDCBB001DB46B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		0458EDA4255BE23E001DB46B /* ControllerClientFirmware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerClientFirmware.swift; sourceTree = "<group>"; };
+		0458EDA6255BE315001DB46B /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = da; path = da.lproj/Info.plist; sourceTree = "<group>"; };
+		0458EDAA255BE666001DB46B /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0458EDAC255BE66F001DB46B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		046127032434ABA100BAF62E /* IWatchDogDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWatchDogDelegate.swift; sourceTree = "<group>"; };
 		046127052434B00500BAF62E /* WifiWatchDog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiWatchDog.swift; sourceTree = "<group>"; };
 		04800C3724B8804D0029D920 /* ionic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionic.ttf; sourceTree = "<group>"; };
@@ -132,13 +140,12 @@
 		049EB2C52536EE7E00A1A938 /* aduro_0705_29.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = aduro_0705_29.dat; sourceTree = "<group>"; };
 		04A40CC62461634700839361 /* gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradient.swift; sourceTree = "<group>"; };
 		04A40CC8246178BB00839361 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
-		04A5A50B23FFA25000EB19B6 /* Aduro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aduro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A5A50B23FFA25000EB19B6 /* Aduro Hybrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aduro Hybrid.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A5A50E23FFA25000EB19B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A5A51023FFA25000EB19B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04A5A51323FFA25000EB19B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04A5A51523FFA25300EB19B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A5A51823FFA25300EB19B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		04A5A51A23FFA25300EB19B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04A5A52123FFA43400EB19B6 /* ControllerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerRequest.swift; sourceTree = "<group>"; };
 		04A5A52223FFA43400EB19B6 /* ControllerResponseImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerResponseImpl.swift; sourceTree = "<group>"; };
 		04A5A52323FFA43400EB19B6 /* ControllerRequestImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerRequestImpl.swift; sourceTree = "<group>"; };
@@ -269,7 +276,7 @@
 		04A5A50C23FFA25000EB19B6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04A5A50B23FFA25000EB19B6 /* Aduro.app */,
+				04A5A50B23FFA25000EB19B6 /* Aduro Hybrid.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -277,6 +284,7 @@
 		04A5A50D23FFA25000EB19B6 /* Aduro */ = {
 			isa = PBXGroup;
 			children = (
+				0458ED9F255BDC0F001DB46B /* Info.plist */,
 				04CD5E8A24176FAD00F56C53 /* setupWifiControllerViewController.swift */,
 				04CD5E8424163DCC00F56C53 /* agreementViewController.swift */,
 				04A5A55423FFAFEF00EB19B6 /* Aduro.entitlements */,
@@ -285,7 +293,6 @@
 				04A5A51223FFA25000EB19B6 /* Main.storyboard */,
 				04A5A51523FFA25300EB19B6 /* Assets.xcassets */,
 				04A5A51723FFA25300EB19B6 /* LaunchScreen.storyboard */,
-				04A5A51A23FFA25300EB19B6 /* Info.plist */,
 				04A5A55924000B1000EB19B6 /* HomeViewController.swift */,
 				042638552403A42D0011DA8F /* WizardMainViewController.swift */,
 				04CD5E822416384900F56C53 /* LanguageViewController.swift */,
@@ -302,6 +309,7 @@
 				04961929252F3C87002DB1B5 /* CountryDropDownViewController.swift */,
 				0414072D25399B5700F4147D /* FirmwareUpdateViewController.swift */,
 				04287B11253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift */,
+				0458EDAB255BE666001DB46B /* InfoPlist.strings */,
 			);
 			path = Aduro;
 			sourceTree = "<group>";
@@ -309,7 +317,6 @@
 		04A5A52023FFA41600EB19B6 /* network */ = {
 			isa = PBXGroup;
 			children = (
-				0414072B2538708500F4147D /* ControllerClientFirmware.swift */,
 				04A5A52823FFA43400EB19B6 /* Controller.swift */,
 				04A5A52523FFA43400EB19B6 /* ControllerClient.swift */,
 				04A5A52A23FFA43400EB19B6 /* ControllerConnection.swift */,
@@ -322,6 +329,7 @@
 				04A5A52723FFA43400EB19B6 /* XTEAHelper.swift */,
 				046127032434ABA100BAF62E /* IWatchDogDelegate.swift */,
 				046127052434B00500BAF62E /* WifiWatchDog.swift */,
+				0458EDA4255BE23E001DB46B /* ControllerClientFirmware.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -337,6 +345,7 @@
 				04A40CC62461634700839361 /* gradient.swift */,
 				04A40CC8246178BB00839361 /* RoundView.swift */,
 				0496192B252F3D1B002DB1B5 /* Shared.swift */,
+				0458ED7D25557EE4001DB46B /* PaddingLabel.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -436,7 +445,7 @@
 			);
 			name = Aduro;
 			productName = Aduro;
-			productReference = 04A5A50B23FFA25000EB19B6 /* Aduro.app */;
+			productReference = 04A5A50B23FFA25000EB19B6 /* Aduro Hybrid.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -473,6 +482,7 @@
 			knownRegions = (
 				en,
 				Base,
+				da,
 			);
 			mainGroup = 04A5A50223FFA25000EB19B6;
 			productRefGroup = 04A5A50C23FFA25000EB19B6 /* Products */;
@@ -509,6 +519,7 @@
 				04961928252F2D03002DB1B5 /* aduro_personal_da.htm in Resources */,
 				04F05B2924444EBB007F941B /* aduro_terms_en.htm in Resources */,
 				04C4CA68252DADD600311AFB /* ge.json in Resources */,
+				0458EDA1255BDC10001DB46B /* Info.plist in Resources */,
 				04C4CA69252DADD600311AFB /* it.json in Resources */,
 				04A5A51923FFA25300EB19B6 /* LaunchScreen.storyboard in Resources */,
 				04C4CA66252DADD600311AFB /* da.json in Resources */,
@@ -517,6 +528,7 @@
 				04C4CA67252DADD600311AFB /* en.json in Resources */,
 				04961927252F2D03002DB1B5 /* aduro_personal_en.htm in Resources */,
 				04800C3A24B8806C0029D920 /* fontawesome-webfont.ttf in Resources */,
+				0458EDA9255BE666001DB46B /* InfoPlist.strings in Resources */,
 				04961923252F2D03002DB1B5 /* aduro_personal_es.htm in Resources */,
 				04F05B2724444EBB007F941B /* aduro_terms_it_wifi.htm in Resources */,
 				04C4CA6A252DADD600311AFB /* ru.json in Resources */,
@@ -583,11 +595,11 @@
 				04A5A54E23FFA50C00EB19B6 /* NSData+SHA.m in Sources */,
 				04A5A52C23FFA43400EB19B6 /* ControllerResponseImpl.swift in Sources */,
 				04CD5E832416384900F56C53 /* LanguageViewController.swift in Sources */,
-				0414072C2538708500F4147D /* ControllerClientFirmware.swift in Sources */,
 				04CD5E8B24176FAE00F56C53 /* setupWifiControllerViewController.swift in Sources */,
 				04A5A51123FFA25000EB19B6 /* ViewController.swift in Sources */,
 				04A40CC72461634700839361 /* gradient.swift in Sources */,
 				04A5A52B23FFA43400EB19B6 /* ControllerRequest.swift in Sources */,
+				0458ED7E25557EE4001DB46B /* PaddingLabel.swift in Sources */,
 				040C93DF24D0127100394A09 /* ServiceMenuViewController.swift in Sources */,
 				04CD5E89241769F900F56C53 /* Agreement2ViewController.swift in Sources */,
 				04A5A53923FFA4A000EB19B6 /* MyCustomView.swift in Sources */,
@@ -605,6 +617,7 @@
 				04F05B032444472F007F941B /* RoundButton.swift in Sources */,
 				04A5A53223FFA43400EB19B6 /* Controller.swift in Sources */,
 				04A5A54C23FFA50C00EB19B6 /* XTEA.swift in Sources */,
+				0458EDA5255BE23E001DB46B /* ControllerClientFirmware.swift in Sources */,
 				0414072E25399B5700F4147D /* FirmwareUpdateViewController.swift in Sources */,
 				04A40CC9246178BB00839361 /* RoundView.swift in Sources */,
 				040C93DD24CAC88A00394A09 /* AdjustmentViewController.swift in Sources */,
@@ -635,6 +648,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0458ED9F255BDC0F001DB46B /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0458EDA2255BDCBB001DB46B /* Base */,
+				0458EDA6255BE315001DB46B /* da */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		0458EDAB255BE666001DB46B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0458EDAA255BE666001DB46B /* da */,
+				0458EDAC255BE66F001DB46B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		04A5A51223FFA25000EB19B6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -658,6 +689,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -719,6 +751,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -779,7 +812,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aduro/Aduro.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 4S74ZAM22X;
 				INFOPLIST_FILE = Aduro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -787,8 +820,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nbe.Aduro.ios;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Aduro Hybrid";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "common/Aduro-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -806,7 +840,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aduro/Aduro.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 4S74ZAM22X;
 				INFOPLIST_FILE = Aduro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -814,8 +848,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nbe.Aduro.ios;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Aduro Hybrid";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "common/Aduro-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

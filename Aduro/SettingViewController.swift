@@ -243,6 +243,9 @@ class SettingViewController: UIViewController {
         NewtimetableEnabled="0";
          if(sender.view==fireSmall)
         {
+            fireSmall.alpha=1
+            medium.alpha=0.4
+            large.alpha=0.4
             print("small")
             concurrentQueue.async(flags:.barrier) {
 
@@ -250,6 +253,10 @@ class SettingViewController: UIViewController {
             }
         }else if(sender.view==medium)
         {
+            
+            fireSmall.alpha=0.4
+            medium.alpha=1
+            large.alpha=0.4
             print("medium")
             concurrentQueue.async(flags:.barrier) {
                 self.setvalue(value: "50", key: IControllerConstants.regulationFixedPower)
@@ -257,6 +264,9 @@ class SettingViewController: UIViewController {
 
         }else if(sender.view==large)
         {
+            fireSmall.alpha=0.4
+            medium.alpha=0.4
+            large.alpha=1
             print("large")
             concurrentQueue.async(flags:.barrier) {
                 self.setvalue(value: "100", key: IControllerConstants.regulationFixedPower)
@@ -354,7 +364,7 @@ class SettingViewController: UIViewController {
             let string=Language.getInstance().getlangauge(key: "setting_prefTmp")
             let finalstring=string.replacingOccurrences(of: "{{current}}", with: map[IControllerConstants.boilerRef]!)
             Wanted_room.text = finalstring + "°C"
-            slidertext.text = map[IControllerConstants.boilerRef]
+            slidertext.text = map[IControllerConstants.boilerRef]! + "°C"
             let f:Float = (map[IControllerConstants.boilerRef]! as NSString).floatValue
             slider.setValue(f, animated: true)
             
@@ -497,7 +507,8 @@ class SettingViewController: UIViewController {
     
     @IBAction func sliderContinue(_ sender: UISlider) {
          let d=Double(String(sender.value))
-        slidertext.text = String(format: "%.2f", d!) + "°C"
+//        slidertext.text = String(format: "%.0f", d!) + "°C"
+        slidertext.text =  String(Int(d!)) + "°C"
     }
     
     func setvalue(value:String,key:String) {
@@ -540,8 +551,8 @@ class SettingViewController: UIViewController {
                 else
                 {
                    if(payload==IControllerConstants.regulationFixedPower)
-                   {
-                    self.FirstlayoutTap()
+                    {
+                        self.FirstlayoutTap()
                     }
                     self.updatefromF11()
                 }

@@ -52,6 +52,14 @@ class AdjustmentViewController: UIViewController {
         super.viewDidLoad()
 
         disable()
+
+        fanText1.text=Language.getInstance().getlangauge(key: "fan_header")
+        fantext2.text=Language.getInstance().getlangauge(key: "fan_header")
+        fanText3.text=Language.getInstance().getlangauge(key: "fan_header")
+        augerText1.text=Language.getInstance().getlangauge(key: "pellets")
+        augerText2.text=Language.getInstance().getlangauge(key: "pellets")
+        augertext3.text=Language.getInstance().getlangauge(key: "pellets")
+        resetButtonLabel.setTitle(Language.getInstance().getlangauge(key: "setting_alarmStop"), for: .normal)
         concurrentQueue.async(flags:.barrier) {
             self.getfanValue(callAuger: true)
         }
@@ -178,7 +186,7 @@ class AdjustmentViewController: UIViewController {
         let d=Double(String((sender as! UISlider).value))
         concurrentQueue.async(flags:.barrier) {
 
-            self.setvalue(key: "fan.speed_10", value: String(format: "%.2f", d!))
+            self.setvalue(key: "fan.speed_10", value: String(format: "%.0f", d!))
         }
     }
     
@@ -188,7 +196,7 @@ class AdjustmentViewController: UIViewController {
         prominentText.text=""
         let d=Double(String((sender as! UISlider).value))
         concurrentQueue.async(flags:.barrier) {
-            self.setvalue(key: "fan.speed_50", value: String(format: "%.2f", d!))
+            self.setvalue(key: "fan.speed_50", value: String(format: "%.0f", d!))
 
         }
     }
@@ -198,7 +206,7 @@ class AdjustmentViewController: UIViewController {
         prominentText.text=""
         let d=Double(String((sender as! UISlider).value))
         concurrentQueue.async(flags:.barrier) {
-            self.setvalue(key: "fan.speed_100", value: String(format: "%.2f", d!))
+            self.setvalue(key: "fan.speed_100", value: String(format: "%.0f", d!))
         }
     }
     
@@ -215,7 +223,7 @@ class AdjustmentViewController: UIViewController {
         prominentText.text=""
         let d=Double(String((sender as! UISlider).value))
         concurrentQueue.async(flags:.barrier) {
-            self.setvalue(key: "auger.auger_50", value: String(format: "%.2f", d!))
+            self.setvalue(key: "auger.auger_50", value: String(format: "%.0f", d!))
         }
     }
     
@@ -224,7 +232,7 @@ class AdjustmentViewController: UIViewController {
         prominentText.text=""
         let d=Double(String((sender as! UISlider).value))
         concurrentQueue.async(flags:.barrier) {
-            self.setvalue(key: "auger.auger_100", value: String(format: "%.2f", d!))
+            self.setvalue(key: "auger.auger_100", value: String(format: "%.0f", d!))
         }
     }
     
@@ -274,28 +282,28 @@ class AdjustmentViewController: UIViewController {
     @IBAction func fanslider2start(_ sender: UISlider) {
         
         let d=Double(String((sender as! UISlider).value))
-        prominentText.text="Fan 1 :  " + String(format: "%.0f", d!)
+        prominentText.text="Fan 2 :  " + String(format: "%.0f", d!)
     }
     @IBAction func fanslider3start(_ sender: UISlider) {
         
         let d=Double(String((sender as! UISlider).value))
-        prominentText.text="Fan 1 :  " + String(format: "%.0f", d!)
+        prominentText.text="Fan 3 :  " + String(format: "%.0f", d!)
     }
     @IBAction func augerslider1start(_ sender: UISlider) {
         
         let d=Double(String((sender as! UISlider).value))
-        prominentText.text="Fan 1 :  " + String(format: "%.2f", d!)
+        prominentText.text="Auger 1 :  " + String(format: "%.2f", d!)
     }
     
     @IBAction func augerslider2start(_ sender: UISlider) {
         
         let d=Double(String((sender as! UISlider).value))
-        prominentText.text="Fan 1 :  " + String(format: "%.0f", d!)
+        prominentText.text="Auger 2 :  " + String(format: "%.0f", d!)
     }
     @IBAction func augerslider3start(_ sender: UISlider) {
         
         let d=Double(String((sender as! UISlider).value))
-        prominentText.text="Fan 1 :  " + String(format: "%.0f", d!)
+        prominentText.text="Auger 3 :  " + String(format: "%.0f", d!)
     }
   
     

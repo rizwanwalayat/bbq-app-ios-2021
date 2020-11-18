@@ -13,6 +13,9 @@ class MinMaxDialougeViewController: UIViewController {
     @IBOutlet weak var minMaxLabel: UILabel!
     @IBOutlet weak var textfield: UITextField!
     
+    @IBOutlet weak var saveoutlet: RoundButton!
+    @IBOutlet weak var canceloutlet: RoundButton!
+    @IBOutlet weak var titletext: UILabel!
     var minimunValue:String!
     var maximumValue:String!
     var payload:String!
@@ -32,7 +35,8 @@ class MinMaxDialougeViewController: UIViewController {
         //customizing the go to app store button
       
         textfield.addTarget(self, action: #selector(textFieldTyping), for: .editingChanged)
-
+        saveoutlet.setTitle(Language.getInstance().getlangauge(key: "setting_save"), for: .normal)
+        canceloutlet.setTitle(Language.getInstance().getlangauge(key: "cancel"), for: .normal)
 
         // Do any additional setup after loading the view.
         minMaxLabel.text="min: " + minimunValue + ", max: " + maximumValue
@@ -46,6 +50,8 @@ class MinMaxDialougeViewController: UIViewController {
         {
                     textfield.text=CurrentValue
         }
+        
+        titletext.text=Language.getInstance().getlangauge(key: "set_value")
     }
     
     @objc func textFieldTyping(textField:UITextField)

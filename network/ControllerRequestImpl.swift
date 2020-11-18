@@ -41,6 +41,9 @@ class ControllerRequestImpl: ControllerRequest
     func setPayload(payload:String)  {
         self.payload=payload
     }
+    func getPayload() -> String {
+        return self.payload
+    }
     func setpayloadfirmware(payload:[UInt8]) {
         self.payloadfirmware=payload
     }

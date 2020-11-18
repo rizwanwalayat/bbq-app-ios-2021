@@ -290,7 +290,7 @@ class ManualViewController: UIViewController {
         var val = 0; // 4
         
         
-        for index in 0..<manualTerminalCount
+        for index in 1...manualTerminalCount
         {
             if(manualInfo["l"+String(index)] != manualOffTrans)
             {

@@ -22,7 +22,8 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
     var timeout = false
     var timer : Timer!
     let serialQueue = DispatchQueue(label: "Serial Queue") // custom dispatch queues are serial by default
-
+    var tries=0
+    var temprequest:ControllerRequestImpl!
 //    var udpsocket = UDPClient?.self
     override init() {
         super.init()
@@ -34,7 +35,7 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
     {
         semaphore.wait()
         testing=CompletionHandler
-
+        temprequest=request
         self.resp = ControllerResponseImpl()
         gotresponse = false
         errorfound = false
@@ -135,6 +136,8 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
     func sendRequest(senderAddr: String, receiverAddr: String ,request: ControllerRequestImpl,appId: String, serial: String,encryptionMode: String,apprelay: Bool ,CompletionHandler:  @escaping (ControllerResponseImpl)->())
     {
         semaphore.wait()
+        temprequest=request
+
 //        serialQueue.sync {
             testing=CompletionHandler
                 self.resp = ControllerResponseImpl()
@@ -159,8 +162,7 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
                         {
                             print("caught: \(myError)")
                         }
-
-
+        tries=0
 
             let serialtemp = self.sanitizeSerial(serial: serial)
                     request.setAppId(appid: appId)
@@ -251,15 +253,47 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?)
     {
 //        print("got response")
-        self.gotresponse = true
-        var incomingDisc:String = String(data: data as Data, encoding: String.Encoding(rawValue: String.Encoding.ascii.rawValue))!
-        print("response : " + incomingDisc)
-        self.resp.setData(response: data)
-        skt.close()
-        timer.invalidate()
-        testing!(self.resp)
-        semaphore.signal()
+        if(temprequest.getPayload().contains("NBE D"))
+        {
+//            let stringFotFromController=String(data: data, encoding: String.Encoding(rawValue: String.Encoding.ascii.rawValue))
+//            print(stringFotFromController)
+            let temprespons = ControllerResponseImpl()
+            temprespons.setData(response: data)
+            if(temprespons.getDiscoveryValues().count > 1)
+            {
+                let stringFotFromController = temprespons.getDiscoveryValues()[1]
+                if(stringFotFromController == ControllerconnectionImpl.getInstance().getController().getSerial())
+                    {
+                        print("same serial")
+                        self.gotresponse = true
+                        var incomingDisc:String = String(data: data as Data, encoding: String.Encoding(rawValue: String.Encoding.ascii.rawValue))!
+                        print("response : " + incomingDisc)
+                        self.resp.setData(response: data)
+                        skt.close()
+                        timer.invalidate()
+                        testing!(self.resp)
+                        semaphore.signal()
+                    }
+                else
+                    {
+                        print("different serial")
+                    }
+            }
+           
+        }else
+        {
+            self.gotresponse = true
+                   var incomingDisc:String = String(data: data as Data, encoding: String.Encoding(rawValue: String.Encoding.ascii.rawValue))!
+                   print("response : " + incomingDisc)
+                   self.resp.setData(response: data)
+                   skt.close()
+                   timer.invalidate()
+                   testing!(self.resp)
+                   semaphore.signal()
 
+        }
+      
+       
 
     }
     func udpSocket(_ sock: GCDAsyncUdpSocket, didNotSendDataWithTag tag: Int, dueToError error: Error?)

@@ -351,5 +351,6 @@
     "failed_exception": "No puedo conectarme. Confirmar que la estufa está encendida. Reiniciar la estufa y el teléfono",
     "reset_alert": "Seguro que quiere reiniciar todos los ajustes?",
     "city": "ciudad",
-    "country": "país"
+    "country": "país",
+    "set_value": "valor ajustado
 }

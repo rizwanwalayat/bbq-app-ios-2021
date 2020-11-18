@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Aduro
+
+  Created by Macbook Pro on 11/11/2020.
+  Copyright © 2020 nbe. All rights reserved.
+*/
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "This app needs access to the location. The location is needed to see the current connected Wi-Fi network on the device. Its necessary to guide the user into connecting properly to the ovens built in Wi-Fi.";
+"NSLocationAlwaysUsageDescription" = "This app needs access to the location. The location is needed to see the current connected Wi-Fi network on the device. Its necessary to guide the user into connecting properly to the ovens built in Wi-Fi.";
+"NSLocationUsageDescription" = "This app needs access to the location. The location is needed to see the current connected Wi-Fi network on the device. Its necessary to guide the user into connecting properly to the ovens built in Wi-Fi.";
+"NSLocationWhenInUseUsageDescription" = "This app needs access to the location. The location is needed to see the current connected Wi-Fi network on the device. Its necessary to guide the user into connecting properly to the ovens built in Wi-Fi.";

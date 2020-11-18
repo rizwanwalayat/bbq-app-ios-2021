@@ -30,11 +30,11 @@ class FirmwareUpdateViewController: UIViewController {
         dismiss(animated: true)
     }
    func UpdateFirmware(payload: String) {
-          let alert = UIAlertController(title: "", message: "Controller firmware is outdated click to Update?", preferredStyle: UIAlertController.Style.alert)
+    let alert = UIAlertController(title: "", message: Language.getInstance().getlangauge(key: "update_firmware"), preferredStyle: UIAlertController.Style.alert)
           
           // add the actions (buttons)
-          alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.destructive, handler: nil))
-          alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler:
+    alert.addAction(UIAlertAction(title: Language.getInstance().getlangauge(key: "cancel"), style: UIAlertAction.Style.destructive, handler: nil))
+    alert.addAction(UIAlertAction(title: Language.getInstance().getlangauge(key: "install"), style: UIAlertAction.Style.default, handler:
               { action in
                   self.startfirmware(neworold: payload)
                 
@@ -109,6 +109,8 @@ class FirmwareUpdateViewController: UIViewController {
                   var totalsend=Float(offset)
                   var totallengthinfloat=Float(totalLength)
                   loader.progress=totalsend!/totallengthinfloat!
+                var stringprogress=Int((totalsend!/totallengthinfloat!)*100)
+                loader.detailsLabel.text=String(stringprogress)+"%"
                   ControllerconnectionImpl.getInstance().requestSetFirmwareUpdate(key: "misc.push_version", value: fullbuffer, encryptionMode: " ") { (ControllerResponseImpl) in
                       if(ControllerResponseImpl.getStatusCode()=="0")
                       {
