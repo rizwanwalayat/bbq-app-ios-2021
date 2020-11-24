@@ -336,9 +336,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
           
         }else
         {
-//            concurrentQueue.async(flags:.barrier) {
+            concurrentQueue.async(flags:.barrier) {
                 self.getIP()
-//            }
+            }
         }
       
     }
@@ -363,7 +363,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
             
         }else
         {
-            getIP()
+            concurrentQueue.async(flags:.barrier) {
+                          self.getIP()
+                      }
+            
         }
     }
     
@@ -377,7 +380,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
         //        var socket = insocket()
         //        socket.setupConnection(payload: "misc.rsa_key", payloadlength: "012")
         //        ControllerconnectionImpl.getInstance().requestRead(key: "misc.rsa_key")
-        exchangeKeys()
+          concurrentQueue.async(flags:.barrier) {
+            self.exchangeKeys()
+        }
     }
     
     
@@ -591,10 +596,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
             loadingNotification.mode = MBProgressHUDMode.indeterminate
             loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
             loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key: "getip")
+            ControllerconnectionImpl.getInstance().getController().setSerial(serial: self.serialText.text! )
+            ControllerconnectionImpl.getInstance().getController().setPassword(password: self.passwordText.text!)
+               ControllerconnectionImpl.getInstance().getController().SetIp(ip: "255.255.255.255")
         }
-        ControllerconnectionImpl.getInstance().getController().setSerial(serial: serialText.text! )
-        ControllerconnectionImpl.getInstance().getController().setPassword(password: passwordText.text!)
-        ControllerconnectionImpl.getInstance().getController().SetIp(ip: "255.255.255.255")
+   
         ControllerconnectionImpl.getInstance().requestDiscovery {
             (ControllerResponseImpl) in
             let values = ControllerResponseImpl.getDiscoveryValues()
