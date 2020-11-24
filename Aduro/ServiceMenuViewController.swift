@@ -154,9 +154,12 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     var boilerValues:[String:String]!
     var fanValues:[String:String]!
     
+    @IBOutlet var gradient: gradient!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
+        self.gradient.installGradientwithvounds(frame: self.view.bounds)
+        self.gradient.updateGradient(frame: self.view.bounds)
         close()
         settext()
         disable()
@@ -183,6 +186,8 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
 
 
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
     }
     func getvaluesFromController(key:String)  {
         var progress: MBProgressHUD!

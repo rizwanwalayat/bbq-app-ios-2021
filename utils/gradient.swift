@@ -13,7 +13,6 @@ import QuartzCore
 @IBDesignable
 class gradient: UIView {
     
-    
     // the gradient start colour
     @IBInspectable var startColor: UIColor? {
         didSet {
@@ -46,39 +45,60 @@ class gradient: UIView {
     // initializers
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
-        installGradient()
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+//        installGradient()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+       
 
-        installGradient()
+//        installGradient()
     }
     
     @objc func rotated()  {
         if UIDevice.current.orientation.isLandscape {
 //            installGradient()
+            updateGradient()
         } else if UIDevice.current.orientation.isPortrait{
 //            installGradient()
+            updateGradient()
         }
     }
     
     // Create a gradient and install it on the layer
-    private func installGradient() {
+    public func installGradient() {
         // if there's already a gradient installed on the layer, remove it
         if let gradient = self.gradient {
             gradient.removeFromSuperlayer()
         }
         let gradient = createGradient()
-        gradient.startPoint = CGPoint(x: 1.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
+//        gradient.startPoint = CGPoint(x: 1.0, y: 0.0)
+//        gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
         gradient.type=CAGradientLayerType.axial
         self.layer.insertSublayer(gradient, at: 0)
-//        self.layer=gradient
         self.gradient = gradient
     }
+    public func installGradientwithvounds(frame:CGRect) {
+            // if there's already a gradient installed on the layer, remove it
+            if let gradient = self.gradient {
+                gradient.removeFromSuperlayer()
+            }
+            let gradient = createGradient(frame: frame)
+    //        gradient.startPoint = CGPoint(x: 1.0, y: 0.0)
+    //        gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
+            gradient.type=CAGradientLayerType.axial
+            self.layer.insertSublayer(gradient, at: 0)
+            self.gradient = gradient
+        }
+    // create gradient layer
+    private func createGradient(frame:CGRect) -> CAGradientLayer {
+        let gradient = CAGradientLayer()
+        gradient.frame = frame
+        gradient.type = .conic
+        return gradient
+    }
+    
     
     // Update an existing gradient
     private func updateGradient() {
@@ -89,8 +109,22 @@ class gradient: UIView {
             let (start, end) = gradientPointsForAngle(self.angle)
             gradient.startPoint = start
             gradient.endPoint = end
+            gradient.frame=self.bounds
         }
     }
+    public func updateGradient(frame:CGRect) {
+           if let gradient = self.gradient {
+               let startColor = self.startColor ?? UIColor.clear
+               let endColor = self.endColor ?? UIColor.clear
+               gradient.colors = [startColor.cgColor,centerColor?.cgColor,endColor.cgColor]
+               let (start, end) = gradientPointsForAngle(self.angle)
+               gradient.startPoint = start
+               gradient.endPoint = end
+               gradient.frame=frame
+             NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+           }
+       }
+    
     
     // create gradient layer
     private func createGradient() -> CAGradientLayer {

@@ -34,6 +34,15 @@ class MinMaxDialougeViewController: UIViewController {
 //        dialogBoxView.layer.borderColor = UIColor(named: “dialogBoxGray”)?.cgColor
         //customizing the go to app store button
       
+        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
+          //create left side empty space so that done button set on right side
+          let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
+        let doneBtn: UIBarButtonItem = UIBarButtonItem(title: Language.getInstance().getlangauge(key: "setting_save"), style: .done, target: self, action: #selector(self.imageTap))
+          toolbar.setItems([flexSpace, doneBtn], animated: false)
+          toolbar.sizeToFit()
+        textfield.inputAccessoryView = toolbar
+        
+        
         textfield.addTarget(self, action: #selector(textFieldTyping), for: .editingChanged)
         saveoutlet.setTitle(Language.getInstance().getlangauge(key: "setting_save"), for: .normal)
         canceloutlet.setTitle(Language.getInstance().getlangauge(key: "cancel"), for: .normal)
@@ -53,7 +62,13 @@ class MinMaxDialougeViewController: UIViewController {
         
         titletext.text=Language.getInstance().getlangauge(key: "set_value")
     }
-    
+    @objc func imageTap() {
+        print("done button")
+        self.view.endEditing(true)
+        self.delegate?.handleAction(payloadKEy: payload, value: textfield.text!)
+               self.dismiss(animated: true, completion: nil)
+
+    }
     @objc func textFieldTyping(textField:UITextField)
     {
         print(textfield.text)

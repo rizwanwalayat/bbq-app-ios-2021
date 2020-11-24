@@ -12,14 +12,16 @@ class LanguageViewController: UIViewController {
     let defaults = UserDefaults.standard
     var fromsetting:Bool=false
 
+    @IBOutlet weak var gradient: gradient!
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        self.gradient.installGradientwithvounds(frame: self.view.bounds)
+      self.gradient.updateGradient(frame: self.view.bounds)
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-    
+   
         if(fromsetting)
         {
            
@@ -54,6 +56,7 @@ class LanguageViewController: UIViewController {
 //            print("do nothing")
 //        }
     }
+ 
     func loadmain(serial:String,password:String)  {
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else { return}
         sVC.serial=serial

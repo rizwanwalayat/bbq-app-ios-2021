@@ -51,10 +51,13 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var directConnectionAlert: UILabel!
     
+    @IBOutlet weak var gradient: gradient!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.gradient.installGradientwithvounds(frame: self.view.bounds)
+        self.gradient.updateGradient(frame: self.view.bounds)
+
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
              
@@ -131,7 +134,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
 
     }
     
-     
+    override func viewDidAppear(_ animated: Bool) {
+
+    }
       @objc func imageTap()
         {
             toggleFlashlight()
@@ -498,22 +503,26 @@ class ViewController: UIViewController,UITextFieldDelegate {
                     let string = ControllerResponseImpl.getF11Values()["wifi.router"]
 //                    let item = string?.split(separator: ",")
 //                    let s : String = String(item![1])
-                    if(string == "")
+                    if(string != nil)
                     {
-                        self.connectwarningtext.isHidden=false
-                        self.withoutstepBTN.isHidden=true
-                        self.setupwifiBTN.backgroundColor = UIColor(red: 61/255, green: 203/255, blue: 100/255, alpha: 1.0)
-                        self.setupwifiBTN.setTitleColor(.white, for: .normal)
-                        self.wifi_connect_current.text="Current network : "
-                    }
-                    else
-                    {
-                        self.connectwarningtext.isHidden=true
-                        self.withoutstepBTN.isHidden=false
-                        self.setupwifiBTN.backgroundColor = UIColor.white
-                        self.setupwifiBTN.setTitleColor(.black, for: .normal)
-                        self.currentWifi=string!
-                        self.wifi_connect_current.text="Current network : " + string!
+
+                        if(string == "" || string == nil)
+                        {
+                            self.connectwarningtext.isHidden=false
+                            self.withoutstepBTN.isHidden=true
+                            self.setupwifiBTN.backgroundColor = UIColor(red: 61/255, green: 203/255, blue: 100/255, alpha: 1.0)
+                            self.setupwifiBTN.setTitleColor(.white, for: .normal)
+                            self.wifi_connect_current.text="Current network : "
+                        }
+                        else
+                        {
+                            self.connectwarningtext.isHidden=true
+                            self.withoutstepBTN.isHidden=false
+                            self.setupwifiBTN.backgroundColor = UIColor.white
+                            self.setupwifiBTN.setTitleColor(.black, for: .normal)
+                            self.currentWifi=string!
+                            self.wifi_connect_current.text="Current network : " + string!
+                        }
                     }
                     //                    print(map)
                 }

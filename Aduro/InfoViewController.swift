@@ -36,11 +36,15 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var SSIDValue: UILabel!
     @IBOutlet weak var MacValue: UILabel!
     @IBOutlet weak var ovenPowerValue: UILabel!
+    @IBOutlet var gradient: gradient!
     
     @IBOutlet weak var cancelInternetSetting: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.gradient.installGradientwithvounds(frame: self.view.bounds)
+
+        self.gradient.updateGradient(frame: self.view.bounds)
         let tap = UITapGestureRecognizer(target: self, action: #selector(dateclicked))
         overdateValue.addGestureRecognizer(tap)
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(timeclicked))
@@ -54,7 +58,9 @@ class InfoViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+
+    }
     @objc func dateclicked()  {
         showDatePicker()
         

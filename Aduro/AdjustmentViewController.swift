@@ -48,9 +48,13 @@ class AdjustmentViewController: UIViewController {
     @IBOutlet weak var resetButtonLabel: UIButton!
     var fan : [String:String]!
     var auger : [String:String]!
+    @IBOutlet var gradient: gradient!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.gradient.installGradientwithvounds(frame: self.view.bounds)
 
+        self.gradient.updateGradient(frame: self.view.bounds)
         disable()
 
         fanText1.text=Language.getInstance().getlangauge(key: "fan_header")
@@ -65,7 +69,9 @@ class AdjustmentViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+
+    }
     func getfanValue(callAuger:Bool)  {
         ControllerconnectionImpl.getInstance().requestRead(key: "fan.*") { (ControllerResponseImpl) in
             if(ControllerResponseImpl.getPayload().contains("nothing"))

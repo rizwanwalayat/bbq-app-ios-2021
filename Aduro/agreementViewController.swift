@@ -14,16 +14,22 @@ class agreementViewController: UIViewController{
     @IBOutlet weak var acceptbtn: UIButton!
     @IBOutlet weak var declinebtn: UIButton!
     
+    @IBOutlet weak var gradient: gradient!
     @IBOutlet weak var textAgreement: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 //        acceptbtn.layer.cornerRadius = 10
 //        acceptbtn.clipsToBounds = true
+        self.gradient.installGradientwithvounds(frame: self.view.bounds)
+        self.gradient.updateGradient(frame: self.view.bounds)
+
         textAgreement.attributedText=Language.getInstance().getFirstTerm().htmlToAttributedString
         textAgreement.textColor=UIColor.white
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+
+    }
     @IBAction func decline(_ sender: UIButton)
     {
         let alert = UIAlertController(title: Language.getInstance().getlangauge(key: "initial_tos_decline_popup_title"), message: "", preferredStyle: UIAlertController.Style.alert)

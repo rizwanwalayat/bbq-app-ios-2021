@@ -58,6 +58,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var languageLabel: UILabel!
     
     
+    @IBOutlet var gradient: gradient!
     
     var operationMode=""
     var NewoperationMode="";
@@ -66,10 +67,16 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.gradient.installGradientwithvounds(frame: self.view.bounds)
+
+                self.gradient.updateGradient(frame: self.view.bounds)
         settext()
         updatefromF11()
         checkoperationMode()
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+
     }
     override func viewWillDisappear(_ animated: Bool) {
         if(operationMode != "")
@@ -363,7 +370,7 @@ class SettingViewController: UIViewController {
             setimage()
             let string=Language.getInstance().getlangauge(key: "setting_prefTmp")
             let finalstring=string.replacingOccurrences(of: "{{current}}", with: map[IControllerConstants.boilerRef]!)
-            Wanted_room.text = finalstring + "°C"
+            Wanted_room.text = finalstring 
             slidertext.text = map[IControllerConstants.boilerRef]! + "°C"
             let f:Float = (map[IControllerConstants.boilerRef]! as NSString).floatValue
             slider.setValue(f, animated: true)

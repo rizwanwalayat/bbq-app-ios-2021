@@ -140,20 +140,19 @@ class FormViewController: UIViewController,UITextFieldDelegate,dropdown {
         let thirdString = "&country=" + dropdownOutlet.titleLabel!.text! + "&email=" + email.text!
         let finalstring = secondString + firstString + thirdString
         let urlstring = "https://aduro.prevas-dev.pw/api/gateway/personal?" + "user=" + ControllerconnectionImpl.getInstance().getController().getSerial() + "&ctrlpassword=" + ControllerconnectionImpl.getInstance().getController().getPassword() + "&addr=" + self.address.text! + "&prodno=" + productNumber.text! + "&name=" + firstname.text! + finalstring
-        let url = URL(string: urlstring)
-        if(url != nil)
+        if let stringencode = urlstring.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         {
-            var request = URLRequest(url: url!)
-            request.httpMethod = "GEt"
-            NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) {(response, data, error) in
-                guard let data = data else { return }
-                print(String(data: data, encoding: .utf8)!)
-                self.dismiss(animated: true)
-                
-            }
+            let url = URL(string: stringencode)
+            
+                  var request = URLRequest(url: url!)
+                  request.httpMethod = "GEt"
+                  NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) {(response, data, error) in
+                      guard let data = data else { return }
+                      print(String(data: data, encoding: .utf8)!)
+                      self.dismiss(animated: true)
+                      
+                  }
         }
-        
-        
     }
 }
 

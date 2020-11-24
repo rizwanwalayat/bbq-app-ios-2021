@@ -70,12 +70,17 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
     @IBOutlet weak var tempIcon: UIImageView!
     
     
-//    @IBOutlet weak var f11values: UILabel!
+    @IBOutlet weak var gradient: gradient!
+    //    @IBOutlet weak var f11values: UILabel!
     var timer : Timer!
     var countDownTimermode1 : Timer!
     var controller : Controller!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.gradient.installGradientwithvounds(frame: self.view.bounds)
+
+        self.gradient.updateGradient(frame: self.view.bounds)
+
 //        UIApplication.shared.isIdleTimerDisabled = true
         settext()
         createNewUIProgressView()
@@ -137,6 +142,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
 
         }
     }
+    
     func settext()  {
         heatTempText.text=Language.getInstance().getlangauge(key: "content_heatLvl")
         smokeTempText.text=Language.getInstance().getlangauge(key: "content_smokeTmp")
@@ -225,43 +231,64 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
     func checkConnectionType() {
         if(FGRoute.isWifiConnected())
         {
-            let ssid=FGRoute.getSSID()!
-            if(ssid.contains("Aduro"))
+            if let Ssid = FGRoute.getSSID()
             {
+                   if(Ssid.contains("Aduro"))
+                            {
 
+                                controller = Controller(serial: serial)
+                                controller.setPassword(password: password)
+                                ControllerconnectionImpl.getInstance().setController(controller: controller)
+                                ControllerconnectionImpl.getInstance().getController().swapToLocal()
+                                print("aduro wifi")
+                                ControllerconnectionImpl.getInstance().getController().swapToLocal()
+                                concurrentQueue.async(flags:.barrier) {
+                                    self.getF11(setip: true, directfourg: false)
+
+                                }
+                                concurrentQueue.async(flags:.barrier) {
+                                    self.getVersion()
+                                }
+                                concurrentQueue.async(flags:.barrier) {
+                                    self.exchangeKeys()
+                                }
+                                starthandler()
+                //                                    self.getVersion()
+
+
+                            }else
+                            {
+                                print("non aduro wifi")
+                //                self.f11label.text="not aduro wifi going for discovery"
+                                concurrentQueue.async(flags:.barrier) {
+                                    self.getIP()
+                                }
+                                concurrentQueue.async() {
+                                              self.getform()
+                                          }
+                //                getIP()
+                            }
+            }else
+            {
+                //            connectionLabel.text="4G apprelay case"
                 controller = Controller(serial: serial)
                 controller.setPassword(password: password)
                 ControllerconnectionImpl.getInstance().setController(controller: controller)
-                ControllerconnectionImpl.getInstance().getController().swapToLocal()
-                print("aduro wifi")
-                ControllerconnectionImpl.getInstance().getController().swapToLocal()
+                ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
                 concurrentQueue.async(flags:.barrier) {
-                    self.getF11(setip: true, directfourg: false)
-
-                }
+                                   self.getF11(setip: false,directfourg: true)
+                               }
                 concurrentQueue.async(flags:.barrier) {
-                    self.getVersion()
-                }
-                concurrentQueue.async(flags:.barrier) {
-                    self.exchangeKeys()
+                                self.getVersion()
+                            }
+                            concurrentQueue.async(flags:.barrier) {
+                                self.exchangeKeys()
+                            }
+                concurrentQueue.async() {
+                    self.getform()
                 }
                 starthandler()
-//                                    self.getVersion()
-
-
-            }else
-            {
-                print("non aduro wifi")
-//                self.f11label.text="not aduro wifi going for discovery"
-                concurrentQueue.async(flags:.barrier) {
-                    self.getIP()
-                }
-                concurrentQueue.async() {
-                              self.getform()
-                          }
-//                getIP()
             }
-            
         }
         else
         {

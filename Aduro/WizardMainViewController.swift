@@ -14,6 +14,7 @@ class WizardMainViewController: UIViewController,CLLocationManagerDelegate  {
     var locationManager:CLLocationManager!
     let defaults = UserDefaults.standard
     
+    @IBOutlet weak var gradient: gradient!
     @IBOutlet weak var startbtn: RoundButton!
     @IBOutlet weak var wizard_1_title: UILabel!
     @IBOutlet weak var wizard_1_description: UILabel!
@@ -23,6 +24,10 @@ class WizardMainViewController: UIViewController,CLLocationManagerDelegate  {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.gradient.installGradientwithvounds(frame: self.view.bounds)
+
+        self.gradient.updateGradient(frame: self.view.bounds)
         wizard_1_title.text=Language.getInstance().getlangauge(key: "wizard_1_title")
         wizard_1_description.text="A.  "+Language.getInstance().getlangauge(key: "wizard_1_description")
         wizard_1_description2.text="B.  "+Language.getInstance().getlangauge(key: "wizard_1_description2")
