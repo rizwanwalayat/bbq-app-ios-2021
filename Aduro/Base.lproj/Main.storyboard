@@ -6204,11 +6204,11 @@
         <scene sceneID="kM7-kc-KJu">
             <objects>
                 <viewController storyboardIdentifier="WizardMainViewController" id="O4o-m0-c1a" customClass="WizardMainViewController" customModule="Aduro_Hybrid" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ghc-du-URh">
+                    <view key="view" contentMode="scaleToFill" id="Ghc-du-URh" customClass="gradient" customModule="Aduro_Hybrid" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="dly-cU-pBz" customClass="gradient" customModule="Aduro_Hybrid" customModuleProvider="target">
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="dly-cU-pBz">
                                 <rect key="frame" x="0.0" y="45" width="375" height="733"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="ovn_open_serial" translatesAutoresizingMaskIntoConstraints="NO" id="Wdb-8b-A3L">
@@ -6287,7 +6287,6 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Ocy-Zx-e7T" secondAttribute="trailing" constant="8" id="2ov-uc-Ilo"/>
                                     <constraint firstItem="VTY-es-KLz" firstAttribute="leading" secondItem="dly-cU-pBz" secondAttribute="leading" id="6T5-6s-yGM"/>
@@ -6314,20 +6313,6 @@
                                     <constraint firstItem="r8R-1S-nNG" firstAttribute="top" secondItem="Ocy-Zx-e7T" secondAttribute="bottom" constant="8" id="yPa-KU-lbv"/>
                                     <constraint firstItem="UFy-8R-Vnu" firstAttribute="top" secondItem="dly-cU-pBz" secondAttribute="top" constant="16" id="zlm-TF-okt"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                        <color key="value" name="end"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
-                                        <real key="value" value="90"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" name="end"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="centerColor">
-                                        <color key="value" name="start"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" name="screencolour"/>
@@ -6340,18 +6325,21 @@
                         <viewLayoutGuide key="safeArea" id="hLL-rL-Aqa"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" red="0.23921568630000001" green="0.79607843140000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" name="end"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" red="0.92549019610000005" green="0.28627450980000002" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" name="end"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="angle">
-                                <real key="value" value="120"/>
+                                <real key="value" value="90"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="centerColor">
+                                <color key="value" name="start"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
-                        <outlet property="gradient" destination="dly-cU-pBz" id="gcj-Oq-VEz"/>
+                        <outlet property="gradient" destination="Ghc-du-URh" id="AN1-hz-n08"/>
                         <outlet property="startbtn" destination="jat-Z1-ICS" id="QSb-SG-X8B"/>
                         <outlet property="wizard_1_description" destination="lGR-6q-dak" id="YWX-nn-xCA"/>
                         <outlet property="wizard_1_description2" destination="Ocy-Zx-e7T" id="efa-pP-ARq"/>
@@ -6367,11 +6355,11 @@
         <scene sceneID="FoZ-1b-fDz">
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="7Hr-Yh-msm" customClass="ViewController" customModule="Aduro_Hybrid" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HPF-1G-uaq">
+                    <view key="view" contentMode="scaleToFill" id="HPF-1G-uaq" customClass="gradient" customModule="Aduro_Hybrid" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="mKM-BX-fPv" userLabel="main View" customClass="gradient" customModule="Aduro_Hybrid" customModuleProvider="target">
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="mKM-BX-fPv" userLabel="main View">
                                 <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PR9-ce-DCG" userLabel="divider">
@@ -6381,7 +6369,7 @@
                                             <constraint firstAttribute="height" constant="1" id="IEc-6X-zHv"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUf-O9-YLd" customClass="gradient" customModule="Aduro_Hybrid" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUf-O9-YLd">
                                         <rect key="frame" x="8" y="50" width="359" height="660.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="uVk-pZ-vnU">
@@ -6737,27 +6725,12 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.28235294119999998" green="0.29411764709999999" blue="0.2784313725" alpha="0.81165988870000005" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="uVk-pZ-vnU" firstAttribute="leading" secondItem="zUf-O9-YLd" secondAttribute="leading" constant="8" id="6iQ-tj-SMS"/>
                                             <constraint firstItem="uVk-pZ-vnU" firstAttribute="top" secondItem="zUf-O9-YLd" secondAttribute="top" constant="8" id="jcX-sI-0Q5"/>
                                             <constraint firstAttribute="trailing" secondItem="uVk-pZ-vnU" secondAttribute="trailing" constant="8" id="l1o-ph-R1m"/>
                                             <constraint firstAttribute="bottom" secondItem="uVk-pZ-vnU" secondAttribute="bottom" constant="40" id="zND-tG-UCN"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="angle">
-                                                <real key="value" value="90"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                <color key="value" name="end"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                <color key="value" name="end"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="centerColor">
-                                                <color key="value" name="start"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aduro_logo_no_stick" translatesAutoresizingMaskIntoConstraints="NO" id="MVE-4r-2FB">
                                         <rect key="frame" x="8" y="15" width="100" height="28"/>
@@ -6766,7 +6739,6 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zUf-O9-YLd" secondAttribute="trailing" constant="8" id="0Pz-bT-hdU"/>
                                     <constraint firstItem="PR9-ce-DCG" firstAttribute="top" secondItem="mKM-BX-fPv" secondAttribute="top" constant="44" id="0sk-Bj-cpi"/>
@@ -6778,20 +6750,6 @@
                                     <constraint firstItem="MVE-4r-2FB" firstAttribute="top" secondItem="mKM-BX-fPv" secondAttribute="top" constant="15" id="fJ6-TA-ybg"/>
                                     <constraint firstAttribute="trailing" secondItem="PR9-ce-DCG" secondAttribute="trailing" id="oTA-qg-Ock"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" name="end"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                        <color key="value" name="end"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="centerColor">
-                                        <color key="value" name="start"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
-                                        <real key="value" value="90"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" name="screencolour"/>
@@ -6802,6 +6760,20 @@
                             <constraint firstItem="mKM-BX-fPv" firstAttribute="leading" secondItem="Ws1-fN-uOv" secondAttribute="leading" id="d42-FS-17t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ws1-fN-uOv"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" name="end"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="centerColor">
+                                <color key="value" name="start"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" name="end"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                <real key="value" value="90"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="btncontinueOutlet" destination="xYA-wU-kbI" id="FTv-9N-fKB"/>
@@ -6811,7 +6783,7 @@
                         <outlet property="directConnectionAlert" destination="6dC-Ch-uff" id="rI6-tz-E3l"/>
                         <outlet property="directRadio" destination="lcN-o8-HgP" id="mVJ-SW-3Kq"/>
                         <outlet property="first_time_connect_check_box" destination="aZm-HA-0Nq" id="Rtf-MU-M0o"/>
-                        <outlet property="gradient" destination="zUf-O9-YLd" id="sVG-P6-FF8"/>
+                        <outlet property="gradient" destination="HPF-1G-uaq" id="IO3-s9-tL8"/>
                         <outlet property="passwordText" destination="pxB-7V-c7F" id="pEz-Ot-TED"/>
                         <outlet property="resultView" destination="8W7-ex-hLV" id="gww-sz-saw"/>
                         <outlet property="resultbtntitle" destination="ifi-o5-ZtB" id="Fin-He-bfG"/>
@@ -7185,11 +7157,11 @@
         <scene sceneID="rh3-g1-quF">
             <objects>
                 <viewController storyboardIdentifier="agreementViewController" id="40h-Gk-a25" customClass="agreementViewController" customModule="Aduro_Hybrid" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PAB-83-Y5R">
+                    <view key="view" contentMode="scaleToFill" id="PAB-83-Y5R" customClass="gradient" customModule="Aduro_Hybrid" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jfS-ZN-Uxg" userLabel="main" customClass="gradient" customModule="Aduro_Hybrid" customModuleProvider="target">
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jfS-ZN-Uxg" userLabel="main">
                                 <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aduro_logo_no_stick" translatesAutoresizingMaskIntoConstraints="NO" id="Pmv-Jd-ofD">
@@ -7292,20 +7264,6 @@
                                     <constraint firstItem="Pmv-Jd-ofD" firstAttribute="top" secondItem="jfS-ZN-Uxg" secondAttribute="top" constant="8" id="oqB-eQ-jz8"/>
                                     <constraint firstItem="aY4-5Z-o5L" firstAttribute="leading" secondItem="jfS-ZN-Uxg" secondAttribute="leading" id="waO-pC-42c"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
-                                        <real key="value" value="90"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="centerColor">
-                                        <color key="value" name="start"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" name="end"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                        <color key="value" name="end"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" name="screencolour"/>
@@ -7316,11 +7274,25 @@
                             <constraint firstItem="jfS-ZN-Uxg" firstAttribute="top" secondItem="ORb-GA-6Yl" secondAttribute="top" id="qp9-UQ-pDw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ORb-GA-6Yl"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" name="end"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="centerColor">
+                                <color key="value" name="start"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" name="end"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                <real key="value" value="90"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="acceptbtn" destination="9Wx-Ql-m83" id="2IH-fm-4Mx"/>
                         <outlet property="declinebtn" destination="IMq-eb-c7e" id="gFZ-eX-yJF"/>
-                        <outlet property="gradient" destination="jfS-ZN-Uxg" id="iHC-BX-9pz"/>
+                        <outlet property="gradient" destination="PAB-83-Y5R" id="xDU-d5-cOX"/>
                         <outlet property="textAgreement" destination="0MW-dm-O2q" id="uBM-we-GjA"/>
                     </connections>
                 </viewController>

@@ -59,10 +59,24 @@ class gradient: UIView {
     @objc func rotated()  {
         if UIDevice.current.orientation.isLandscape {
 //            installGradient()
-            updateGradient()
+//            print("---------------------------------------------")
+//            print("LANDSCAPE")
+//            print(UIScreen.main.bounds)
+//            print(self.gradient?.bounds)
+//            print(self.bounds)
+//            print("---------------------------------------------")
+//            updateGradient()
+            updateGradientland()
         } else if UIDevice.current.orientation.isPortrait{
-//            installGradient()
-            updateGradient()
+            //            installGradient()
+//            print("---------------------------------------------")
+//            print("PORTRAIT")
+//            print(UIScreen.main.bounds)
+//            print(self.gradient?.bounds)
+//            print(self.bounds)
+//            print("---------------------------------------------")
+            updateGradientpotrait()
+//            updateGradient()
         }
     }
     
@@ -112,6 +126,50 @@ class gradient: UIView {
             gradient.frame=self.bounds
         }
     }
+    private func updateGradientland() {
+           if let gradient = self.gradient {
+               let startColor = self.startColor ?? UIColor.clear
+               let endColor = self.endColor ?? UIColor.clear
+               gradient.colors = [startColor.cgColor,centerColor?.cgColor,endColor.cgColor]
+               let (start, end) = gradientPointsForAngle(self.angle)
+               gradient.startPoint = start
+               gradient.endPoint = end
+            var height=self.bounds.height
+            var width=self.bounds.width
+            if(width>height)
+            {
+                let temp:CGRect=CGRect(x: 0, y: 0, width: width, height: height)
+                gradient.frame=temp
+            }else
+            {
+                let temp:CGRect=CGRect(x: 0, y: 0, width: height, height: width)
+                gradient.frame=temp
+            }
+           }
+       }
+    private func updateGradientpotrait() {
+              if let gradient = self.gradient {
+                  let startColor = self.startColor ?? UIColor.clear
+                  let endColor = self.endColor ?? UIColor.clear
+                  gradient.colors = [startColor.cgColor,centerColor?.cgColor,endColor.cgColor]
+                  let (start, end) = gradientPointsForAngle(self.angle)
+                  gradient.startPoint = start
+                  gradient.endPoint = end
+                  gradient.frame=self.bounds
+
+                var height=self.bounds.height
+                var width=self.bounds.width
+                if(width>height)
+                {
+                    let temp:CGRect=CGRect(x: 0, y: 0, width: height, height: width)
+                    gradient.frame=temp
+                }else
+                {
+                    let temp:CGRect=CGRect(x: 0, y: 0, width: width, height: height)
+                    gradient.frame=temp
+                }
+              }
+          }
     public func updateGradient(frame:CGRect) {
            if let gradient = self.gradient {
                let startColor = self.startColor ?? UIColor.clear

@@ -955,6 +955,9 @@ else
             self.opensetting.alpha=1
 
         }    }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print("sdfsdf")
+    }
     func updateValues() {
         
     

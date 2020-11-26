@@ -1170,8 +1170,8 @@
             timestampString = "618921365.863776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1049"
-            endingLineNumber = "1049"
+            startingLineNumber = "1052"
+            endingLineNumber = "1052"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1187,8 +1187,8 @@
             timestampString = "618921365.863903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1031"
-            endingLineNumber = "1031"
+            startingLineNumber = "1034"
+            endingLineNumber = "1034"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1204,8 +1204,8 @@
             timestampString = "618921365.863966"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "961"
-            endingLineNumber = "961"
+            startingLineNumber = "964"
+            endingLineNumber = "964"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1221,8 +1221,8 @@
             timestampString = "618921365.864012"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1003"
-            endingLineNumber = "1003"
+            startingLineNumber = "1006"
+            endingLineNumber = "1006"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1272,8 +1272,8 @@
             timestampString = "618921365.864188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1004"
-            endingLineNumber = "1004"
+            startingLineNumber = "1007"
+            endingLineNumber = "1007"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1289,8 +1289,8 @@
             timestampString = "616595656.920293"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "installGradient()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1306,8 +1306,8 @@
             timestampString = "616595656.9203579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "installGradient()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1323,8 +1323,8 @@
             timestampString = "616595656.920477"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "createGradient()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1340,8 +1340,8 @@
             timestampString = "616595656.92053"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "createGradient()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1357,8 +1357,8 @@
             timestampString = "616595656.920579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "installGradient()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1374,8 +1374,8 @@
             timestampString = "616595656.92065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "installGradient()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2594,8 +2594,8 @@
             timestampString = "618921365.868063"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1237"
-            endingLineNumber = "1237"
+            startingLineNumber = "1240"
+            endingLineNumber = "1240"
             landmarkName = "starthandler()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2611,8 +2611,8 @@
             timestampString = "618921365.868112"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1277"
-            endingLineNumber = "1277"
+            startingLineNumber = "1280"
+            endingLineNumber = "1280"
             landmarkName = "stopHandler()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2645,8 +2645,8 @@
             timestampString = "618921365.8682899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1240"
-            endingLineNumber = "1240"
+            startingLineNumber = "1243"
+            endingLineNumber = "1243"
             landmarkName = "starthandler()"
             landmarkType = "7">
             <Locations>
@@ -2696,8 +2696,8 @@
             timestampString = "618921365.868337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1281"
-            endingLineNumber = "1281"
+            startingLineNumber = "1284"
+            endingLineNumber = "1284"
             landmarkName = "stopHandler()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3239,8 +3239,8 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "962"
-            endingLineNumber = "962"
+            startingLineNumber = "965"
+            endingLineNumber = "965"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3911,8 +3911,8 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1118"
-            endingLineNumber = "1118"
+            startingLineNumber = "1121"
+            endingLineNumber = "1121"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4583,8 +4583,8 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "970"
-            endingLineNumber = "970"
+            startingLineNumber = "973"
+            endingLineNumber = "973"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4599,8 +4599,8 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "969"
-            endingLineNumber = "969"
+            startingLineNumber = "972"
+            endingLineNumber = "972"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4615,8 +4615,8 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "980"
-            endingLineNumber = "980"
+            startingLineNumber = "983"
+            endingLineNumber = "983"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4631,8 +4631,8 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "979"
-            endingLineNumber = "979"
+            startingLineNumber = "982"
+            endingLineNumber = "982"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5575,8 +5575,8 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1018"
-            endingLineNumber = "1018"
+            startingLineNumber = "1021"
+            endingLineNumber = "1021"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5591,8 +5591,8 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1019"
-            endingLineNumber = "1019"
+            startingLineNumber = "1022"
+            endingLineNumber = "1022"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5607,8 +5607,8 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1005"
-            endingLineNumber = "1005"
+            startingLineNumber = "1008"
+            endingLineNumber = "1008"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -5623,8 +5623,8 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1007"
-            endingLineNumber = "1007"
+            startingLineNumber = "1010"
+            endingLineNumber = "1010"
             landmarkName = "updateValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -6166,8 +6166,8 @@
             filePath = "utils/gradient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "updateGradient()"
             landmarkType = "7">
          </BreakpointContent>
@@ -6198,8 +6198,8 @@
             filePath = "utils/gradient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "updateGradient(frame:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6246,8 +6246,8 @@
             filePath = "utils/gradient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "rotated()"
             landmarkType = "7">
          </BreakpointContent>
@@ -6262,8 +6262,8 @@
             filePath = "utils/gradient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "updateGradient(frame:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6326,8 +6326,8 @@
             filePath = "utils/gradient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "installGradient()"
             landmarkType = "7">
          </BreakpointContent>
@@ -6358,8 +6358,8 @@
             filePath = "utils/gradient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "createGradient()"
             landmarkType = "7">
          </BreakpointContent>
@@ -6438,8 +6438,8 @@
             filePath = "utils/gradient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "createGradient(frame:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6454,8 +6454,8 @@
             filePath = "utils/gradient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "updateGradient()"
             landmarkType = "7">
          </BreakpointContent>
@@ -6470,8 +6470,8 @@
             filePath = "utils/gradient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "rotated()"
             landmarkType = "7">
          </BreakpointContent>
@@ -6486,8 +6486,8 @@
             filePath = "utils/gradient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "rotated()"
             landmarkType = "7">
          </BreakpointContent>
@@ -6502,8 +6502,8 @@
             filePath = "utils/gradient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "updateGradient()"
             landmarkType = "7">
          </BreakpointContent>
@@ -6518,8 +6518,8 @@
             filePath = "utils/gradient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "installGradientwithvounds(frame:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6592,7 +6592,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "ECA811EE-16D5-44C8-8C0E-2980C4F9C53F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aduro/ViewController.swift"
@@ -6602,6 +6602,150 @@
             endingLineNumber = "455"
             landmarkName = "setXtea(loadingNotification:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01FC7167-6540-46AC-8E75-CEBD42777335"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
+            landmarkName = "getIP()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96EEC665-14EF-4CF5-BE85-33156E20D089"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
+            landmarkName = "getIP()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E6BEEBA8-157A-43A0-8CFE-B4B73FA593AF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
+            landmarkName = "getIP()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98D7286B-C10B-45D4-9111-660FF6C0185B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "441"
+            endingLineNumber = "441"
+            landmarkName = "getf11()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0CE8F5A4-D750-4987-97F4-CF70F4B27B33"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "utils/gradient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "prepareForInterfaceBuilder()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D28E198-2034-4A68-A1DF-DD9A3CAB4008"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "959"
+            endingLineNumber = "959"
+            landmarkName = "viewWillTransition(to:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5D6AB6F2-9D6D-4244-A6AC-425B5C086F5E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "456"
+            endingLineNumber = "456"
+            landmarkName = "setXtea(loadingNotification:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5D6AB6F2-9D6D-4244-A6AC-425B5C086F5E - 3339f028bddc2b81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Aduro_Hybrid.ControllerResponseImpl) -&gt; () in Aduro_Hybrid.ViewController.setXtea(loadingNotification: __C.MBProgressHUD) -&gt; ()"
+                  moduleName = "Aduro Hybrid"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/IOS%20Development/aduro-app-ios-2020/Aduro/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "457"
+                  endingLineNumber = "457"
+                  offsetFromSymbolStart = "3969">
+               </Location>
+               <Location
+                  uuid = "5D6AB6F2-9D6D-4244-A6AC-425B5C086F5E - 561b7dc4971bcb59"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #2 (Aduro_Hybrid.ControllerResponseImpl) -&gt; () in Aduro_Hybrid.ViewController.setXtea(loadingNotification: __C.MBProgressHUD) -&gt; ()"
+                  moduleName = "Aduro Hybrid"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/IOS%20Development/aduro-app-ios-2020/Aduro/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "459"
+                  endingLineNumber = "459"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
