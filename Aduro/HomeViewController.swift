@@ -233,7 +233,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
         {
             if let Ssid = FGRoute.getSSID()
             {
-                   if(Ssid.contains("Aduro"))
+                   if(Ssid.contains("Aduro-"+serial))
                             {
 
                                 controller = Controller(serial: serial)
