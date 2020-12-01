@@ -207,50 +207,53 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
                 DispatchQueue.main.async {
                     progress.hide(animated: true)
                 }
-                if(key == "ignition.*")
-                {
-                    self.ignitionValues=ControllerResponseImpl.GetReadValue()
-                    self.ElectricignitionfuelValue.text=self.ignitionValues["pellets"]! + "sec"
-                    self.shaftValue.text=ControllerconnectionImpl.getInstance().getFrontData()[IControllerConstants.shaftTemp]! + "°C"
-                    self.ElectricignitioneffectValue.text=self.ignitionValues["power"]! + "%"
-                    self.FanLevel1Value.text=self.ignitionValues["fan_10"]! + "%"
-                    self.FanLevel2Value.text=self.ignitionValues["fan_50"]! + "%"
-                    self.FanLevel3Value.text=self.ignitionValues["fan_100"]! + "%"
-                }else if(key == "auger.*")
-                {
-                    self.augerValues=ControllerResponseImpl.GetReadValue()
-                    self.augerlevel1Value.text=self.augerValues["auger_10"]! + "%"
-                    self.augerlevel2Value.text=self.augerValues["auger_50"]! + "%"
-                    self.augerlevel3Value.text=self.augerValues["auger_100"]! + "%"
-                }else if(key == "cleaning.*")
-                {
-                   self.cleaningValues=ControllerResponseImpl.GetReadValue()
-                    self.somkelevel1Value.text=self.cleaningValues["valve_time"]! + "°C"
-                    self.somkelevel2Value.text=self.cleaningValues["pellets_stop"]! + "°C"
-                    self.somkelevel3Value.text=self.cleaningValues["comp_fan_speed"]! + "°C"
-                    
-                    self.cleaning_fan_period_value.text=self.cleaningValues["fan_period"]! + "min"
-                    self.cleaning_fan_time_value.text=self.cleaningValues["fan_time"]! + "sec"
-                    self.cleaning_fan_speed_value.text=self.cleaningValues["fan_speed"]! + "%"
-                    
-                    
-                    self.sensor_pressure_t7Value.text=ControllerconnectionImpl.getInstance().getFrontData()[IControllerConstants.oxygen]
-                    self.sensor_comp_periodValue.text=self.cleaningValues["comp_period"]!
-                    self.sensor_valve_periodValue.text=self.cleaningValues["valve_period"]!
-                    
-                }else if(key == "boiler.*")
-                {
-                    
-                    self.boilerValues=ControllerResponseImpl.GetReadValue()
-                    self.woodburningtempValue.text=self.boilerValues["min_return"]! + "°C"
-                }else if(key == "fan.*")
-                {
-                    self.fanValues=ControllerResponseImpl.GetReadValue()
-                    
-                    self.fanspeed1Value.text=self.fanValues["speed_10"]! + "%"
-                    self.fanspeed2Value.text=self.fanValues["speed_50"]! + "%"
-                    self.fanspeed3Value.text=self.fanValues["speed_100"]! + "%"
-//                    self.getvaluesFromController(key: "fan.*")
+                DispatchQueue.main.async {
+
+                                    if(key == "ignition.*")
+                                    {
+                                        self.ignitionValues=ControllerResponseImpl.GetReadValue()
+                                        self.ElectricignitionfuelValue.text=self.ignitionValues["pellets"]! + "sec"
+                                        self.shaftValue.text=ControllerconnectionImpl.getInstance().getFrontData()[IControllerConstants.shaftTemp]! + "°C"
+                                        self.ElectricignitioneffectValue.text=self.ignitionValues["power"]! + "%"
+                                        self.FanLevel1Value.text=self.ignitionValues["fan_10"]! + "%"
+                                        self.FanLevel2Value.text=self.ignitionValues["fan_50"]! + "%"
+                                        self.FanLevel3Value.text=self.ignitionValues["fan_100"]! + "%"
+                                    }else if(key == "auger.*")
+                                    {
+                                        self.augerValues=ControllerResponseImpl.GetReadValue()
+                                        self.augerlevel1Value.text=self.augerValues["auger_10"]! + "%"
+                                        self.augerlevel2Value.text=self.augerValues["auger_50"]! + "%"
+                                        self.augerlevel3Value.text=self.augerValues["auger_100"]! + "%"
+                                    }else if(key == "cleaning.*")
+                                    {
+                                       self.cleaningValues=ControllerResponseImpl.GetReadValue()
+                                        self.somkelevel1Value.text=self.cleaningValues["valve_time"]! + "°C"
+                                        self.somkelevel2Value.text=self.cleaningValues["pellets_stop"]! + "°C"
+                                        self.somkelevel3Value.text=self.cleaningValues["comp_fan_speed"]! + "°C"
+                                        
+                                        self.cleaning_fan_period_value.text=self.cleaningValues["fan_period"]! + "min"
+                                        self.cleaning_fan_time_value.text=self.cleaningValues["fan_time"]! + "sec"
+                                        self.cleaning_fan_speed_value.text=self.cleaningValues["fan_speed"]! + "%"
+                                        
+                                        
+                                        self.sensor_pressure_t7Value.text=ControllerconnectionImpl.getInstance().getFrontData()[IControllerConstants.oxygen]
+                                        self.sensor_comp_periodValue.text=self.cleaningValues["comp_period"]!
+                                        self.sensor_valve_periodValue.text=self.cleaningValues["valve_period"]!
+                                        
+                                    }else if(key == "boiler.*")
+                                    {
+                                        
+                                        self.boilerValues=ControllerResponseImpl.GetReadValue()
+                                        self.woodburningtempValue.text=self.boilerValues["min_return"]! + "°C"
+                                    }else if(key == "fan.*")
+                                    {
+                                        self.fanValues=ControllerResponseImpl.GetReadValue()
+                                        
+                                        self.fanspeed1Value.text=self.fanValues["speed_10"]! + "%"
+                                        self.fanspeed2Value.text=self.fanValues["speed_50"]! + "%"
+                                        self.fanspeed3Value.text=self.fanValues["speed_100"]! + "%"
+                    //                    self.getvaluesFromController(key: "fan.*")
+                                    }
                 }
                 
             }

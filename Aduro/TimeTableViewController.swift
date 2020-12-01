@@ -280,7 +280,9 @@ class TimeTableViewController: UIViewController {
             {
                 if(key=="boiler.monday_24")
                 {
-                    self.setarray()
+                    DispatchQueue.main.async {
+                        self.setarray()
+                    }
                     let stringfrompayload=ControllerResponseImpl.GetReadValue()["monday_24"]
                     let CharArray = Array(stringfrompayload!)
                     for (index,item) in CharArray.enumerated()
@@ -362,7 +364,9 @@ class TimeTableViewController: UIViewController {
                     }
                     
                     print("its done")
+                     DispatchQueue.main.async {
                     self.changeview()
+                    }
                     
                 }
             }

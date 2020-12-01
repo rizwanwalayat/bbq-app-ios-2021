@@ -103,7 +103,9 @@ class AdjustmentViewController: UIViewController {
             else
             {
                 self.auger=ControllerResponseImpl.GetReadValue()
-                self.updateUI()
+                DispatchQueue.main.async {
+                    self.updateUI()
+                }
                 
             }
         }

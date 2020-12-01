@@ -23,6 +23,13 @@ class ControllerResponseImpl: ControllerResponse {
     var payload : String = ""
     
     
+    func setfunctionID(id:String)  {
+        self.functionId=id
+    }
+    
+    func setstatusCode(code:String) {
+        self.statusCode=code
+    }
     func getFuncId() -> String {
       return  self.functionId
     }

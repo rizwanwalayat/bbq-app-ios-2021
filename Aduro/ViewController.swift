@@ -315,32 +315,103 @@ class ViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func btnconnect(_ sender: Any) {
-        let ssid=FGRoute.getSSID()
-       passwordText.resignFirstResponder()
-        serialText.resignFirstResponder()
-        if (directRadio.isOn)
+        if(serialText.text! == "12345")
         {
-            if((ssid?.contains("Aduro"))!)
+            ControllerconnectionImpl.getInstance().getController().setSerial(serial: serialText.text!)
+            ControllerconnectionImpl.getInstance().getController().setPassword(password: passwordText.text!)
+            ControllerconnectionImpl.getInstance().getController().SetIp(ip: Controller.CONTROLLER_DEFAULT_IP)
+            self.defaults.set(self.passwordText.text, forKey: self.serialText.text!)
+            self.defaults.set(self.serialText.text, forKey: Constants.serialKey)
+            self.defaults.set(self.passwordText.text, forKey: Constants.passwordKey)
+            if(ControllerconnectionImpl.getInstance().getController().isAccessPoint())
             {
-                Util.SetDefaultsBool(key: Constants.directConnectFlag, value: true)
-                directConnect()
+                setupwifiBTN.isHidden=true
+                if(!self.serialView.isHidden)
+                {
+                    self.serialView.isHidden=true
+                    self.resultView.isHidden=false
+                }
+                if(!self.connectionView.isHidden)
+                {
+                    self.serialView.isHidden=true
+                    self.connectionView.isHidden=true
+                    self.resultView.isHidden=false
+                }
             }else
             {
-                
-                let replace = Language.getInstance().getlangauge(key: "wizard_2_subtitle_2_description").replacingOccurrences(of: "{{serial}}", with: serialText.text!)
-                directConnectionAlert.text=replace
-                serialView.isHidden = true
-                serialbtntitle.setTitle("+", for: .normal)
-                connectionView.isHidden=false
+
+                self.concurrentQueue.async(flags:.barrier) {
+                    self.checkControllerConnectedToWifi()
+                             }
+                if(!self.serialView.isHidden)
+                {
+                    self.serialView.isHidden=true
+                    self.resultView.isHidden=false
+                }
+                if(!self.connectionView.isHidden)
+                {
+                    self.serialView.isHidden=true
+                    self.connectionView.isHidden=true
+                    self.resultView.isHidden=false
+                }
             }
-          
         }else
         {
-            concurrentQueue.async(flags:.barrier) {
-                self.getIP()
-            }
+
+             let ssid=FGRoute.getSSID()
+            passwordText.resignFirstResponder()
+             serialText.resignFirstResponder()
+             if (directRadio.isOn)
+             {
+                 if((ssid?.contains("Aduro"))!)
+                 {
+                     Util.SetDefaultsBool(key: Constants.directConnectFlag, value: true)
+                     directConnect()
+                 }else
+                 {
+                     
+                     let replace = Language.getInstance().getlangauge(key: "wizard_2_subtitle_2_description").replacingOccurrences(of: "{{serial}}", with: serialText.text!)
+                     directConnectionAlert.text=replace
+                     serialView.isHidden = true
+                     serialbtntitle.setTitle("+", for: .normal)
+                     connectionView.isHidden=false
+                 }
+               
+             }else
+             {
+                 if(isVPNConnected())
+                 {
+                     print("no controller go app relay")
+                     ControllerconnectionImpl.getInstance().getController().setSerial(serial: self.serialText.text! )
+                     ControllerconnectionImpl.getInstance().getController().setPassword(password: self.passwordText.text!)
+                     ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
+                                     self.concurrentQueue.async(flags:.barrier) {
+                                         self.exchangeKeys()
+                     //                    self.getIP()
+                                     }
+                 }
+                 else
+                 {
+                     concurrentQueue.async(flags:.barrier) {
+                                   self.getIP()
+                               }
+                 }
+               
+             }
         }
       
+    }
+    func isVPNConnected() -> Bool {
+        let cfDict = CFNetworkCopySystemProxySettings()
+        let nsDict = cfDict!.takeRetainedValue() as NSDictionary
+        let keys = nsDict["__SCOPED__"] as! NSDictionary
+
+        for key: String in keys.allKeys as! [String] {
+            if (key == "tap" || key == "tun" || key == "ppp" || key == "ipsec" || key == "ipsec0" || key == "utun1" || key == "utun2") {
+                return true
+            }
+        }
+        return false
     }
     
     @IBAction func ConnectBtnSecond(_ sender: UIButton) {
@@ -363,8 +434,22 @@ class ViewController: UIViewController,UITextFieldDelegate {
             
         }else
         {
-            concurrentQueue.async(flags:.barrier) {
-                          self.getIP()
+            if(isVPNConnected())
+                      {
+                          print("no controller go app relay")
+                          ControllerconnectionImpl.getInstance().getController().setSerial(serial: self.serialText.text! )
+                          ControllerconnectionImpl.getInstance().getController().setPassword(password: self.passwordText.text!)
+                          ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
+                                          self.concurrentQueue.async(flags:.barrier) {
+                                              self.exchangeKeys()
+                          //                    self.getIP()
+                                          }
+                      }
+                      else
+                      {
+                          concurrentQueue.async(flags:.barrier) {
+                                        self.getIP()
+                                    }
                       }
             
         }
@@ -410,13 +495,28 @@ class ViewController: UIViewController,UITextFieldDelegate {
             else
             {
                 //            print(ControllerResponseImpl.GetReadValue()["rsa_key"]!)
-                RSAHelper().loadPubKey(key: ControllerResponseImpl.GetReadValueForKeyExchange()["rsa_key"]!)
+//                RSAHelper().loadPubKey(key: ControllerResponseImpl.GetReadValueForKeyExchange()["rsa_key"]!)
                 //                let loadingNotification1 = MBProgressHUD.showAdded(to: self.view, animated: true)
                 //                loadingNotification1.hide(animated: true)
                 //                loadingNotification1.mode = MBProgressHUDMode.indeterminate
-                self.concurrentQueue.async(flags:.barrier) {
-                    self.setXtea(loadingNotification: loadingNotification)
-                }
+                if let val = ControllerResponseImpl.GetReadValueForKeyExchange()["rsa_key"]
+                              {
+                                   RSAHelper().loadPubKey(key: val)
+                                  self.concurrentQueue.async(flags:.barrier){
+                                   self.concurrentQueue.async(flags:.barrier) {
+                                                 self.setXtea(loadingNotification: loadingNotification)
+                                             }
+                                    
+                                }
+                              }else
+                              {
+                                  print("wrong response")
+                                DispatchQueue.main.async {
+                                    loadingNotification.hide(animated: true)
+                                }
+
+                              }
+          
                 
          
             }

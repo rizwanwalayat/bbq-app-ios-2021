@@ -482,8 +482,10 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
                        //                    print(map)
                        //                    self.f11values.text=ControllerResponseImpl.getPayload()
                        //                    self.setimage()
-                       //                    self.f11label.text="got f11 values"
-                                           self.updateValues()
+                       //                    self.f11label.text="got f11 values"'
+                                        DispatchQueue.main.async {
+                                            self.updateValues()
+                                        }
 //                                           self.exchangeKeys()
                                        }
                                        
@@ -506,8 +508,10 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
                                                      }
 else
                                                      {
-                                                        self.setVersionText(variable: ControllerResponseImpl)
-                                                        self.checkfirmwareHasToUpdate(response: ControllerResponseImpl)
+                                                        DispatchQueue.main.async {
+                                                            self.setVersionText(variable: ControllerResponseImpl)
+                                                            self.checkfirmwareHasToUpdate(response: ControllerResponseImpl)
+                                                        }
 //                                                        self.versionText.text=ControllerResponseImpl.getPayload()
                 }
                    }
@@ -1262,7 +1266,10 @@ else
                             //                    self.setimage()
                             //                    self.f11label.text="got f11 values"
                             //                        }
-                            self.updateValues()
+                            DispatchQueue.main.async {
+
+                                self.updateValues()
+                            }
                         }
                         
                     }
