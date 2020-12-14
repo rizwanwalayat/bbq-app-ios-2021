@@ -59,6 +59,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
     @IBOutlet weak var wrench: UIImageView!
     
     @IBOutlet weak var ovn_image: UIImageView!
+    @IBOutlet weak var pelletImage: UIImageView!
     
     
     @IBOutlet weak var versionText: UILabel!
@@ -74,6 +75,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
     //    @IBOutlet weak var f11values: UILabel!
     var timer : Timer!
     var countDownTimermode1 : Timer!
+    var simulationMode : Timer!
     var controller : Controller!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -847,7 +849,7 @@ else
         {
             if(slpitstring[1] == ControllerconnectionImpl.getInstance().getController().getSerial())
             {
-                let finalString = "v"+finaltext+"/"+slpitstring[3]+"."+slpitstring[4]+"/"+slpitstring[1]
+                let finalString = "v"+version+"/"+slpitstring[3]+"."+slpitstring[4]+"/"+slpitstring[1]
                 self.versionText.text=finalString
             }
         }
@@ -973,14 +975,20 @@ else
 
             var thisRect = myImageView!.frame
             let xvalueOfYellow = Float(stringMap[IControllerConstants.coYellow]!)
-            thisRect.origin.x = CGFloat(xvalueOfYellow!/1050*100*1.5)
+            var temp = myCustomView.bounds.width - 150
+            var temp2 = xvalueOfYellow!/1050*100*1.5
+            var final = CGFloat(temp) + CGFloat(temp2)
+            thisRect.origin.x = CGFloat(final)
             myImageView?.frame=thisRect
             
             var thisRect1 = myImageViewRed!.frame
             let xvalueOfRed = Float(stringMap[IControllerConstants.coRed]!)
-            thisRect1.origin.x = CGFloat(xvalueOfRed!/1050*100*1.5)
+            temp = myCustomView.bounds.width - 150
+            temp2 = xvalueOfRed!/1050*100*1.5
+            final = CGFloat(temp) + CGFloat(temp2)
+            thisRect1.origin.x = CGFloat(final)
             myImageViewRed?.frame=thisRect1
-            
+            myProgressView!.frame = CGRect(x: myCustomView.bounds.width-150, y: 8, width: 150, height: 100)
             
             let valueofprogress = Float(stringMap[IControllerConstants.oxygen]!)
             let finalfloat = valueofprogress!/100
@@ -1003,6 +1011,16 @@ else
            
         
         setimage()
+            if(Int(stringMap[IControllerConstants.distance]!)! > 900)
+            {
+                pelletImage.isHidden=true
+            }
+            else
+            {
+                pelletImage.isHidden=false
+                setpelleteImage(value: Int(stringMap[IControllerConstants.distance]!)!)
+//                setpelleteImage(value: 999)
+            }
             changeSetting(state_super: stringMap[IControllerConstants.stateSuper]!, state: stringMap[IControllerConstants.state]!, boiler_timer: stringMap[IControllerConstants.boilerTemp]!)
         
 
@@ -1073,10 +1091,16 @@ else
         
         
 //        smoketemp
-        let am=stringMap[IControllerConstants.smokeTemp]
-        let temp=Double(am!)
-        let rounde=temp?.rounded()
-        smoketemp.text=String(Int(rounde!)) + " C°"
+        if(ControllerconnectionImpl.getInstance().getController().getSerial() == "12345")
+        {
+            animationInDemoMode()
+        }else
+        {
+            let am=stringMap[IControllerConstants.smokeTemp]
+            let temp=Double(am!)
+            let rounde=temp?.rounded()
+            smoketemp.text=String(Int(rounde!)) + " C°"
+        }
 
         
 //        roomtemp
@@ -1161,10 +1185,98 @@ else
         }
             
         }
+      
     
     }
+    var smoketempvalue = 170
+    var goingUp = true
+    func animationInDemoMode()  {
+        NSLog("mode", "sdsfsdfsdfsdfsdfsfsdfsd")
+        if(simulationMode == nil)
+           {
+            simulationMode = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) {
+                   (Timer) in
+                if(self.goingUp)
+                {
+                    if(self.smoketempvalue == 185)
+                    {
+                        self.goingUp=false
+                    }
+                    self.smoketempvalue = self.smoketempvalue + 1
+                    self.smoketemp.text=String(self.smoketempvalue) + " C°"
+                }else
+                {
+                    if(self.smoketempvalue == 170)
+                                  {
+                                      self.goingUp=true
+                                  }
+                                  self.smoketempvalue = self.smoketempvalue - 1
+                                  self.smoketemp.text=String(self.smoketempvalue) + " C°"
+                }
+               }
+               RunLoop.current.add(simulationMode, forMode: .common)
+           }
+    }
     
-    
+    func setpelleteImage(value : Int)  {
+//        value = 13
+        if(value == 7 || value == 8 )
+        {
+            pelletImage.image=UIImage(named: "10")
+        }else if(value == 9 || value == 10 )
+        {
+            
+            pelletImage.image=UIImage(named: "9")
+        }
+        else if(value == 10 || value == 11 )
+        {
+            pelletImage.image=UIImage(named: "8")
+            
+        }
+        else if(value == 11 || value == 12 )
+        {
+            pelletImage.image=UIImage(named: "7")
+            
+        }
+        else if(value == 13 || value == 14 )
+        {
+            pelletImage.image=UIImage(named: "6")
+            
+        }
+        else if(value == 14 || value == 15 )
+        {
+            
+            pelletImage.image=UIImage(named: "5")
+        }
+        else if(value == 16 || value == 17 )
+        {
+            pelletImage.image=UIImage(named: "4")
+            
+        }
+        else if(value == 18 || value == 19 )
+        {
+            
+            pelletImage.image=UIImage(named: "3")
+        }
+        else if(value == 20 || value == 21 )
+        {
+            
+            pelletImage.image=UIImage(named: "2")
+        }
+        else if(value == 22 || value == 23 )
+        {
+            
+            pelletImage.image=UIImage(named: "1")
+        }
+        else if(value == 24 || value == 25 )
+        {
+            pelletImage.image=UIImage(named: "1")
+        }else if(value > 25)
+        {
+            pelletImage.image=UIImage(named: "1")
+            
+        }
+    }
     func heatlevel(string:String) -> Int {
         
         switch string {
@@ -1296,6 +1408,12 @@ else
             countDownTimermode1=nil
 //            print("stop timer")
         }
+        if(simulationMode != nil)
+                {
+                    simulationMode!.invalidate()
+                    simulationMode=nil
+        //            print("stop timer")
+                }
         
     }
     //////
@@ -1311,7 +1429,10 @@ else
         myProgressView?.progressTintColor = UIColor(named: "defaultprogress")
         myProgressView?.trackTintColor = UIColor.clear
         
-        myProgressView!.frame = CGRect(x: 10, y: 8, width: 150, height: 100)          //x is left position, y is right position
+        myProgressView!.frame = CGRect(x: myCustomView.bounds.width-150, y: 8, width: 150, height: 100)
+        
+//        myProgressView!.frame = CGRect(x:10, y: 8, width: 150, height: 100)
+        //x is left position, y is right position
         myProgressView?.trackImage = #imageLiteral(resourceName: "backgroundProgressView")
     }
     
@@ -1329,6 +1450,7 @@ else
         myCustomView.addSubview(myImageView!)
         myCustomView.addSubview(myImageViewRed!)
     }
+    
     
     
     class CustomProgressView: UIProgressView {

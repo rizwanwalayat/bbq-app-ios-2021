@@ -379,23 +379,24 @@ class ViewController: UIViewController,UITextFieldDelegate {
                
              }else
              {
-                 if(isVPNConnected())
-                 {
-                     print("no controller go app relay")
-                     ControllerconnectionImpl.getInstance().getController().setSerial(serial: self.serialText.text! )
-                     ControllerconnectionImpl.getInstance().getController().setPassword(password: self.passwordText.text!)
-                     ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
-                                     self.concurrentQueue.async(flags:.barrier) {
-                                         self.exchangeKeys()
-                     //                    self.getIP()
-                                     }
-                 }
-                 else
-                 {
-                     concurrentQueue.async(flags:.barrier) {
-                                   self.getIP()
-                               }
-                 }
+                concurrentQueue.async(flags:.barrier) {
+                                                 self.getIP()
+                                             }
+//                 if(isVPNConnected())
+//                 {
+//                     print("no controller go app relay")
+//                     ControllerconnectionImpl.getInstance().getController().setSerial(serial: self.serialText.text! )
+//                     ControllerconnectionImpl.getInstance().getController().setPassword(password: self.passwordText.text!)
+//                     ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
+//                                     self.concurrentQueue.async(flags:.barrier) {
+//                                         self.exchangeKeys()
+//                     //                    self.getIP()
+//                                     }
+//                 }
+//                 else
+//                 {
+//
+//                 }
                
              }
         }
@@ -404,12 +405,18 @@ class ViewController: UIViewController,UITextFieldDelegate {
     func isVPNConnected() -> Bool {
         let cfDict = CFNetworkCopySystemProxySettings()
         let nsDict = cfDict!.takeRetainedValue() as NSDictionary
-        let keys = nsDict["__SCOPED__"] as! NSDictionary
+        if(nsDict["_SCOPED__"] != nil)
+        {
+            let keys = nsDict["__SCOPED__"] as! NSDictionary
 
-        for key: String in keys.allKeys as! [String] {
-            if (key == "tap" || key == "tun" || key == "ppp" || key == "ipsec" || key == "ipsec0" || key == "utun1" || key == "utun2") {
-                return true
+            for key: String in keys.allKeys as! [String] {
+                if (key == "tap" || key == "tun" || key == "ppp" || key == "ipsec" || key == "ipsec0" || key == "utun1" || key == "utun2") {
+                    return true
+                }
             }
+        }else
+        {
+            return false
         }
         return false
     }
@@ -434,23 +441,24 @@ class ViewController: UIViewController,UITextFieldDelegate {
             
         }else
         {
-            if(isVPNConnected())
-                      {
-                          print("no controller go app relay")
-                          ControllerconnectionImpl.getInstance().getController().setSerial(serial: self.serialText.text! )
-                          ControllerconnectionImpl.getInstance().getController().setPassword(password: self.passwordText.text!)
-                          ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
-                                          self.concurrentQueue.async(flags:.barrier) {
-                                              self.exchangeKeys()
-                          //                    self.getIP()
-                                          }
-                      }
-                      else
-                      {
-                          concurrentQueue.async(flags:.barrier) {
-                                        self.getIP()
-                                    }
-                      }
+            concurrentQueue.async(flags:.barrier) {
+                                                  self.getIP()
+                                              }
+//            if(isVPNConnected())
+//                      {
+//                          print("no controller go app relay")
+//                          ControllerconnectionImpl.getInstance().getController().setSerial(serial: self.serialText.text! )
+//                          ControllerconnectionImpl.getInstance().getController().setPassword(password: self.passwordText.text!)
+//                          ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
+//                                          self.concurrentQueue.async(flags:.barrier) {
+//                                              self.exchangeKeys()
+//                          //                    self.getIP()
+//                                          }
+//                      }
+//                      else
+//                      {
+//
+//                      }
             
         }
     }

@@ -154,6 +154,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     var boilerValues:[String:String]!
     var fanValues:[String:String]!
     
+    @IBOutlet weak var lockbtn: UIButton!
     @IBOutlet var gradient: gradient!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,6 +163,9 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         self.gradient.updateGradient(frame: self.view.bounds)
         close()
         settext()
+        let oneFingerTap = UITapGestureRecognizer(target: self, action:#selector(self.oneFingerTapDetected(sender:)))
+        oneFingerTap.numberOfTapsRequired = 6
+        lockbtn.addGestureRecognizer(oneFingerTap)
         disable()
         concurrentQueue.async(flags:.barrier){
 
@@ -187,6 +191,17 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
 
         // Do any additional setup after loading the view.
     }
+    @objc func oneFingerTapDetected(sender:UITapGestureRecognizer) {
+//        print("call")
+         if(ControllerconnectionImpl.getInstance().getController().getSerial() == "12345")
+                {
+        
+                }else
+                {
+                    self.lockbtn.setTitle("", for: .normal)
+                    enable()
+                }
+       }
     override func viewDidAppear(_ animated: Bool) {
     }
     func getvaluesFromController(key:String)  {
@@ -525,10 +540,16 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
 
     }
     
-    @IBAction func lockunlock(_ sender: UIButton) {
-        sender.setTitle("", for: .normal)
-        enable()
-    }
+//    @IBAction func lockunlock(_ sender: UIButton) {
+//        if(ControllerconnectionImpl.getInstance().getController().getSerial() == "12345")
+//        {
+//
+//        }else
+//        {
+//            sender.setTitle("", for: .normal)
+//            enable()
+//        }
+//    }
     
     @objc func ElectricignitionfuelTouch(_ sender:UITapGestureRecognizer)
     {

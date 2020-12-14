@@ -812,7 +812,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aduro/Aduro.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4S74ZAM22X;
 				INFOPLIST_FILE = Aduro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -820,7 +820,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2;
+				MARKETING_VERSION = 2.26;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nbe.Aduro.ios;
 				PRODUCT_NAME = "Aduro Hybrid";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -840,7 +840,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aduro/Aduro.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4S74ZAM22X;
 				INFOPLIST_FILE = Aduro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -848,7 +848,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2;
+				MARKETING_VERSION = 2.26;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nbe.Aduro.ios;
 				PRODUCT_NAME = "Aduro Hybrid";
 				PROVISIONING_PROFILE_SPECIFIER = "";

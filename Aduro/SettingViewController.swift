@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MBProgressHUD
 class SettingViewController: UIViewController {
 
     let concurrentQueue = DispatchQueue(label: "setting Queue", attributes: .concurrent)
@@ -519,8 +519,27 @@ class SettingViewController: UIViewController {
     }
     
     func setvalue(value:String,key:String) {
+        var loadingNotification : MBProgressHUD!
+        if(key == "misc.start" || key == "misc.stop" || key == "misc.reset_alarm")
+        {
+                    DispatchQueue.main.async {
+                        loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+                        loadingNotification.mode = MBProgressHUDMode.indeterminate
+                        loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
+                        loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key:"please_wait")
+                         }
+        }
         ControllerconnectionImpl.getInstance().requestSet(key: key, value: value, encryptionMode: "-")
         { (ControllerResponseImpl) in
+
+            if(key == "misc.start" || key == "misc.stop" || key == "misc.reset_alarm")
+            {
+                DispatchQueue.main.async
+                    {
+                        loadingNotification.hide(animated: true)
+                          self.dismiss(animated: true)
+                    }
+            }
             if(ControllerResponseImpl.getPayload().contains("nothing"))
             {
                 

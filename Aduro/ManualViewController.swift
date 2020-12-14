@@ -64,9 +64,17 @@ class ManualViewController: UIViewController {
     
     @IBAction func finish(_ sender: UIButton) {
 
-        self.concurrentQueue.async(flags:.barrier) {
-                      self.manualModeOn_Off_Switch(switch1: false)
-                  }
+        if(ControllerconnectionImpl.getInstance().getController().getSerial() == "12345")
+        {
+            self.dismiss(animated: true) {
+                                     self.stopAllTimer()
+                                 }
+        }else
+        {
+            self.concurrentQueue.async(flags:.barrier) {
+                          self.manualModeOn_Off_Switch(switch1: false)
+                      }
+        }
     }
     
     
