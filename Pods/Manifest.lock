@@ -1,6 +1,7 @@
 PODS:
   - CocoaAsyncSocket (7.6.4)
   - FGRoute (1.0.5)
+  - iOSDropDown (0.3.4)
   - MBProgressHUD (1.1.0)
   - Sentry (6.0.0):
     - Sentry/Core (= 6.0.0)
@@ -10,6 +11,7 @@ PODS:
 DEPENDENCIES:
   - CocoaAsyncSocket
   - FGRoute
+  - iOSDropDown
   - MBProgressHUD (~> 1.1.0)
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `6.0.0`)
   - SwiftyJSON (~> 4.0)
@@ -18,6 +20,7 @@ SPEC REPOS:
   trunk:
     - CocoaAsyncSocket
     - FGRoute
+    - iOSDropDown
     - MBProgressHUD
     - SwiftyJSON
 
@@ -34,10 +37,11 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   FGRoute: 012077ebabb2841d2af3baf63b30e72841f35ba1
+  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   Sentry: 9f6ac6d0412a09a8d610497f873ccbcf7abbe3f8
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: a5115d6d698ec1f1a014f92468aea3e063c9ecb3
+PODFILE CHECKSUM: 0a1cc43c5dfaa7c593a7dcbbeb4ed0c8916b87a5
 
 COCOAPODS: 1.9.3

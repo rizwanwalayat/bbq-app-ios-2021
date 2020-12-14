@@ -11,6 +11,7 @@ target 'Aduro' do
   pod "FGRoute"
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '6.0.0'
+  pod 'iOSDropDown'
 
 #pod "ExpandableTableViewController"
 

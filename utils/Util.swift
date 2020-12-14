@@ -72,6 +72,20 @@ class Util
         let defaults = UserDefaults.standard
         defaults.set(value, forKey: key)
     }
+    struct ControllerList : Codable {
+        var serial : String
+        var password : String
+    }
+    static func SaveController(value: [ControllerList]) throws {
+        print(value)
+        let placesData = try JSONEncoder().encode(value)
+        UserDefaults.standard.set(placesData, forKey: "controllerList")
+    }
+
+    static func GetController() throws -> [ControllerList] {
+        guard let orderData = UserDefaults.standard.data(forKey: "controllerList") else { return [] }
+        return try JSONDecoder().decode([ControllerList].self, from: orderData)
+    }
     
 //    static func getWiFiAddress() -> String? {
 //        var address : String?

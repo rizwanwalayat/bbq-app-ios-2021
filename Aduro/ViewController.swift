@@ -11,6 +11,7 @@ import SystemConfiguration.CaptiveNetwork
 import Network
 import MBProgressHUD
 import FGRoute
+import iOSDropDown
 
 import AVFoundation
 
@@ -23,7 +24,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var torch: UIImageView!
     
     var currentWifi=""
-    @IBOutlet weak var serialText: UITextField!
+
+    @IBOutlet weak var serialText: DropDown!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var directRadio: UISwitch!
     @IBOutlet weak var setupwifiBTN: UIButton!
@@ -131,9 +133,34 @@ class ViewController: UIViewController,UITextFieldDelegate {
         }
      
 
+        showdropdown()
 
     }
-    
+    var list : [Util.ControllerList]!
+    func showdropdown()  {
+        do
+        {
+            list =  try Util.GetController()
+            var temp = [String]()
+            for item in list
+            {
+                temp.append(item.serial)
+            }
+            serialText.optionArray = temp
+            serialText.textColor=#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            serialText.font = UIFont.systemFont(ofSize: 14)
+            serialText.didSelect { (String, Index, Id) in
+                print(String)
+                self.serialText.text=String
+                self.passwordText.text = self.list[Index].password
+            }
+//            serialText.showList()
+
+        }catch
+        {
+            
+        }
+    }
     override func viewDidAppear(_ animated: Bool) {
 
     }
@@ -555,6 +582,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
                                 
                                 DispatchQueue.main.async {
                                     loadingNotification.hide(animated: true)
+                                    self.saveControllerListToPreferences()
                                 }
 //                                self.showToast(message: "Keys Exchange Done")
                                 self.defaults.set(self.passwordText.text, forKey: self.serialText.text!)
@@ -600,7 +628,39 @@ class ViewController: UIViewController,UITextFieldDelegate {
                             
                     })
       }
-    
+    func saveControllerListToPreferences()  {
+        do
+        {
+            var list = try Util.GetController()
+            var controller = Util.ControllerList(serial: ControllerconnectionImpl.getInstance().getController().getSerial(), password: ControllerconnectionImpl.getInstance().getController().getPassword())
+            
+            if(list.isEmpty)
+            {
+                list.append(controller)
+            }else
+            {
+                var found = false
+                var serail = ControllerconnectionImpl.getInstance().getController().getSerial()
+                for item in list
+                {
+                    if(serail == item.serial)
+                    {
+                        found = true
+                    }
+                }
+                if(!found)
+                {
+                   list.append(controller)
+                }
+            }
+             try Util.SaveController(value: list)
+        
+        }catch
+        {
+        print("catch")
+        }
+
+    }
     func checkControllerConnectedToWifi()
     {
         ControllerconnectionImpl.getInstance().requestF11Identified
