@@ -232,6 +232,13 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @objc func donepassword()  {
 
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if(textField.tag == 1)
+        {
+            serialText.showList()
+        }
+//        print("change found")
+    }
 @objc func textFieldDidChange(_ sender: UIView) {
 //    print("text change \(serialText.text)")
 //    print("get password of serial in defaults \(defaults.string(forKey: serialText.text!))")

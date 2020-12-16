@@ -56,7 +56,7 @@
                                                 <rect key="frame" x="8" y="285" width="297" height="118"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vo8-r5-CFN" userLabel="toptext" customClass="PaddingLabel" customModule="Aduro_Hybrid" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="10" height="28"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="dMg-zK-Uu3"/>
                                                         </constraints>
@@ -70,24 +70,24 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="345-Ph-rxs" userLabel="main stack for image">
-                                                        <rect key="frame" x="18" y="1" width="277" height="31"/>
+                                                        <rect key="frame" x="8" y="1" width="287" height="31"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wr1-si-8oH">
-                                                                <rect key="frame" x="0.0" y="0.0" width="92.5" height="31"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="95.5" height="31"/>
                                                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="17"/>
                                                                 <state key="normal" title="">
                                                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsk-dL-Q3i">
-                                                                <rect key="frame" x="92.5" y="0.0" width="92" height="31"/>
+                                                                <rect key="frame" x="95.5" y="0.0" width="96" height="31"/>
                                                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
                                                                 <state key="normal" title="">
                                                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3r-00-w80">
-                                                                <rect key="frame" x="184.5" y="0.0" width="92.5" height="31"/>
+                                                                <rect key="frame" x="191.5" y="0.0" width="95.5" height="31"/>
                                                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="17"/>
                                                                 <state key="normal" title="">
                                                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -100,7 +100,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5A-k1-Ngn" userLabel="bottomtext" customClass="PaddingLabel" customModule="Aduro_Hybrid" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="33.5" width="10" height="27"/>
+                                                        <rect key="frame" x="0.0" y="33.5" width="0.0" height="27"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="AF7-Va-gZh"/>
                                                         </constraints>
@@ -124,7 +124,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYc-7Z-ltY" userLabel="bottomimage">
-                                                        <rect key="frame" x="18" y="34" width="271" height="31"/>
+                                                        <rect key="frame" x="8" y="34" width="281" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="TqH-rW-doh"/>
                                                             <constraint firstAttribute="height" constant="31" id="Yjd-BF-G76"/>
@@ -170,7 +170,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfk-PO-cep" customClass="PaddingLabel" customModule="Aduro_Hybrid" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="8" width="98" height="41"/>
+                                                                        <rect key="frame" x="0.0" y="8" width="88" height="41"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -6437,7 +6437,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hkI-Y1-VK1" userLabel="serial View">
                                                         <rect key="frame" x="0.0" y="60.5" width="382" height="166"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Serial Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b0u-d7-ZZc" customClass="DropDown" customModule="iOSDropDown">
+                                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" verticalHuggingPriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Serial Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b0u-d7-ZZc" customClass="DropDown" customModule="iOSDropDown">
                                                                 <rect key="frame" x="8" y="13" width="366" height="30"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
