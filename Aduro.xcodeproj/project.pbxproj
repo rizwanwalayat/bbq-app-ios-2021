@@ -17,6 +17,7 @@
 		0426385A240561510011DA8F /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04263859240561510011DA8F /* Language.swift */; };
 		04263862240D348D0011DA8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04263861240D348D0011DA8F /* Constants.swift */; };
 		04287B12253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04287B11253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift */; };
+		044196AF258B78B70090AC6E /* aduro_0705_33_u.dat in Resources */ = {isa = PBXBuildFile; fileRef = 044196AE258B78B70090AC6E /* aduro_0705_33_u.dat */; };
 		0458ED7E25557EE4001DB46B /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458ED7D25557EE4001DB46B /* PaddingLabel.swift */; };
 		0458EDA1255BDC10001DB46B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0458ED9F255BDC0F001DB46B /* Info.plist */; };
 		0458EDA5255BE23E001DB46B /* ControllerClientFirmware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458EDA4255BE23E001DB46B /* ControllerClientFirmware.swift */; };
@@ -112,6 +113,7 @@
 		04263859240561510011DA8F /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		04263861240D348D0011DA8F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04287B11253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareUpdateDialogeViewController.swift; sourceTree = "<group>"; };
+		044196AE258B78B70090AC6E /* aduro_0705_33_u.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = aduro_0705_33_u.dat; sourceTree = "<group>"; };
 		0458ED7D25557EE4001DB46B /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		0458EDA2255BDCBB001DB46B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		0458EDA4255BE23E001DB46B /* ControllerClientFirmware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerClientFirmware.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		049EB2C22536EE3D00A1A938 /* versionFiles */ = {
 			isa = PBXGroup;
 			children = (
+				044196AE258B78B70090AC6E /* aduro_0705_33_u.dat */,
 				04AC6FE02542BFA3007F1DB3 /* aduro_0705_30_u.dat */,
 				049EB2C32536EE7D00A1A938 /* aduro_0698_u.dat */,
 				049EB2C42536EE7E00A1A938 /* aduro_0705_6_u.dat */,
@@ -512,6 +515,7 @@
 				04C4CA63252DADD600311AFB /* es.json in Resources */,
 				04961925252F2D03002DB1B5 /* aduro_personal_it.htm in Resources */,
 				04F05B2624444EBB007F941B /* aduro_terms_en_wifi.htm in Resources */,
+				044196AF258B78B70090AC6E /* aduro_0705_33_u.dat in Resources */,
 				04F05B2D24444EBB007F941B /* aduro_terms_es.htm in Resources */,
 				04961924252F2D03002DB1B5 /* aduro_personal_fr.htm in Resources */,
 				04F05B2F24444EBB007F941B /* aduro_terms_de.htm in Resources */,
@@ -812,7 +816,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aduro/Aduro.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 4S74ZAM22X;
 				INFOPLIST_FILE = Aduro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -820,7 +824,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.26;
+				MARKETING_VERSION = 2.28;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nbe.Aduro.ios;
 				PRODUCT_NAME = "Aduro Hybrid";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -840,7 +844,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aduro/Aduro.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 4S74ZAM22X;
 				INFOPLIST_FILE = Aduro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -848,7 +852,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.26;
+				MARKETING_VERSION = 2.28;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nbe.Aduro.ios;
 				PRODUCT_NAME = "Aduro Hybrid";
 				PROVISIONING_PROFILE_SPECIFIER = "";

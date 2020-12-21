@@ -10,6 +10,7 @@ import UIKit
 import MBProgressHUD
 
 class FirmwareUpdateViewController: UIViewController {
+    var restartTimer:Timer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +45,12 @@ class FirmwareUpdateViewController: UIViewController {
           self.present(alert, animated: true, completion: nil)
       }
     func startfirmware(neworold:String) ->  Void {
+        UIApplication.shared.isIdleTimerDisabled = true
               let packetSize = 512
         var filePath :String!
         if(neworold == "new")
         {
-            filePath = Bundle.main.path(forResource: "aduro_0705_30_u.dat", ofType: nil)
+            filePath = Bundle.main.path(forResource: "aduro_0705_33_u.dat", ofType: nil)
         }else
         {
             filePath = Bundle.main.path(forResource: "aduro_0705_6_u.dat", ofType: nil)
@@ -155,10 +157,12 @@ class FirmwareUpdateViewController: UIViewController {
                       if(ControllerResponseImpl.getStatusCode()=="0")
                       {
                           print("last bytes got response")
+                        
                           ControllerconnectionImpl.getInstance().requestSet(key: "misc.push_prog_size", value: totalLength, encryptionMode: "-")
                           {
                               (ControllerResponseImpl) in
-                              
+                            UIApplication.shared.isIdleTimerDisabled = false
+                            self.restartTimerfuncrtion()
                               if(ControllerResponseImpl.getStatusCode()=="0")
                               {
                                   print(" final of size got response")
@@ -180,4 +184,27 @@ class FirmwareUpdateViewController: UIViewController {
                   }
               }
           }
+    func restartTimerfuncrtion()
+    {
+        if(restartTimer == nil)
+        {
+            var loadingNotification : MBProgressHUD!
+            loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            loadingNotification.label.text = Language.getInstance().getlangauge(key: "lng_afterUpdate")
+            restartTimer = Timer.scheduledTimer(withTimeInterval: 70, repeats: false) {
+                (Timer) in
+                loadingNotification.hide(animated: true)
+                self.resetphone()
+                
+            }
+            RunLoop.current.add(restartTimer, forMode: .common)
+        }
+    }
+    func resetphone()   {
+        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "LanguageViewController") as? LanguageViewController else { return}
+
+        sVC.modalPresentationStyle = .fullScreen
+       self.present(sVC, animated: true)
+    }
 }

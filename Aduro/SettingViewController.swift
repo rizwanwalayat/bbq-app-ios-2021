@@ -508,7 +508,8 @@ class SettingViewController: UIViewController {
         print("slider end" + String((sender as! UISlider).value))
         let d=Double(String((sender as! UISlider).value))
         self.concurrentQueue.async(flags:.barrier) {
-            self.setvalue(value: String(format: "%.2f", d!), key: "boiler.temp")
+//            self.setvalue(value: String(format: "%.2f", d!), key: "boiler.temp")
+            self.setvalue(value: String(Int(d!)), key: "boiler.temp")
         }
     }
     

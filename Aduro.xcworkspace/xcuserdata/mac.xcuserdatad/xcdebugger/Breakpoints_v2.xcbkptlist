@@ -939,7 +939,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4873C9FF-A816-4754-811A-71C0890061FE - 97901dd5a71591f7"
+                  uuid = "4873C9FF-A816-4754-811A-71C0890061FE - 27879257a3e693f7"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -955,7 +955,7 @@
                   offsetFromSymbolStart = "776">
                </Location>
                <Location
-                  uuid = "4873C9FF-A816-4754-811A-71C0890061FE - 97901dd5a71591f7"
+                  uuid = "4873C9FF-A816-4754-811A-71C0890061FE - 27879257a3e693f7"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -971,7 +971,7 @@
                   offsetFromSymbolStart = "1152">
                </Location>
                <Location
-                  uuid = "4873C9FF-A816-4754-811A-71C0890061FE - 97901dd5a71591f7"
+                  uuid = "4873C9FF-A816-4754-811A-71C0890061FE - 27879257a3e693f7"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1136,10 +1136,10 @@
             timestampString = "618921365.863776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1074"
-            endingLineNumber = "1074"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1117"
+            endingLineNumber = "1117"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1153,10 +1153,10 @@
             timestampString = "618921365.863903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1056"
-            endingLineNumber = "1056"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1099"
+            endingLineNumber = "1099"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1170,10 +1170,10 @@
             timestampString = "618921365.863966"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "970"
-            endingLineNumber = "970"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1012"
+            endingLineNumber = "1012"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1187,10 +1187,10 @@
             timestampString = "618921365.864012"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1028"
-            endingLineNumber = "1028"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1071"
+            endingLineNumber = "1071"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1238,10 +1238,10 @@
             timestampString = "618921365.864188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1029"
-            endingLineNumber = "1029"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1072"
+            endingLineNumber = "1072"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1359,8 +1359,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "364"
             endingLineNumber = "364"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "heatLevel(string:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1376,8 +1376,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "290"
             endingLineNumber = "290"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "FirstlayoutTap()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1393,8 +1393,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "246"
             endingLineNumber = "246"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "firetap(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1410,8 +1410,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "242"
             endingLineNumber = "242"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "SettingViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1427,8 +1427,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "367"
             endingLineNumber = "367"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "updatefromF11()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1444,8 +1444,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "366"
             endingLineNumber = "366"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "updatefromF11()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1459,10 +1459,10 @@
             timestampString = "618921365.864544"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1478,8 +1478,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "295"
             endingLineNumber = "295"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "FirstlayoutTap()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1493,10 +1493,10 @@
             timestampString = "618913798.790764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "520"
-            endingLineNumber = "520"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "521"
+            endingLineNumber = "521"
+            landmarkName = "SettingViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1563,8 +1563,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "174"
             endingLineNumber = "174"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "stopstartfunc()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1614,8 +1614,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "488"
             endingLineNumber = "488"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setonoffbutton(operation_status:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1631,8 +1631,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "490"
             endingLineNumber = "490"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setonoffbutton(operation_status:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1648,8 +1648,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "489"
             endingLineNumber = "489"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setonoffbutton(operation_status:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1665,8 +1665,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "485"
             endingLineNumber = "485"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setonoffbutton(operation_status:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1682,8 +1682,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "492"
             endingLineNumber = "492"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setonoffbutton(operation_status:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1920,11 +1920,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
             endingLineNumber = "31"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "SettingViewController"
+            landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "5C9F2101-16AA-4CD4-80D6-B68F19052192 - 133bb42e00ae39f5"
+                  uuid = "5C9F2101-16AA-4CD4-80D6-B68F19052192 - e21c0168eb08c7b4"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1940,7 +1940,7 @@
                   offsetFromSymbolStart = "128">
                </Location>
                <Location
-                  uuid = "5C9F2101-16AA-4CD4-80D6-B68F19052192 - fc47df81833b89f9"
+                  uuid = "5C9F2101-16AA-4CD4-80D6-B68F19052192 - d606ac7689d77b8"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1956,7 +1956,7 @@
                   offsetFromSymbolStart = "184">
                </Location>
                <Location
-                  uuid = "5C9F2101-16AA-4CD4-80D6-B68F19052192 - 3a76fe728e8b9de8"
+                  uuid = "5C9F2101-16AA-4CD4-80D6-B68F19052192 - cb514b34652d6fa8"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1972,7 +1972,7 @@
                   offsetFromSymbolStart = "72">
                </Location>
                <Location
-                  uuid = "5C9F2101-16AA-4CD4-80D6-B68F19052192 - 8730e8e084e5f056"
+                  uuid = "5C9F2101-16AA-4CD4-80D6-B68F19052192 - 76175da66f430e17"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1988,7 +1988,7 @@
                   offsetFromSymbolStart = "72">
                </Location>
                <Location
-                  uuid = "5C9F2101-16AA-4CD4-80D6-B68F19052192 - 3c454a4541c0e4e5"
+                  uuid = "5C9F2101-16AA-4CD4-80D6-B68F19052192 - cd62ff03aa661aa4"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2004,7 +2004,7 @@
                   offsetFromSymbolStart = "1140">
                </Location>
                <Location
-                  uuid = "5C9F2101-16AA-4CD4-80D6-B68F19052192 - 479b0fc0329438b"
+                  uuid = "5C9F2101-16AA-4CD4-80D6-B68F19052192 - f55e05bae88fbdca"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2033,10 +2033,10 @@
             timestampString = "618921365.865502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "950"
-            endingLineNumber = "950"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "992"
+            endingLineNumber = "992"
+            landmarkName = "startanimation()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2050,10 +2050,10 @@
             timestampString = "618921365.865551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "952"
-            endingLineNumber = "952"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "994"
+            endingLineNumber = "994"
+            landmarkName = "startanimation()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2067,10 +2067,10 @@
             timestampString = "618921365.865625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "948"
-            endingLineNumber = "948"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "990"
+            endingLineNumber = "990"
+            landmarkName = "startanimation()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2084,10 +2084,10 @@
             timestampString = "618921365.865729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "961"
-            endingLineNumber = "961"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1003"
+            endingLineNumber = "1003"
+            landmarkName = "stopanimation()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2492,10 +2492,10 @@
             timestampString = "618921365.868063"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1356"
-            endingLineNumber = "1356"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1399"
+            endingLineNumber = "1399"
+            landmarkName = "starthandler()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2509,10 +2509,10 @@
             timestampString = "618921365.868112"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1399"
-            endingLineNumber = "1399"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1442"
+            endingLineNumber = "1442"
+            landmarkName = "stopHandler()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2526,10 +2526,10 @@
             timestampString = "618921365.868161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "viewWillDisappear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2543,42 +2543,40 @@
             timestampString = "618921365.8682899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1359"
-            endingLineNumber = "1359"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1402"
+            endingLineNumber = "1402"
+            landmarkName = "starthandler()"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "317695D6-D84D-496D-A3DD-0961883C997D - e8d716e49f5af64a"
-                  shouldBeEnabled = "No"
+                  uuid = "317695D6-D84D-496D-A3DD-0961883C997D - ce128a7a2b0ad8a2"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Aduro.HomeViewController.starthandler() -&gt; ()"
-                  moduleName = "Aduro"
+                  symbolName = "Aduro_Hybrid.HomeViewController.starthandler() -&gt; ()"
+                  moduleName = "Aduro Hybrid"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/IOS%20Development/aduro-app-ios-2020/Aduro/HomeViewController.swift"
-                  timestampString = "618919690.936651"
+                  urlString = "file:///Users/mac/ios%20dev%20/aduro-app-ios-2020/Aduro/HomeViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "551"
-                  endingLineNumber = "551"
-                  offsetFromSymbolStart = "184">
+                  startingLineNumber = "1369"
+                  endingLineNumber = "1369"
+                  offsetFromSymbolStart = "400">
                </Location>
                <Location
-                  uuid = "317695D6-D84D-496D-A3DD-0961883C997D - cce06ce9daf56662"
-                  shouldBeEnabled = "No"
+                  uuid = "317695D6-D84D-496D-A3DD-0961883C997D - c59b18d1f0ced337"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSTimer) -&gt; () in Aduro.HomeViewController.starthandler() -&gt; ()"
-                  moduleName = "Aduro"
+                  symbolName = "closure #1 (__C.NSTimer) -&gt; () in Aduro_Hybrid.HomeViewController.starthandler() -&gt; ()"
+                  moduleName = "Aduro Hybrid"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/IOS%20Development/aduro-app-ios-2020/Aduro/HomeViewController.swift"
-                  timestampString = "618919690.940009"
+                  urlString = "file:///Users/mac/ios%20dev%20/aduro-app-ios-2020/Aduro/HomeViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "556"
-                  endingLineNumber = "556"
-                  offsetFromSymbolStart = "108">
+                  startingLineNumber = "1374"
+                  endingLineNumber = "1374"
+                  offsetFromSymbolStart = "192">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2594,10 +2592,10 @@
             timestampString = "618921365.868337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1403"
-            endingLineNumber = "1403"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1446"
+            endingLineNumber = "1446"
+            landmarkName = "stopHandler()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2612,8 +2610,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "291"
             endingLineNumber = "291"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "FirstlayoutTap()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2628,8 +2626,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "325"
             endingLineNumber = "325"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "FirstlayoutTap()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2644,8 +2642,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "413"
             endingLineNumber = "413"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setimage()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2660,8 +2658,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "378"
             endingLineNumber = "378"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "updatefromF11()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2692,8 +2690,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "296"
             endingLineNumber = "296"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "FirstlayoutTap()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2708,8 +2706,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "380"
             endingLineNumber = "380"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "updatefromF11()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2724,8 +2722,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "384"
             endingLineNumber = "384"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "updatefromF11()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2740,8 +2738,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "469"
             endingLineNumber = "469"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "checkStateforOnOFF(state:on_off_alar:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2756,8 +2754,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "480"
             endingLineNumber = "480"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "checkStateforOnOFF(state:on_off_alar:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2772,8 +2770,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "487"
             endingLineNumber = "487"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setonoffbutton(operation_status:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2788,8 +2786,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "494"
             endingLineNumber = "494"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setonoffbutton(operation_status:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2804,8 +2802,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "479"
             endingLineNumber = "479"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "checkStateforOnOFF(state:on_off_alar:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2820,8 +2818,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "500"
             endingLineNumber = "500"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setonoffbutton(operation_status:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2836,11 +2834,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "484"
             endingLineNumber = "484"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setonoffbutton(operation_status:)"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C5E422DB-CC6B-47B2-B6C7-227E3D4BEAC6 - 35c9b9ede19004b6"
+                  uuid = "C5E422DB-CC6B-47B2-B6C7-227E3D4BEAC6 - c4ee0cab0a36c09e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2855,7 +2853,7 @@
                   offsetFromSymbolStart = "108">
                </Location>
                <Location
-                  uuid = "C5E422DB-CC6B-47B2-B6C7-227E3D4BEAC6 - 35c9b9ede19004b6"
+                  uuid = "C5E422DB-CC6B-47B2-B6C7-227E3D4BEAC6 - c4ee0cab0a36c09e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2870,7 +2868,7 @@
                   offsetFromSymbolStart = "904">
                </Location>
                <Location
-                  uuid = "C5E422DB-CC6B-47B2-B6C7-227E3D4BEAC6 - 35c9b9ede19004b6"
+                  uuid = "C5E422DB-CC6B-47B2-B6C7-227E3D4BEAC6 - c4ee0cab0a36c09e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2899,8 +2897,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "496"
             endingLineNumber = "496"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setonoffbutton(operation_status:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2915,8 +2913,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "486"
             endingLineNumber = "486"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setonoffbutton(operation_status:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2929,13 +2927,13 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "500"
-            endingLineNumber = "500"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "518"
+            endingLineNumber = "518"
+            landmarkName = "getVersion()"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "90EF35CB-CBD3-4CCE-A66F-B4CC21F1D380 - 87533f711e8c6d69"
+                  uuid = "90EF35CB-CBD3-4CCE-A66F-B4CC21F1D380 - 1fbe2eead91ee17f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2950,7 +2948,7 @@
                   offsetFromSymbolStart = "56">
                </Location>
                <Location
-                  uuid = "90EF35CB-CBD3-4CCE-A66F-B4CC21F1D380 - eddf34f40d029bc7"
+                  uuid = "90EF35CB-CBD3-4CCE-A66F-B4CC21F1D380 - 7532256fca901736"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2977,10 +2975,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "451"
-            endingLineNumber = "451"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "469"
+            endingLineNumber = "469"
+            landmarkName = "getF11(setip:directfourg:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3009,10 +3007,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "450"
-            endingLineNumber = "450"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "468"
+            endingLineNumber = "468"
+            landmarkName = "getF11(setip:directfourg:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3025,10 +3023,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "475"
-            endingLineNumber = "475"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "493"
+            endingLineNumber = "493"
+            landmarkName = "getF11(setip:directfourg:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3041,10 +3039,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "501"
-            endingLineNumber = "501"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "519"
+            endingLineNumber = "519"
+            landmarkName = "getVersion()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3057,10 +3055,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "474"
-            endingLineNumber = "474"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "492"
+            endingLineNumber = "492"
+            landmarkName = "getF11(setip:directfourg:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3073,10 +3071,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "473"
-            endingLineNumber = "473"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "491"
+            endingLineNumber = "491"
+            landmarkName = "getF11(setip:directfourg:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3105,10 +3103,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "477"
-            endingLineNumber = "477"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "495"
+            endingLineNumber = "495"
+            landmarkName = "getF11(setip:directfourg:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3121,10 +3119,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "971"
-            endingLineNumber = "971"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1013"
+            endingLineNumber = "1013"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3153,10 +3151,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "470"
-            endingLineNumber = "470"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "488"
+            endingLineNumber = "488"
+            landmarkName = "getF11(setip:directfourg:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3169,10 +3167,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "472"
-            endingLineNumber = "472"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "490"
+            endingLineNumber = "490"
+            landmarkName = "getF11(setip:directfourg:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3201,10 +3199,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "476"
-            endingLineNumber = "476"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "494"
+            endingLineNumber = "494"
+            landmarkName = "getF11(setip:directfourg:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3217,10 +3215,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "478"
-            endingLineNumber = "478"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "496"
+            endingLineNumber = "496"
+            landmarkName = "getF11(setip:directfourg:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3329,10 +3327,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "512"
-            endingLineNumber = "512"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "530"
+            endingLineNumber = "530"
+            landmarkName = "getVersion()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3447,7 +3445,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "1A5E25F2-F22E-413D-933F-4527D3CA1399 - cc0d9cf3f7627fbb"
+                  uuid = "1A5E25F2-F22E-413D-933F-4527D3CA1399 - 26162088418d6ca2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3462,7 +3460,7 @@
                   offsetFromSymbolStart = "112">
                </Location>
                <Location
-                  uuid = "1A5E25F2-F22E-413D-933F-4527D3CA1399 - 1190044167467c16"
+                  uuid = "1A5E25F2-F22E-413D-933F-4527D3CA1399 - fb8bb83ad1a96eb1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3511,7 +3509,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "8CB48EAA-8EC4-452A-8C22-08075F92B7F9 - c0de2cd8948c0458"
+                  uuid = "8CB48EAA-8EC4-452A-8C22-08075F92B7F9 - 2ac590a32262edb4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3526,7 +3524,7 @@
                   offsetFromSymbolStart = "148">
                </Location>
                <Location
-                  uuid = "8CB48EAA-8EC4-452A-8C22-08075F92B7F9 - 9c41275dd4617065"
+                  uuid = "8CB48EAA-8EC4-452A-8C22-08075F92B7F9 - 765a9b26628e677d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3559,7 +3557,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "3256EFB6-5F54-4084-AEDC-BF4AF7C2C891 - 887ac8d91b242deb"
+                  uuid = "3256EFB6-5F54-4084-AEDC-BF4AF7C2C891 - 626174a2adcb3be8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3574,7 +3572,7 @@
                   offsetFromSymbolStart = "1548">
                </Location>
                <Location
-                  uuid = "3256EFB6-5F54-4084-AEDC-BF4AF7C2C891 - 68c5565d9a4bda4b"
+                  uuid = "3256EFB6-5F54-4084-AEDC-BF4AF7C2C891 - 82deea262ca4cd32"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3601,10 +3599,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3617,10 +3615,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3633,13 +3631,13 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "43EF21D4-D8F0-4CD3-B293-03B0F88C3FB4 - aab851f15f74510b"
+                  uuid = "43EF21D4-D8F0-4CD3-B293-03B0F88C3FB4 - c1a85443ec3df450"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3654,7 +3652,7 @@
                   offsetFromSymbolStart = "2788">
                </Location>
                <Location
-                  uuid = "43EF21D4-D8F0-4CD3-B293-03B0F88C3FB4 - dc83abd83eb34d9f"
+                  uuid = "43EF21D4-D8F0-4CD3-B293-03B0F88C3FB4 - b793ae6a8dfae8a5"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3681,10 +3679,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1149"
-            endingLineNumber = "1149"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1192"
+            endingLineNumber = "1192"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3719,7 +3717,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "69CC6D7B-A0E8-4DAA-B702-2EDBF0ED27C9 - 9e0e9806ce17dd2e"
+                  uuid = "69CC6D7B-A0E8-4DAA-B702-2EDBF0ED27C9 - b662f9c078493d61"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3734,7 +3732,7 @@
                   offsetFromSymbolStart = "240">
                </Location>
                <Location
-                  uuid = "69CC6D7B-A0E8-4DAA-B702-2EDBF0ED27C9 - dfde9ee7b53fbb94"
+                  uuid = "69CC6D7B-A0E8-4DAA-B702-2EDBF0ED27C9 - f7b2ff210361460a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3799,7 +3797,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "538D3BD5-D5EC-4918-9E1E-8E075E9E634F - 2d13ef5a54c99fb"
+                  uuid = "538D3BD5-D5EC-4918-9E1E-8E075E9E634F - 2abd5f3313126719"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3814,7 +3812,7 @@
                   offsetFromSymbolStart = "332">
                </Location>
                <Location
-                  uuid = "538D3BD5-D5EC-4918-9E1E-8E075E9E634F - 138d733d579bbe06"
+                  uuid = "538D3BD5-D5EC-4918-9E1E-8E075E9E634F - 3be112fbe1c54398"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3879,7 +3877,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "1D3C1CAC-93B5-412A-9C41-01917C7527A5 - 20e28d8092ffa79b"
+                  uuid = "1D3C1CAC-93B5-412A-9C41-01917C7527A5 - 88eec4624a165bc"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3894,7 +3892,7 @@
                   offsetFromSymbolStart = "468">
                </Location>
                <Location
-                  uuid = "1D3C1CAC-93B5-412A-9C41-01917C7527A5 - 6a69136c295ae1db"
+                  uuid = "1D3C1CAC-93B5-412A-9C41-01917C7527A5 - 420572aa9f0420a5"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4039,7 +4037,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6309213D-1A08-40E7-BEA5-0E975ADD9720 - c2fa3b909218d1a0"
+                  uuid = "6309213D-1A08-40E7-BEA5-0E975ADD9720 - 28e187eb24f6382f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4054,7 +4052,7 @@
                   offsetFromSymbolStart = "148">
                </Location>
                <Location
-                  uuid = "6309213D-1A08-40E7-BEA5-0E975ADD9720 - 996577d43445e522"
+                  uuid = "6309213D-1A08-40E7-BEA5-0E975ADD9720 - 737ecbaf82aaf25b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4087,7 +4085,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "8DD48F48-4CE1-40C0-9CAB-0553B0399D7D - 68c5565d9a4bda4b"
+                  uuid = "8DD48F48-4CE1-40C0-9CAB-0553B0399D7D - 82deea262ca533e5"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4102,7 +4100,7 @@
                   offsetFromSymbolStart = "196">
                </Location>
                <Location
-                  uuid = "8DD48F48-4CE1-40C0-9CAB-0553B0399D7D - c2fa3b909218d1a0"
+                  uuid = "8DD48F48-4CE1-40C0-9CAB-0553B0399D7D - 28e187eb24f7c6d9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4147,8 +4145,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "259"
             endingLineNumber = "259"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "firetap(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4163,8 +4161,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "269"
             endingLineNumber = "269"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "firetap(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4179,8 +4177,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "279"
             endingLineNumber = "279"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "firetap(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4195,8 +4193,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "167"
             endingLineNumber = "167"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "stopstartfunc()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4211,8 +4209,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "177"
             endingLineNumber = "177"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "stopstartfunc()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4227,8 +4225,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "183"
             endingLineNumber = "183"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "stopstartfunc()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4243,8 +4241,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "189"
             endingLineNumber = "189"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "stopstartfunc()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4259,8 +4257,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "511"
             endingLineNumber = "511"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sliderEnd(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4337,10 +4335,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4353,10 +4351,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "982"
-            endingLineNumber = "982"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1025"
+            endingLineNumber = "1025"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4369,10 +4367,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "981"
-            endingLineNumber = "981"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1024"
+            endingLineNumber = "1024"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4385,10 +4383,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "995"
-            endingLineNumber = "995"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1038"
+            endingLineNumber = "1038"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4401,10 +4399,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "994"
-            endingLineNumber = "994"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1037"
+            endingLineNumber = "1037"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4417,10 +4415,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "744"
-            endingLineNumber = "744"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "786"
+            endingLineNumber = "786"
+            landmarkName = "recursive(start:max:bytesdata:packetSize:remain:totalLength:loader:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4433,10 +4431,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "746"
-            endingLineNumber = "746"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "788"
+            endingLineNumber = "788"
+            landmarkName = "recursive(start:max:bytesdata:packetSize:remain:totalLength:loader:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4449,10 +4447,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "756"
-            endingLineNumber = "756"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "798"
+            endingLineNumber = "798"
+            landmarkName = "lastbytes(start:max:bytesdata:packetSize:remain:totalLength:loader:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4465,10 +4463,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "593"
-            endingLineNumber = "593"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "613"
+            endingLineNumber = "613"
+            landmarkName = "startfirmware()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4481,10 +4479,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "597"
-            endingLineNumber = "597"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "618"
+            endingLineNumber = "618"
+            landmarkName = "startfirmware()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4497,10 +4495,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "589"
-            endingLineNumber = "589"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "609"
+            endingLineNumber = "609"
+            landmarkName = "startfirmware()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4513,13 +4511,13 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "720"
-            endingLineNumber = "720"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "762"
+            endingLineNumber = "762"
+            landmarkName = "recursive(start:max:bytesdata:packetSize:remain:totalLength:loader:)"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D143AFBA-82FB-44A0-BACC-CF04F354F178 - 79269aaa6377416f"
+                  uuid = "D143AFBA-82FB-44A0-BACC-CF04F354F178 - 12369f18d03ebda2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4534,7 +4532,7 @@
                   offsetFromSymbolStart = "676">
                </Location>
                <Location
-                  uuid = "D143AFBA-82FB-44A0-BACC-CF04F354F178 - 616d09e80c0f2440"
+                  uuid = "D143AFBA-82FB-44A0-BACC-CF04F354F178 - a7d0c5abf46db77"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4561,10 +4559,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "718"
-            endingLineNumber = "718"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "760"
+            endingLineNumber = "760"
+            landmarkName = "recursive(start:max:bytesdata:packetSize:remain:totalLength:loader:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4577,10 +4575,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "714"
-            endingLineNumber = "714"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "756"
+            endingLineNumber = "756"
+            landmarkName = "recursive(start:max:bytesdata:packetSize:remain:totalLength:loader:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4593,10 +4591,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "728"
-            endingLineNumber = "728"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "770"
+            endingLineNumber = "770"
+            landmarkName = "recursive(start:max:bytesdata:packetSize:remain:totalLength:loader:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4609,10 +4607,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "867"
-            endingLineNumber = "867"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "909"
+            endingLineNumber = "909"
+            landmarkName = "exchangeKeys()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4625,10 +4623,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "866"
-            endingLineNumber = "866"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "908"
+            endingLineNumber = "908"
+            landmarkName = "exchangeKeys()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4641,10 +4639,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "850"
-            endingLineNumber = "850"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "892"
+            endingLineNumber = "892"
+            landmarkName = "setVersionText(variable:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4657,10 +4655,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "853"
-            endingLineNumber = "853"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "895"
+            endingLineNumber = "895"
+            landmarkName = "setVersionText(variable:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4673,10 +4671,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "908"
-            endingLineNumber = "908"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "950"
+            endingLineNumber = "950"
+            landmarkName = "changeSetting(state_super:state:boiler_timer:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4817,10 +4815,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "880"
-            endingLineNumber = "880"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "922"
+            endingLineNumber = "922"
+            landmarkName = "exchangeKeys()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4833,10 +4831,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "874"
-            endingLineNumber = "874"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "916"
+            endingLineNumber = "916"
+            landmarkName = "exchangeKeys()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4849,10 +4847,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4865,10 +4863,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4881,10 +4879,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4897,10 +4895,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5137,10 +5135,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "Checklocation()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5153,10 +5151,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "Checklocation()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5169,10 +5167,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "Checklocation()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5201,10 +5199,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "Checklocation()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5274,38 +5272,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7D8CE6DA-0A7B-467F-98BE-7C053AFF633C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Aduro/FirmwareUpdateViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1A9187A2-5C09-42EB-9867-B2413A41DD77"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Aduro/FirmwareUpdateViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "FBC2D2E5-8D20-4AEE-88F9-84A0C56518EA"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -5345,10 +5311,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1043"
-            endingLineNumber = "1043"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1086"
+            endingLineNumber = "1086"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5361,10 +5327,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1044"
-            endingLineNumber = "1044"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1087"
+            endingLineNumber = "1087"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5377,10 +5343,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1030"
-            endingLineNumber = "1030"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1073"
+            endingLineNumber = "1073"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5393,10 +5359,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1032"
-            endingLineNumber = "1032"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1075"
+            endingLineNumber = "1075"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5409,13 +5375,13 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "949"
-            endingLineNumber = "949"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "991"
+            endingLineNumber = "991"
+            landmarkName = "startanimation()"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C58D8EC4-4A1F-40A6-94A2-FC08F3F4BA1A - 192706675ec0a937"
+                  uuid = "C58D8EC4-4A1F-40A6-94A2-FC08F3F4BA1A - 723703d5ed89673d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -5430,7 +5396,7 @@
                   offsetFromSymbolStart = "68">
                </Location>
                <Location
-                  uuid = "C58D8EC4-4A1F-40A6-94A2-FC08F3F4BA1A - 9d0ca9711f59403b"
+                  uuid = "C58D8EC4-4A1F-40A6-94A2-FC08F3F4BA1A - f61cacc3ac108ed2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -5457,10 +5423,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "957"
-            endingLineNumber = "957"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "999"
+            endingLineNumber = "999"
+            landmarkName = "stopanimation()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5473,13 +5439,13 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "960"
-            endingLineNumber = "960"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1002"
+            endingLineNumber = "1002"
+            landmarkName = "stopanimation()"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "52786DC2-4154-49BC-A532-90E4B169AC82 - 8ab04ce80384068e"
+                  uuid = "52786DC2-4154-49BC-A532-90E4B169AC82 - e1a0495ab0cdc910"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -5494,7 +5460,7 @@
                   offsetFromSymbolStart = "380">
                </Location>
                <Location
-                  uuid = "52786DC2-4154-49BC-A532-90E4B169AC82 - 2e136229f9cba292"
+                  uuid = "52786DC2-4154-49BC-A532-90E4B169AC82 - 4503679b4a826d0c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -5509,7 +5475,7 @@
                   offsetFromSymbolStart = "0">
                </Location>
                <Location
-                  uuid = "52786DC2-4154-49BC-A532-90E4B169AC82 - 22b60b0d4f25d1a0"
+                  uuid = "52786DC2-4154-49BC-A532-90E4B169AC82 - 49a60ebffc6c1ddd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -5536,10 +5502,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "387"
-            endingLineNumber = "387"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "405"
+            endingLineNumber = "405"
+            landmarkName = "getIP()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5616,10 +5582,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "847"
-            endingLineNumber = "847"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "889"
+            endingLineNumber = "889"
+            landmarkName = "setVersionText(variable:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5776,10 +5742,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "339"
+            endingLineNumber = "339"
+            landmarkName = "getform()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5792,10 +5758,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "344"
+            endingLineNumber = "344"
+            landmarkName = "getform()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5808,10 +5774,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "342"
+            endingLineNumber = "342"
+            landmarkName = "getform()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5824,10 +5790,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "334"
-            endingLineNumber = "334"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "352"
+            endingLineNumber = "352"
+            landmarkName = "getform()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5840,10 +5806,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "354"
+            endingLineNumber = "354"
+            landmarkName = "getform()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5856,10 +5822,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "339"
-            endingLineNumber = "339"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "357"
+            endingLineNumber = "357"
+            landmarkName = "getform()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6384,10 +6350,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "383"
+            endingLineNumber = "383"
+            landmarkName = "getIP()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6400,10 +6366,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "389"
-            endingLineNumber = "389"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "407"
+            endingLineNumber = "407"
+            landmarkName = "getIP()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6416,10 +6382,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "409"
+            endingLineNumber = "409"
+            landmarkName = "getIP()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6432,10 +6398,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "443"
-            endingLineNumber = "443"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "461"
+            endingLineNumber = "461"
+            landmarkName = "getf11()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6464,10 +6430,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "965"
-            endingLineNumber = "965"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1007"
+            endingLineNumber = "1007"
+            landmarkName = "viewWillTransition(to:with:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6486,7 +6452,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "5D6AB6F2-9D6D-4244-A6AC-425B5C086F5E - 3339f028bddc2b81"
+                  uuid = "5D6AB6F2-9D6D-4244-A6AC-425B5C086F5E - 376d9d4af3afef28"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -6501,7 +6467,7 @@
                   offsetFromSymbolStart = "3969">
                </Location>
                <Location
-                  uuid = "5D6AB6F2-9D6D-4244-A6AC-425B5C086F5E - 561b7dc4971bcb59"
+                  uuid = "5D6AB6F2-9D6D-4244-A6AC-425B5C086F5E - 524f10a6d9680f36"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -6688,10 +6654,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "285"
+            endingLineNumber = "285"
+            landmarkName = "checkConnectionType()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6704,10 +6670,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "checkConnectionType()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6720,13 +6686,13 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "362"
-            endingLineNumber = "362"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "380"
+            endingLineNumber = "380"
+            landmarkName = "getIP()"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "0B0488F5-5E22-4353-9FCA-4FA10CACDE7C - b1d5504baa8c8e55"
+                  uuid = "0B0488F5-5E22-4353-9FCA-4FA10CACDE7C - dac555f919c504ad"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -6741,7 +6707,7 @@
                   offsetFromSymbolStart = "740">
                </Location>
                <Location
-                  uuid = "0B0488F5-5E22-4353-9FCA-4FA10CACDE7C - e0ba2d60423cd647"
+                  uuid = "0B0488F5-5E22-4353-9FCA-4FA10CACDE7C - 8baa28d2f1755cf1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -6816,10 +6782,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "416"
+            endingLineNumber = "416"
+            landmarkName = "getIP()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6832,10 +6798,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "420"
+            endingLineNumber = "420"
+            landmarkName = "getIP()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6848,10 +6814,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "863"
-            endingLineNumber = "863"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "905"
+            endingLineNumber = "905"
+            landmarkName = "exchangeKeys()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6950,7 +6916,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "955B2FD2-77E6-4393-8481-A15173BD5D72 - 4616d1c78f6e954d"
+                  uuid = "955B2FD2-77E6-4393-8481-A15173BD5D72 - 4242bca5c11d4f9c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -6965,7 +6931,7 @@
                   offsetFromSymbolStart = "540">
                </Location>
                <Location
-                  uuid = "955B2FD2-77E6-4393-8481-A15173BD5D72 - c03d8787f28db785"
+                  uuid = "955B2FD2-77E6-4393-8481-A15173BD5D72 - c469eae5bcfe6faf"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -7312,10 +7278,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1061"
-            endingLineNumber = "1061"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1104"
+            endingLineNumber = "1104"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7328,10 +7294,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1209"
-            endingLineNumber = "1209"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1252"
+            endingLineNumber = "1252"
+            landmarkName = "animationInDemoMode()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7344,10 +7310,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1096"
-            endingLineNumber = "1096"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1139"
+            endingLineNumber = "1139"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7360,10 +7326,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1099"
-            endingLineNumber = "1099"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1142"
+            endingLineNumber = "1142"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7376,10 +7342,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1199"
-            endingLineNumber = "1199"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1242"
+            endingLineNumber = "1242"
+            landmarkName = "animationInDemoMode()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7440,10 +7406,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1432"
-            endingLineNumber = "1432"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1475"
+            endingLineNumber = "1475"
+            landmarkName = "createNewUIProgressView()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7456,10 +7422,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "990"
-            endingLineNumber = "990"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1033"
+            endingLineNumber = "1033"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7472,10 +7438,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1436"
-            endingLineNumber = "1436"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1479"
+            endingLineNumber = "1479"
+            landmarkName = "createNewUIProgressView()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7488,10 +7454,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1434"
-            endingLineNumber = "1434"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1477"
+            endingLineNumber = "1477"
+            landmarkName = "createNewUIProgressView()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7504,10 +7470,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1014"
-            endingLineNumber = "1014"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1057"
+            endingLineNumber = "1057"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7520,10 +7486,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1016"
-            endingLineNumber = "1016"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1059"
+            endingLineNumber = "1059"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7536,10 +7502,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1020"
-            endingLineNumber = "1020"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1063"
+            endingLineNumber = "1063"
+            landmarkName = "updateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7552,10 +7518,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1243"
-            endingLineNumber = "1243"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1286"
+            endingLineNumber = "1286"
+            landmarkName = "setpelleteImage(value:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7568,10 +7534,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1225"
-            endingLineNumber = "1225"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1268"
+            endingLineNumber = "1268"
+            landmarkName = "setpelleteImage(value:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7584,10 +7550,10 @@
             filePath = "Aduro/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1229"
-            endingLineNumber = "1229"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1272"
+            endingLineNumber = "1272"
+            landmarkName = "setpelleteImage(value:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7763,6 +7729,310 @@
             startingLineNumber = "240"
             endingLineNumber = "240"
             landmarkName = "textFieldDidBeginEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "07820D27-60A0-4489-A052-794A9F883F56"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1387B717-1BF6-485D-B2CF-DDC1A0848220"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE5D955B-2F90-408D-ACC7-95E1656CE1FD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "viewDidDisappear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B3E6198-D8CA-4D4B-9572-B14D02929A4D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "applicationWillEnterForeground(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9919F6C2-9DBE-4C7D-AEE7-556BAD2E0DEF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "applicationDidEnterBackground(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4FBFC626-1222-4F2F-97FC-0A8D658077CC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "applicationWillEnterForeground(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6D0E2279-8E4B-425E-9DAD-2D0CC2702435"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "83B5B667-D325-4433-8208-BA1C2311BD0B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "appWillEnterForeground()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3202EB0E-1D50-4BAA-AFB6-376B0CDCBD59"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "appWillEnterbackground()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EDB3FD58-3594-456F-9A21-3145AF416433"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "appWillEnterForeground()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "905451C5-F4AE-48E8-9164-09A1BEFF6331"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1401"
+            endingLineNumber = "1401"
+            landmarkName = "starthandler()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "905451C5-F4AE-48E8-9164-09A1BEFF6331 - ce128a7a2b0ad8a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aduro_Hybrid.HomeViewController.starthandler() -&gt; ()"
+                  moduleName = "Aduro Hybrid"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/ios%20dev%20/aduro-app-ios-2020/Aduro/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1369"
+                  endingLineNumber = "1369"
+                  offsetFromSymbolStart = "400">
+               </Location>
+               <Location
+                  uuid = "905451C5-F4AE-48E8-9164-09A1BEFF6331 - c59b18d1f0ced337"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSTimer) -&gt; () in Aduro_Hybrid.HomeViewController.starthandler() -&gt; ()"
+                  moduleName = "Aduro Hybrid"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/ios%20dev%20/aduro-app-ios-2020/Aduro/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1374"
+                  endingLineNumber = "1374"
+                  offsetFromSymbolStart = "192">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D94F4D5D-3A16-457B-8EAF-AB4D170B0B09"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "appWillEnterbackground()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0CFA56DC-66A2-4EAC-ACC3-3556D50511C9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/SettingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "518"
+            endingLineNumber = "518"
+            landmarkName = "sliderContinue(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B397AB80-B17A-4B3E-9452-54FBBDF256F8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/SettingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "519"
+            endingLineNumber = "519"
+            landmarkName = "sliderContinue(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "15AB2A69-F40D-4C8B-BCD6-68489F017068"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/SettingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "524"
+            endingLineNumber = "524"
+            landmarkName = "setvalue(value:key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0457ED4A-559D-47C1-A579-D2FF5FC5BB77"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/SettingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "533"
+            endingLineNumber = "533"
+            landmarkName = "setvalue(value:key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9008DF41-D8FD-473D-9042-6AFCE3BEFA57"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aduro/SettingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "532"
+            endingLineNumber = "532"
+            landmarkName = "setvalue(value:key:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

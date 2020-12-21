@@ -80,10 +80,17 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
     override func viewDidLoad() {
         super.viewDidLoad()
         self.gradient.installGradientwithvounds(frame: self.view.bounds)
+        timeicon.isHidden=true
+        flameicon.isHidden=true
+        thermoicon.isHidden=true
+        myCustomView.isHidden=true
+        bottomimage.isHidden=true
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterbackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
 
         self.gradient.updateGradient(frame: self.view.bounds)
 
-//        UIApplication.shared.isIdleTimerDisabled = true
         settext()
         createNewUIProgressView()
         createCustomImageViews()
@@ -144,7 +151,14 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
 
         }
     }
-    
+    @objc func appWillEnterForeground() {
+           print("app in foreground")
+        starthandler()
+       }
+    @objc func appWillEnterbackground() {
+           print("app in background")
+        stopHandler()
+       }
     func settext()  {
         heatTempText.text=Language.getInstance().getlangauge(key: "content_heatLvl")
         smokeTempText.text=Language.getInstance().getlangauge(key: "content_smokeTmp")
@@ -166,13 +180,17 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
     
   @objc func imageTap()
     {
-//            print("imagepoped")
                  guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else { return}
-        
+
         sVC.modalPresentationStyle = .fullScreen
                 self.present(sVC, animated: true)
-//                dismiss(animated: true)
         
+    }
+    func resetphone()   {
+        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "LanguageViewController") as? LanguageViewController else { return}
+
+        sVC.modalPresentationStyle = .fullScreen
+       self.present(sVC, animated: true)
     }
    
     
@@ -563,7 +581,9 @@ else
       }
     func startfirmware() ->  Void {
           let packetSize = 512
-                let filePath = Bundle.main.path(forResource: "aduro_0705_30_u.dat", ofType: nil)
+        UIApplication.shared.isIdleTimerDisabled = true
+
+                let filePath = Bundle.main.path(forResource: "aduro_0705_33_u.dat", ofType: nil)
                 let nsdata = NSData(contentsOfFile: filePath!)
                 let stream: InputStream = InputStream(data: nsdata! as Data)
                 
@@ -593,6 +613,7 @@ else
                    
                 }else
                 {
+                    UIApplication.shared.isIdleTimerDisabled = false
                     starthandler()
                     loadingNotification.hide(animated: true)
                     print("no bytes")
@@ -669,6 +690,8 @@ else
                       {
                           (ControllerResponseImpl) in
                           
+                        UIApplication.shared.isIdleTimerDisabled = false
+                        self.restartTimerfuncrtion()
                           if(ControllerResponseImpl.getStatusCode()=="0")
                           {
                               print(" final of size got response")
@@ -690,6 +713,25 @@ else
               }
           }
       }
+    var restartTimer:Timer!
+    func restartTimerfuncrtion()
+    {
+        if(restartTimer == nil)
+        {
+            var loadingNotification : MBProgressHUD!
+            loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            loadingNotification.label.text = Language.getInstance().getlangauge(key: "lng_afterUpdate")
+            restartTimer = Timer.scheduledTimer(withTimeInterval: 70, repeats: false) {
+                (Timer) in
+                loadingNotification.hide(animated: true)
+                self.stopHandler()
+                self.resetphone()
+                
+            }
+            RunLoop.current.add(restartTimer, forMode: .common)
+        }
+    }
     func recursive(start:Int,max:Int,bytesdata:[UInt8],packetSize:Int,remain:Int,totalLength:String,loader:MBProgressHUD)
       {
           if(classvar<max){
@@ -973,6 +1015,7 @@ else
             
 //            update progress bar
 
+            myCustomView.isHidden=false
             var thisRect = myImageView!.frame
             let xvalueOfYellow = Float(stringMap[IControllerConstants.coYellow]!)
             var temp = myCustomView.bounds.width - 150
