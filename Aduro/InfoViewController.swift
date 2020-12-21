@@ -167,7 +167,7 @@ class InfoViewController: UIViewController {
             var isoDate=ControllerconnectionImpl.getInstance().getFrontData()[IControllerConstants.time]
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-            dateFormatter.dateFormat = "dd/mm-yy HH:mm:ss"
+            dateFormatter.dateFormat = "dd/MM-yy HH:mm:ss"
             let date = dateFormatter.date(from:isoDate!)!
             print(date)
             let formatDate = DateFormatter()
