@@ -13,6 +13,8 @@ import Network
 import SystemConfiguration
 import MBProgressHUD
 import AVFoundation
+import SQLite
+
 
 class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredelegate {
     func donedialogStartFirmware() {
@@ -70,7 +72,9 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
     @IBOutlet weak var smokeTempText: UILabel!
     @IBOutlet weak var tempIcon: UIImageView!
     
+    @IBOutlet weak var countlabel: RoundLable!
     
+    @IBOutlet weak var mailIcon: UIButton!
     @IBOutlet weak var gradient: gradient!
     //    @IBOutlet weak var f11values: UILabel!
     var timer : Timer!
@@ -102,9 +106,10 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
         let tapgesture2 = UITapGestureRecognizer(target: self, action: #selector(self.imageTap))
         opensetting.addGestureRecognizer(tapgesture2)
         opensetting.isUserInteractionEnabled=true
-       locationManager=CLLocationManager()
-       locationManager.delegate=self
-        
+        let tapgesture3 = UITapGestureRecognizer(target: self, action: #selector(self.imageTap3))
+        tempIcon.addGestureRecognizer(tapgesture3)
+        tempIcon.isUserInteractionEnabled=true
+      
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.versiontap))
         versionText.addGestureRecognizer(tap)
@@ -112,6 +117,11 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
 //        print(Language.getInstance().getlangauge(key: "lng_selectLng"))
         // Do any additional setup after loading the view.
         
+        if(Util.GetDefaultsBool(key: "setWakeLock"))
+        {
+            Util.SetDefaultsBool(key: "setWakeLock", value: false)
+            UIApplication.shared.isIdleTimerDisabled = true
+        }
         if(fromSplash==true)
         {
         
@@ -151,6 +161,180 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
 
         }
     }
+//    var token: NotificationToken?
+
+    func sqlite(list:[NotificationModal])  {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .documentDirectory, .userDomainMask, true
+        ).first!
+        do {
+            let db = try Connection("\(path)/db.sqlite3")
+            if db.userVersion == 0 {
+                // handle first migration
+                db.userVersion = 1
+            }
+            let notification = Table("notification")
+            let id = Expression<Int64>("id")
+            let epoch = Expression<String>("epoch")
+            let serial = Expression<String?>("serial")
+            let isRead = Expression<Bool>("isRead")
+            let message = Expression<String>("message")
+            db.trace { print($0) }
+           
+            let dbList = Array( try db.prepare(notification))
+            if(dbList.count>0)
+            {
+                for item in list
+                {
+                    let value = Array(try db.prepare(notification.where(epoch == String(item.epoch)).limit(1)))
+//                    print(value)
+                    if(value.count>0)
+                    {
+                        
+                        let va=try value[0].get(isRead)
+                        if(!va)
+                        {
+                            let currentId = try value[0].get(id)
+    //                      update is read notification to true
+                            let alice = notification.filter(id == currentId)
+                            try db.run(alice.update(isRead <- true))
+    //                      show notification
+                            showNotification(message: try value[0].get(message), timeStamp: String(try value[0].get(epoch)))
+                        
+                        }
+                    }else
+                    {
+//                        add value is Notification table
+                        let rowid = try db.run(notification.insert(serial <- ControllerconnectionImpl.getInstance().getController().getSerial()
+                                                                      ,epoch <- String(item.epoch),isRead <- false,message <- item.message))
+//                        update is read notification to true
+                        let currentId = rowid
+                        let alice = notification.filter(id == currentId)
+                        try db.run(alice.update(isRead <- true))
+//                        show notification
+                        showNotification(message: try value[0].get(message), timeStamp: String(try value[0].get(epoch)))
+                    }
+                }
+            }else
+            {
+                for item in list
+                {
+                    _ = try db.run(notification.insert(serial <- ControllerconnectionImpl.getInstance().getController().getSerial()
+                                                              ,epoch <- String(item.epoch),isRead <- false,message <- item.message))
+                }
+            }
+         
+            } catch let myError {
+                print(myError)
+            }
+
+    }
+    func showNotification(message:String,timeStamp:String)  {
+        let notificationCenter = UNUserNotificationCenter.current()
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let identifier = "Local Notification" + timeStamp
+        let content = UNMutableNotificationContent() // Содержимое уведомления
+//            content.title = "notificationType"
+            content.body = message
+            content.sound = UNNotificationSound.default
+            content.badge = 1
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+
+        notificationCenter.add(request) { (error) in
+            if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+    }
+    func getnotification()  {
+        
+            let Stringtoencode = "https://aduro.prevas-dev.pw/api/gateway/" + ControllerconnectionImpl.getInstance().getController().getSerial() + "/" +
+                ControllerconnectionImpl.getInstance().getController().getPassword() + "/messages"
+            if let encoded = Stringtoencode.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
+            {
+                let url = URL(string: encoded)
+                      var request = URLRequest(url: url!)
+                      request.httpMethod = "GET"
+                      NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main)
+                      { [self](response, data, error) in
+                        guard let data = data else { return }
+                        print(String(data: data, encoding: .utf8)!)
+//                        let value = String(data: data, encoding: .utf8)!
+                        let decoder = JSONDecoder()
+                       
+                        do {
+                            let list =  try decoder.decode([NotificationModal].self,from: data)
+                            self.sqlite(list: list)
+                            self.shownotificationCount()
+                        } catch let DecodingError.dataCorrupted(context) {
+                            print(context)
+                        } catch let DecodingError.keyNotFound(key, context) {
+                            print("Key '\(key)' not found:", context.debugDescription)
+                            print("codingPath:", context.codingPath)
+                        } catch let DecodingError.valueNotFound(value, context) {
+                            print("Value '\(value)' not found:", context.debugDescription)
+                            print("codingPath:", context.codingPath)
+                        } catch let DecodingError.typeMismatch(type, context)  {
+                            print("Type '\(type)' mismatch:", context.debugDescription)
+                            print("codingPath:", context.codingPath)
+                        } catch {
+                            print("error: ", error)
+                        }
+                      
+                        
+                        
+                      }
+                
+            }
+    }
+    func shownotificationCount() {
+        
+            let path = NSSearchPathForDirectoriesInDomains(
+                .documentDirectory, .userDomainMask, true
+            ).first!
+            do {
+                let db = try Connection("\(path)/db.sqlite3")
+                
+            let notification = Table("notification")
+            let serial = Expression<String?>("serial")
+            let isReadFromApp = Expression<Bool>("isReadFromApp")
+
+            let value = Array(try db.prepare(notification.where(isReadFromApp == false)))
+                if(value.count==0)
+                {
+                    countlabel.isHidden=true
+//                    mailIcon.isHidden=true
+                }else
+                {
+                    var count = 0
+                    for i in 0..<value.count
+                    {
+                        let serial = try value[i].get(serial)
+                        if(serial!.elementsEqual(ControllerconnectionImpl.getInstance().getController().getSerial()))
+                        {
+                            count = count + 1
+                        }
+                    }
+                    mailIcon.isHidden=false
+                    countlabel.isHidden = false
+                    countlabel.text = String(count)
+                    
+                }
+                
+                let checknotification = Array(try db.prepare(notification.where(serial == ControllerconnectionImpl.getInstance().getController().getSerial())))
+                if(checknotification.count == 0 )
+                {
+                    mailIcon.isHidden=true
+                }else
+                {
+                    mailIcon.isHidden=false
+                }
+            }catch let error
+            {
+                print(error)
+            }
+    }
     @objc func appWillEnterForeground() {
            print("app in foreground")
         starthandler()
@@ -159,6 +343,14 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
            print("app in background")
         stopHandler()
        }
+    
+    @IBAction func notifcationTap(_ sender: UIButton) {
+//        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as? NotificationViewController else { return}
+       
+        let sVc = NotificationViewController()
+        sVc.modalPresentationStyle = .fullScreen
+       self.present(sVc, animated: true)
+    }
     func settext()  {
         heatTempText.text=Language.getInstance().getlangauge(key: "content_heatLvl")
         smokeTempText.text=Language.getInstance().getlangauge(key: "content_smokeTmp")
@@ -186,7 +378,27 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
                 self.present(sVC, animated: true)
         
     }
+    @objc func imageTap3()
+      {
+        let alert = UIAlertController(title: "", message: Language.getInstance().getlangauge(key: "confirm_remove_pairing"), preferredStyle: UIAlertController.Style.alert)
+              
+              // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: Language.getInstance().getlangauge(key: "cancel"), style: UIAlertAction.Style.destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: Language.getInstance().getlangauge(key: "ok"), style: UIAlertAction.Style.default, handler:
+                  { action in
+                    self.concurrentQueue.async(flags:.barrier) {
+                        self.setvaluea(key: "misc.removesensor", value: "1")
+                    }
+//                      self.startfirmware(neworold: payload)
+                    
+              }))
+              
+              // show the alert
+              self.present(alert, animated: true, completion: nil)
+          
+      }
     func resetphone()   {
+        Util.SetDefaultsBool(key: "setWakeLock", value: true)
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "LanguageViewController") as? LanguageViewController else { return}
 
         sVC.modalPresentationStyle = .fullScreen
@@ -214,8 +426,16 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
         }
         if(ControllerconnectionImpl.getInstance().getFrontData().count == 0 )
         {
-            bottomtext.text=Language.getInstance().getlangauge(key: "lng_trying_reconnect") + "(" + ControllerconnectionImpl.getInstance().getController().getSerial() + ")"
+            if(ControllerconnectionImpl.getInstance().getController().getSerial() == "654321")
+            {
+                bottomtext.text=Language.getInstance().getlangauge(key: "lng_trying_reconnect") + "(" + serial + ")"
+            }else
+            {
+                bottomtext.text=Language.getInstance().getlangauge(key: "lng_trying_reconnect") + "(" + ControllerconnectionImpl.getInstance().getController().getSerial() + ")"
+            }
+            
         }
+        getnotification()
 
     }
 
@@ -225,7 +445,9 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
             switch CLLocationManager.authorizationStatus() {
             case .notDetermined, .restricted, .denied:
                 print("No access")
-//                locationManager.requestWhenInUseAuthorization()
+                locationManager=CLLocationManager()
+                locationManager.delegate=self
+                locationManager.requestWhenInUseAuthorization()
                 break
             case .authorizedAlways, .authorizedWhenInUse:
 //                print("Access")
@@ -238,6 +460,38 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
         else
         {
             print("not enable")
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            // If status has not yet been determied, ask for authorization
+            manager.requestWhenInUseAuthorization()
+            break
+        case .authorizedWhenInUse:
+            // If authorized when in use
+            manager.startUpdatingLocation()
+            Checklocation()
+            //            checkConnectionType()
+            //            print(FGRoute.getSSID()!)
+            
+            break
+        case .authorizedAlways:
+            // If always authorized
+            //            manager.startUpdatingLocation()
+            //            print(FGRoute.getSSID())
+            //            checkConnectionType()
+            
+            break
+        case .restricted:
+            // If restricted by e.g. parental controls. User can't enable Location Services
+            break
+        case .denied:
+            manager.requestWhenInUseAuthorization()
+            // If user denied your app access to Location Services, but can grant access from Settings.app
+            break
+        default:
+            break
         }
     }
     
@@ -253,7 +507,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
         {
             if let Ssid = FGRoute.getSSID()
             {
-                   if(Ssid.contains("Aduro-"+serial))
+                   if(Ssid.starts(with: "Aduro-"+serial))
                             {
 
                                 controller = Controller(serial: serial)
@@ -364,6 +618,12 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
             }
 
         }
+//        DispatchQueue.main.async {
+//            guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "FormViewController") as? FormViewController else { return}
+//
+//            sVC.modalPresentationStyle = .fullScreen
+//            self.present(sVC, animated: true)
+//        }
       
     }
  
@@ -404,8 +664,6 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
                 //                normal case change the ip of controller got in response and exchange keys
                 print(values[0])
 //                self.f11label.text="got discovery"
-                if(values[1] == ControllerconnectionImpl.getInstance().getController().getSerial())
-                {
                     ControllerconnectionImpl.getInstance().getController().SetIp(ip: values[0])
                     self.concurrentQueue.async
                         {
@@ -420,21 +678,6 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
                             self.exchangeKeys()
                         }
                     self.starthandler()
-                }else
-                {
-                    ControllerconnectionImpl.getInstance().getController().swapToAppRelay()
-                    self.concurrentQueue.async(flags:.barrier)
-                        {
-                            self.getF11(setip: false,directfourg: false)
-                        }
-                    self.concurrentQueue.async(flags:.barrier) {
-                            self.getVersion()
-                        }
-                    self.concurrentQueue.async(flags:.barrier){
-                            self.exchangeKeys()
-                        }
-                    self.starthandler()
-                }
                 
             }
             
@@ -458,6 +701,13 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,firmwaredel
                                //                    self.setimage()
                                //                    self.f11label.text="got f11 values"
                                                 DispatchQueue.main.async {
+                                                    let eight = String(ControllerClient.responseIn800)
+                                                    let second = String(ControllerClient.getResponseIn1200)
+                                                    let third = String(ControllerClient.getResponseIn2500)
+                                                    let four = String(ControllerClient.timeoutoverall)
+                                                    let five = String(ControllerClient.totalcount)
+//                                                    let string = eight+ ":" +sec+":"++":"++"\ntotal count : "+
+                                                    print(eight + ":" + second + ":" + third + ":" + four + ":" + five)
                                                     self.updateValues()
                                                 }
         //                                           self.exchangeKeys()
@@ -583,7 +833,7 @@ else
           let packetSize = 512
         UIApplication.shared.isIdleTimerDisabled = true
 
-                let filePath = Bundle.main.path(forResource: "aduro_0705_33_u.dat", ofType: nil)
+                let filePath = Bundle.main.path(forResource: "aduro_0705_34_u.dat", ofType: nil)
                 let nsdata = NSData(contentsOfFile: filePath!)
                 let stream: InputStream = InputStream(data: nsdata! as Data)
                 
@@ -940,6 +1190,27 @@ else
                               else
                               {
                                   self.starthandler()
+                              }
+                              
+                      })
+    }
+    func setvaluea(key:String,value:String)  {
+//         let xteakey = XTEAHelper().loadKey()
+        ControllerconnectionImpl.getInstance().requestSet(key: key, value: value, encryptionMode: "-", requestCompletionHandler:
+                          {
+                              (ControllerResponseImpl) in
+                              if(ControllerResponseImpl.getPayload().contains("nothing"))
+                              {
+                                
+                                  print("error")
+//                                self.concurrentQueue.async
+//                                    {
+//                                    self.setXtea()
+//                                }
+                              }
+                              else
+                              {
+//                                  self.starthandler()
                               }
                               
                       })
@@ -1404,6 +1675,7 @@ else
                 //            print("start timer")
                 //            let queue = DispatchQueue(label: "f11")
                 //            queue.async {
+                self.getnotification()
                 self.concurrentQueue.async(flags : .barrier) {
                     ControllerconnectionImpl.getInstance().requestF11Identified { (ControllerResponseImpl) in
                         if(ControllerResponseImpl.getPayload().contains("nothing"))

@@ -18,5 +18,5 @@ class Constants {
     static var directConnectFlag="directConnectFlag"
     static var secondtime="secondTime"
     static var version=705
-    static var build=33
+    static var build=34
 }

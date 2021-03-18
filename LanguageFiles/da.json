@@ -350,5 +350,6 @@
     "reset_alert": "Er du sikker på at du vil nulstille justeringerne?",
     "city": "By",
     "country": "Land",
-    "set_value": "Sæt værdi"
+    "set_value": "Sæt værdi",
+    "signalCheck": "Signalkvalitet indikator"
 }

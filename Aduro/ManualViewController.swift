@@ -368,6 +368,16 @@ class ManualViewController: UIViewController {
             }else
             {
 
+                self.manualCross2.setTitle("", for: .normal)
+                self.manualCross2.setTitleColor(UIColor(named: "green"), for: .normal)
+                //                        manualcross.setTypeface(font);
+                var sec : Int = Int(self.manualInfo["l" + String(mode) + "_second"]!)!// 0
+                sec = sec + 1; // 1
+                self.manualInfo["l" + String(mode) + "_second"]=String(sec)  // 1
+                var min = "0" + String(sec/60); // 0
+                var seconds = "0" + String(sec % 60); // 1
+                self.manualInfo["l" + String(mode)]=min.suffix(2) + ":" + seconds.suffix(2) // 00:01
+                self.manualTime2.text = self.manualInfo["l"+String(mode)]
                 countDownTimermode2 = Timer.scheduledTimer(withTimeInterval: 1, repeats: true)
                  { (Timer) in
                      

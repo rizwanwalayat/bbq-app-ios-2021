@@ -8,7 +8,17 @@
 
 import UIKit
 
-class FormViewController: UIViewController,UITextFieldDelegate,dropdown {
+class FormViewController: UIViewController,UITextFieldDelegate,dropdown,SelectCountryViewControllerDelegate{
+    func didSelectCuontry(country: Country) {
+        countryCode.text=country.dial_code
+        print(country.toJSONString())
+        if let url = URL(string: country.image ) {
+            
+            countryImage.af_setImage(withURL:url, placeholderImage: nil, filter: nil,  imageTransition: .crossDissolve(0.1), runImageTransitionIfCached: false, completion: {response in
+            })
+        }
+    }
+    
     func clickCountry(countryName: String) {
         dropdownOutlet.setTitle(countryName, for: .normal)
     }
@@ -28,20 +38,28 @@ class FormViewController: UIViewController,UITextFieldDelegate,dropdown {
     
     
     
+    @IBOutlet weak var countryCode: UILabel!
+    @IBOutlet weak var countryImage: UIImageView!
     @IBOutlet weak var LABEL: UILabel!
+    @IBOutlet weak var btnSaveLabel: RoundButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         LABEL.attributedText=Language.getInstance().GetForm().htmlToAttributedString
         LABEL.textColor=UIColor.white
 //        productNumber.returnKeyType = .done
-        
+        let timtabletap = UITapGestureRecognizer(target: self, action: #selector(self.timetap(_:)))
+        let timtabletap1 = UITapGestureRecognizer(target: self, action: #selector(self.timetap1(_:)))
+
+        countryCode.isUserInteractionEnabled=true
+        countryCode.addGestureRecognizer(timtabletap1)
+        countryImage.addGestureRecognizer(timtabletap)
         
         dropdownOutlet.backgroundColor = .white
         dropdownOutlet.layer.cornerRadius = 5
         dropdownOutlet.layer.borderWidth = 0.5
         dropdownOutlet.layer.borderColor = UIColor.lightGray.cgColor
-        dropdownOutlet.setTitle("denmark",for: .normal)
+        dropdownOutlet.setTitle("Denmark",for: .normal)
 
 
         productNumber.placeholder=Language.getInstance().getlangauge(key: "personal_prodno")
@@ -51,7 +69,7 @@ class FormViewController: UIViewController,UITextFieldDelegate,dropdown {
         city.placeholder=Language.getInstance().getlangauge(key: "city")
         email.placeholder=Language.getInstance().getlangauge(key: "personal_email")
         phone.placeholder=Language.getInstance().getlangauge(key: "personal_phone")
-        
+        btnSaveLabel.setTitle(Language.getInstance().getlangauge(key: "personal_submit"), for: .normal)
         
         self.productNumber.delegate=self
         self.firstname.delegate=self
@@ -61,6 +79,10 @@ class FormViewController: UIViewController,UITextFieldDelegate,dropdown {
         self.city.delegate=self
         self.email.delegate=self
         self.phone.delegate=self
+        countryCode.text="+45"
+        countryImage.af_setImage(withURL: URL(string: "https://www.countryflags.io/DK/flat/64.png")!, placeholderImage: nil, filter: nil,  imageTransition: .crossDissolve(0.1), runImageTransitionIfCached: false, completion: {response in
+        })
+
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("true")
@@ -71,7 +93,18 @@ class FormViewController: UIViewController,UITextFieldDelegate,dropdown {
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //                self.view.endEditing(true);
 //    }
-
+    @objc func timetap(_ sender:UITapGestureRecognizer)
+     {
+        let Vc = SelectCountryViewController()
+               Vc.delegate = self
+               self.present(Vc, animated: true, completion: nil)
+     }
+    @objc func timetap1(_ sender:UITapGestureRecognizer)
+     {
+        let Vc = SelectCountryViewController()
+               Vc.delegate = self
+               self.present(Vc, animated: true, completion: nil)
+     }
     @IBAction func openDropDown(_ sender: Any) {
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "CountryDropDownViewController") as?
                   CountryDropDownViewController else { return}
@@ -82,6 +115,9 @@ class FormViewController: UIViewController,UITextFieldDelegate,dropdown {
     }
  
     @IBAction func save(_ sender: UIButton) {
+//        let Vc = SelectCountryViewController()
+//        Vc.delegate = self
+//        self.present(Vc, animated: true, completion: nil)
         checkvalid()
     }
     
@@ -136,7 +172,7 @@ class FormViewController: UIViewController,UITextFieldDelegate,dropdown {
     func submitform()  {
         
         let secondString = "&lastname=" + lastname.text! + "&city=" +  city.text! + "&zip=" + zip.text!
-        let firstString =  "&phone=" + phone.text!
+        let firstString =  "&phone=" + countryCode.text! + phone.text!
         let thirdString = "&country=" + dropdownOutlet.titleLabel!.text! + "&email=" + email.text!
         let finalstring = secondString + firstString + thirdString
         let urlstring = "https://aduro.prevas-dev.pw/api/gateway/personal?" + "user=" + ControllerconnectionImpl.getInstance().getController().getSerial() + "&ctrlpassword=" + ControllerconnectionImpl.getInstance().getController().getPassword() + "&addr=" + self.address.text! + "&prodno=" + productNumber.text! + "&name=" + firstname.text! + finalstring
@@ -172,5 +208,15 @@ extension UITextField {
         shake.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 10, y: self.center.y))
         shake.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 10, y: self.center.y))
         self.layer.add(shake, forKey: "position")
+    }
+}
+extension UITextField{
+   @IBInspectable var placeHolderColor: UIColor? {
+        get {
+            return self.placeHolderColor
+        }
+        set {
+            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: newValue!])
+        }
     }
 }

@@ -346,5 +346,6 @@
     "reset_alert": "Are you sure you want to reset all adjustments?",
     "city": "город",
     "country": "страна",
-    "set_value": "установить значение"
+    "set_value": "установить значение",
+    "signalCheck": "Индикатор качества сигнала"
 }

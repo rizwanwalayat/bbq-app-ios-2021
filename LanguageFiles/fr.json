@@ -352,5 +352,6 @@
     "reset_alert": "Êtes-vous sûr de vouloir réinitialiser tous les réglages?",
     "city": "ville",
     "country": "pays",
-    "set_value": "valeur de consigne"
+    "set_value": "valeur de consigne",
+    "signalCheck": "Indicateur de qualité du signal"
 }

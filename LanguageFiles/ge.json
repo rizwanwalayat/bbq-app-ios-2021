@@ -348,5 +348,6 @@
     "reset_alert": "Sind Sie sicher, dass Sie alle Einstellungen zurücksetzen wollen?",
     "city": "Stadt",
     "country": "Land",
-    "set_value": "Wert einstellen"
+    "set_value": "Wert einstellen",
+    "signalCheck": "Signalqualitätsanzeige"
 }

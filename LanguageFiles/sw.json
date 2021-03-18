@@ -349,5 +349,6 @@
   "reset_alert": "Är du säker på att du vill återställa alla justeringar",
   "city": "stad",
   "country": "Land",
-  "set_value": "satt värde"
+  "set_value": "satt värde",
+  "signalCheck": "Indikator för signalkvalitet"
 }

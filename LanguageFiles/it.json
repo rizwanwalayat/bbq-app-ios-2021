@@ -352,5 +352,6 @@
     "reset_alert": "Si è sicuri di voler cancellare tutte le impostazioni?",
     "city": "città",
     "country": "nazione",
-    "set_value": "valore impostato"
+    "set_value": "valore impostato",
+    "signalCheck": "Indicatore della qualità del segnale"
 }

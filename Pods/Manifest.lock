@@ -1,27 +1,44 @@
 PODS:
-  - CocoaAsyncSocket (7.6.4)
-  - FGRoute (1.0.5)
+  - Alamofire (5.4.1)
+  - AlamofireImage (4.1.0):
+    - Alamofire (~> 5.1)
+  - CocoaAsyncSocket (7.6.5)
+  - ExpandableLabel (0.5.2)
+  - FGRoute (1.0.7)
   - iOSDropDown (0.3.4)
   - MBProgressHUD (1.1.0)
+  - ObjectMapper (4.2.0)
   - Sentry (6.0.0):
     - Sentry/Core (= 6.0.0)
   - Sentry/Core (6.0.0)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - AlamofireImage
   - CocoaAsyncSocket
+  - ExpandableLabel
   - FGRoute
   - iOSDropDown
   - MBProgressHUD (~> 1.1.0)
+  - ObjectMapper
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `6.0.0`)
+  - SQLite.swift
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - AlamofireImage
     - CocoaAsyncSocket
+    - ExpandableLabel
     - FGRoute
     - iOSDropDown
     - MBProgressHUD
+    - ObjectMapper
+    - SQLite.swift
     - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -35,13 +52,18 @@ CHECKOUT OPTIONS:
     :tag: 6.0.0
 
 SPEC CHECKSUMS:
-  CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
-  FGRoute: 012077ebabb2841d2af3baf63b30e72841f35ba1
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
+  ExpandableLabel: c2fab6d27860c572d67134b30522a5917746171d
+  FGRoute: e46b1ef1a98f74659fb4e25c8473550175799da4
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   Sentry: 9f6ac6d0412a09a8d610497f873ccbcf7abbe3f8
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 0a1cc43c5dfaa7c593a7dcbbeb4ed0c8916b87a5
+PODFILE CHECKSUM: c13ac8dcee7c120ccbcde21abed92231ab9aa4a4
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

@@ -12,6 +12,15 @@ import CocoaAsyncSocket
 
 class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
 {
+    
+    
+    public static var  responseIn800=0;
+    public static var getResponseIn1200=0;
+    public static var getResponseIn2500=0;
+    public  static var totalcount=0;
+    public static var timeoutoverall=0;
+    
+    
     var SERVER_IP:String="192.168.4.1"
     let PORT:UInt16 = 8483
     var skt: GCDAsyncUdpSocket!
@@ -23,6 +32,7 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
     var timer : Timer!
     let serialQueue = DispatchQueue(label: "Serial Queue") // custom dispatch queues are serial by default
     var tries=0
+    var Golbalruntime: Int=0
     var temprequest:ControllerRequestImpl!
 //    var udpsocket = UDPClient?.self
     override init() {
@@ -133,35 +143,51 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
     var testing :((ControllerResponseImpl)->())?
     let semaphore = DispatchSemaphore(value: 1)
 
+    var LAST_GOOD_PORT_NO : UInt16 = 1901
     func sendRequest(senderAddr: String, receiverAddr: String ,request: ControllerRequestImpl,appId: String, serial: String,encryptionMode: String,apprelay: Bool ,CompletionHandler:  @escaping (ControllerResponseImpl)->())
     {
         semaphore.wait()
         temprequest=request
 
 //        serialQueue.sync {
-            testing=CompletionHandler
-                self.resp = ControllerResponseImpl()
-            self.gotresponse = false
-            self.errorfound = false
-            self.timeout = false
-                        do
-                        {
+        testing=CompletionHandler
+        self.resp = ControllerResponseImpl()
+        self.gotresponse = false
+        self.errorfound = false
+        self.timeout = false
+        var portNo : UInt16 = LAST_GOOD_PORT_NO
+        while(skt.isClosed()) {
+            do
+            {
 
-            //                try skt.enableReusePort(true)
-            //                skt.setPreferIPv4()
-            //                skt.setIPv6Enabled(false)
-                            self.skt.close()
-                            try self.skt.bind(toPort: 1901)
-                            try skt.enableReusePort(true)
+//                try skt.enableReusePort(true)
+//                skt.setPreferIPv4()
+//                skt.setIPv6Enabled(false)
+                self.skt.close()
+                try self.skt.bind(toPort: portNo)
+//                try self.skt.bind(toPort: portNo)
+                try skt.enableReusePort(false)
 
 //                            try skt.connect(toHost: SERVER_IP, onPort: PORT)
-                            try self.skt.beginReceiving()
-                            try self.skt.enableBroadcast(true)
-                        }
-                        catch let myError
-                        {
-                            print("caught: \(myError)")
-                        }
+                try self.skt.beginReceiving()
+                try self.skt.enableBroadcast(true)
+            }
+            catch let myError
+            {
+                print("caught: \(myError)")
+                portNo = portNo + 1
+                if(portNo > 9999)
+                {
+                    portNo = 1901
+                }
+                skt.close()
+            }
+        }
+        if(!skt.isClosed())
+        {
+            LAST_GOOD_PORT_NO=portNo
+        }
+                      
         tries=0
 
             let serialtemp = self.sanitizeSerial(serial: serial)
@@ -192,6 +218,7 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
                         let stringrequest = request.getRawRequest()
             //            print(stringrequest.toArray(type: UInt8.self).count)
             //            print(stringrequest.toArray(type: UInt8.self))
+                        ControllerClient.totalcount=ControllerClient.totalcount+1
                         self.skt.send(stringrequest, toHost: receiverAddr, port: self.PORT, withTimeout: 1, tag: 0)
 
                         print("request send " + String(decoding: stringrequest, as: UTF8.self))
@@ -199,12 +226,14 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
         DispatchQueue.main.async {
 //                   print("This is run on the main queue, after the previous code in outer block")
             var runtime: Int=0
+            self.Golbalruntime=0
             self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true)
                                 { (timer) in
                                     if(runtime<=7)
                                     {
                                         print(self.resp)
                                         runtime+=1
+                                        self.Golbalruntime=runtime
                                         if(self.gotresponse)
                                         {
                                             timer.invalidate()
@@ -214,6 +243,7 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
                                     else
                                     {
                                         self.skt.close()
+                                        ControllerClient.timeoutoverall=ControllerClient.timeoutoverall+1
                                         print("timeout error")
                                         self.resp.setpayload(payload: "nothing")
                                         self.errorfound = true
@@ -264,6 +294,16 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
                 let stringFotFromController = temprespons.getDiscoveryValues()[1]
                 if(stringFotFromController == ControllerconnectionImpl.getInstance().getController().getSerial())
                     {
+                    if(Golbalruntime<=1)
+                    {
+                        ControllerClient.responseIn800=ControllerClient.responseIn800+1
+                    }else if(Golbalruntime<=2)
+                    {
+                        ControllerClient.getResponseIn1200=ControllerClient.getResponseIn1200+1
+                    }else if(Golbalruntime<=3)
+                    {
+                        ControllerClient.getResponseIn2500=ControllerClient.getResponseIn2500+1
+                    }
                         print("same serial")
                         self.gotresponse = true
                         var incomingDisc:String = String(data: data as Data, encoding: String.Encoding(rawValue: String.Encoding.ascii.rawValue))!
@@ -282,6 +322,16 @@ class ControllerClient: NSObject,GCDAsyncUdpSocketDelegate
            
         }else
         {
+            if(Golbalruntime<=1)
+            {
+                ControllerClient.responseIn800=ControllerClient.responseIn800+1
+            }else if(Golbalruntime<=2)
+            {
+                ControllerClient.getResponseIn1200=ControllerClient.getResponseIn1200+1
+            }else if(Golbalruntime>2)
+            {
+                ControllerClient.getResponseIn2500=ControllerClient.getResponseIn2500+1
+            }
             self.gotresponse = true
                    var incomingDisc:String = String(data: data as Data, encoding: String.Encoding(rawValue: String.Encoding.ascii.rawValue))!
                    print("response : " + incomingDisc)
