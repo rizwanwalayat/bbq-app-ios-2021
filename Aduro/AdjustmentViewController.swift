@@ -343,7 +343,7 @@ class AdjustmentViewController: UIViewController {
                    self.setvalue(key: "fan.speed_10", value:"40")
                }
         concurrentQueue.async(flags:.barrier) {
-                         self.setvalue(key: "fan.speed_50", value:"50")
+                         self.setvalue(key: "fan.speed_50", value:"55")
                      }
         concurrentQueue.async(flags:.barrier) {
                          self.setvalue(key: "fan.speed_100", value:"80")
@@ -355,7 +355,7 @@ class AdjustmentViewController: UIViewController {
                          self.setvalue(key: "auger.auger_50", value:"25")
                      }
         concurrentQueue.async(flags:.barrier) {
-                         self.setvalue(key: "auger.auger_100", value:"40")
+                         self.setvalue(key: "auger.auger_100", value:"35")
                      }
     }
     

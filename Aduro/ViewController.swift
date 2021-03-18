@@ -22,7 +22,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
     let defaults = UserDefaults.standard
     @IBOutlet weak var connectButton: RoundButton!
     @IBOutlet weak var torch: UIImageView!
-    
     var currentWifi=""
 
     @IBOutlet weak var serialText: DropDown!
@@ -397,7 +396,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
              serialText.resignFirstResponder()
              if (directRadio.isOn)
              {
-                 if((ssid?.contains("Aduro"))!)
+                 if((ssid?.starts(with: "Aduro-"))!)
                  {
                      Util.SetDefaultsBool(key: Constants.directConnectFlag, value: true)
                      directConnect()
@@ -460,7 +459,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
         if (directRadio.isOn)
         {
-            if(ssid.contains("Aduro"))
+            if(ssid.starts(with: "Aduro-"))
             {
                 Util.SetDefaultsBool(key: Constants.directConnectFlag, value: true)
                 directConnect()

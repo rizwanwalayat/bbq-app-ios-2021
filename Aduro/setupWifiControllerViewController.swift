@@ -202,7 +202,7 @@ class setupWifiControllerViewController: UIViewController , UITableViewDelegate,
                                         else
                                         {
                                             self.wifiName.text = String(array![0])
-                                            self.ConnectionStatus.text = ""
+                                            self.ConnectionStatus.text = Language.getInstance().getlangauge(key: "wifi_connect_succes")
                                             self.networkStatus.text = "Connected to Stokercloud"
                                             self.connectbtnlabel.setTitle("Finish", for: .normal)
                                             self.connectbtnlabel.backgroundColor = UIColor(red: 61/255, green: 203/255, blue: 100/255, alpha: 1.0)
@@ -283,7 +283,9 @@ class setupWifiControllerViewController: UIViewController , UITableViewDelegate,
             }
             sVC.serial=Util.GetDefaultsString(key: Constants.serialKey)
             sVC.password=Util.GetDefaultsString(key: Constants.passwordKey)
-            sVC.fromSplash=false
+            sVC.fromSplash=true
+            sVC.justlangChange=false
+            sVC.modalPresentationStyle = .fullScreen
             WifiWatchDog.getInstance().unRegisterMonitor()
             self.present(sVC, animated: true)
         }

@@ -1,0 +1,3 @@
+{"sdk":{"name":"sentry.cocoa","version":"6.0.0"}}
+{"type":"session","length":251}
+{"errors":0,"status":"ok","started":"2021-03-01T11:07:28Z","did":"F1FAC638-B598-4792-BFF7-D64A8D68E628","sid":"C74D62FB-64CC-4027-9FBC-C1C61F81D493","init":true,"timestamp":"2021-03-01T11:07:28Z","attrs":{"release":"com.nbe.Aduro.ios@2.30+2"},"seq":1}

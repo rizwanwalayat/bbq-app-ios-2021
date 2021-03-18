@@ -21,6 +21,8 @@ class ControllerClientFirmware: NSObject,GCDAsyncUdpSocketDelegate
     var gotresponse = false
     var errorfound = false
     var timeout = false
+    var timer : Timer!
+
 //    var udpsocket = UDPClient?.self
     override init() {
         super.init()
@@ -28,25 +30,45 @@ class ControllerClientFirmware: NSObject,GCDAsyncUdpSocketDelegate
         
     }
 
-   
+    var testing :((ControllerResponseImpl)->())?
+    var LAST_GOOD_PORT_NO : UInt16 = 1901
+
     func sendRequestFirmwareIO(senderAddr: String, receiverAddr: String ,request: ControllerRequestImpl,appId: String, serial: String,encryptionMode: String,apprelay: Bool ,CompletionHandler: @escaping (ControllerResponseImpl)->())
     {
 
         self.resp = ControllerResponseImpl()
+        testing=CompletionHandler
+
         gotresponse = false
         errorfound = false
         timeout = false
-        do
+        var portNo : UInt16 = LAST_GOOD_PORT_NO
+        while(skt.isClosed())
         {
-            
-            try skt.bind(toPort: 1901)
-            try skt.beginReceiving()
-            try skt.enableBroadcast(true)
+            do
+            {
+                
+                try skt.bind(toPort: portNo)
+                try skt.beginReceiving()
+                try skt.enableBroadcast(true)
+            }
+            catch let myError
+            {
+                print("caught: \(myError)")
+                portNo = portNo + 1
+                if(portNo > 9999)
+                {
+                    portNo = 1901
+                }
+                skt.close()
+                
+            }
         }
-        catch let myError
+        if(!skt.isClosed())
         {
-            print("caught: \(myError)")
+            LAST_GOOD_PORT_NO=portNo
         }
+        
         let serialtemp = sanitizeSerial(serial: serial)
         request.setAppId(appid: appId)
         request.setSerial(serial: serialtemp)
@@ -81,7 +103,7 @@ class ControllerClientFirmware: NSObject,GCDAsyncUdpSocketDelegate
         }
         
         var runtime: Int=0
-        let timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true)
+         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true)
         { (timer) in
             // do stuff 42 seconds later
             if(runtime<=7)
@@ -93,7 +115,7 @@ class ControllerClientFirmware: NSObject,GCDAsyncUdpSocketDelegate
                 {
                     timer.invalidate()
                     //                    print("got response")
-                    CompletionHandler(self.resp)
+//                    CompletionHandler(self.resp)
                 }
             }
             else
@@ -233,6 +255,8 @@ class ControllerClientFirmware: NSObject,GCDAsyncUdpSocketDelegate
 //        print("response : " + incomingDisc)
         self.resp.setData(response: data)
         skt.close()
+        timer.invalidate()
+        testing!(self.resp)
     }
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didNotSendDataWithTag tag: Int, dueToError error: Error?)

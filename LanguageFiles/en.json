@@ -350,5 +350,6 @@
     "reset_alert": "Are you sure you want to reset all adjustments?",
     "city": "City",
     "country": "Country",
-    "set_value": "Set value"
+    "set_value": "Set value",
+    "signalCheck": "Signal Quality Indicator"
 }

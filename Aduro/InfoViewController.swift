@@ -39,6 +39,11 @@ class InfoViewController: UIViewController {
     @IBOutlet var gradient: gradient!
     
     @IBOutlet weak var cancelInternetSetting: UILabel!
+    
+    
+    @IBOutlet weak var signalCheckLabel: UILabel!
+    @IBOutlet weak var SignalCheckValue: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -110,7 +115,17 @@ class InfoViewController: UIViewController {
         MacLabel.text=Language.getInstance().getlangauge(key: "info_mac")
         OvenPowerLabel.text=Language.getInstance().getlangauge(key: "info_wifipower")
         cancelInternetSetting.text=Language.getInstance().getlangauge(key: "wizard_2_dont_wifi_button")
+        signalCheckLabel.text=Language.getInstance().getlangauge(key: "signalCheck")
         
+        
+            let eight = String(ControllerClient.responseIn800)
+            let second = String(ControllerClient.getResponseIn1200)
+            let third = String(ControllerClient.getResponseIn2500)
+            let four = String(ControllerClient.timeoutoverall)
+            let five = String(ControllerClient.totalcount)
+//                                                    let string = eight+ ":" +sec+":"++":"++"\ntotal count : "+
+//            print(eight + ":" + second + ":" + third + ":" + four + ":" + five)
+        SignalCheckValue.text = eight + ":" + second + ":" + third + ":" + four + ":" + five
         getvalue()
     }
     @IBAction func finish(_ sender: UIButton) {

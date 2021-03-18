@@ -257,7 +257,7 @@ class ControllerconnectionImpl
             tempResponse.setpayload(payload:"24.7,29.0,0,249.5,0.0,0,5,0,0,0.0,0.0,0,0,0,0,0,1,0.0,0.0,0.0,0.0,0.0,999,0.00,35.0,20.00,22.2,0.0,100,0.00,0.00,0.0,100.1,0,0.00,15.2,0,180,99,0,0.0,0.0,0.0,0.0,,0.00,0,0,0.0,0,0,0.0,0,0.00,0.0,0.0,1,2.5,7,260,10,0,0,0.10,2.5,0,0,260,bilawal-5g,5,2,9,11,0,1,30,50,0,0,0,0,0,0,0,0,7,38,50,60,0,0,0.0,0,100/0,01/12-20 10:04:46,0,0,0,0,100,0,800,900,0,0,0,0.0,6,0,0,800.0,0,0,0,0,0,20,80,1,0,0,0,894859,0,0,-99.7,1")
         }else if (arg == "discovery")
         {
-            tempResponse.setpayload(payload: "Serial=12345;IP=192.168.100.3;Type=v13std;Ver=705;Build=30;Lang=0")
+            tempResponse.setpayload(payload: "Serial=12345;IP=192.168.100.3;Type=v13std;Ver=705;Build=34;Lang=0")
         }else if (arg == "boiler.monday_24")
         {
             tempResponse.setpayload(payload: "monday_24=000000000000220101000000")

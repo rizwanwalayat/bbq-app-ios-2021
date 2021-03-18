@@ -50,10 +50,10 @@ class FirmwareUpdateViewController: UIViewController {
         var filePath :String!
         if(neworold == "new")
         {
-            filePath = Bundle.main.path(forResource: "aduro_0705_33_u.dat", ofType: nil)
+            filePath = Bundle.main.path(forResource: "aduro_0705_34_u.dat", ofType: nil)
         }else
         {
-            filePath = Bundle.main.path(forResource: "aduro_0705_6_u.dat", ofType: nil)
+            filePath = Bundle.main.path(forResource: "aduro_0705_30_u.dat", ofType: nil)
         }
                      
                     let nsdata = NSData(contentsOfFile: filePath!)
@@ -202,6 +202,8 @@ class FirmwareUpdateViewController: UIViewController {
         }
     }
     func resetphone()   {
+        Util.SetDefaultsBool(key: "setWakeLock", value: true)
+
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "LanguageViewController") as? LanguageViewController else { return}
 
         sVC.modalPresentationStyle = .fullScreen
