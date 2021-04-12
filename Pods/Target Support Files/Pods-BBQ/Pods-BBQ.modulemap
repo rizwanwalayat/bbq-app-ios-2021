@@ -1,0 +1,6 @@
+framework module Pods_BBQ {
+  umbrella header "Pods-BBQ-umbrella.h"
+
+  export *
+  module * { export * }
+}

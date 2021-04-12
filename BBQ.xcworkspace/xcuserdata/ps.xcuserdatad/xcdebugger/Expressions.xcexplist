@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ViewController.btnconnect(_:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "passwordText.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in HomeViewController.setvalue(key:value:):HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ControllerResponseImpl">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.directConnect():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ControllerconnectionImpl.getInstance().getController().getIp()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeViewController.getf11Values():HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Util.GetDefaultsString(key: Constants.serialKey)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in HomeViewController.initSetup():HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "f11Values">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

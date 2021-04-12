@@ -84,7 +84,7 @@ class ControllerconnectionImpl
   
 
 //    return true
-    }
+    } 
     let semaphore = DispatchSemaphore(value: 1)
 
     func requestRead(key: String, completionfinal: @escaping (_ controlerResponse: ControllerResponseImpl) -> Void)
