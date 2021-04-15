@@ -20,8 +20,8 @@
             <connections>
                 <outlet property="minRangeLabel" destination="4DR-Gj-R03" id="1AG-P5-b1O"/>
                 <outlet property="slider" destination="zSU-hT-GNQ" id="sfZ-F8-Lvb"/>
-                <outlet property="thumbImage" destination="1Xg-KB-is4" id="A2m-yA-qGd"/>
                 <outlet property="thumbLabel" destination="HHt-Bp-vvU" id="eY1-6r-IFw"/>
+                <outlet property="thumbLabelImage" destination="1Xg-KB-is4" id="5wH-9z-BWB"/>
                 <outlet property="thumbLeadingConstraint" destination="F3Z-7F-l37" id="xLu-iq-h1V"/>
                 <outletCollection property="rangeLabels" destination="l5K-8M-RUY" collectionClass="NSMutableArray" id="slR-ak-5RI"/>
                 <outletCollection property="rangeLabels" destination="Dfu-l6-gHA" collectionClass="NSMutableArray" id="Y6I-rO-0AE"/>
@@ -145,17 +145,17 @@
                     </constraints>
                 </stackView>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="zSU-hT-GNQ">
-                    <rect key="frame" x="-1" y="30" width="415" height="36"/>
+                    <rect key="frame" x="-2" y="30" width="416" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="4c3-yA-iJR"/>
                     </constraints>
                 </slider>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-handle_max" translatesAutoresizingMaskIntoConstraints="NO" id="1Xg-KB-is4">
-                    <rect key="frame" x="0.0" y="0.0" width="40" height="45"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble.middle.bottom" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1Xg-KB-is4">
+                    <rect key="frame" x="1" y="-9" width="50" height="49.5"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="40" id="Bp5-7j-EEV"/>
+                        <constraint firstAttribute="width" constant="50" id="Bp5-7j-EEV"/>
                         <constraint firstAttribute="width" secondItem="1Xg-KB-is4" secondAttribute="height" id="LwJ-Tu-EM8"/>
-                        <constraint firstAttribute="height" constant="45" id="iaw-pn-0D5"/>
+                        <constraint firstAttribute="height" constant="50" id="iaw-pn-0D5"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -164,8 +164,8 @@
                     </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHt-Bp-vvU">
-                    <rect key="frame" x="13.5" y="13.5" width="13.5" height="14"/>
-                    <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="12"/>
+                    <rect key="frame" x="17.5" y="5" width="17" height="17.5"/>
+                    <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="15"/>
                     <color key="textColor" red="0.97647058819999999" green="0.97254901959999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -176,9 +176,9 @@
                 <constraint firstItem="pGq-CO-f7Z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="3bW-yB-MG3"/>
                 <constraint firstItem="zSU-hT-GNQ" firstAttribute="top" secondItem="pGq-CO-f7Z" secondAttribute="bottom" id="91w-kn-DkC"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pGq-CO-f7Z" secondAttribute="trailing" id="B0l-Jn-ez5"/>
-                <constraint firstItem="1Xg-KB-is4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="F3Z-7F-l37"/>
-                <constraint firstItem="1Xg-KB-is4" firstAttribute="top" secondItem="pGq-CO-f7Z" secondAttribute="top" id="NnA-jz-6YQ"/>
-                <constraint firstItem="zSU-hT-GNQ" firstAttribute="leading" secondItem="pGq-CO-f7Z" secondAttribute="leading" constant="1" id="UlF-zf-RTn"/>
+                <constraint firstItem="1Xg-KB-is4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="1" id="F3Z-7F-l37"/>
+                <constraint firstItem="1Xg-KB-is4" firstAttribute="top" secondItem="pGq-CO-f7Z" secondAttribute="top" constant="-10" id="NnA-jz-6YQ"/>
+                <constraint firstItem="zSU-hT-GNQ" firstAttribute="leading" secondItem="pGq-CO-f7Z" secondAttribute="leading" id="UlF-zf-RTn"/>
                 <constraint firstItem="HHt-Bp-vvU" firstAttribute="centerX" secondItem="1Xg-KB-is4" secondAttribute="centerX" id="Uzc-n5-EVR"/>
                 <constraint firstItem="HHt-Bp-vvU" firstAttribute="centerY" secondItem="1Xg-KB-is4" secondAttribute="centerY" multiplier="0.9" id="d1m-Eu-syI"/>
                 <constraint firstItem="zSU-hT-GNQ" firstAttribute="trailing" secondItem="pGq-CO-f7Z" secondAttribute="trailing" id="dQ1-qs-Q6q"/>
@@ -190,6 +190,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ic-handle_max" width="29" height="32.5"/>
+        <image name="bubble.middle.bottom" catalog="system" width="128" height="110"/>
     </resources>
 </document>

@@ -9,20 +9,10 @@
 import UIKit
 import MBProgressHUD
 
-class AdjustmentViewController: UIViewController {
-    
+class AduroAdjustmentViewController: UIViewController {
 
     let concurrentQueue = DispatchQueue(label: "adjust Queue", attributes: .concurrent)
-    
-    @IBOutlet weak var feedLowSlider: CustomSlider!
-    @IBOutlet weak var feedHighSlider: CustomSlider!
-    @IBOutlet weak var fanLowSlider: CustomSlider!
-    @IBOutlet weak var fanHighSlider: CustomSlider!
-    @IBOutlet weak var smokeFanSlider: CustomSlider!
-    @IBOutlet weak var smokePauseSlider: CustomSlider!
-    
-    
-    
+
     @IBOutlet weak var fan1Layout: MyCustomView!
     @IBOutlet weak var fan2Layout: MyCustomView!
     @IBOutlet weak var fan3Layout: MyCustomView!
@@ -74,34 +64,14 @@ class AdjustmentViewController: UIViewController {
         augerText2.text=Language.getInstance().getlangauge(key: "pellets")
         augertext3.text=Language.getInstance().getlangauge(key: "pellets")
         resetButtonLabel.setTitle(Language.getInstance().getlangauge(key: "setting_alarmStop"), for: .normal)
-//        concurrentQueue.async(flags:.barrier) {
-//            self.getfanValue(callAuger: true)
-//        }
+        concurrentQueue.async(flags:.barrier) {
+            self.getfanValue(callAuger: true)
+        }
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
 
     }
-    
-    func setupAllSliders(){
-//        setupSlider(slider: bbqFixedTempSlider, valueName: Values.bbq_fixed_temperature, value: Int(f11Values[Values.bbq_fixed_temperature] ?? "50" )!, min: 50, max: 300, interval: 10)
-//        setupSlider(slider: bbqMeatTemp1Slider, valueName:Values.bbq_meat_temp_1, value: Int(f11Values[Values.bbq_meat_temp_1] ?? "50" )! , min: 50, max: 100, interval: 2)
-//        setupSlider(slider: bbqMeatTemp2Slider, valueName: Values.bbq_meat_temp_2,  value: Int(f11Values[Values.bbq_meat_temp_2] ?? "50" )!, min: 50, max: 100, interval: 2)
-//        setupSlider(slider: generalRotationTimeSlider, valueName: Values.general_rotation_time,  value: Int(f11Values[Values.general_rotation_time] ?? "0" )!, min: 0, max: 30, interval: 5)
-//        setupSlider(slider: smokeLevelSlider, valueName: Values.smoke_level, value: Int(f11Values[Values.smoke_level] ?? "0" )!, min: 0, max: 5, interval: 1)
-//        setupSlider(slider: smokeTimerSlider, valueName: Values.smoke_timer, value: Int(f11Values[Values.smoke_timer] ?? "0" )!, min: 0, max: 300, interval: 15)
-//        setupSlider(slider: bbqFixedPower, valueName: Values.bbq_fixed_power, value: Int(f11Values[Values.bbq_fixed_power] ?? "0" )!, min: 0, max: 100, interval: 10)
-    }
-    
-    func setupSlider(slider: CustomSlider, valueName: String, value: Int, min: Int, max: Int, interval: Int){
-        slider.delegate = self
-        slider.sliderName = valueName
-        slider.configureSlider(value: value, minValue: min, maxValue: max,  interval: interval)
-        slider.setThumbColor(.red)
-        slider.setThumbLabelColor(.red)
-        slider.setTrackColor(.red)
-    }
-    
     func getfanValue(callAuger:Bool)  {
         ControllerconnectionImpl.getInstance().requestRead(key: "fan.*") { (ControllerResponseImpl) in
             if(ControllerResponseImpl.getPayload().contains("nothing"))
@@ -454,10 +424,4 @@ class AdjustmentViewController: UIViewController {
     }
     */
 
-}
-
-extension AdjustmentViewController: SliderDelegate {
-    func getSliderValue(value: Float, sliderName: String) {
-        print("changed")
-    }
 }

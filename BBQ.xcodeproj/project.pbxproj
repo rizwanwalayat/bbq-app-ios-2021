@@ -119,6 +119,7 @@
 		04F084FD25EE596700445D27 /* SelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F084FA25EE596700445D27 /* SelectCountryViewController.swift */; };
 		04F0850025EE5A1800445D27 /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F084FF25EE5A1800445D27 /* Countries.json */; };
 		4D74137326123B6E0084B9A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74137226123B6E0084B9A3 /* HomeViewController.swift */; };
+		4DBAE9272627162300698D68 /* AduroAdjustmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBAE9262627162300698D68 /* AduroAdjustmentViewController.swift */; };
 		4DE0B22A261B4A640092A348 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0B228261B4A630092A348 /* CustomSlider.swift */; };
 		4DE0B22B261B4A640092A348 /* CustomSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE0B229261B4A640092A348 /* CustomSlider.xib */; };
 		80E1D89EB11D6A75B1770EB8 /* Pods_BBQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E55E00FA31295D1429FEA45 /* Pods_BBQ.framework */; };
@@ -248,6 +249,7 @@
 		04F084FA25EE596700445D27 /* SelectCountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCountryViewController.swift; sourceTree = "<group>"; };
 		04F084FF25EE5A1800445D27 /* Countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
 		4D74137226123B6E0084B9A3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4DBAE9262627162300698D68 /* AduroAdjustmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AduroAdjustmentViewController.swift; sourceTree = "<group>"; };
 		4DE0B228261B4A630092A348 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		4DE0B229261B4A640092A348 /* CustomSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomSlider.xib; sourceTree = "<group>"; };
 		5E55E00FA31295D1429FEA45 /* Pods_BBQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -368,15 +370,16 @@
 				04F084F725EE595900445D27 /* country */,
 				04EFB5FF25D2C4C80031F80C /* notification */,
 				0458ED9F255BDC0F001DB46B /* Info.plist */,
+				4DBAE9262627162300698D68 /* AduroAdjustmentViewController.swift */,
+				04A5A55924000B1000EB19B6 /* AduroHomeViewController.swift */,
 				04CD5E8A24176FAD00F56C53 /* setupWifiControllerViewController.swift */,
+				04A5A51723FFA25300EB19B6 /* LaunchScreen.storyboard */,
 				04CD5E8424163DCC00F56C53 /* agreementViewController.swift */,
 				04A5A55423FFAFEF00EB19B6 /* BBQ.entitlements */,
 				04A5A50E23FFA25000EB19B6 /* AppDelegate.swift */,
 				04A5A51023FFA25000EB19B6 /* ViewController.swift */,
 				04A5A51223FFA25000EB19B6 /* Main.storyboard */,
 				04A5A51523FFA25300EB19B6 /* Assets.xcassets */,
-				04A5A51723FFA25300EB19B6 /* LaunchScreen.storyboard */,
-				04A5A55924000B1000EB19B6 /* AduroHomeViewController.swift */,
 				042638552403A42D0011DA8F /* WizardMainViewController.swift */,
 				04CD5E822416384900F56C53 /* LanguageViewController.swift */,
 				04CD5E88241769F900F56C53 /* Agreement2ViewController.swift */,
@@ -752,6 +755,7 @@
 				04A5A53223FFA43400EB19B6 /* Controller.swift in Sources */,
 				04A5A54C23FFA50C00EB19B6 /* XTEA.swift in Sources */,
 				0458EDA5255BE23E001DB46B /* ControllerClientFirmware.swift in Sources */,
+				4DBAE9272627162300698D68 /* AduroAdjustmentViewController.swift in Sources */,
 				0414713D25EE5C9200594365 /* CountryTableViewCell.swift in Sources */,
 				4DE0B22A261B4A640092A348 /* CustomSlider.swift in Sources */,
 				0414072E25399B5700F4147D /* FirmwareUpdateViewController.swift in Sources */,

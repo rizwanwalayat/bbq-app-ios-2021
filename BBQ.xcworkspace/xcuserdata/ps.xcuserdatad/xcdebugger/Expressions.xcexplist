@@ -3,16 +3,44 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "ViewController.btnconnect(_:):ViewController.swift">
+         contextName = "ControllerconnectionImpl.readF11(completionF11:):ControllerConnectionImpl.swift">
          <PersistentStrings>
             <PersistentString
-               value = "passwordText.text">
+               value = "self.connectedOnAppRelay()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeViewController.getf11Values():HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Util.GetDefaultsString(key: Constants.serialKey)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "closure #2 in HomeViewController.setvalue(key:value:):HomeViewController.swift">
          <PersistentStrings>
+            <PersistentString
+               value = "ControllerResponseImpl">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ControllerconnectionImpl.requestDiscovery(controllerResponse:):ControllerConnectionImpl.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Util.getAppId()">
+            </PersistentString>
+            <PersistentString
+               value = "Util.getWiFiAddress()">
+            </PersistentString>
+            <PersistentString
+               value = "self.controller.ip">
+            </PersistentString>
+            <PersistentString
+               value = "self.connectedOnAppRelay()">
+            </PersistentString>
             <PersistentString
                value = "ControllerResponseImpl">
             </PersistentString>
@@ -27,18 +55,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "HomeViewController.getf11Values():HomeViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "Util.GetDefaultsString(key: Constants.serialKey)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in HomeViewController.initSetup():HomeViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "f11Values">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.btnconnect(_:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "passwordText.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ControllerconnectionImpl.requestSet(key:value:encryptionMode:requestCompletionHandler:):ControllerConnectionImpl.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.connectedOnAppRelay()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

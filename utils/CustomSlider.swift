@@ -28,7 +28,7 @@ class CustomSlider: UIView {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var thumbLabel: UILabel!
     @IBOutlet weak var thumbLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var thumbImage: UIImageView!
+    @IBOutlet weak var thumbLabelImage: UIImageView!
     @IBOutlet weak var minRangeLabel: UILabel!
     
     
@@ -83,13 +83,20 @@ class CustomSlider: UIView {
 //        }
 //    }
     
-    func setThumbImage(_ image: UIImage){
-        thumbImage.image = image
-        slider.setThumbImage(UIImage(), for: .normal)
+    func setThumbImage(_ image: UIImage?){
+        slider.setThumbImage(image ?? UIImage(), for: .normal)
+    }
+    
+    func setThumbLabelImage(_ image: UIImage){
+        thumbLabelImage.image = image
+    }
+    
+    func setThumbLabelColor(_ color: UIColor){
+        thumbLabelImage.tintColor = color
     }
     
     func setThumbColor(_ color: UIColor){
-        thumbImage.tintColor = color
+        slider.thumbTintColor = color
     }
     
     func setTrackColor(_ color: UIColor){
@@ -103,7 +110,17 @@ class CustomSlider: UIView {
         self.view.addGestureRecognizer(panGesture)
         self.view.addGestureRecognizer(tapGesture)
         hideRangeLabels()
-        
+        showThumbLabel(false)
+    }
+    
+    func showThumbLabel(_ flag:Bool){
+        if flag {
+            thumbLabel.isHidden = false
+            thumbLabelImage.isHidden = false
+        } else {
+            thumbLabel.isHidden = true
+            thumbLabelImage.isHidden = true
+        }
     }
     
     //MARK: - IBActions
@@ -116,7 +133,7 @@ class CustomSlider: UIView {
     //MARK: - Selectors
     
     @objc public func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
-       
+       showThumbLabel(true)
         let pointTapped: CGPoint = gestureRecognizer.location(in: self)
         let positionOfSlider: CGPoint = slider!.frame.origin
         let widthOfSlider: CGFloat = slider!.frame.size.width
@@ -127,6 +144,7 @@ class CustomSlider: UIView {
         updateView()
         
         if gestureRecognizer.state == UIGestureRecognizer.State.ended {
+            showThumbLabel(false)
             delegate?.getSliderValue(value: slider.value, sliderName: sliderName)
         }
     }
@@ -187,10 +205,10 @@ class CustomSlider: UIView {
         let rect = slider.thumbRect(forBounds: slider.bounds, trackRect: slider.trackRect(forBounds: slider.bounds), value: slider.value)
         
         if slider.value >= (slider.maximumValue / 5) * 4 {
-            thumbLeadingConstraint.constant = rect.origin.x - (thumbImage.frame.width / 2) - 1.4
+            thumbLeadingConstraint.constant = rect.origin.x - (thumbLabelImage.frame.width / 2) - 13
             
         } else {
-            thumbLeadingConstraint.constant = rect.origin.x - (thumbImage.frame.width / 2) + 1.4
+            thumbLeadingConstraint.constant = rect.origin.x - (thumbLabelImage.frame.width / 2) + 13
         }
         sliderValueUpdated?(Int(slider.value))
     }

@@ -19,6 +19,7 @@ class Constants {
     static var secondtime="secondTime"
     static var version=705
     static var build=34
+    static var bbqView = "bbqView"
 }
 
 class Values {
@@ -38,6 +39,8 @@ class Values {
 
     
     static var bbq_temperature_1: String = "bbq_temperature_1"
+    static var bbq_temperature_2: String = "bbq_temperature_2"
+    static var bbq_temperature_3: String = "bbq_temperature_3"
     static var meat_temperature_1: String = "meat_temperature_1"
     static var meat_temperature_2: String = "meat_temperature_2"
 

@@ -11,7 +11,7 @@ import Foundation
 
 class Controller {
     public static let CONTROLLER_DEFAULT_IP : String = "192.168.4.1"
-    public static let SSID_PREFIX = "Aduro-";
+    public static let SSID_PREFIX = "BBQ-";
     var ip = "";
     private var serial = "";
     private var password = "";

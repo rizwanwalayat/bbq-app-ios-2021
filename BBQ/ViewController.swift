@@ -348,8 +348,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func btnconnect(_ sender: Any) {
-        if(serialText.text! == "12345")
-        {
+        if(serialText.text! == "12345"){
             ControllerconnectionImpl.getInstance().getController().setSerial(serial: serialText.text!)
             ControllerconnectionImpl.getInstance().getController().setPassword(password: passwordText.text!)
             ControllerconnectionImpl.getInstance().getController().SetIp(ip: Controller.CONTROLLER_DEFAULT_IP)
@@ -394,8 +393,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
              let ssid=FGRoute.getSSID()
             passwordText.resignFirstResponder()
              serialText.resignFirstResponder()
-             if (directRadio.isOn)
-             {
+             if (directRadio.isOn){
 //                if((ssid?.starts(with: "Aduro-"))!)
                 if((ssid?.starts(with: "BBQ-"))!)
                  {
