@@ -13,47 +13,22 @@ class AdjustmentViewController: UIViewController {
     
 
     let concurrentQueue = DispatchQueue(label: "adjust Queue", attributes: .concurrent)
+    var f11Values: [String: String] = [:]
+    
+    // MARK:- Custom Sliders
     
     @IBOutlet weak var feedLowSlider: CustomSlider!
     @IBOutlet weak var feedHighSlider: CustomSlider!
     @IBOutlet weak var fanLowSlider: CustomSlider!
     @IBOutlet weak var fanHighSlider: CustomSlider!
+    @IBOutlet weak var smokeFeedSlider: CustomSlider!
     @IBOutlet weak var smokeFanSlider: CustomSlider!
     @IBOutlet weak var smokePauseSlider: CustomSlider!
     
     
     
     @IBOutlet weak var fan1Layout: MyCustomView!
-    @IBOutlet weak var fan2Layout: MyCustomView!
-    @IBOutlet weak var fan3Layout: MyCustomView!
     
-    @IBOutlet weak var auger1Layout: MyCustomView!
-    @IBOutlet weak var auger2Layout: MyCustomView!
-    @IBOutlet weak var auger3Layout: MyCustomView!
-    
-    
-    @IBOutlet weak var fanText1: UILabel!
-    @IBOutlet weak var fantext2: UILabel!
-    @IBOutlet weak var fanText3: UILabel!
-    
-    @IBOutlet weak var augerText1: UILabel!
-    @IBOutlet weak var augerText2: UILabel!
-    @IBOutlet weak var augertext3: UILabel!
-    
-    
-    @IBOutlet weak var sliderFan1: UISlider!
-    @IBOutlet weak var sliderFan2: UISlider!
-    @IBOutlet weak var sliderFan3: UISlider!
-    
-    
-    @IBOutlet weak var sliderAuger1: UISlider!
-    @IBOutlet weak var sliderAuger2: UISlider!
-    @IBOutlet weak var sliderAuger3: UISlider!
-    
-    @IBOutlet weak var prominentText: UILabel!
-    @IBOutlet weak var mainText: UILabel!
-    @IBOutlet weak var mainText2: UILabel!
-    @IBOutlet weak var maintext3: UILabel!
     
     @IBOutlet weak var resetButtonLabel: UIButton!
     var fan : [String:String]!
@@ -62,36 +37,67 @@ class AdjustmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.gradient.installGradientwithvounds(frame: self.view.bounds)
+        updateUIValues()
+        
 
-        self.gradient.updateGradient(frame: self.view.bounds)
-        disable()
-
-        fanText1.text=Language.getInstance().getlangauge(key: "fan_header")
-        fantext2.text=Language.getInstance().getlangauge(key: "fan_header")
-        fanText3.text=Language.getInstance().getlangauge(key: "fan_header")
-        augerText1.text=Language.getInstance().getlangauge(key: "pellets")
-        augerText2.text=Language.getInstance().getlangauge(key: "pellets")
-        augertext3.text=Language.getInstance().getlangauge(key: "pellets")
-        resetButtonLabel.setTitle(Language.getInstance().getlangauge(key: "setting_alarmStop"), for: .normal)
-//        concurrentQueue.async(flags:.barrier) {
-//            self.getfanValue(callAuger: true)
-//        }
+        
+        concurrentQueue.async(flags:.barrier) {
+            self.getF11Values()
+        }
+        
+        
+        //        self.gradient.installGradientwithvounds(frame: self.view.bounds)
+        //
+        //        self.gradient.updateGradient(frame: self.view.bounds)
+        
+//        disable()
+//
+//        fanText1.text=Language.getInstance().getlangauge(key: "fan_header")
+//        fantext2.text=Language.getInstance().getlangauge(key: "fan_header")
+//        fanText3.text=Language.getInstance().getlangauge(key: "fan_header")
+//        augerText1.text=Language.getInstance().getlangauge(key: "pellets")
+//        augerText2.text=Language.getInstance().getlangauge(key: "pellets")
+//        augertext3.text=Language.getInstance().getlangauge(key: "pellets")
+//        resetButtonLabel.setTitle(Language.getInstance().getlangauge(key: "setting_alarmStop"), for: .normal)
+        
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
 
     }
     
-    func setupAllSliders(){
-//        setupSlider(slider: bbqFixedTempSlider, valueName: Values.bbq_fixed_temperature, value: Int(f11Values[Values.bbq_fixed_temperature] ?? "50" )!, min: 50, max: 300, interval: 10)
-//        setupSlider(slider: bbqMeatTemp1Slider, valueName:Values.bbq_meat_temp_1, value: Int(f11Values[Values.bbq_meat_temp_1] ?? "50" )! , min: 50, max: 100, interval: 2)
-//        setupSlider(slider: bbqMeatTemp2Slider, valueName: Values.bbq_meat_temp_2,  value: Int(f11Values[Values.bbq_meat_temp_2] ?? "50" )!, min: 50, max: 100, interval: 2)
-//        setupSlider(slider: generalRotationTimeSlider, valueName: Values.general_rotation_time,  value: Int(f11Values[Values.general_rotation_time] ?? "0" )!, min: 0, max: 30, interval: 5)
-//        setupSlider(slider: smokeLevelSlider, valueName: Values.smoke_level, value: Int(f11Values[Values.smoke_level] ?? "0" )!, min: 0, max: 5, interval: 1)
-//        setupSlider(slider: smokeTimerSlider, valueName: Values.smoke_timer, value: Int(f11Values[Values.smoke_timer] ?? "0" )!, min: 0, max: 300, interval: 15)
-//        setupSlider(slider: bbqFixedPower, valueName: Values.bbq_fixed_power, value: Int(f11Values[Values.bbq_fixed_power] ?? "0" )!, min: 0, max: 100, interval: 10)
+    func updateUIValues(){
+        self.f11Values = ControllerconnectionImpl.getInstance().getFrontData()
+        print("f11Values", self.f11Values)
+        self.updateAllSliders()
     }
+    
+    func getF11Values(){
+        
+        ControllerconnectionImpl.getInstance().requestF11Identified
+        {
+            (ControllerResponseImpl) in
+            if(ControllerResponseImpl.getPayload().contains("nothing")){
+                print("f11values error")
+            }
+            else
+            {
+                self.updateUIValues()
+            }
+        }
+    }
+    
+    func updateAllSliders(){
+        setupSlider(slider: feedLowSlider, valueName: general.feed_low, value: Int(f11Values[general.feed_low] ?? "1" )!, min: 1, max: 10, interval: 1)
+        setupSlider(slider: feedHighSlider, valueName: general.feed_high, value: Int(f11Values[general.feed_high] ?? "20" )!, min: 20, max: 80, interval: 1)
+        setupSlider(slider: fanLowSlider, valueName: general.fan_low, value: Int(f11Values[general.fan_low] ?? "10" )!, min: 10, max: 50, interval: 1)
+        setupSlider(slider: fanHighSlider, valueName: general.fan_high, value: Int(f11Values[general.fan_high] ?? "2" )!, min: 20, max: 50, interval: 1)
+        setupSlider(slider: smokeFeedSlider, valueName: smoke.feed, value: Int(f11Values[smoke.feed] ?? "1" )!, min: 1, max: 15, interval: 1)
+        setupSlider(slider: smokeFanSlider, valueName: smoke.fan, value: Int(f11Values[smoke.fan] ?? "5" )!, min: 5, max: 50, interval: 1)
+        setupSlider(slider: smokePauseSlider, valueName: smoke.pause, value: Int(f11Values[smoke.pause] ?? "0" )!, min: 0, max: 50, interval: 1)
+    }
+    
+   
     
     func setupSlider(slider: CustomSlider, valueName: String, value: Int, min: Int, max: Int, interval: Int){
         slider.delegate = self
@@ -102,115 +108,20 @@ class AdjustmentViewController: UIViewController {
         slider.setTrackColor(.red)
     }
     
-    func getfanValue(callAuger:Bool)  {
-        ControllerconnectionImpl.getInstance().requestRead(key: "fan.*") { (ControllerResponseImpl) in
-            if(ControllerResponseImpl.getPayload().contains("nothing"))
-            {
-                
-            }
-            else
-            {
-                self.fan=ControllerResponseImpl.GetReadValue()
-                if(callAuger)
-                {
-                    self.concurrentQueue.async(flags:.barrier) {
-                        self.getaugerValue()
-                    }
-                }else
-                {
-                    self.updateUI()
-                }
-            }
-        }
-    }
     
-    func getaugerValue()  {
-        ControllerconnectionImpl.getInstance().requestRead(key: "auger.*") { (ControllerResponseImpl) in
-            if(ControllerResponseImpl.getPayload().contains("nothing"))
-            {
-                
-            }
-            else
-            {
-                self.auger=ControllerResponseImpl.GetReadValue()
-                DispatchQueue.main.async {
-                    self.updateUI()
-                }
-                
-            }
-        }
-    }
-    func updateUI()  {
-        
-        mainText.text=Language.getInstance().getlangauge(key: "heat_level_1")
-        mainText2.text=Language.getInstance().getlangauge(key: "heat_level_2")
-        maintext3.text=Language.getInstance().getlangauge(key: "heat_level_3")
-        
-        resetButtonLabel.setTitle(Language.getInstance().getlangauge(key: "setting_alarmStop"), for: .normal)
-        resetButtonLabel.isEnabled=false
-//        print(fan)
-        sliderFan1.setValue(getFloatValue(value: fan["speed_10"]!), animated: true)
-        sliderFan2.setValue(getFloatValue(value: fan["speed_50"]!), animated: true)
-        sliderFan3.setValue(getFloatValue(value: fan["speed_100"]!), animated: true)
-        fanText1.text=Language.getInstance().getlangauge(key: "fan_header") + "( " + fan["speed_10"]! + " %)"
-        fantext2.text=Language.getInstance().getlangauge(key: "fan_header") + "( " + fan["speed_50"]! + " %)"
-        fanText3.text=Language.getInstance().getlangauge(key: "fan_header") + "( " + fan["speed_100"]! + " %)"
-//        print(auger)
-        
-        //TODO
-//        sliderAuger1
-        sliderAuger2.setValue(getFloatValue(value: auger["auger_50"]!), animated: true)
-        sliderAuger3.setValue(getFloatValue(value: auger["auger_100"]!), animated: true)
-        augerText1.text=Language.getInstance().getlangauge(key: "pellets") + "( " + auger["auger_10"]! + " %)"
-        augerText2.text=Language.getInstance().getlangauge(key: "pellets") + "( " + auger["auger_50"]! + " %)"
-        augertext3.text=Language.getInstance().getlangauge(key: "pellets") + "( " + auger["auger_100"]! + " %)"
-
-    }
+    
     
     func getFloatValue(value:String) -> Float {
         
         return (value as NSString).floatValue
     }
     
-    func disable()  {
-        
-        
-        sliderFan1.isUserInteractionEnabled=false
-        sliderFan2.isUserInteractionEnabled=false
-        sliderFan3.isUserInteractionEnabled=false
-        sliderAuger1.isUserInteractionEnabled=false
-        sliderAuger2.isUserInteractionEnabled=false
-        sliderAuger3.isUserInteractionEnabled=false
-        fan1Layout.alpha=0.4
-        fan2Layout.alpha=0.4
-        fan3Layout.alpha=0.4
-        auger1Layout.alpha=0.4
-        auger2Layout.alpha=0.4
-        auger3Layout.alpha=0.4
-        
-    }
-    func enable()  {
-        
-        sliderFan1.isUserInteractionEnabled=true
-        sliderFan2.isUserInteractionEnabled=true
-        sliderFan3.isUserInteractionEnabled=true
-        sliderAuger1.isUserInteractionEnabled=true
-        sliderAuger2.isUserInteractionEnabled=true
-        sliderAuger3.isUserInteractionEnabled=true
-        fan1Layout.alpha=1
-        fan2Layout.alpha=1
-        fan3Layout.alpha=1
-        auger1Layout.alpha=1
-        auger2Layout.alpha=1
-        auger3Layout.alpha=1
-        resetButtonLabel.isEnabled=true
-        
-    }
+   
+ 
     
     
     @IBAction func lockUnlcok(_ sender: UIButton) {
         sender.setTitle("", for: .normal)
-        enable()
     }
     
     
@@ -219,61 +130,7 @@ class AdjustmentViewController: UIViewController {
     }
     
     
-    @IBAction func fanslider1end(_ sender: UISlider) {
-        prominentText.text=""
-        let d=Double(String((sender as! UISlider).value))
-        concurrentQueue.async(flags:.barrier) {
-
-            self.setvalue(key: "fan.speed_10", value: String(format: "%.0f", d!))
-        }
-    }
-    
-    
-    @IBAction func fanslider2end(_ sender: UISlider) {
-        
-        prominentText.text=""
-        let d=Double(String((sender as! UISlider).value))
-        concurrentQueue.async(flags:.barrier) {
-            self.setvalue(key: "fan.speed_50", value: String(format: "%.0f", d!))
-
-        }
-    }
-    
-    @IBAction func fanslider3end(_ sender: UISlider) {
-        
-        prominentText.text=""
-        let d=Double(String((sender as! UISlider).value))
-        concurrentQueue.async(flags:.barrier) {
-            self.setvalue(key: "fan.speed_100", value: String(format: "%.0f", d!))
-        }
-    }
-    
-    @IBAction func augerslider1end(_ sender: UISlider) {
-        
-        prominentText.text=""
-        let d=Double(String((sender as! UISlider).value))
-        concurrentQueue.async(flags:.barrier) {
-            self.setvalue(key: "auger.auger_10", value: String(format: "%.2f", d!))
-        }
-    }
-    @IBAction func augerslide2end(_ sender: UISlider) {
-        
-        prominentText.text=""
-        let d=Double(String((sender as! UISlider).value))
-        concurrentQueue.async(flags:.barrier) {
-            self.setvalue(key: "auger.auger_50", value: String(format: "%.0f", d!))
-        }
-    }
-    
-    @IBAction func augerslider3end(_ sender: UISlider) {
-        
-        prominentText.text=""
-        let d=Double(String((sender as! UISlider).value))
-        concurrentQueue.async(flags:.barrier) {
-            self.setvalue(key: "auger.auger_100", value: String(format: "%.0f", d!))
-        }
-    }
-    
+   
     func setvalue(key:String,value:String) {
         
         var loadingNotification : MBProgressHUD!
@@ -285,64 +142,43 @@ class AdjustmentViewController: UIViewController {
                   }
         
         ControllerconnectionImpl.getInstance().requestSet(key: key, value: value, encryptionMode: " ") { (ControllerResponseImpl) in
-            DispatchQueue.main.async {
-                                        loadingNotification.hide(animated: true)
-                                    }
+            
             if(ControllerResponseImpl.getPayload().contains("nothing"))
             {
-                
+                DispatchQueue.main.async {
+                    loadingNotification.hide(animated: true)
+                }
             }
             else
             {
-                if(key.contains("fan"))
-                {
-                    self.concurrentQueue.async(flags:.barrier) {
-                        self.getfanValue(callAuger: false)
-                    }
-                }else
-                {
-                    self.concurrentQueue.async(flags:.barrier) {
-                        self.getaugerValue()
-                    }
+                DispatchQueue.main.async {
+                    loadingNotification.hide(animated: true)
+
                 }
+                self.concurrentQueue.async {
+                    self.getF11Values()
+                }
+
+//                concurrentQueue.async {
+//                }
+//                if(key.contains("fan"))
+//                {
+//                    self.concurrentQueue.async(flags:.barrier) {
+//                        self.getfanValue(callAuger: false)
+//                    }
+//                }else
+//                {
+//                    self.concurrentQueue.async(flags:.barrier) {
+//                        self.getaugerValue()
+//                    }
+//                }
             }
         }
         
     }
     
     
-    @IBAction func fanslider1start(_ sender: UISlider) {
-         let d=Double(String((sender as! UISlider).value))
-        prominentText.text="Fan 1 :  " + String(format: "%.0f", d!)
-        
-    }
-    
-    @IBAction func fanslider2start(_ sender: UISlider) {
-        
-        let d=Double(String((sender as! UISlider).value))
-        prominentText.text="Fan 2 :  " + String(format: "%.0f", d!)
-    }
-    @IBAction func fanslider3start(_ sender: UISlider) {
-        
-        let d=Double(String((sender as! UISlider).value))
-        prominentText.text="Fan 3 :  " + String(format: "%.0f", d!)
-    }
-    @IBAction func augerslider1start(_ sender: UISlider) {
-        
-        let d=Double(String((sender as! UISlider).value))
-        prominentText.text="Auger 1 :  " + String(format: "%.2f", d!)
-    }
-    
-    @IBAction func augerslider2start(_ sender: UISlider) {
-        
-        let d=Double(String((sender as! UISlider).value))
-        prominentText.text="Auger 2 :  " + String(format: "%.0f", d!)
-    }
-    @IBAction func augerslider3start(_ sender: UISlider) {
-        
-        let d=Double(String((sender as! UISlider).value))
-        prominentText.text="Auger 3 :  " + String(format: "%.0f", d!)
-    }
+
   
     
     @IBAction func reset(_ sender: UIButton) {
@@ -389,59 +225,81 @@ class AdjustmentViewController: UIViewController {
                      }
     }
     
-    func setDefaultValue(key:String,Value:String)
-    {
-//        if(key == "fan.speed_10")
-//        {
-//
-//        }else if(key == "fan.speed_50")
-//        {
-//
-//        }else if(key == "fan.speed_100")
-//        {
-//
-//        }else if(key == "auger.auger_10")
-//        {
-//
-//        }else if(key == "auger.auger_50")
-//        {
-//
-//        }else if(key == "auger.auger_100")
-//        {
-//
-//        }
-        ControllerconnectionImpl.getInstance().requestSet(key: key, value: Value, encryptionMode: " ") { (ControllerResponseImpl) in
-            if(ControllerResponseImpl.getPayload().contains("nothing"))
-            {
-                
-            }else
-            {
-                if(key == "fan.speed_10")
-                {
-                    self.setDefaultValue(key: "fan.speed_50", Value: "24")
-                }else if(key == "fan.speed_50")
-                {
-                    
-                    self.setDefaultValue(key: "fan.speed_100", Value: "80")
-                }else if(key == "fan.speed_100")
-                {
-                    self.setDefaultValue(key: "auger.auger_10", Value: "20")
-                    
-                }else if(key == "auger.auger_10")
-                {
-                    
-                    self.setDefaultValue(key: "auger.auger_50", Value: "25")
-                }else if(key == "auger.auger_50")
-                {
-                    
-                    self.setDefaultValue(key: "auger.auger_100", Value: "40")
-                }else if(key == "auger.auger_100")
-                {
-                    self.getfanValue(callAuger: true)
-                }
-            }
-        }
+    
+    
+    func showDialogBox(titleText: String, descriptionText: String){
+        let dialogBox = DialogBox()
+        dialogBox.configure(titleText: titleText, descriptionText: descriptionText, okBtnText: Language.getInstance().getlangauge(key: "ok"))
         
+        dialogBox.modalPresentationStyle = .overCurrentContext
+        dialogBox.modalTransitionStyle = .crossDissolve
+        self.present(dialogBox, animated: true)
+    }
+    
+    func showConfirmDialogBox(titleText: String, descriptionText: String, completionHandler: @escaping (()->Void)){
+        let confirmDialogBox = ConfirmDialogBox()
+        confirmDialogBox.configure(titleText: titleText, descriptionText: descriptionText, cancelText: Language.getInstance().getlangauge(key: "no"), confirmText: Language.getInstance().getlangauge(key: "yes")) {
+            completionHandler()
+        }
+       
+        confirmDialogBox.modalPresentationStyle = .overCurrentContext
+        confirmDialogBox.modalTransitionStyle = .crossDissolve
+        self.present(confirmDialogBox, animated: true)
+    }
+    
+    
+    // MARK: - Actions
+    
+    @IBAction func feedLowBtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "general_feed_low_title")+" "+(f11Values[general.feed_low] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "general_feed_low_description"))
+    }
+    
+    @IBAction func feedHighBtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "general_feed_high_title")+" "+(f11Values[general.feed_high] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "general_feed_high_description"))
+    }
+    
+    @IBAction func fanLowBtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "general_fan_low_title")+" "+(f11Values[general.fan_low] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "general_fan_low_description"))
+    }
+    
+    @IBAction func fanHighBtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "general_fan_high_title")+" "+(f11Values[general.fan_high] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "general_fan_high_description"))
+    }
+    
+    @IBAction func smokeFeedBtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "smoke_feed_title")+" "+(f11Values[smoke.feed] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "smoke_feed_description"))
+    }
+    
+    @IBAction func smokeFanBtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "smoke_fan_title")+" "+(f11Values[smoke.fan] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "smoke_fan_description"))
+    }
+    
+    
+    @IBAction func smokePauseBtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "smoke_pause_title")+" "+(f11Values[smoke.pause] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "smoke_pause_description"))
+    }
+    
+    @IBAction func infoBtnPressed(_ sender: Any) {
+        guard let sVC = self.storyboard?.instantiateViewController(withIdentifier: "InfoViewController") as? InfoViewController else {
+            return
+        }
+        sVC.modalPresentationStyle = .fullScreen
+        self.present(sVC, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func resetBtnPressed(_ sender: Any) {
+        showConfirmDialogBox(titleText: Language.getInstance().getlangauge(key: "reset_title"), descriptionText: Language.getInstance().getlangauge(key: "reset_description")) {
+            self.setvalue(key: general.factory , value: "1" )
+        }
+    }
+    
+    @IBAction func advancedSettingsPressed(_ sender: Any) {
+        guard let sVC = self.storyboard?.instantiateViewController(withIdentifier: "ServiceMenuViewController") as? ServiceMenuViewController else {
+            return
+        }
+        sVC.modalPresentationStyle = .fullScreen
+        self.present(sVC, animated: true, completion: nil)
     }
     
     /*
@@ -458,6 +316,9 @@ class AdjustmentViewController: UIViewController {
 
 extension AdjustmentViewController: SliderDelegate {
     func getSliderValue(value: Float, sliderName: String) {
-        print("changed")
+        print("changed", sliderName, value)
+        concurrentQueue.async(flags:.barrier) {
+            self.setvalue(key: sliderName, value: String(format: "%.0f", value))
+        }
     }
 }

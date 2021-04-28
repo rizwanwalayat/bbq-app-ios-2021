@@ -119,6 +119,12 @@
 		04F084FD25EE596700445D27 /* SelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F084FA25EE596700445D27 /* SelectCountryViewController.swift */; };
 		04F0850025EE5A1800445D27 /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F084FF25EE5A1800445D27 /* Countries.json */; };
 		4D74137326123B6E0084B9A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74137226123B6E0084B9A3 /* HomeViewController.swift */; };
+		4D84885C26289B130084B34A /* DialogBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84885A26289B130084B34A /* DialogBox.swift */; };
+		4D84885D26289B130084B34A /* DialogBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D84885B26289B130084B34A /* DialogBox.xib */; };
+		4D8C4EFD262EFCF7007FF623 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4D8C4EFC262EFCF6007FF623 /* beep.mp3 */; };
+		4D8DBB9D263168F400EE1D42 /* AduroInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8DBB9C263168F400EE1D42 /* AduroInfoViewController.swift */; };
+		4D8DBBA1263180E100EE1D42 /* ConfirmDialogBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D8DBBA0263180E100EE1D42 /* ConfirmDialogBox.xib */; };
+		4D8DBBA42631816F00EE1D42 /* ConfirmDialogBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8DBBA32631816F00EE1D42 /* ConfirmDialogBox.swift */; };
 		4DBAE9272627162300698D68 /* AduroAdjustmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBAE9262627162300698D68 /* AduroAdjustmentViewController.swift */; };
 		4DE0B22A261B4A640092A348 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE0B228261B4A630092A348 /* CustomSlider.swift */; };
 		4DE0B22B261B4A640092A348 /* CustomSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE0B229261B4A640092A348 /* CustomSlider.xib */; };
@@ -249,6 +255,12 @@
 		04F084FA25EE596700445D27 /* SelectCountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCountryViewController.swift; sourceTree = "<group>"; };
 		04F084FF25EE5A1800445D27 /* Countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
 		4D74137226123B6E0084B9A3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4D84885A26289B130084B34A /* DialogBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBox.swift; sourceTree = "<group>"; };
+		4D84885B26289B130084B34A /* DialogBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogBox.xib; sourceTree = "<group>"; };
+		4D8C4EFC262EFCF6007FF623 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
+		4D8DBB9C263168F400EE1D42 /* AduroInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AduroInfoViewController.swift; sourceTree = "<group>"; };
+		4D8DBBA0263180E100EE1D42 /* ConfirmDialogBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmDialogBox.xib; sourceTree = "<group>"; };
+		4D8DBBA32631816F00EE1D42 /* ConfirmDialogBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmDialogBox.swift; sourceTree = "<group>"; };
 		4DBAE9262627162300698D68 /* AduroAdjustmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AduroAdjustmentViewController.swift; sourceTree = "<group>"; };
 		4DE0B228261B4A630092A348 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		4DE0B229261B4A640092A348 /* CustomSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomSlider.xib; sourceTree = "<group>"; };
@@ -339,6 +351,7 @@
 		04A5A50223FFA25000EB19B6 = {
 			isa = PBXGroup;
 			children = (
+				4D8C4EF8262EF096007FF623 /* Sounds */,
 				04523A8225E638790092F8CC /* coreData */,
 				04EFB60125D2C5F60031F80C /* extention */,
 				049EB2C22536EE3D00A1A938 /* versionFiles */,
@@ -372,6 +385,7 @@
 				0458ED9F255BDC0F001DB46B /* Info.plist */,
 				4DBAE9262627162300698D68 /* AduroAdjustmentViewController.swift */,
 				04A5A55924000B1000EB19B6 /* AduroHomeViewController.swift */,
+				4D8DBB9C263168F400EE1D42 /* AduroInfoViewController.swift */,
 				04CD5E8A24176FAD00F56C53 /* setupWifiControllerViewController.swift */,
 				04A5A51723FFA25300EB19B6 /* LaunchScreen.storyboard */,
 				04CD5E8424163DCC00F56C53 /* agreementViewController.swift */,
@@ -436,6 +450,10 @@
 				0496192B252F3D1B002DB1B5 /* Shared.swift */,
 				0458ED7D25557EE4001DB46B /* PaddingLabel.swift */,
 				04F084BC25E8FE5400445D27 /* RoundLabel.swift */,
+				4D84885A26289B130084B34A /* DialogBox.swift */,
+				4D84885B26289B130084B34A /* DialogBox.xib */,
+				4D8DBBA32631816F00EE1D42 /* ConfirmDialogBox.swift */,
+				4D8DBBA0263180E100EE1D42 /* ConfirmDialogBox.xib */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -529,6 +547,14 @@
 				04F084F825EE596700445D27 /* SelectCountryViewController.xib */,
 			);
 			path = country;
+			sourceTree = "<group>";
+		};
+		4D8C4EF8262EF096007FF623 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				4D8C4EFC262EFCF6007FF623 /* beep.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		E9A9F39BF8E1023EE216E217 /* Pods */ = {
@@ -627,6 +653,7 @@
 				04C4CA64252DADD600311AFB /* ua.json in Resources */,
 				04961926252F2D03002DB1B5 /* aduro_personal_ge.htm in Resources */,
 				04AC6FE12542BFA3007F1DB3 /* aduro_0705_30_u.dat in Resources */,
+				4D8DBBA1263180E100EE1D42 /* ConfirmDialogBox.xib in Resources */,
 				0414718625F4E0F800594365 /* aduro_0705_34_u.dat in Resources */,
 				04F05B2C24444EBB007F941B /* aduro_terms_es_wifi.htm in Resources */,
 				04F05B3124444EBB007F941B /* aduro_terms_fr.htm in Resources */,
@@ -653,6 +680,7 @@
 				04C4CA69252DADD600311AFB /* it.json in Resources */,
 				04A5A51923FFA25300EB19B6 /* LaunchScreen.storyboard in Resources */,
 				04C4CA66252DADD600311AFB /* da.json in Resources */,
+				4D84885D26289B130084B34A /* DialogBox.xib in Resources */,
 				04A5A51623FFA25300EB19B6 /* Assets.xcassets in Resources */,
 				04F084FB25EE596700445D27 /* SelectCountryViewController.xib in Resources */,
 				049EB2C62536EE7E00A1A938 /* aduro_0698_u.dat in Resources */,
@@ -668,6 +696,7 @@
 				04F05B2824444EBB007F941B /* aduro_terms_dk.htm in Resources */,
 				04C4CA62252DADD600311AFB /* du.json in Resources */,
 				04F05B2A24444EBB007F941B /* aduro_terms_fr_wifi.htm in Resources */,
+				4D8C4EFD262EFCF7007FF623 /* beep.mp3 in Resources */,
 				04A5A51423FFA25000EB19B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,6 +777,7 @@
 				04EFB60425D2C61D0031F80C /* UICollectionView.swift in Sources */,
 				04A5A52D23FFA43400EB19B6 /* ControllerRequestImpl.swift in Sources */,
 				04BA19A6252B5AF10083AA4E /* testViewController.swift in Sources */,
+				4D8DBB9D263168F400EE1D42 /* AduroInfoViewController.swift in Sources */,
 				04263862240D348D0011DA8F /* Constants.swift in Sources */,
 				04A5A54F23FFA50C00EB19B6 /* Signature.swift in Sources */,
 				048DC08E24BC89D200B9645F /* IControllerConstants.swift in Sources */,
@@ -758,7 +788,9 @@
 				4DBAE9272627162300698D68 /* AduroAdjustmentViewController.swift in Sources */,
 				0414713D25EE5C9200594365 /* CountryTableViewCell.swift in Sources */,
 				4DE0B22A261B4A640092A348 /* CustomSlider.swift in Sources */,
+				4D84885C26289B130084B34A /* DialogBox.swift in Sources */,
 				0414072E25399B5700F4147D /* FirmwareUpdateViewController.swift in Sources */,
+				4D8DBBA42631816F00EE1D42 /* ConfirmDialogBox.swift in Sources */,
 				04A40CC9246178BB00839361 /* RoundView.swift in Sources */,
 				040C93DD24CAC88A00394A09 /* AdjustmentViewController.swift in Sources */,
 				04A5A53823FFA4A000EB19B6 /* Util.swift in Sources */,

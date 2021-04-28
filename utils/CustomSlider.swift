@@ -138,7 +138,7 @@ class CustomSlider: UIView {
         let positionOfSlider: CGPoint = slider!.frame.origin
         let widthOfSlider: CGFloat = slider!.frame.size.width
         let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat(slider!.maximumValue) / widthOfSlider)
-        let intervalValue = self.interval ?? 0
+        let intervalValue = self.interval ?? 1
         let adjustedValue = Int(newValue / CGFloat(intervalValue)) * intervalValue
         slider!.setValue(Float(adjustedValue), animated: true)
         updateView()
@@ -201,15 +201,20 @@ class CustomSlider: UIView {
     //MARK: - Private Methods
     
     private func updateView() {
-        thumbLabel.text = "\(Int(slider.value))"
+        thumbLabel.text = Int(slider.value) == 0 ? "OFF": "\(Int(slider.value))"
         let rect = slider.thumbRect(forBounds: slider.bounds, trackRect: slider.trackRect(forBounds: slider.bounds), value: slider.value)
         
-        if slider.value >= (slider.maximumValue / 5) * 4 {
-            thumbLeadingConstraint.constant = rect.origin.x - (thumbLabelImage.frame.width / 2) - 13
-            
-        } else {
-            thumbLeadingConstraint.constant = rect.origin.x - (thumbLabelImage.frame.width / 2) + 13
-        }
+        thumbLeadingConstraint.constant = rect.origin.x - (thumbLabelImage.frame.width / 2) + 13
+        
+//        if slider.value >= (slider.maximumValue / 5) * 4 {
+//            print("slider.value.greater", slider.value)
+// thumbLeadingConstraint.constant = rect.origin.x - (thumbLabelImage.frame.width / 2) + 13
+//
+//        } else {
+//            print("slider.value.lesser", slider.value)
+//
+//            thumbLeadingConstraint.constant = rect.origin.x - (thumbLabelImage.frame.width / 2) + 13
+//        }
         sliderValueUpdated?(Int(slider.value))
     }
     

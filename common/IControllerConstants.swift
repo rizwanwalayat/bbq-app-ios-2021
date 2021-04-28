@@ -163,4 +163,5 @@ import Foundation
     
     static var wiredRoomtemperatureReading = "wired_roomtemperature_reading"
     static var woodburningActive = "woodburning_active"
+    static var dateTime = "date_time"
 }

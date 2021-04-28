@@ -10,7 +10,7 @@ import UIKit
 import FGRoute
 import MBProgressHUD
 import CoreLocation
-
+import AVFoundation
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwaredelegate {
     func donedialogStartFirmware() {
@@ -26,8 +26,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     var justlangChange:Bool = false
     var locationManager:CLLocationManager!
     var controller: Controller!
-    
+    var alarmSoundEffect: AVAudioPlayer?
+    var alarmSoundTimer: Timer?
+    var alarmSoundTimerCount: Int!
     var f11Values: [String:String] = [:]
+    var loadingNotification : MBProgressHUD!
+
     
     @IBOutlet weak var gradient: gradient!
     @IBOutlet weak var onOffButton: UIImageView!{
@@ -40,11 +44,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     @IBOutlet weak var smokeTimerStatus: UIImageView!
     @IBOutlet weak var smokeTimerCountStatus: UILabel!
     @IBOutlet weak var flagsSmokeStatus: UIImageView!
-    @IBOutlet weak var stateStatus: UIImageView!
+    @IBOutlet weak var stateStatus: UIButton!
     @IBOutlet weak var flagsSleepStatus: UIImageView!
     @IBOutlet weak var bbqFixedPowerStatus: UIImageView!
     @IBOutlet weak var powerPctStatus: UILabel!
     @IBOutlet weak var powerPctPercentageStatus: UILabel!
+    @IBOutlet weak var bbqBuzzerImage: UIButton!
     
     @IBOutlet weak var bbqNewView: UIView!
     @IBOutlet weak var bbqOldView: UIView!
@@ -57,13 +62,18 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     @IBOutlet weak var smokeTimerSlider: CustomSlider!
     @IBOutlet weak var bbqFixedPower: CustomSlider!
     
-    @IBOutlet weak var bbqTemp1Lbl: UILabel!
+    @IBOutlet weak var bbqTempLbl: UILabel!
     @IBOutlet weak var meatTemp1Lbl: UILabel!
     @IBOutlet weak var meatTemp2Lbl: UILabel!
-        
+    @IBOutlet weak var bbqTempUnitLbl: UILabel!
+    @IBOutlet weak var meatTemp1UnitLbl: UILabel!
+    @IBOutlet weak var meatTemp2UnitLbl: UILabel!
+    
     @IBOutlet weak var oldBBQTemp1Lbl: UILabel!
     @IBOutlet weak var oldBBQTemp2Lbl: UILabel!
     @IBOutlet weak var oldBBQTemp3Lbl: UILabel!
+    @IBOutlet weak var oldBBQMeatTemp1Lbl: UILabel!
+    @IBOutlet weak var oldBBQMeatTemp2Lbl: UILabel!
     
     var timer: Timer!
     var restartTimer:Timer!
@@ -110,14 +120,38 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     }
     
     @objc func appWillEnterForeground() {
-           print("app in foreground")
+        print("app in foreground")
         starthandler()
-       }
+    }
     @objc func appWillEnterbackground() {
-           print("app in background")
+        print("app in background")
         stopHandler()
-       }
+    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        print("viewWillDisappear")
+        stopHandler()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        print("viewDidDisappear")
+        stopHandler()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("start handler")
+        starthandler()
+    }
+    func getF11Value(_ key: String)->String?{
+        if f11Values[key] != nil {
+            if Int(f11Values[key]!) == 0 {
+                return "OFF"
+            } else {
+                return f11Values[key]
+            }
+        } else {
+            return nil
+        }
+    }
     func setupBBQView(){
         var countLessThan990 = 0
         if f11Values[Values.bbq_temperature_2] != nil {
@@ -160,15 +194,40 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     }
     
     func setupNewBBQLabels(){
-        self.bbqTemp1Lbl.text = f11Values[Values.bbq_temperature_1] ?? "0"
-        self.meatTemp1Lbl.text = f11Values[Values.meat_temperature_1] ?? "0"
-        self.meatTemp2Lbl.text = f11Values[Values.meat_temperature_2] ?? "0"
+        let temp_unit =  Int(f11Values[misc.temp_unit] ?? "0") == 1 ? "°F" : "°C"
+        self.bbqTempLbl.text = f11Values[Values.bbq_temperature] ?? "0"
+        self.bbqTempUnitLbl.text = temp_unit
+        
+        let meat_temp1 = Int(f11Values[Values.meat_temperature_1] ?? "0")!
+        let meat_temp2 = Int(f11Values[Values.meat_temperature_2] ?? "0")!
+        
+        if meat_temp1 > 990 {
+            self.meatTemp1Lbl.isHidden = true
+            self.meatTemp1UnitLbl.isHidden = true
+        } else {
+            self.meatTemp1Lbl.isHidden = false
+            self.meatTemp1UnitLbl.isHidden = false
+            self.meatTemp1Lbl.text = "\(meat_temp1)"
+            self.meatTemp1UnitLbl.text = temp_unit
+        }
+        
+        if meat_temp2 > 990 {
+            self.meatTemp2Lbl.isHidden = true
+            self.meatTemp2UnitLbl.isHidden = true
+        } else {
+            self.meatTemp2Lbl.isHidden = false
+            self.meatTemp2UnitLbl.isHidden = false
+            self.meatTemp2Lbl.text = "\(meat_temp2)"
+            self.meatTemp2UnitLbl.text = temp_unit
+        }
     }
     
     func setupOldBBQLabels(){
         self.oldBBQTemp1Lbl.text = f11Values[Values.bbq_temperature_1] ?? "0"
-        self.meatTemp1Lbl.text = f11Values[Values.bbq_temperature_2] ?? "0"
-        self.meatTemp2Lbl.text = f11Values[Values.bbq_temperature_3] ?? "0"
+        self.oldBBQTemp2Lbl.text = f11Values[Values.bbq_temperature_2] ?? "0"
+        self.oldBBQTemp3Lbl.text = f11Values[Values.bbq_temperature_3] ?? "0"
+        self.oldBBQMeatTemp1Lbl.text = f11Values[Values.meat_temperature_1] ?? "0"
+        self.oldBBQMeatTemp2Lbl.text = f11Values[Values.meat_temperature_2] ?? "0"
     }
     
     func Checklocation() {
@@ -457,19 +516,74 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
                     self.updateValues()
                 }
             }
-            
         }
-        
     }
     
     func updateValues(){
-        self.setupAllSliders()
+        self.setupBuzzer()
+        self.setupSliders()
         self.setupStatusArea()
         self.setupBBQView()
+    }
+    
+    func setupBuzzer(){
+        let buzzer = Int(f11Values[bbq.use_buzzer] ?? "0")
+        if buzzer == 0 {
+            bbqBuzzerImage.setImage(UIImage(named: "Buzzer off icon"), for: .normal)
+            
+            self.playSound(false)
+            if alarmSoundTimerCount != nil {
+                alarmSoundTimer?.invalidate()
+                alarmSoundTimer = nil
+            }
+            
+            
+        } else if buzzer == 1 {
+            
+            bbqBuzzerImage.setImage(UIImage(named: "Buzzer on icon"), for: .normal)
+            
+            let buzzer_1 = Int(f11Values[Values.buzzer_1_active] ?? "0")
+            let buzzer_2 = Int(f11Values[Values.buzzer_2_active] ?? "0")
+            
+            if buzzer_1 == 1 || buzzer_2 == 1 || true {
+                
+                if alarmSoundTimer == nil {
+                    alarmSoundTimerCount = 0
+                    alarmSoundTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { (Timer) in
+                        self.playSound(true)
+                        if self.alarmSoundTimerCount > 30 {
+                            self.playSound(false)
+                            Timer.invalidate()
+                            self.alarmSoundTimer = nil
+                        }
+                        self.alarmSoundTimerCount += 2
+                    })
+                }
+            }
+        }
+    }
+    
+    func playSound(_ flag: Bool) {
+        if flag {
+            let path = Bundle.main.path(forResource: "beep", ofType: "mp3")!
+            let url = URL(fileURLWithPath: path)
+            
+            do {
+                self.alarmSoundEffect = try AVAudioPlayer(contentsOf: url)
+                self.alarmSoundEffect?.play()
+            } catch {
+                print("Audio File Not Found")
+            }
+            
+        } else {
+            alarmSoundEffect?.stop()
+        }
+        
         
     }
     
     func setupStatusArea(){
+        onOffButton.isHidden = f11Values[Values.super_state] == nil
         generalRotationActiveStatus.isHidden = (Int(f11Values[Values.general_rotation_active] ?? "0") == 0)
         flagsIgniteStatus.isHidden = (Int(f11Values[Values.flags_ignite] ?? "0") == 0) ? true : false
         smokeTimerStatus.isHidden = !(Int(f11Values[Values.smoke_timer] ?? "0")! > 0 && Int(f11Values[Values.flags_smoke] ?? "0") != 0)
@@ -496,15 +610,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         return "\(hours<10 ? "0" : "")\(hours):\(minutes<10 ? "0" : "")\(minutes)"
     }
     
-   
     
-    func setupAllSliders(){
-        setupSlider(slider: bbqFixedTempSlider, valueName: Values.bbq_fixed_temperature, value: Int(f11Values[Values.bbq_fixed_temperature] ?? "50" )!, min: 50, max: 300, interval: 10)
-        setupSlider(slider: bbqMeatTemp1Slider, valueName:Values.bbq_meat_temp_1, value: Int(f11Values[Values.bbq_meat_temp_1] ?? "50" )! , min: 50, max: 100, interval: 2)
-        setupSlider(slider: bbqMeatTemp2Slider, valueName: Values.bbq_meat_temp_2,  value: Int(f11Values[Values.bbq_meat_temp_2] ?? "50" )!, min: 50, max: 100, interval: 2)
+    
+    func setupSliders(){
+        setupSlider(slider: bbqFixedTempSlider, valueName: Values.bbq_fixed_temperature, value: Int(f11Values[Values.bbq_fixed_temperature] ?? "40" )!, min:40, max: 300, interval: 10)
+        setupSlider(slider: bbqMeatTemp1Slider, valueName:Values.bbq_meat_temp_1, value: Int(f11Values[Values.bbq_meat_temp_1] ?? "0" )! , min: 0, max: 90, interval: 2)
+        setupSlider(slider: bbqMeatTemp2Slider, valueName: Values.bbq_meat_temp_2,  value: Int(f11Values[Values.bbq_meat_temp_2] ?? "0" )!, min: 0, max: 90, interval: 2)
         setupSlider(slider: generalRotationTimeSlider, valueName: Values.general_rotation_time,  value: Int(f11Values[Values.general_rotation_time] ?? "0" )!, min: 0, max: 30, interval: 5)
         setupSlider(slider: smokeLevelSlider, valueName: Values.smoke_level, value: Int(f11Values[Values.smoke_level] ?? "0" )!, min: 0, max: 5, interval: 1)
-        setupSlider(slider: smokeTimerSlider, valueName: Values.smoke_timer, value: Int(f11Values[Values.smoke_timer] ?? "0" )!, min: 0, max: 300, interval: 15)
+        setupSlider(slider: smokeTimerSlider, valueName: Values.smoke_timer, value: Int(f11Values[Values.smoke_timer] ?? "0" )!, min: 0, max: 1200, interval: 15)
         setupSlider(slider: bbqFixedPower, valueName: Values.bbq_fixed_power, value: Int(f11Values[Values.bbq_fixed_power] ?? "0" )!, min: 0, max: 100, interval: 10)
     }
     
@@ -537,6 +651,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
                             
                             DispatchQueue.main.async {
                                 self.f11Values = ControllerResponseImpl.getF11Values()
+                                print(self.f11Values)
                                 self.updateValues()
                             }
                         }
@@ -571,11 +686,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
             simulationMode=nil
             //            print("stop timer")
         }
-        
     }
     
     func getF11AfterUpdate(){
-        
+        print("f11AfterUpdate")
         ControllerconnectionImpl.getInstance().requestF11Identified
         {
             (ControllerResponseImpl) in
@@ -584,22 +698,26 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
             }
             else
             {
+                DispatchQueue.main.async {
                 self.f11Values = ControllerResponseImpl.getF11Values()
-                self.updateValues()
                 print("f11Values", self.f11Values)
+                self.updateValues()
+
+                }
             }
+            self.loadingNotification.hide(animated: true)
+
         }
     }
     
     
     func setvalue(key:String, value:String) {
         
-        var loadingNotification : MBProgressHUD!
         DispatchQueue.main.async {
-            loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
-            loadingNotification.mode = MBProgressHUDMode.indeterminate
-            loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
-            loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key:"please_wait")
+            self.loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+            self.loadingNotification.mode = MBProgressHUDMode.indeterminate
+            self.loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
+            self.loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key:"please_wait")
         }
         
         ControllerconnectionImpl.getInstance().requestSet(key: key, value: value, encryptionMode: " ") {
@@ -609,14 +727,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
             if(ControllerResponseImpl.getPayload().contains("nothing")){
                 print("error")
                 DispatchQueue.main.async {
-                    loadingNotification.hide(animated: true)
+                    self.loadingNotification.hide(animated: true)
                 }
             }
             else
             {
                 DispatchQueue.main.async {
-                    self.starthandler()
-                    loadingNotification.hide(animated: true)
+                    self.getF11AfterUpdate()
                 }
             }
         }
@@ -784,25 +901,90 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true)
     }
+    
+    
+    func showDialogBox(titleText: String, descriptionText: String){
+        let dialogBox = DialogBox()
+        dialogBox.configure(titleText: titleText, descriptionText: descriptionText, okBtnText: Language.getInstance().getlangauge(key: "ok"))
+        dialogBox.modalPresentationStyle = .overCurrentContext
+        dialogBox.modalTransitionStyle = .crossDissolve
+        self.present(dialogBox, animated: true)
+    }
+    
+    func showConfirmDialogBox(titleText: String, descriptionText: String, completionHandler: @escaping (()->Void)){
+        let confirmDialogBox = ConfirmDialogBox()
+        confirmDialogBox.configure(titleText: titleText, descriptionText: descriptionText, cancelText: Language.getInstance().getlangauge(key: "no"), confirmText: Language.getInstance().getlangauge(key: "yes")) {
+            completionHandler()
+        }
+       
+        confirmDialogBox.modalPresentationStyle = .overCurrentContext
+        confirmDialogBox.modalTransitionStyle = .crossDissolve
+        self.present(confirmDialogBox, animated: true)
+    }
+    
     // MARK: - Actions
     
-    
     @IBAction func onOffBtnPressed(_ sender: UITapGestureRecognizer) {
-        let dialog = UIAlertController(title: "Confirmation", message: "Are you sure?", preferredStyle: .alert)
-        dialog.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (UIAlertAction) in
-            print("on/off")
-        }))
-        dialog.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(dialog, animated: true, completion: nil)
+        showConfirmDialogBox(titleText: Language.getInstance().getlangauge(key: "setting_alarmStop"), descriptionText: Language.getInstance().getlangauge(key: "reset_alarm")) {
+            let onOffAlarm = Int(self.f11Values[Values.super_state] ?? "-1")
+            if(onOffAlarm==0){
+                self.setvalue(key: misc.start, value: "1")
+            }else if(onOffAlarm==1)
+            {
+                self.setvalue(key: misc.stop, value: "1")
+            }else if(onOffAlarm==2)
+            {
+                self.setvalue(key: misc.reset_alarm, value: "1")
+            }
+        }
         
     }
-
+    @IBAction func alarmIconPressed(_ sender: Any) {
+        showDialogBox(titleText: "Short Text", descriptionText: "Long Text")
+    }
+    
     @IBAction func settingsBtnPressed(_ sender: Any) {
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "AdjustmentViewController") as?
                 AdjustmentViewController else { return}
-        sVC.modalPresentationStyle = .overCurrentContext
+        sVC.modalPresentationStyle = .fullScreen
         sVC.modalTransitionStyle = .crossDissolve
         self.present(sVC, animated: true)
+    }
+    
+    @IBAction func fixedTempBtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "bbq_temperature_title")+" "+(getF11Value(Values.bbq_fixed_temperature) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "bbq_temperature_description"))
+    }
+    
+    @IBAction func meatTemp1BtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "meat_temperature_1_title")+" "+(getF11Value(Values.bbq_meat_temp_1) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "meat_temperature_1_description"))
+    }
+    
+    
+    @IBAction func meatTemp2BtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "meat_temperature_2_title")+" "+(getF11Value(Values.bbq_meat_temp_2) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "meat_temperature_2_description"))
+    }
+    
+    
+    @IBAction func rotationTimeBtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "general_rotation_time_title")+" "+(getF11Value(Values.general_rotation_time) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "general_rotation_time_description"))
+    }
+    
+    @IBAction func smokeLevelBtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "smoke_level_title")+" "+(getF11Value(Values.smoke_level) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "smoke_level_description"))
+    }
+    
+    @IBAction func smokeTimerBtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "smoke_timer_title")+" "+(getF11Value(Values.smoke_timer) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "smoke_timer_description"))
+    }
+    
+    @IBAction func fixedPowerBtnPressed(_ sender: Any) {
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "bbq_fixed_power_title")+" "+(getF11Value(Values.bbq_fixed_power) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "bbq_fixed_power_description"))
+    }
+    
+    @IBAction func bbqBuzzerBtnPressed(_ sender: Any) {
+        concurrentQueue.async(flags:.barrier) {
+            self.setvalue(key: bbq.use_buzzer, value: self.f11Values[bbq.use_buzzer] ?? "0" == "0" ? "1" : "0")
+        }
     }
     
 }

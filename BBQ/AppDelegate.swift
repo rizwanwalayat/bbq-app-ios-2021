@@ -138,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if let ssidvalue = ssid
                         {
 //                            onsame wifi
-                           if(ssidvalue.starts(with: "RTB-") || ssidvalue.starts(with: "Aduro-"))
+                           if(ssidvalue.starts(with: "RTB-") || ssidvalue.starts(with: "BBQ-"))
                            {
                             if (ControllerconnectionImpl.getInstance().getController().getIp() != "")
                             {

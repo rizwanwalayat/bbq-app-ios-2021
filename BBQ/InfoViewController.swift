@@ -29,7 +29,7 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var serialvalue: UILabel!
     @IBOutlet weak var passwordValue: UILabel!
-    @IBOutlet weak var overdateValue: UILabel!
+    @IBOutlet weak var ovenDateValue: UILabel!
     @IBOutlet weak var ovenTimeValue: UILabel!
     @IBOutlet weak var connectionType: UILabel!
     @IBOutlet weak var routerIPValue: UILabel!
@@ -51,7 +51,7 @@ class InfoViewController: UIViewController {
 
         self.gradient.updateGradient(frame: self.view.bounds)
         let tap = UITapGestureRecognizer(target: self, action: #selector(dateclicked))
-        overdateValue.addGestureRecognizer(tap)
+        ovenDateValue.addGestureRecognizer(tap)
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(timeclicked))
         ovenTimeValue.addGestureRecognizer(tap1)
         
@@ -75,11 +75,13 @@ class InfoViewController: UIViewController {
     }
     
     @objc func clearSetting(){
-        
-        concurrentQueue.async(flags:.barrier) {
-            self.removeWifi()
+        showConfirmDialogBox(titleText: Language.getInstance().getlangauge(key: "wifi_sure_to_clear"), descriptionText: "") {
+            self.concurrentQueue.async(flags:.barrier) {
+                self.removeWifi()
+            }
         }
     }
+    
     func removeWifi()  {
         
         var loadingNotification  : MBProgressHUD!
@@ -179,16 +181,16 @@ class InfoViewController: UIViewController {
             
             
 //            datetime
-            var isoDate=ControllerconnectionImpl.getInstance().getFrontData()[IControllerConstants.time]
+            var isoDate=ControllerconnectionImpl.getInstance().getFrontData()[IControllerConstants.dateTime]
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-            dateFormatter.dateFormat = "dd/MM-yy HH:mm:ss"
+            dateFormatter.dateFormat = "yyMMddHHmmss"
             let date = dateFormatter.date(from:isoDate!)!
             print(date)
             let formatDate = DateFormatter()
             formatDate.dateFormat = "dd/MM/yyyy"
             let drawDate = formatDate.string(from: date)
-            overdateValue.text=drawDate
+            ovenDateValue.text=drawDate
             let formatDate1 = DateFormatter()
             formatDate1.dateFormat = "HH:mm"
             let drawDate1 = formatDate1.string(from: date)
@@ -199,7 +201,7 @@ class InfoViewController: UIViewController {
                 ovenDateLabel.text=Language.getInstance().getlangauge(key: "controller_date") + "( " + Language.getInstance().getlangauge(key: "clock_synchronized") + " )"
                 ovenTime.text=Language.getInstance().getlangauge(key: "controller_time") + "( " + Language.getInstance().getlangauge(key: "clock_synchronized") + " )"
                 
-                overdateValue.isUserInteractionEnabled=false
+                ovenDateValue.isUserInteractionEnabled=false
                 ovenTimeValue.isUserInteractionEnabled=false
 //                showDatePicker()
             }else
@@ -212,13 +214,13 @@ class InfoViewController: UIViewController {
                 let attachmentString = NSAttributedString(attachment: attachment)
                 let myString = NSMutableAttributedString(string: drawDate)
                 myString.append(attachmentString)
-                overdateValue.attributedText = myString
+                ovenDateValue.attributedText = myString
                 let myString1 = NSMutableAttributedString(string: drawDate1)
                 myString1.append(attachmentString)
                 ovenTimeValue.attributedText = myString1
                 
                 
-                overdateValue.isUserInteractionEnabled=true
+                ovenDateValue.isUserInteractionEnabled=true
                 ovenTimeValue.isUserInteractionEnabled=true
 //                showDatePicker()
                 
@@ -452,6 +454,17 @@ class InfoViewController: UIViewController {
             return Language.getInstance().getlangauge(key: "wifi")
         }
 
+    }
+    
+    func showConfirmDialogBox(titleText: String, descriptionText: String, completionHandler: @escaping (()->Void)){
+        let confirmDialogBox = ConfirmDialogBox()
+        confirmDialogBox.configure(titleText: titleText, descriptionText: descriptionText, cancelText: Language.getInstance().getlangauge(key: "cancel"), confirmText: Language.getInstance().getlangauge(key: "ok")) {
+            completionHandler()
+        }
+       
+        confirmDialogBox.modalPresentationStyle = .overCurrentContext
+        confirmDialogBox.modalTransitionStyle = .crossDissolve
+        self.present(confirmDialogBox, animated: true)
     }
     /*
     // MARK: - Navigation

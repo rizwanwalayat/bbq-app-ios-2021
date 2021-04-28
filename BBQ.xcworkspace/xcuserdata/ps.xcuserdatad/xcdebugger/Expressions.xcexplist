@@ -11,10 +11,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "Language.getlangauge(key:):Language.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "jsondata">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "HomeViewController.getf11Values():HomeViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "Util.GetDefaultsString(key: Constants.serialKey)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeViewController.setupBuzzer():HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "alarmSoundTimer">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -47,18 +63,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ViewController.directConnect():ViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "ControllerconnectionImpl.getInstance().getController().getIp()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in HomeViewController.initSetup():HomeViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "f11Values">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.directConnect():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ControllerconnectionImpl.getInstance().getController().getIp()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -75,6 +91,17 @@
          <PersistentStrings>
             <PersistentString
                value = "self.connectedOnAppRelay()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "InfoViewController.updateUI(map:):InfoViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ControllerconnectionImpl.getInstance().getFrontData()">
+            </PersistentString>
+            <PersistentString
+               value = "Date()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
