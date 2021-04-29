@@ -732,7 +732,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
             }
             else
             {
-                DispatchQueue.main.async {
+                self.concurrentQueue.async(flags: .barrier) {
                     self.getF11AfterUpdate()
                 }
             }
@@ -946,6 +946,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     @IBAction func settingsBtnPressed(_ sender: Any) {
         guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "AdjustmentViewController") as?
                 AdjustmentViewController else { return}
+        sVC.modalPresentationStyle = .fullScreen
+        sVC.modalTransitionStyle = .crossDissolve
+        self.present(sVC, animated: true)
+    }
+    
+    @IBAction func wifiBtnPressed(_ sender: Any) {
+        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "WizardMainViewController") as?
+                WizardMainViewController else { return}
         sVC.modalPresentationStyle = .fullScreen
         sVC.modalTransitionStyle = .crossDissolve
         self.present(sVC, animated: true)

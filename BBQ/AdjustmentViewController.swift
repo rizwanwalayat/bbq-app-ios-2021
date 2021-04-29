@@ -125,10 +125,7 @@ class AdjustmentViewController: UIViewController {
     }
     
     
-    @IBAction func finish(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    
+   
     
    
     func setvalue(key:String,value:String) {
@@ -249,6 +246,13 @@ class AdjustmentViewController: UIViewController {
     
     
     // MARK: - Actions
+    @IBAction func finish(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func backBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     
     @IBAction func feedLowBtnPressed(_ sender: Any) {
         showDialogBox(titleText: Language.getInstance().getlangauge(key: "general_feed_low_title")+" "+(f11Values[general.feed_low] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "general_feed_low_description"))
@@ -302,15 +306,7 @@ class AdjustmentViewController: UIViewController {
         self.present(sVC, animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }
 

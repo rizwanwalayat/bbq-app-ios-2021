@@ -13,6 +13,7 @@ class WizardMainViewController: UIViewController,CLLocationManagerDelegate  {
 
     var locationManager:CLLocationManager!
     let defaults = UserDefaults.standard
+    var fromHomeScreen: Bool = false
     
     @IBOutlet weak var gradient: gradient!
     @IBOutlet weak var startbtn: RoundButton!
@@ -95,6 +96,12 @@ class WizardMainViewController: UIViewController,CLLocationManagerDelegate  {
             break
         }
     }
+    
+    
+    @IBAction func backBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
 //    override func viewDidAppear(_ animated: Bool) {
 //        let serial=defaults.string(forKey: Constants.serialKey)

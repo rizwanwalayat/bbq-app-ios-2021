@@ -11,6 +11,7 @@ import UIKit
 class agreementViewController: UIViewController{
     let defaults = UserDefaults.standard
 
+    @IBOutlet weak var termTitleLbl: UILabel!
     @IBOutlet weak var acceptbtn: UIButton!
     @IBOutlet weak var declinebtn: UIButton!
     
@@ -23,6 +24,7 @@ class agreementViewController: UIViewController{
         self.gradient.installGradientwithvounds(frame: self.view.bounds)
         self.gradient.updateGradient(frame: self.view.bounds)
 
+        termTitleLbl.text = Language.getInstance().getlangauge(key: "terms_title")
         textAgreement.attributedText=Language.getInstance().getFirstTerm().htmlToAttributedString
         textAgreement.textColor=UIColor.white
         // Do any additional setup after loading the view.
@@ -30,6 +32,11 @@ class agreementViewController: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
 
     }
+    
+    @IBAction func backBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func decline(_ sender: UIButton)
     {
         let alert = UIAlertController(title: Language.getInstance().getlangauge(key: "initial_tos_decline_popup_title"), message: "", preferredStyle: UIAlertController.Style.alert)

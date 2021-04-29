@@ -192,7 +192,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         }
     @objc func appMovedToForeground() {
         print("App moved to ForeGround!")
-        connectButton.backgroundColor=UIColor(named: "green")
+        connectButton.backgroundColor = .systemRed
 
     }
     @objc func appMovedToBackground() {
@@ -254,7 +254,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         if(passwordText.text?.count==10)
         {
             btncontinueOutlet.isEnabled=true
-            btncontinueOutlet.backgroundColor=UIColor(red: 61.0/255.0, green: 203.0/255.0, blue: 100.0/255.0, alpha: 1.0)
+            btncontinueOutlet.backgroundColor = .systemRed
         }else
         {
             btncontinueOutlet.isEnabled=false
@@ -670,43 +670,40 @@ class ViewController: UIViewController,UITextFieldDelegate {
     }
     func checkControllerConnectedToWifi()
     {
-        ControllerconnectionImpl.getInstance().requestF11Identified
+        ControllerconnectionImpl.getInstance().requestRead(key: "wifi.router")
+        {
+            (ControllerResponseImpl) in
+            if(ControllerResponseImpl.getPayload().contains("nothing"))
             {
-                (ControllerResponseImpl) in
-                if(ControllerResponseImpl.getPayload().contains("nothing"))
-                {
-                    print("error")
-                    //                self.showToast(message: "TimeOut Error Try Again")
-                }
-                else
-                {
-                    let string = ControllerResponseImpl.getF11Values()["wifi.router"]
-//                    let item = string?.split(separator: ",")
-//                    let s : String = String(item![1])
-                    if(string != nil)
-                    {
-
-                        if(string == "" || string == nil)
-                        {
-                            self.connectwarningtext.isHidden=false
-                            self.withoutstepBTN.isHidden=true
-                            self.setupwifiBTN.backgroundColor = UIColor(red: 61/255, green: 203/255, blue: 100/255, alpha: 1.0)
-                            self.setupwifiBTN.setTitleColor(.white, for: .normal)
-                            self.wifi_connect_current.text="Current network : "
-                        }
-                        else
-                        {
-                            self.connectwarningtext.isHidden=true
-                            self.withoutstepBTN.isHidden=false
-                            self.setupwifiBTN.backgroundColor = UIColor.white
-                            self.setupwifiBTN.setTitleColor(.black, for: .normal)
-                            self.currentWifi=string!
-                            self.wifi_connect_current.text="Current network : " + string!
-                        }
-                    }
-                    //                    print(map)
-                }
+               
+            }
+            else
+            {
+                let routerResponse = ControllerResponseImpl.GetReadValue()["router"]
                 
+                if(routerResponse != nil)
+                {
+                    let items = routerResponse?.split(separator: ",")
+                    let string : String = String(items![0])
+                    if(string == "")
+                    {
+                        self.connectwarningtext.isHidden=false
+                        self.withoutstepBTN.isHidden=true
+                        self.setupwifiBTN.backgroundColor = UIColor(red: 61/255, green: 203/255, blue: 100/255, alpha: 1.0)
+                        self.setupwifiBTN.setTitleColor(.white, for: .normal)
+                        self.wifi_connect_current.text=Language.getInstance().getlangauge(key: "wifi_connect_current")+": "
+                    }
+                    else
+                    {
+                        self.connectwarningtext.isHidden=true
+                        self.withoutstepBTN.isHidden=false
+                        self.setupwifiBTN.backgroundColor = UIColor.white
+                        self.setupwifiBTN.setTitleColor(.black, for: .normal)
+                        self.currentWifi=string
+                        self.wifi_connect_current.text=Language.getInstance().getlangauge(key: "wifi_connect_current")+" : " + string
+                    }
+                }
+            }
         }
     }
     
@@ -761,6 +758,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
                 })
             }
         }
+    }
+    @IBAction func backBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func getIP()

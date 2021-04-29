@@ -39,12 +39,6 @@
 		048DC09024C04BFE00B9645F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DC08F24C04BFE00B9645F /* SettingViewController.swift */; };
 		048DC09224C5917D00B9645F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048DC09124C5917C00B9645F /* InfoViewController.swift */; };
 		0496191B252F1A97002DB1B5 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496191A252F1A97002DB1B5 /* FormViewController.swift */; };
-		04961923252F2D03002DB1B5 /* aduro_personal_es.htm in Resources */ = {isa = PBXBuildFile; fileRef = 0496191D252F2D02002DB1B5 /* aduro_personal_es.htm */; };
-		04961924252F2D03002DB1B5 /* aduro_personal_fr.htm in Resources */ = {isa = PBXBuildFile; fileRef = 0496191E252F2D02002DB1B5 /* aduro_personal_fr.htm */; };
-		04961925252F2D03002DB1B5 /* aduro_personal_it.htm in Resources */ = {isa = PBXBuildFile; fileRef = 0496191F252F2D02002DB1B5 /* aduro_personal_it.htm */; };
-		04961926252F2D03002DB1B5 /* aduro_personal_ge.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04961920252F2D02002DB1B5 /* aduro_personal_ge.htm */; };
-		04961927252F2D03002DB1B5 /* aduro_personal_en.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04961921252F2D02002DB1B5 /* aduro_personal_en.htm */; };
-		04961928252F2D03002DB1B5 /* aduro_personal_da.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04961922252F2D03002DB1B5 /* aduro_personal_da.htm */; };
 		0496192A252F3C87002DB1B5 /* CountryDropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04961929252F3C87002DB1B5 /* CountryDropDownViewController.swift */; };
 		0496192C252F3D1C002DB1B5 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496192B252F3D1B002DB1B5 /* Shared.swift */; };
 		049EB2C62536EE7E00A1A938 /* aduro_0698_u.dat in Resources */ = {isa = PBXBuildFile; fileRef = 049EB2C32536EE7D00A1A938 /* aduro_0698_u.dat */; };
@@ -101,23 +95,17 @@
 		04EFB60425D2C61D0031F80C /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB60225D2C61C0031F80C /* UICollectionView.swift */; };
 		04EFB60525D2C61D0031F80C /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB60325D2C61D0031F80C /* UITableView.swift */; };
 		04F05B032444472F007F941B /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F05B022444472F007F941B /* RoundButton.swift */; };
-		04F05B2624444EBB007F941B /* aduro_terms_en_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B1A24444EBA007F941B /* aduro_terms_en_wifi.htm */; };
-		04F05B2724444EBB007F941B /* aduro_terms_it_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B1B24444EBA007F941B /* aduro_terms_it_wifi.htm */; };
-		04F05B2824444EBB007F941B /* aduro_terms_dk.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B1C24444EBA007F941B /* aduro_terms_dk.htm */; };
-		04F05B2924444EBB007F941B /* aduro_terms_en.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B1D24444EBB007F941B /* aduro_terms_en.htm */; };
-		04F05B2A24444EBB007F941B /* aduro_terms_fr_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B1E24444EBB007F941B /* aduro_terms_fr_wifi.htm */; };
-		04F05B2B24444EBB007F941B /* aduro_terms_it.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B1F24444EBB007F941B /* aduro_terms_it.htm */; };
-		04F05B2C24444EBB007F941B /* aduro_terms_es_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B2024444EBB007F941B /* aduro_terms_es_wifi.htm */; };
-		04F05B2D24444EBB007F941B /* aduro_terms_es.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B2124444EBB007F941B /* aduro_terms_es.htm */; };
-		04F05B2E24444EBB007F941B /* aduro_terms_de_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B2224444EBB007F941B /* aduro_terms_de_wifi.htm */; };
-		04F05B2F24444EBB007F941B /* aduro_terms_de.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B2324444EBB007F941B /* aduro_terms_de.htm */; };
-		04F05B3024444EBB007F941B /* aduro_terms_dk_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B2424444EBB007F941B /* aduro_terms_dk_wifi.htm */; };
-		04F05B3124444EBB007F941B /* aduro_terms_fr.htm in Resources */ = {isa = PBXBuildFile; fileRef = 04F05B2524444EBB007F941B /* aduro_terms_fr.htm */; };
 		04F084BD25E8FE5400445D27 /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F084BC25E8FE5400445D27 /* RoundLabel.swift */; };
 		04F084FB25EE596700445D27 /* SelectCountryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F084F825EE596700445D27 /* SelectCountryViewController.xib */; };
 		04F084FC25EE596700445D27 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F084F925EE596700445D27 /* Country.swift */; };
 		04F084FD25EE596700445D27 /* SelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F084FA25EE596700445D27 /* SelectCountryViewController.swift */; };
 		04F0850025EE5A1800445D27 /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F084FF25EE5A1800445D27 /* Countries.json */; };
+		4D3A4860263AEE1600EDC558 /* aduro_terms_en.htm in Resources */ = {isa = PBXBuildFile; fileRef = 4D3A485A263AEE1400EDC558 /* aduro_terms_en.htm */; };
+		4D3A4861263AEE1600EDC558 /* aduro_personal_en.htm in Resources */ = {isa = PBXBuildFile; fileRef = 4D3A485B263AEE1500EDC558 /* aduro_personal_en.htm */; };
+		4D3A4862263AEE1600EDC558 /* aduro_terms_da_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 4D3A485C263AEE1500EDC558 /* aduro_terms_da_wifi.htm */; };
+		4D3A4863263AEE1600EDC558 /* aduro_terms_en_wifi.htm in Resources */ = {isa = PBXBuildFile; fileRef = 4D3A485D263AEE1500EDC558 /* aduro_terms_en_wifi.htm */; };
+		4D3A4864263AEE1600EDC558 /* aduro_personal_da.htm in Resources */ = {isa = PBXBuildFile; fileRef = 4D3A485E263AEE1500EDC558 /* aduro_personal_da.htm */; };
+		4D3A4865263AEE1600EDC558 /* aduro_terms_da.htm in Resources */ = {isa = PBXBuildFile; fileRef = 4D3A485F263AEE1600EDC558 /* aduro_terms_da.htm */; };
 		4D74137326123B6E0084B9A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74137226123B6E0084B9A3 /* HomeViewController.swift */; };
 		4D84885C26289B130084B34A /* DialogBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84885A26289B130084B34A /* DialogBox.swift */; };
 		4D84885D26289B130084B34A /* DialogBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D84885B26289B130084B34A /* DialogBox.xib */; };
@@ -237,23 +225,17 @@
 		04EFB60225D2C61C0031F80C /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		04EFB60325D2C61D0031F80C /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		04F05B022444472F007F941B /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		04F05B1A24444EBA007F941B /* aduro_terms_en_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_en_wifi.htm; sourceTree = "<group>"; };
-		04F05B1B24444EBA007F941B /* aduro_terms_it_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_it_wifi.htm; sourceTree = "<group>"; };
-		04F05B1C24444EBA007F941B /* aduro_terms_dk.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_dk.htm; sourceTree = "<group>"; };
-		04F05B1D24444EBB007F941B /* aduro_terms_en.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_en.htm; sourceTree = "<group>"; };
-		04F05B1E24444EBB007F941B /* aduro_terms_fr_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_fr_wifi.htm; sourceTree = "<group>"; };
-		04F05B1F24444EBB007F941B /* aduro_terms_it.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_it.htm; sourceTree = "<group>"; };
-		04F05B2024444EBB007F941B /* aduro_terms_es_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_es_wifi.htm; sourceTree = "<group>"; };
-		04F05B2124444EBB007F941B /* aduro_terms_es.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_es.htm; sourceTree = "<group>"; };
-		04F05B2224444EBB007F941B /* aduro_terms_de_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_de_wifi.htm; sourceTree = "<group>"; };
-		04F05B2324444EBB007F941B /* aduro_terms_de.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_de.htm; sourceTree = "<group>"; };
-		04F05B2424444EBB007F941B /* aduro_terms_dk_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_dk_wifi.htm; sourceTree = "<group>"; };
-		04F05B2524444EBB007F941B /* aduro_terms_fr.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_fr.htm; sourceTree = "<group>"; };
 		04F084BC25E8FE5400445D27 /* RoundLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
 		04F084F825EE596700445D27 /* SelectCountryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCountryViewController.xib; sourceTree = "<group>"; };
 		04F084F925EE596700445D27 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		04F084FA25EE596700445D27 /* SelectCountryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCountryViewController.swift; sourceTree = "<group>"; };
 		04F084FF25EE5A1800445D27 /* Countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
+		4D3A485A263AEE1400EDC558 /* aduro_terms_en.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_en.htm; sourceTree = "<group>"; };
+		4D3A485B263AEE1500EDC558 /* aduro_personal_en.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_personal_en.htm; sourceTree = "<group>"; };
+		4D3A485C263AEE1500EDC558 /* aduro_terms_da_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_da_wifi.htm; sourceTree = "<group>"; };
+		4D3A485D263AEE1500EDC558 /* aduro_terms_en_wifi.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_en_wifi.htm; sourceTree = "<group>"; };
+		4D3A485E263AEE1500EDC558 /* aduro_personal_da.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_personal_da.htm; sourceTree = "<group>"; };
+		4D3A485F263AEE1600EDC558 /* aduro_terms_da.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_da.htm; sourceTree = "<group>"; };
 		4D74137226123B6E0084B9A3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4D84885A26289B130084B34A /* DialogBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBox.swift; sourceTree = "<group>"; };
 		4D84885B26289B130084B34A /* DialogBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogBox.xib; sourceTree = "<group>"; };
@@ -521,18 +503,12 @@
 		04F05B1924444E9A007F941B /* TermFiles */ = {
 			isa = PBXGroup;
 			children = (
-				04F05B2224444EBB007F941B /* aduro_terms_de_wifi.htm */,
-				04F05B2324444EBB007F941B /* aduro_terms_de.htm */,
-				04F05B2424444EBB007F941B /* aduro_terms_dk_wifi.htm */,
-				04F05B1C24444EBA007F941B /* aduro_terms_dk.htm */,
-				04F05B1A24444EBA007F941B /* aduro_terms_en_wifi.htm */,
-				04F05B1D24444EBB007F941B /* aduro_terms_en.htm */,
-				04F05B2024444EBB007F941B /* aduro_terms_es_wifi.htm */,
-				04F05B2124444EBB007F941B /* aduro_terms_es.htm */,
-				04F05B1E24444EBB007F941B /* aduro_terms_fr_wifi.htm */,
-				04F05B2524444EBB007F941B /* aduro_terms_fr.htm */,
-				04F05B1B24444EBA007F941B /* aduro_terms_it_wifi.htm */,
-				04F05B1F24444EBB007F941B /* aduro_terms_it.htm */,
+				4D3A485E263AEE1500EDC558 /* aduro_personal_da.htm */,
+				4D3A485B263AEE1500EDC558 /* aduro_personal_en.htm */,
+				4D3A485C263AEE1500EDC558 /* aduro_terms_da_wifi.htm */,
+				4D3A485F263AEE1600EDC558 /* aduro_terms_da.htm */,
+				4D3A485D263AEE1500EDC558 /* aduro_terms_en_wifi.htm */,
+				4D3A485A263AEE1400EDC558 /* aduro_terms_en.htm */,
 			);
 			path = TermFiles;
 			sourceTree = "<group>";
@@ -649,32 +625,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D3A4860263AEE1600EDC558 /* aduro_terms_en.htm in Resources */,
+				4D3A4862263AEE1600EDC558 /* aduro_terms_da_wifi.htm in Resources */,
 				0414713E25EE5C9200594365 /* CountryTableViewCell.xib in Resources */,
 				04C4CA64252DADD600311AFB /* ua.json in Resources */,
-				04961926252F2D03002DB1B5 /* aduro_personal_ge.htm in Resources */,
 				04AC6FE12542BFA3007F1DB3 /* aduro_0705_30_u.dat in Resources */,
 				4D8DBBA1263180E100EE1D42 /* ConfirmDialogBox.xib in Resources */,
 				0414718625F4E0F800594365 /* aduro_0705_34_u.dat in Resources */,
-				04F05B2C24444EBB007F941B /* aduro_terms_es_wifi.htm in Resources */,
-				04F05B3124444EBB007F941B /* aduro_terms_fr.htm in Resources */,
+				4D3A4865263AEE1600EDC558 /* aduro_terms_da.htm in Resources */,
 				04EFB5FD25D2C4B70031F80C /* NotificationViewController.xib in Resources */,
+				4D3A4861263AEE1600EDC558 /* aduro_personal_en.htm in Resources */,
 				04F0850025EE5A1800445D27 /* Countries.json in Resources */,
+				4D3A4864263AEE1600EDC558 /* aduro_personal_da.htm in Resources */,
 				049EB2C72536EE7E00A1A938 /* aduro_0705_6_u.dat in Resources */,
 				04C4CA65252DADD600311AFB /* fr.json in Resources */,
-				04F05B2E24444EBB007F941B /* aduro_terms_de_wifi.htm in Resources */,
 				049EB2C82536EE7E00A1A938 /* aduro_0705_29.dat in Resources */,
 				04C4CA6B252DADD600311AFB /* sw.json in Resources */,
 				04C4CA63252DADD600311AFB /* es.json in Resources */,
-				04961925252F2D03002DB1B5 /* aduro_personal_it.htm in Resources */,
-				04F05B2624444EBB007F941B /* aduro_terms_en_wifi.htm in Resources */,
 				044196AF258B78B70090AC6E /* aduro_0705_33_u.dat in Resources */,
-				04F05B2D24444EBB007F941B /* aduro_terms_es.htm in Resources */,
-				04961924252F2D03002DB1B5 /* aduro_personal_fr.htm in Resources */,
-				04F05B2F24444EBB007F941B /* aduro_terms_de.htm in Resources */,
 				4DE0B22B261B4A640092A348 /* CustomSlider.xib in Resources */,
-				04F05B3024444EBB007F941B /* aduro_terms_dk_wifi.htm in Resources */,
-				04961928252F2D03002DB1B5 /* aduro_personal_da.htm in Resources */,
-				04F05B2924444EBB007F941B /* aduro_terms_en.htm in Resources */,
 				04C4CA68252DADD600311AFB /* ge.json in Resources */,
 				0458EDA1255BDC10001DB46B /* Info.plist in Resources */,
 				04C4CA69252DADD600311AFB /* it.json in Resources */,
@@ -685,17 +654,12 @@
 				04F084FB25EE596700445D27 /* SelectCountryViewController.xib in Resources */,
 				049EB2C62536EE7E00A1A938 /* aduro_0698_u.dat in Resources */,
 				04C4CA67252DADD600311AFB /* en.json in Resources */,
-				04961927252F2D03002DB1B5 /* aduro_personal_en.htm in Resources */,
 				04800C3A24B8806C0029D920 /* fontawesome-webfont.ttf in Resources */,
 				0458EDA9255BE666001DB46B /* InfoPlist.strings in Resources */,
-				04961923252F2D03002DB1B5 /* aduro_personal_es.htm in Resources */,
+				4D3A4863263AEE1600EDC558 /* aduro_terms_en_wifi.htm in Resources */,
 				0414714225EF838F00594365 /* NotificationTableViewCell.xib in Resources */,
-				04F05B2724444EBB007F941B /* aduro_terms_it_wifi.htm in Resources */,
 				04C4CA6A252DADD600311AFB /* ru.json in Resources */,
-				04F05B2B24444EBB007F941B /* aduro_terms_it.htm in Resources */,
-				04F05B2824444EBB007F941B /* aduro_terms_dk.htm in Resources */,
 				04C4CA62252DADD600311AFB /* du.json in Resources */,
-				04F05B2A24444EBB007F941B /* aduro_terms_fr_wifi.htm in Resources */,
 				4D8C4EFD262EFCF7007FF623 /* beep.mp3 in Resources */,
 				04A5A51423FFA25000EB19B6 /* Main.storyboard in Resources */,
 			);
