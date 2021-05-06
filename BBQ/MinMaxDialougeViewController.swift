@@ -20,7 +20,7 @@ class MinMaxDialougeViewController: UIViewController {
     var maximumValue:String!
     var payload:String!
     var CurrentValue:String!
-   
+    var saveInternally:Bool = false
     static let identifier = "PopUpActionViewController"
     var delegate: PopUpDelegate?
 
@@ -75,7 +75,12 @@ class MinMaxDialougeViewController: UIViewController {
         //Typing
     }
     @IBAction func save(_ sender: UIButton) {
-        self.delegate?.handleAction(payloadKEy: payload, value: textfield.text!)
+        if saveInternally {
+            self.delegate?.handleInternalAction(key: payload, value: textfield.text!)
+        } else {
+            self.delegate?.handleAction(payloadKEy: payload, value: textfield.text!)
+        }
+     
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -109,5 +114,6 @@ class MinMaxDialougeViewController: UIViewController {
 
 protocol PopUpDelegate {
     func handleAction(payloadKEy: String,value:String)
+    func handleInternalAction(key: String,value:String)
 }
 

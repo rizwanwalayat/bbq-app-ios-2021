@@ -15,6 +15,12 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         setMinMAx(key: payloadKEy, value: value)
     }
     
+    func handleInternalAction(key: String, value: String) {
+        screenLockTimeValue.text = value
+        Util.SetDefaults(key: key, value: value)
+        NotificationCenter.default.post(name: Notification.Name.TimeOutValueChanged, object: nil)
+    }
+    
   
     
     let concurrentQueue = DispatchQueue(label: "SERVICE Queue", attributes: .concurrent)
@@ -45,6 +51,8 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     
 //    submenu General
     @IBOutlet weak var  shutdownTimeLbl: UILabel!
+    @IBOutlet weak var screenLockTimeLbl: UILabel!
+    
     @IBOutlet weak var  shaftAlarmLbl: UILabel!
     @IBOutlet weak var  gainPLbl: UILabel!
     @IBOutlet weak var  gainILbl: UILabel!
@@ -52,6 +60,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
 
     
     @IBOutlet weak var  shutdownTimeValue: UILabel!
+    @IBOutlet weak var screenLockTimeValue: UILabel!
     @IBOutlet weak var  shaftAlarmValue: UILabel!
     @IBOutlet weak var  gainPValue: UILabel!
     @IBOutlet weak var  gainIValue: UILabel!
@@ -59,6 +68,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
  
     
     @IBOutlet weak var  shutdownTimeTouch: UIView!
+    @IBOutlet weak var  screenLockTimeTouch: UIView!
     @IBOutlet weak var  shaftAlarmTouch: UIView!
     @IBOutlet weak var  gainPTouch: UIView!
     @IBOutlet weak var  gainITouch: UIView!
@@ -165,6 +175,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         self.PowerIgnitionValue.text = self.f11Values[general.ignition_heat] ?? "-"
         self.PowerIgnitionOperationValue.text = self.f11Values[general.operation_heat] ?? "-"
         self.shutdownTimeValue.text = self.f11Values[general.shutdown_time] ?? "-"
+        self.screenLockTimeValue.text = Util.GetDefaultsString(key: general.screen_lock_time) == "nothing" ? "10" : Util.GetDefaultsString(key: general.screen_lock_time)
         self.shaftAlarmValue.text = self.f11Values[general.shaft_alarm] ?? "-"
         self.gainPValue.text = self.f11Values[general.gain_p] ?? "-"
         self.gainIValue.text = self.f11Values[general.gain_i] ?? "-"
@@ -247,6 +258,8 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         
         shutdownTimeLbl.text=Language.getInstance().getlangauge(key: "shutdown_time") + "(s)"
         shutdownTimeTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.shutdownTimeTouchFunction(_:))))
+        screenLockTimeLbl.text=Language.getInstance().getlangauge(key: "screen_lock_time") + "(s)"
+        screenLockTimeTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.screenLockTimeTouchFunction(_:))))
         shaftAlarmLbl.text=Language.getInstance().getlangauge(key: "shaft_alarm") + "(°C)"
         shaftAlarmTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.shaftAlarmTouchFunction(_:))))
         gainPLbl.text=Language.getInstance().getlangauge(key: "gain_p")
@@ -326,6 +339,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         PowerIgnitionOperationTouch.isUserInteractionEnabled=false
        
         shutdownTimeTouch.isUserInteractionEnabled=false
+        screenLockTimeTouch.isUserInteractionEnabled=false
         shaftAlarmTouch.isUserInteractionEnabled=false
         gainPTouch.isUserInteractionEnabled=false
         gainITouch.isUserInteractionEnabled=false
@@ -341,6 +355,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
          PowerIgnitionTouch.isUserInteractionEnabled=true
         PowerIgnitionOperationTouch.isUserInteractionEnabled=true
          shutdownTimeTouch.isUserInteractionEnabled=true
+         screenLockTimeTouch.isUserInteractionEnabled=true
          shaftAlarmTouch.isUserInteractionEnabled=true
          gainPTouch.isUserInteractionEnabled=true
          gainITouch.isUserInteractionEnabled=true
@@ -384,6 +399,14 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         getMinMax(Key: general.shutdown_time, currentValue: shutdownTimeValue.text!)
 
     }
+    
+    @objc func screenLockTimeTouchFunction(_ sender:UITapGestureRecognizer)
+    {
+        currentvaluechanging=screenLockTimeValue
+        let map = ["screen_lock_time":"5,300"]
+        self.buildDialogue(map: map, payload: general.screen_lock_time, currentValue: screenLockTimeValue.text!)
+    }
+    
     @objc func shaftAlarmTouchFunction(_ sender:UITapGestureRecognizer )
     {
         
@@ -452,7 +475,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         }
     }
     
-    func buildDialogue(map:[String:String],payload:String,currentValue:String)
+    func buildDialogue(map:[String:String],payload:String,currentValue:String, _ localSave: Bool? = false)
     {
         let mapvalue=payload.split(separator: ".")[1]
         var values=map[String(mapvalue)]?.split(separator: ",")
@@ -465,6 +488,9 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
             MinMaxDialougeViewController else { return}
         sVC.modalPresentationStyle = .custom
         sVC.modalTransitionStyle = .crossDissolve
+        if localSave != nil {
+            sVC.saveInternally = true
+        }
         sVC.delegate=self
         sVC.minimunValue=min
         sVC.maximumValue=max

@@ -15,6 +15,14 @@ class AdjustmentViewController: UIViewController {
     let concurrentQueue = DispatchQueue(label: "adjust Queue", attributes: .concurrent)
     var f11Values: [String: String] = [:]
     
+    @IBOutlet weak var feedLowBtn: UIButton!
+    @IBOutlet weak var feedHighBtn: UIButton!
+    @IBOutlet weak var fanLowBtn: UIButton!
+    @IBOutlet weak var fanHighBtn: UIButton!
+    @IBOutlet weak var smokeFeedBtn: UIButton!
+    @IBOutlet weak var smokeFanBtn: UIButton!
+    @IBOutlet weak var smokePauseBtn: UIButton!
+    
     // MARK:- Custom Sliders
     
     @IBOutlet weak var feedLowSlider: CustomSlider!
@@ -24,8 +32,6 @@ class AdjustmentViewController: UIViewController {
     @IBOutlet weak var smokeFeedSlider: CustomSlider!
     @IBOutlet weak var smokeFanSlider: CustomSlider!
     @IBOutlet weak var smokePauseSlider: CustomSlider!
-    
-    
     
     @IBOutlet weak var fan1Layout: MyCustomView!
     
@@ -51,14 +57,7 @@ class AdjustmentViewController: UIViewController {
         //        self.gradient.updateGradient(frame: self.view.bounds)
         
 //        disable()
-//
-//        fanText1.text=Language.getInstance().getlangauge(key: "fan_header")
-//        fantext2.text=Language.getInstance().getlangauge(key: "fan_header")
-//        fanText3.text=Language.getInstance().getlangauge(key: "fan_header")
-//        augerText1.text=Language.getInstance().getlangauge(key: "pellets")
-//        augerText2.text=Language.getInstance().getlangauge(key: "pellets")
-//        augertext3.text=Language.getInstance().getlangauge(key: "pellets")
-//        resetButtonLabel.setTitle(Language.getInstance().getlangauge(key: "setting_alarmStop"), for: .normal)
+
         
         // Do any additional setup after loading the view.
     }
@@ -70,6 +69,17 @@ class AdjustmentViewController: UIViewController {
         self.f11Values = ControllerconnectionImpl.getInstance().getFrontData()
         print("f11Values", self.f11Values)
         self.updateAllSliders()
+        self.setCurrentValues()
+    }
+    
+    func setCurrentValues(){
+        feedLowBtn.setAttributedTitle(NSAttributedString(string: f11Values[general.feed_low] ?? "-"), for: .normal)
+        feedHighBtn.setAttributedTitle(NSAttributedString(string: f11Values[general.feed_high] ?? "-"), for: .normal)
+        fanLowBtn.setAttributedTitle(NSAttributedString(string: f11Values[general.fan_low] ?? "-"), for: .normal)
+        fanHighBtn.setAttributedTitle(NSAttributedString(string: f11Values[general.fan_high] ?? "-"), for: .normal)
+        smokeFeedBtn.setAttributedTitle(NSAttributedString(string: f11Values[smoke.feed] ?? "-"), for: .normal)
+        smokeFanBtn.setAttributedTitle(NSAttributedString(string: f11Values[smoke.fan] ?? "-"), for: .normal)
+        smokePauseBtn.setAttributedTitle(NSAttributedString(string: f11Values[smoke.pause] ?? "-"), for: .normal)
     }
     
     func getF11Values(){
@@ -104,7 +114,6 @@ class AdjustmentViewController: UIViewController {
         slider.sliderName = valueName
         slider.configureSlider(value: value, minValue: min, maxValue: max,  interval: interval)
         slider.setThumbColor(.red)
-        slider.setThumbLabelColor(.red)
         slider.setTrackColor(.red)
     }
     

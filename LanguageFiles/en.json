@@ -391,4 +391,8 @@
     "smoke_fan_description": "Choose the power % of fan during SMOKING MODE.",
     "smoke_pause_title": "Fan Sleep %- Smoking",
     "smoke_pause_description": "Choose the % of the time the burner fan should pause when in the SMOKING MODE.",
+    "screen_locked":"Screen is locked",
+    "unlock":"Unlock",
+    "keep_locked":"Keep Locked",
+    "screen_lock_time": "Screen lock time",
 }

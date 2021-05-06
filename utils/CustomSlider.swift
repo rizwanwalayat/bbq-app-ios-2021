@@ -22,6 +22,8 @@ class CustomSlider: UIView {
     var maxValue: Int!
     var interval: Int!
     private var sliderValueUpdated:((Int)->Void)?
+    weak var delegate: SliderDelegate?
+    var sliderName: String = Values.bbq_fixed_temperature
     
     //MARK: - IBOutlets
     @IBOutlet var rangeLabels: [UILabel]!
@@ -30,10 +32,11 @@ class CustomSlider: UIView {
     @IBOutlet weak var thumbLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var thumbLabelImage: UIImageView!
     @IBOutlet weak var minRangeLabel: UILabel!
+    @IBOutlet weak var rangeStackView: UIStackView!
+    @IBOutlet weak var minLabel: UILabel!
+    @IBOutlet weak var maxLabel: UILabel!
     
-    
-    weak var delegate: SliderDelegate?
-    var sliderName: String = Values.bbq_fixed_temperature
+
     //MARK: - UIView Methods
     
     override init(frame: CGRect) {
@@ -109,7 +112,6 @@ class CustomSlider: UIView {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(sliderTapped))
         self.view.addGestureRecognizer(panGesture)
         self.view.addGestureRecognizer(tapGesture)
-        hideRangeLabels()
         showThumbLabel(false)
     }
     
@@ -151,7 +153,9 @@ class CustomSlider: UIView {
     
     //MARK: - Methods
      
+    // Range Labels are hidden on the Xib. To show them this function should be called
     func setRangeLabels(){
+        rangeStackView.isHidden = false
         let interval = maxValue / 5
         var currentValue = interval
         
@@ -163,18 +167,14 @@ class CustomSlider: UIView {
         minRangeLabel.textColor = UIColor(named: "textColorLight")
     }
     
-    func hideRangeLabels(){
-        minRangeLabel.isHidden = true
-        rangeLabels.forEach { (label) in
-            label.isHidden = true
-        }
-    }
     
     func configureSlider(value: Int?, minValue: Int, maxValue:Int, interval:Int, onValueUpdate:((Int)->Void)? = nil) {
         self.minValue = minValue
         self.maxValue = maxValue
         self.interval = interval
         sliderValueUpdated = onValueUpdate
+        minLabel.text = "\(minValue)"
+        maxLabel.text = "\(maxValue)"
         slider.maximumValue = Float(maxValue)
         slider.minimumValue = Float(minValue)
         slider.value = Float(value ?? minValue) 
@@ -204,7 +204,7 @@ class CustomSlider: UIView {
         thumbLabel.text = Int(slider.value) == 0 ? "OFF": "\(Int(slider.value))"
         let rect = slider.thumbRect(forBounds: slider.bounds, trackRect: slider.trackRect(forBounds: slider.bounds), value: slider.value)
         
-        thumbLeadingConstraint.constant = rect.origin.x - (thumbLabelImage.frame.width / 2) + 13
+        thumbLeadingConstraint.constant = rect.origin.x - (thumbLabelImage.frame.width / 2) + 23
         
 //        if slider.value >= (slider.maximumValue / 5) * 4 {
 //            print("slider.value.greater", slider.value)

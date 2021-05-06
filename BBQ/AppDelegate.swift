@@ -15,7 +15,7 @@ import SQLite3
 import UserNotifications
 
 
-@UIApplicationMain
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

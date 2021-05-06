@@ -62,6 +62,7 @@ class general {
     static var gain_p: String = "general.gain_p"
     static var gain_i: String = "general.gain_i"
     static var fan_shutdown: String = "general.fan_shutdown"
+    static var screen_lock_time: String = "general.screen_lock_time"
 }
 
 class smoke {

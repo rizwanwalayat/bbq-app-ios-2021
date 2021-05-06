@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Foundation
 import FGRoute
 import MBProgressHUD
 import CoreLocation
 import AVFoundation
+
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwaredelegate {
     func donedialogStartFirmware() {
@@ -32,6 +34,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     var f11Values: [String:String] = [:]
     var loadingNotification : MBProgressHUD!
 
+
+    
+    @IBOutlet weak var lockScreenView: UIView!
+    @IBOutlet weak var unlockBtn: UIButton!
     
     @IBOutlet weak var gradient: gradient!
     @IBOutlet weak var onOffButton: UIImageView!{
@@ -53,6 +59,16 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     
     @IBOutlet weak var bbqNewView: UIView!
     @IBOutlet weak var bbqOldView: UIView!
+    
+    
+    @IBOutlet weak var bbqFixedTempBtn: UIButton!
+    @IBOutlet weak var bbqMeatTemp1Btn: UIButton!
+    @IBOutlet weak var bbqMeatTemp2Btn: UIButton!
+    @IBOutlet weak var generalRotationTimeBtn: UIButton!
+    @IBOutlet weak var smokeLevelBtn: UIButton!
+    @IBOutlet weak var smokeTimerBtn: UIButton!
+    @IBOutlet weak var bbqFixedPowerBtn: UIButton!
+    
     
     @IBOutlet weak var bbqFixedTempSlider: CustomSlider!
     @IBOutlet weak var bbqMeatTemp1Slider: CustomSlider!
@@ -83,10 +99,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterbackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(lockScreen), name: Notification.Name.TimeOutUserInteraction, object: nil)
         
         updateValues()
         
@@ -141,6 +158,18 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         print("start handler")
         starthandler()
     }
+    
+    
+    @objc func lockScreen(){
+        lockScreenView.isHidden = false
+        unlockBtn.isHidden = false
+    }
+    
+    func unlockScreen(){
+        lockScreenView.isHidden = true
+        unlockBtn.isHidden = true
+    }
+    
     func getF11Value(_ key: String)->String?{
         if f11Values[key] != nil {
             if Int(f11Values[key]!) == 0 {
@@ -522,8 +551,19 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     func updateValues(){
         self.setupBuzzer()
         self.setupSliders()
+        self.setCurrentValues()
         self.setupStatusArea()
         self.setupBBQView()
+    }
+    
+    func setCurrentValues(){
+        bbqFixedTempBtn.setAttributedTitle(NSAttributedString(string: f11Values[Values.bbq_fixed_temperature] ?? "-"), for: .normal)
+        bbqMeatTemp1Btn.setAttributedTitle(NSAttributedString(string: f11Values[Values.bbq_meat_temp_1] ?? "-"), for: .normal)
+        bbqMeatTemp2Btn.setAttributedTitle(NSAttributedString(string: f11Values[Values.bbq_meat_temp_2] ?? "-"), for: .normal)
+        generalRotationTimeBtn.setAttributedTitle(NSAttributedString(string: f11Values[Values.general_rotation_time] ?? "-"), for: .normal)
+        smokeLevelBtn.setAttributedTitle(NSAttributedString(string: f11Values[Values.smoke_level] ?? "-"), for: .normal)
+        smokeTimerBtn.setAttributedTitle(NSAttributedString(string: f11Values[Values.smoke_timer] ?? "-"), for: .normal)
+        bbqFixedPowerBtn.setAttributedTitle(NSAttributedString(string: f11Values[Values.bbq_fixed_power] ?? "-"), for: .normal)
     }
     
     func setupBuzzer(){
@@ -545,7 +585,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
             let buzzer_1 = Int(f11Values[Values.buzzer_1_active] ?? "0")
             let buzzer_2 = Int(f11Values[Values.buzzer_2_active] ?? "0")
             
-            if buzzer_1 == 1 || buzzer_2 == 1 || true {
+            if buzzer_1 == 1 || buzzer_2 == 1 {
                 
                 if alarmSoundTimer == nil {
                     alarmSoundTimerCount = 0
@@ -571,6 +611,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
             do {
                 self.alarmSoundEffect = try AVAudioPlayer(contentsOf: url)
                 self.alarmSoundEffect?.play()
+                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
             } catch {
                 print("Audio File Not Found")
             }
@@ -588,7 +629,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         flagsIgniteStatus.isHidden = (Int(f11Values[Values.flags_ignite] ?? "0") == 0) ? true : false
         smokeTimerStatus.isHidden = !(Int(f11Values[Values.smoke_timer] ?? "0")! > 0 && Int(f11Values[Values.flags_smoke] ?? "0") != 0)
         smokeTimerCountStatus.text = (Int(f11Values[Values.smoke_timer] ?? "0")! > 0) ? setupSmokeTimer() : "00:00"
-        flagsSmokeStatus.isHidden = (Int(f11Values[Values.flags_smoke] ?? "0")! > 0) ? false : true
+        smokeTimerCountStatus.isHidden = (Int(f11Values[Values.flags_smoke] ?? "0") != 1)
+//        flagsSmokeStatus.isHidden = (Int(f11Values[Values.flags_smoke] ?? "0")! > 0) ? false : true
         stateStatus.isHidden = (Int(f11Values[Values.state] ?? "0")! >= 5 && Int(f11Values[Values.state] ?? "0")! <= 11 ) ? false : true
         flagsSleepStatus.isHidden = (Int(f11Values[Values.flags_sleep] ?? "0")! != 0) ? false : true
         bbqFixedPowerStatus.isHidden = (Int(f11Values[Values.bbq_fixed_power] ?? "0")! > 0) ? false : true
@@ -627,7 +669,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         slider.sliderName = valueName
         slider.configureSlider(value: value, minValue: min, maxValue: max,  interval: interval)
         slider.setThumbColor(.red)
-        slider.setThumbLabelColor(.red)
         slider.setTrackColor(.red)
     }
     
@@ -911,9 +952,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         self.present(dialogBox, animated: true)
     }
     
-    func showConfirmDialogBox(titleText: String, descriptionText: String, completionHandler: @escaping (()->Void)){
+    func showConfirmDialogBox(titleText: String, descriptionText: String, cancelText: String?=nil, confirmText:String?=nil, completionHandler: @escaping (()->Void)){
         let confirmDialogBox = ConfirmDialogBox()
-        confirmDialogBox.configure(titleText: titleText, descriptionText: descriptionText, cancelText: Language.getInstance().getlangauge(key: "no"), confirmText: Language.getInstance().getlangauge(key: "yes")) {
+        confirmDialogBox.configure(titleText: titleText, descriptionText: descriptionText, cancelText: (cancelText != nil ? cancelText! : Language.getInstance().getlangauge(key: "no")), confirmText:(confirmText != nil ? confirmText! : Language.getInstance().getlangauge(key: "yes"))) {
             completionHandler()
         }
        
@@ -922,6 +963,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         self.present(confirmDialogBox, animated: true)
     }
     
+   
     // MARK: - Actions
     
     @IBAction func onOffBtnPressed(_ sender: UITapGestureRecognizer) {
@@ -995,6 +1037,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         }
     }
     
+    @IBAction func unlockBtnPressed(_ sender: Any) {
+        showConfirmDialogBox(titleText: Language.getInstance().getlangauge(key: "screen_locked"), descriptionText: "", cancelText: Language.getInstance().getlangauge(key: "keep_locked"), confirmText: Language.getInstance().getlangauge(key: "unlock")) {
+            self.unlockScreen()
+        }
+    }
+    
 }
 
 extension HomeViewController: SliderDelegate {
@@ -1006,3 +1054,5 @@ extension HomeViewController: SliderDelegate {
         print(sliderName, value)
     }
 }
+
+

@@ -107,6 +107,8 @@
 		4D3A4864263AEE1600EDC558 /* aduro_personal_da.htm in Resources */ = {isa = PBXBuildFile; fileRef = 4D3A485E263AEE1500EDC558 /* aduro_personal_da.htm */; };
 		4D3A4865263AEE1600EDC558 /* aduro_terms_da.htm in Resources */ = {isa = PBXBuildFile; fileRef = 4D3A485F263AEE1600EDC558 /* aduro_terms_da.htm */; };
 		4D74137326123B6E0084B9A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74137226123B6E0084B9A3 /* HomeViewController.swift */; };
+		4D78D38126435A2700B6EA2C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78D38026435A2700B6EA2C /* main.swift */; };
+		4D78D3842643C36F00B6EA2C /* ScreenTouchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78D3832643C36F00B6EA2C /* ScreenTouchTimer.swift */; };
 		4D84885C26289B130084B34A /* DialogBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84885A26289B130084B34A /* DialogBox.swift */; };
 		4D84885D26289B130084B34A /* DialogBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D84885B26289B130084B34A /* DialogBox.xib */; };
 		4D8C4EFD262EFCF7007FF623 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4D8C4EFC262EFCF6007FF623 /* beep.mp3 */; };
@@ -237,6 +239,8 @@
 		4D3A485E263AEE1500EDC558 /* aduro_personal_da.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_personal_da.htm; sourceTree = "<group>"; };
 		4D3A485F263AEE1600EDC558 /* aduro_terms_da.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aduro_terms_da.htm; sourceTree = "<group>"; };
 		4D74137226123B6E0084B9A3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4D78D38026435A2700B6EA2C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4D78D3832643C36F00B6EA2C /* ScreenTouchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTouchTimer.swift; sourceTree = "<group>"; };
 		4D84885A26289B130084B34A /* DialogBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBox.swift; sourceTree = "<group>"; };
 		4D84885B26289B130084B34A /* DialogBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogBox.xib; sourceTree = "<group>"; };
 		4D8C4EFC262EFCF6007FF623 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
@@ -393,6 +397,7 @@
 				04287B11253F1C1300A3EF50 /* FirmwareUpdateDialogeViewController.swift */,
 				0458EDAB255BE666001DB46B /* InfoPlist.strings */,
 				4D74137226123B6E0084B9A3 /* HomeViewController.swift */,
+				4D78D38026435A2700B6EA2C /* main.swift */,
 			);
 			path = BBQ;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				4D84885B26289B130084B34A /* DialogBox.xib */,
 				4D8DBBA32631816F00EE1D42 /* ConfirmDialogBox.swift */,
 				4D8DBBA0263180E100EE1D42 /* ConfirmDialogBox.xib */,
+				4D78D3832643C36F00B6EA2C /* ScreenTouchTimer.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -719,6 +725,7 @@
 				04A5A55223FFA50C00EB19B6 /* Encryption.swift in Sources */,
 				04A5A54E23FFA50C00EB19B6 /* NSData+SHA.m in Sources */,
 				04A5A52C23FFA43400EB19B6 /* ControllerResponseImpl.swift in Sources */,
+				4D78D38126435A2700B6EA2C /* main.swift in Sources */,
 				04CD5E832416384900F56C53 /* LanguageViewController.swift in Sources */,
 				04F084FD25EE596700445D27 /* SelectCountryViewController.swift in Sources */,
 				0470798525D2C68B0051706E /* NotificationTableViewCell.swift in Sources */,
@@ -752,6 +759,7 @@
 				4DBAE9272627162300698D68 /* AduroAdjustmentViewController.swift in Sources */,
 				0414713D25EE5C9200594365 /* CountryTableViewCell.swift in Sources */,
 				4DE0B22A261B4A640092A348 /* CustomSlider.swift in Sources */,
+				4D78D3842643C36F00B6EA2C /* ScreenTouchTimer.swift in Sources */,
 				4D84885C26289B130084B34A /* DialogBox.swift in Sources */,
 				0414072E25399B5700F4147D /* FirmwareUpdateViewController.swift in Sources */,
 				4D8DBBA42631816F00EE1D42 /* ConfirmDialogBox.swift in Sources */,
