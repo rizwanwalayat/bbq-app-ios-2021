@@ -76,16 +76,8 @@
 		04A5A55A24000B1000EB19B6 /* AduroHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A5A55924000B1000EB19B6 /* AduroHomeViewController.swift */; };
 		04AC6FE12542BFA3007F1DB3 /* aduro_0705_30_u.dat in Resources */ = {isa = PBXBuildFile; fileRef = 04AC6FE02542BFA3007F1DB3 /* aduro_0705_30_u.dat */; };
 		04BA19A6252B5AF10083AA4E /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA19A5252B5AF10083AA4E /* testViewController.swift */; };
-		04C4CA62252DADD600311AFB /* du.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C4CA58252DADD400311AFB /* du.json */; };
-		04C4CA63252DADD600311AFB /* es.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C4CA59252DADD400311AFB /* es.json */; };
-		04C4CA64252DADD600311AFB /* ua.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C4CA5A252DADD400311AFB /* ua.json */; };
-		04C4CA65252DADD600311AFB /* fr.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C4CA5B252DADD500311AFB /* fr.json */; };
 		04C4CA66252DADD600311AFB /* da.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C4CA5C252DADD500311AFB /* da.json */; };
 		04C4CA67252DADD600311AFB /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C4CA5D252DADD500311AFB /* en.json */; };
-		04C4CA68252DADD600311AFB /* ge.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C4CA5E252DADD600311AFB /* ge.json */; };
-		04C4CA69252DADD600311AFB /* it.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C4CA5F252DADD600311AFB /* it.json */; };
-		04C4CA6A252DADD600311AFB /* ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C4CA60252DADD600311AFB /* ru.json */; };
-		04C4CA6B252DADD600311AFB /* sw.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C4CA61252DADD600311AFB /* sw.json */; };
 		04CD5E832416384900F56C53 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E822416384900F56C53 /* LanguageViewController.swift */; };
 		04CD5E8524163DCC00F56C53 /* agreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E8424163DCC00F56C53 /* agreementViewController.swift */; };
 		04CD5E89241769F900F56C53 /* Agreement2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD5E88241769F900F56C53 /* Agreement2ViewController.swift */; };
@@ -109,6 +101,7 @@
 		4D74137326123B6E0084B9A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D74137226123B6E0084B9A3 /* HomeViewController.swift */; };
 		4D78D38126435A2700B6EA2C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78D38026435A2700B6EA2C /* main.swift */; };
 		4D78D3842643C36F00B6EA2C /* ScreenTouchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78D3832643C36F00B6EA2C /* ScreenTouchTimer.swift */; };
+		4D78D389264551FD00B6EA2C /* currentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78D388264551FD00B6EA2C /* currentViewController.swift */; };
 		4D84885C26289B130084B34A /* DialogBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84885A26289B130084B34A /* DialogBox.swift */; };
 		4D84885D26289B130084B34A /* DialogBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D84885B26289B130084B34A /* DialogBox.xib */; };
 		4D8C4EFD262EFCF7007FF623 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4D8C4EFC262EFCF6007FF623 /* beep.mp3 */; };
@@ -208,16 +201,8 @@
 		04A5A55924000B1000EB19B6 /* AduroHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AduroHomeViewController.swift; sourceTree = "<group>"; };
 		04AC6FE02542BFA3007F1DB3 /* aduro_0705_30_u.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = aduro_0705_30_u.dat; sourceTree = "<group>"; };
 		04BA19A5252B5AF10083AA4E /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
-		04C4CA58252DADD400311AFB /* du.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = du.json; sourceTree = "<group>"; };
-		04C4CA59252DADD400311AFB /* es.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = es.json; sourceTree = "<group>"; };
-		04C4CA5A252DADD400311AFB /* ua.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ua.json; sourceTree = "<group>"; };
-		04C4CA5B252DADD500311AFB /* fr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fr.json; sourceTree = "<group>"; };
 		04C4CA5C252DADD500311AFB /* da.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = da.json; sourceTree = "<group>"; };
 		04C4CA5D252DADD500311AFB /* en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
-		04C4CA5E252DADD600311AFB /* ge.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ge.json; sourceTree = "<group>"; };
-		04C4CA5F252DADD600311AFB /* it.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = it.json; sourceTree = "<group>"; };
-		04C4CA60252DADD600311AFB /* ru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ru.json; sourceTree = "<group>"; };
-		04C4CA61252DADD600311AFB /* sw.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sw.json; sourceTree = "<group>"; };
 		04CD5E822416384900F56C53 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		04CD5E8424163DCC00F56C53 /* agreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = agreementViewController.swift; sourceTree = "<group>"; };
 		04CD5E88241769F900F56C53 /* Agreement2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agreement2ViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +226,7 @@
 		4D74137226123B6E0084B9A3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4D78D38026435A2700B6EA2C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4D78D3832643C36F00B6EA2C /* ScreenTouchTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTouchTimer.swift; sourceTree = "<group>"; };
+		4D78D388264551FD00B6EA2C /* currentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentViewController.swift; sourceTree = "<group>"; };
 		4D84885A26289B130084B34A /* DialogBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBox.swift; sourceTree = "<group>"; };
 		4D84885B26289B130084B34A /* DialogBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogBox.xib; sourceTree = "<group>"; };
 		4D8C4EFC262EFCF6007FF623 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
@@ -398,6 +384,7 @@
 				0458EDAB255BE666001DB46B /* InfoPlist.strings */,
 				4D74137226123B6E0084B9A3 /* HomeViewController.swift */,
 				4D78D38026435A2700B6EA2C /* main.swift */,
+				4D78D388264551FD00B6EA2C /* currentViewController.swift */,
 			);
 			path = BBQ;
 			sourceTree = "<group>";
@@ -493,15 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				04C4CA5C252DADD500311AFB /* da.json */,
-				04C4CA58252DADD400311AFB /* du.json */,
 				04C4CA5D252DADD500311AFB /* en.json */,
-				04C4CA59252DADD400311AFB /* es.json */,
-				04C4CA5B252DADD500311AFB /* fr.json */,
-				04C4CA5E252DADD600311AFB /* ge.json */,
-				04C4CA5F252DADD600311AFB /* it.json */,
-				04C4CA60252DADD600311AFB /* ru.json */,
-				04C4CA61252DADD600311AFB /* sw.json */,
-				04C4CA5A252DADD400311AFB /* ua.json */,
 			);
 			path = LanguageFiles;
 			sourceTree = "<group>";
@@ -634,7 +613,6 @@
 				4D3A4860263AEE1600EDC558 /* aduro_terms_en.htm in Resources */,
 				4D3A4862263AEE1600EDC558 /* aduro_terms_da_wifi.htm in Resources */,
 				0414713E25EE5C9200594365 /* CountryTableViewCell.xib in Resources */,
-				04C4CA64252DADD600311AFB /* ua.json in Resources */,
 				04AC6FE12542BFA3007F1DB3 /* aduro_0705_30_u.dat in Resources */,
 				4D8DBBA1263180E100EE1D42 /* ConfirmDialogBox.xib in Resources */,
 				0414718625F4E0F800594365 /* aduro_0705_34_u.dat in Resources */,
@@ -644,15 +622,10 @@
 				04F0850025EE5A1800445D27 /* Countries.json in Resources */,
 				4D3A4864263AEE1600EDC558 /* aduro_personal_da.htm in Resources */,
 				049EB2C72536EE7E00A1A938 /* aduro_0705_6_u.dat in Resources */,
-				04C4CA65252DADD600311AFB /* fr.json in Resources */,
 				049EB2C82536EE7E00A1A938 /* aduro_0705_29.dat in Resources */,
-				04C4CA6B252DADD600311AFB /* sw.json in Resources */,
-				04C4CA63252DADD600311AFB /* es.json in Resources */,
 				044196AF258B78B70090AC6E /* aduro_0705_33_u.dat in Resources */,
 				4DE0B22B261B4A640092A348 /* CustomSlider.xib in Resources */,
-				04C4CA68252DADD600311AFB /* ge.json in Resources */,
 				0458EDA1255BDC10001DB46B /* Info.plist in Resources */,
-				04C4CA69252DADD600311AFB /* it.json in Resources */,
 				04A5A51923FFA25300EB19B6 /* LaunchScreen.storyboard in Resources */,
 				04C4CA66252DADD600311AFB /* da.json in Resources */,
 				4D84885D26289B130084B34A /* DialogBox.xib in Resources */,
@@ -664,8 +637,6 @@
 				0458EDA9255BE666001DB46B /* InfoPlist.strings in Resources */,
 				4D3A4863263AEE1600EDC558 /* aduro_terms_en_wifi.htm in Resources */,
 				0414714225EF838F00594365 /* NotificationTableViewCell.xib in Resources */,
-				04C4CA6A252DADD600311AFB /* ru.json in Resources */,
-				04C4CA62252DADD600311AFB /* du.json in Resources */,
 				4D8C4EFD262EFCF7007FF623 /* beep.mp3 in Resources */,
 				04A5A51423FFA25000EB19B6 /* Main.storyboard in Resources */,
 			);
@@ -726,6 +697,7 @@
 				04A5A54E23FFA50C00EB19B6 /* NSData+SHA.m in Sources */,
 				04A5A52C23FFA43400EB19B6 /* ControllerResponseImpl.swift in Sources */,
 				4D78D38126435A2700B6EA2C /* main.swift in Sources */,
+				4D78D389264551FD00B6EA2C /* currentViewController.swift in Sources */,
 				04CD5E832416384900F56C53 /* LanguageViewController.swift in Sources */,
 				04F084FD25EE596700445D27 /* SelectCountryViewController.swift in Sources */,
 				0470798525D2C68B0051706E /* NotificationTableViewCell.swift in Sources */,

@@ -35,6 +35,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     var loadingNotification : MBProgressHUD!
 
 
+    @IBOutlet weak var mainView: UIView!
     
     @IBOutlet weak var lockScreenView: UIView!
     @IBOutlet weak var unlockBtn: UIButton!
@@ -91,19 +92,29 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     @IBOutlet weak var oldBBQMeatTemp1Lbl: UILabel!
     @IBOutlet weak var oldBBQMeatTemp2Lbl: UILabel!
     
+    @IBOutlet weak var versionText: UILabel!
+
+    
     var timer: Timer!
     var restartTimer:Timer!
     var countDownTimermode1 : Timer!
     var simulationMode : Timer!
     
     
+    
     override func viewDidLoad() {
+        ScreenTouchTimer.startIdleTimer()
+
         super.viewDidLoad()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterbackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(lockScreen), name: Notification.Name.TimeOutUserInteraction, object: nil)
+        
+        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(self.lockScreenPressed))
+        lockScreenView.addGestureRecognizer(tapgesture)
         
         updateValues()
         
@@ -136,8 +147,24 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         }
     }
     
+    @objc func lockScreenPressed(){
+        
+//        UIView.animate(withDuration: 3.0) {
+//            var loadingNotification : MBProgressHUD!
+//            loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+//       loadingNotification.mode = MBProgressHUDMode.determinate
+////            loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
+//           loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key: "screen_is_locked")
+//        }
+        
+        showToast(message: Language.getInstance().getlangauge(key: "screen_is_locked"))
+
+    }
+    
     @objc func appWillEnterForeground() {
         print("app in foreground")
+        ScreenTouchTimer.startIdleTimer()
+
         starthandler()
     }
     @objc func appWillEnterbackground() {
@@ -156,6 +183,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     
     override func viewDidAppear(_ animated: Bool) {
         print("start handler")
+        ScreenTouchTimer.startIdleTimer()
         starthandler()
     }
     
@@ -477,6 +505,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
             else
             {
                 DispatchQueue.main.async {
+                    
+                    self.setVersionText(variable: ControllerResponseImpl)
                     self.checkfirmwareHasToUpdate(response: ControllerResponseImpl)
                 }
                 
@@ -486,7 +516,37 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         
     }
     
-    
+    func setVersionText(variable:ControllerResponseImpl)  {
+        //First get the nsObject by defining as an optional anyObject
+        let nsObject: AnyObject? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as AnyObject?
+        let build: String? = Bundle.main.infoDictionary!["CFBundleVersion"] as! String?
+
+        //Then just cast the object as a String, but be careful, you may want to double check for nil
+        let version = nsObject as! String
+        let finaltext : String
+        if(build?.count == 1)
+        {
+            finaltext = version + ".0" + build! as! String
+
+        }else
+        {
+            finaltext = version + "." + build! as! String
+
+        }
+        
+        let slpitstring : [String] = variable.getDiscoveryValues()
+        if(slpitstring.count > 0)
+        {
+            if(slpitstring[1] == ControllerconnectionImpl.getInstance().getController().getSerial())
+            {
+                let finalString = "v"+version+"/"+slpitstring[3]+"."+slpitstring[4]+"/"+slpitstring[1]
+                self.versionText.text=finalString
+            }
+        }
+                                         
+        
+        
+    }
     
     func checkfirmwareHasToUpdate(response : ControllerResponseImpl)
     {
@@ -634,7 +694,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         stateStatus.isHidden = (Int(f11Values[Values.state] ?? "0")! >= 5 && Int(f11Values[Values.state] ?? "0")! <= 11 ) ? false : true
         flagsSleepStatus.isHidden = (Int(f11Values[Values.flags_sleep] ?? "0")! != 0) ? false : true
         bbqFixedPowerStatus.isHidden = (Int(f11Values[Values.bbq_fixed_power] ?? "0")! > 0) ? false : true
-        if let power_pct = Int(f11Values[Values.power_pct] ?? "0"), power_pct > 0 {
+        if let power_pct = f11Values[Values.power_pct]
+         {
             powerPctStatus.text = "\(power_pct)"
             powerPctPercentageStatus.isHidden = false
         } else {
@@ -708,7 +769,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         
     }
     func stopHandler() {
-        
+        ScreenTouchTimer.stopIdleTimer()
+
         if(timer != nil)
         {
             timer!.invalidate()
@@ -967,7 +1029,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     // MARK: - Actions
     
     @IBAction func onOffBtnPressed(_ sender: UITapGestureRecognizer) {
-        showConfirmDialogBox(titleText: Language.getInstance().getlangauge(key: "setting_alarmStop"), descriptionText: Language.getInstance().getlangauge(key: "reset_alarm")) {
+        showConfirmDialogBox(titleText: "", descriptionText: Language.getInstance().getlangauge(key: "lng_alarmreset_txt")) {
             let onOffAlarm = Int(self.f11Values[Values.super_state] ?? "-1")
             if(onOffAlarm==0){
                 self.setvalue(key: misc.start, value: "1")
@@ -986,11 +1048,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     }
     
     @IBAction func settingsBtnPressed(_ sender: Any) {
-        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "AdjustmentViewController") as?
-                AdjustmentViewController else { return}
-        sVC.modalPresentationStyle = .fullScreen
-        sVC.modalTransitionStyle = .crossDissolve
-        self.present(sVC, animated: true)
+//        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "AdjustmentViewController") as?
+//                AdjustmentViewController else { return}
+//        sVC.modalPresentationStyle = .fullScreen
+//        sVC.modalTransitionStyle = .crossDissolve
+//        self.present(sVC, animated: true)
     }
     
     @IBAction func wifiBtnPressed(_ sender: Any) {
@@ -1002,33 +1064,33 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     }
     
     @IBAction func fixedTempBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "bbq_temperature_title")+" "+(getF11Value(Values.bbq_fixed_temperature) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "bbq_temperature_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "grill_temp_header")+" "+(getF11Value(Values.bbq_fixed_temperature) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "grill_temp_text"))
     }
     
     @IBAction func meatTemp1BtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "meat_temperature_1_title")+" "+(getF11Value(Values.bbq_meat_temp_1) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "meat_temperature_1_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "meat_temp_1_header")+" "+(getF11Value(Values.bbq_meat_temp_1) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "meat_temp_1_text"))
     }
     
     
     @IBAction func meatTemp2BtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "meat_temperature_2_title")+" "+(getF11Value(Values.bbq_meat_temp_2) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "meat_temperature_2_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "meat_temp_2_header")+" "+(getF11Value(Values.bbq_meat_temp_2) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "meat_temp_2_text"))
     }
     
     
     @IBAction func rotationTimeBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "general_rotation_time_title")+" "+(getF11Value(Values.general_rotation_time) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "general_rotation_time_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Rotisserie_Rotation_header")+" "+(getF11Value(Values.general_rotation_time) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Rotisserie_Rotation_text"))
     }
     
     @IBAction func smokeLevelBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "smoke_level_title")+" "+(getF11Value(Values.smoke_level) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "smoke_level_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Smoke_Level_header")+" "+(getF11Value(Values.smoke_level) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Smoke_Level_text"))
     }
     
     @IBAction func smokeTimerBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "smoke_timer_title")+" "+(getF11Value(Values.smoke_timer) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "smoke_timer_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Smoke_Timer_header")+" "+(getF11Value(Values.smoke_timer) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Smoke_Timer_text"))
     }
     
     @IBAction func fixedPowerBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "bbq_fixed_power_title")+" "+(getF11Value(Values.bbq_fixed_power) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "bbq_fixed_power_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Fixed_Power_header")+" "+(getF11Value(Values.bbq_fixed_power) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Fixed_Power_text"))
     }
     
     @IBAction func bbqBuzzerBtnPressed(_ sender: Any) {
@@ -1038,7 +1100,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     }
     
     @IBAction func unlockBtnPressed(_ sender: Any) {
-        showConfirmDialogBox(titleText: Language.getInstance().getlangauge(key: "screen_locked"), descriptionText: "", cancelText: Language.getInstance().getlangauge(key: "keep_locked"), confirmText: Language.getInstance().getlangauge(key: "unlock")) {
+        showConfirmDialogBox(titleText: Language.getInstance().getlangauge(key: "screen_is_locked"), descriptionText: "", cancelText: Language.getInstance().getlangauge(key: "keep_lock"), confirmText: Language.getInstance().getlangauge(key: "unlock")) {
             self.unlockScreen()
         }
     }
@@ -1054,5 +1116,29 @@ extension HomeViewController: SliderDelegate {
         print(sliderName, value)
     }
 }
+
+extension HomeViewController
+{
+    
+    func showToast(message : String) {
+        
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-150, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.gray.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 5.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
+    
+}
+
 
 

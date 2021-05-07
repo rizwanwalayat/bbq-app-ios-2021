@@ -264,32 +264,32 @@ class AdjustmentViewController: UIViewController {
     }
     
     @IBAction func feedLowBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "general_feed_low_title")+" "+(f11Values[general.feed_low] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "general_feed_low_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Pellet_Feed_Min_Power_header")+" "+(f11Values[general.feed_low] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Pellet_Feed_Min_Power_text"))
     }
     
     @IBAction func feedHighBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "general_feed_high_title")+" "+(f11Values[general.feed_high] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "general_feed_high_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Pellet_Feed_Max_Power_header")+" "+(f11Values[general.feed_high] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Pellet_Feed_Max_Power_text"))
     }
     
     @IBAction func fanLowBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "general_fan_low_title")+" "+(f11Values[general.fan_low] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "general_fan_low_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Fan_Speed_Min_Power_header")+" "+(f11Values[general.fan_low] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Fan_Speed_Min_Power_text"))
     }
     
     @IBAction func fanHighBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "general_fan_high_title")+" "+(f11Values[general.fan_high] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "general_fan_high_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Fan_Speed_Max_Power_header")+" "+(f11Values[general.fan_high] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Fan_Speed_Max_Power_text"))
     }
     
     @IBAction func smokeFeedBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "smoke_feed_title")+" "+(f11Values[smoke.feed] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "smoke_feed_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Pellet_Feed_Smoking_header")+" "+(f11Values[smoke.feed] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Pellet_Feed_Smoking_text"))
     }
     
     @IBAction func smokeFanBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "smoke_fan_title")+" "+(f11Values[smoke.fan] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "smoke_fan_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Fan_Speed_Smoking_header")+" "+(f11Values[smoke.fan] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Fan_Speed_Smoking_text"))
     }
     
     
     @IBAction func smokePauseBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "smoke_pause_title")+" "+(f11Values[smoke.pause] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "smoke_pause_description"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Fan_Sleep_Smoking_header")+" "+(f11Values[smoke.pause] ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Fan_Sleep_Smoking_text"))
     }
     
     @IBAction func infoBtnPressed(_ sender: Any) {
@@ -302,7 +302,7 @@ class AdjustmentViewController: UIViewController {
     
     
     @IBAction func resetBtnPressed(_ sender: Any) {
-        showConfirmDialogBox(titleText: Language.getInstance().getlangauge(key: "reset_title"), descriptionText: Language.getInstance().getlangauge(key: "reset_description")) {
+        showConfirmDialogBox(titleText: Language.getInstance().getlangauge(key: "reset_header"), descriptionText: Language.getInstance().getlangauge(key: "reset_text")) {
             self.setvalue(key: general.factory , value: "1" )
         }
     }

@@ -7603,7 +7603,7 @@
                                         <rect key="frame" x="0.0" y="43" width="375" height="691"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYj-0Z-j9l" userLabel="Content View">
-                                                <rect key="frame" x="0.0" y="10" width="375" height="908"/>
+                                                <rect key="frame" x="0.0" y="10" width="375" height="938"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KSE-VN-pi3" userLabel="Top Right View">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
@@ -8096,20 +8096,32 @@
                                                             <constraint firstItem="vlz-o7-0Gs" firstAttribute="leading" secondItem="wKk-dV-4jT" secondAttribute="leading" constant="10" id="lkG-9I-Me0"/>
                                                         </constraints>
                                                     </view>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOh-ca-UEB">
+                                                        <rect key="frame" x="8" y="903" width="359" height="27"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="27" id="6WI-bN-Vi5"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="KSE-VN-pi3" firstAttribute="top" secondItem="iYj-0Z-j9l" secondAttribute="top" id="0Gb-a1-Unl"/>
+                                                    <constraint firstAttribute="bottom" secondItem="FOh-ca-UEB" secondAttribute="bottom" constant="8" id="2Vk-1U-LTF"/>
                                                     <constraint firstItem="KSE-VN-pi3" firstAttribute="bottom" secondItem="wKk-dV-4jT" secondAttribute="top" id="CA9-HX-kEd"/>
                                                     <constraint firstItem="KSE-VN-pi3" firstAttribute="width" secondItem="iYj-0Z-j9l" secondAttribute="width" multiplier="0.4" id="DWZ-FN-hMx"/>
                                                     <constraint firstItem="wKk-dV-4jT" firstAttribute="top" secondItem="iYj-0Z-j9l" secondAttribute="top" id="Fxh-3T-632"/>
                                                     <constraint firstAttribute="trailing" secondItem="wKk-dV-4jT" secondAttribute="trailing" id="KmU-X2-R64"/>
                                                     <constraint firstAttribute="trailing" secondItem="KSE-VN-pi3" secondAttribute="trailing" id="MDn-Hc-PAA"/>
                                                     <constraint firstItem="wKk-dV-4jT" firstAttribute="leading" secondItem="iYj-0Z-j9l" secondAttribute="leading" id="RCC-Vy-hMI"/>
+                                                    <constraint firstItem="FOh-ca-UEB" firstAttribute="leading" secondItem="iYj-0Z-j9l" secondAttribute="leading" constant="8" id="V8u-me-WMO"/>
                                                     <constraint firstAttribute="bottom" secondItem="wKk-dV-4jT" secondAttribute="bottom" id="gE7-YH-taZ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="FOh-ca-UEB" secondAttribute="trailing" constant="8" id="lmh-dk-eHL"/>
                                                     <constraint firstItem="wKk-dV-4jT" firstAttribute="width" secondItem="iYj-0Z-j9l" secondAttribute="width" multiplier="0.6" id="oOP-rd-GL0"/>
                                                     <constraint firstItem="KSE-VN-pi3" firstAttribute="leading" secondItem="iYj-0Z-j9l" secondAttribute="leading" id="unk-Yl-Mdx"/>
                                                     <constraint firstItem="KSE-VN-pi3" firstAttribute="top" secondItem="iYj-0Z-j9l" secondAttribute="top" id="vVg-Yk-zv0"/>
-                                                    <constraint firstAttribute="bottom" secondItem="wKk-dV-4jT" secondAttribute="bottom" id="yGE-wI-A6X"/>
+                                                    <constraint firstAttribute="bottom" secondItem="wKk-dV-4jT" secondAttribute="bottom" constant="30" id="yGE-wI-A6X"/>
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -8165,18 +8177,18 @@
                                     <constraint firstItem="tIW-pP-sBt" firstAttribute="top" secondItem="8bJ-DB-fep" secondAttribute="bottom" id="wQz-QF-JLq"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7YI-nM-lJ7" userLabel="Lock Screen View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7YI-nM-lJ7" userLabel="Lock Screen View">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3Q-jU-kpg">
-                                <rect key="frame" x="17" y="104" width="80" height="28"/>
+                                <rect key="frame" x="17" y="104" width="40" height="35"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="Qf8-zO-oSp"/>
+                                    <constraint firstAttribute="width" constant="40" id="Qf8-zO-oSp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="UNLOCK"/>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="19"/>
+                                <state key="normal" title=""/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
@@ -8203,17 +8215,8 @@
                             <constraint firstItem="7YI-nM-lJ7" firstAttribute="top" secondItem="Nwe-2E-JxN" secondAttribute="top" id="xaD-nd-QcB"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" name="end"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="centerColor">
-                                <color key="value" name="start"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" name="end"/>
-                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="angle">
-                                <real key="value" value="90"/>
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -8241,6 +8244,7 @@
                         <outlet property="generalRotationTimeSlider" destination="wsI-Wj-len" id="O1D-Lg-Bfa"/>
                         <outlet property="gradient" destination="BbP-dG-Cah" id="DgJ-Ea-39W"/>
                         <outlet property="lockScreenView" destination="7YI-nM-lJ7" id="2hs-bb-fRm"/>
+                        <outlet property="mainView" destination="KLc-la-F6K" id="gxD-Qg-zNQ"/>
                         <outlet property="meatTemp1Lbl" destination="OPU-fU-fof" id="thH-92-ygu"/>
                         <outlet property="meatTemp1UnitLbl" destination="VV5-kn-A2z" id="fFg-Oy-AHw"/>
                         <outlet property="meatTemp2Lbl" destination="iSO-C0-U4g" id="Zn5-IY-arR"/>
@@ -8261,6 +8265,7 @@
                         <outlet property="smokeTimerStatus" destination="eiY-Jv-8Rq" id="3mQ-az-M6e"/>
                         <outlet property="stateStatus" destination="hQB-uT-vvg" id="nn1-W2-yNe"/>
                         <outlet property="unlockBtn" destination="g3Q-jU-kpg" id="mjO-lL-XsF"/>
+                        <outlet property="versionText" destination="FOh-ca-UEB" id="3JE-Wv-YlG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m03-ml-YNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -9486,7 +9491,7 @@
             <size key="intrinsicContentSize" width="32" height="30"/>
         </designable>
         <designable name="bs2-r3-pdM">
-            <size key="intrinsicContentSize" width="30" height="29"/>
+            <size key="intrinsicContentSize" width="30" height="32"/>
         </designable>
         <designable name="fBh-29-J9M">
             <size key="intrinsicContentSize" width="34" height="30"/>
@@ -9520,7 +9525,7 @@
             <size key="intrinsicContentSize" width="59" height="30"/>
         </designable>
         <designable name="umb-Cw-6Ci">
-            <size key="intrinsicContentSize" width="30" height="29"/>
+            <size key="intrinsicContentSize" width="30" height="32"/>
         </designable>
         <designable name="xYA-wU-kbI">
             <size key="intrinsicContentSize" width="62" height="30"/>

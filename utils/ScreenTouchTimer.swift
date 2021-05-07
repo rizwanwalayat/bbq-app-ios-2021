@@ -15,51 +15,67 @@ extension NSNotification.Name {
 }
 
 class ScreenTouchTimer: UIApplication {
-
-// The timeout in seconds for when to fire the idle timer.
-     var timeoutInSeconds: TimeInterval = Double(Util.GetDefaultsString(key: general.screen_lock_time) == "nothing" ? "10" : Util.GetDefaultsString(key: general.screen_lock_time))!
- 
-
-var idleTimer: Timer?
-
+    
+    // The timeout in seconds for when to fire the idle timer.
+    var timeoutInSeconds: TimeInterval = Double(Util.GetDefaultsString(key: general.screen_lock_time) == "nothing" ? "10" : Util.GetDefaultsString(key: general.screen_lock_time))!
+    
+    
+    static var idleTimer: Timer?
+    
     
     override init() {
         super.init()
-        idleTimer = Timer.scheduledTimer(timeInterval: timeoutInSeconds+5, target: self, selector: #selector(self.idleTimerExceeded), userInfo: nil, repeats: false)
+        ScreenTouchTimer.idleTimer = Timer.scheduledTimer(timeInterval: timeoutInSeconds+5, target: self, selector: #selector(self.idleTimerExceeded), userInfo: nil, repeats: false)
         
         NotificationCenter.default.addObserver(self, selector: #selector(resetIdleTimer), name: Notification.Name.TimeOutValueChanged, object: nil)
     }
     
-// Listen for any touch. If the screen receives a touch, the timer is reset.
-override func sendEvent(_ event: UIEvent) {
-    super.sendEvent(event)
-
-    if idleTimer != nil {
-        self.resetIdleTimer()
-    }
-
-    if let touches = event.allTouches {
-        for touch in touches {
-            if touch.phase == UITouch.Phase.began {
-                self.resetIdleTimer()
+    // Listen for any touch. If the screen receives a touch, the timer is reset.
+    override func sendEvent(_ event: UIEvent) {
+        super.sendEvent(event)
+        if ScreenTouchTimer.idleTimer != nil {
+            self.resetIdleTimer()
+        }
+        
+        if let vc =
+            UIApplication.shared.keyWindow?.rootViewController?.topMostViewController() as? HomeViewController {
+            if let touches = event.allTouches {
+                for touch in touches {
+                    if touch.phase == UITouch.Phase.began {
+                        self.resetIdleTimer()
+                    }
+                }
             }
         }
-    }
-}
-
-
-// Reset the timer because there was user interaction.
-    @objc func resetIdleTimer() {
-    if let idleTimer = idleTimer {
-        idleTimer.invalidate()
-        timeoutInSeconds = Double(Util.GetDefaultsString(key: general.screen_lock_time) == "nothing" ? "10" : Util.GetDefaultsString(key: general.screen_lock_time))!
+        
+//        else {
+//            ScreenTouchTimer.stopIdleTimer()
+//        }
     }
     
-    idleTimer = Timer.scheduledTimer(timeInterval: timeoutInSeconds, target: self, selector: #selector(self.idleTimerExceeded), userInfo: nil, repeats: false)
-}
-
-// If the timer reaches the limit as defined in timeoutInSeconds, post this notification.
+    class func startIdleTimer(){
+        
+    }
+    
+    class func stopIdleTimer(){
+        if let idleTimer = ScreenTouchTimer.idleTimer {
+            idleTimer.invalidate()
+        }
+    }
+    // Reset the timer because there was user interaction.
+    @objc func resetIdleTimer() {
+        if let idleTimer = ScreenTouchTimer.idleTimer {
+            idleTimer.invalidate()
+            timeoutInSeconds = Double(Util.GetDefaultsString(key: general.screen_lock_time) == "nothing" ? "10" : Util.GetDefaultsString(key: general.screen_lock_time))!
+        }
+        
+        ScreenTouchTimer.idleTimer = Timer.scheduledTimer(timeInterval: timeoutInSeconds, target: self, selector: #selector(self.idleTimerExceeded), userInfo: nil, repeats: false)
+    }
+    
+    // If the timer reaches the limit as defined in timeoutInSeconds, post this notification.
     @objc func idleTimerExceeded() {
-    NotificationCenter.default.post(name:Notification.Name.TimeOutUserInteraction, object: nil)
-   }
+        NotificationCenter.default.post(name:Notification.Name.TimeOutUserInteraction, object: nil)
+    }
+    
+    
 }

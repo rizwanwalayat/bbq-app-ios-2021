@@ -3,18 +3,16 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "ControllerconnectionImpl.readF11(completionF11:):ControllerConnectionImpl.swift">
+         contextName = "ScreenTouchTimer.sendEvent(_:):ScreenTouchTimer.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.connectedOnAppRelay()">
+               value = "touch.view?.superview">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Language.getlangauge(key:):Language.swift">
-         <PersistentStrings>
             <PersistentString
-               value = "jsondata">
+               value = "touch.view">
+            </PersistentString>
+            <PersistentString
+               value = "event.superclass!">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -27,18 +25,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "HomeViewController.setupBuzzer():HomeViewController.swift">
+         contextName = "ControllerconnectionImpl.requestSet(key:value:encryptionMode:requestCompletionHandler:):ControllerConnectionImpl.swift">
          <PersistentStrings>
             <PersistentString
-               value = "alarmSoundTimer">
+               value = "self.connectedOnAppRelay()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #2 in HomeViewController.setvalue(key:value:):HomeViewController.swift">
+         contextName = "InfoViewController.updateUI(map:):InfoViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "ControllerResponseImpl">
+               value = "ControllerconnectionImpl.getInstance().getFrontData()">
+            </PersistentString>
+            <PersistentString
+               value = "Date()">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -63,10 +64,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in HomeViewController.initSetup():HomeViewController.swift">
+         contextName = "HomeViewController.viewDidLoad():HomeViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "f11Values">
+               value = "self.view">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeViewController.setupBuzzer():HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "alarmSoundTimer">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -87,7 +96,23 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ControllerconnectionImpl.requestSet(key:value:encryptionMode:requestCompletionHandler:):ControllerConnectionImpl.swift">
+         contextName = "closure #1 in HomeViewController.initSetup():HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "f11Values">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Language.getlangauge(key:):Language.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "jsondata">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ControllerconnectionImpl.readF11(completionF11:):ControllerConnectionImpl.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.connectedOnAppRelay()">
@@ -95,13 +120,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "InfoViewController.updateUI(map:):InfoViewController.swift">
+         contextName = "closure #2 in HomeViewController.setvalue(key:value:):HomeViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "ControllerconnectionImpl.getInstance().getFrontData()">
-            </PersistentString>
-            <PersistentString
-               value = "Date()">
+               value = "ControllerResponseImpl">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

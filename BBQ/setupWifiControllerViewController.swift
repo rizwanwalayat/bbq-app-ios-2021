@@ -154,7 +154,7 @@ class setupWifiControllerViewController: UIViewController , UITableViewDelegate,
             loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
             loadingNotification.mode = MBProgressHUDMode.indeterminate
             loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
-            loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key: "connectwifi")
+            loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key: "connecting")
         let timer = Timer.scheduledTimer(withTimeInterval: 40, repeats: true)
         { (timer) in
             // do stuff 42 seconds later

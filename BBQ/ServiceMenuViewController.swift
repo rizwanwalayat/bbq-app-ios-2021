@@ -18,7 +18,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     func handleInternalAction(key: String, value: String) {
         screenLockTimeValue.text = value
         Util.SetDefaults(key: key, value: value)
-        NotificationCenter.default.post(name: Notification.Name.TimeOutValueChanged, object: nil)
+//        NotificationCenter.default.post(name: Notification.Name.TimeOutValueChanged, object: nil)
     }
     
   
@@ -240,7 +240,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     func settext()  {
         readonly.text=Language.getInstance().getlangauge(key: "setting_readOnly")
         ignition.text=Language.getInstance().getlangauge(key: "ignition_header")
-        general_header.text=Language.getInstance().getlangauge(key: "general_header")
+        general_header.text=Language.getInstance().getlangauge(key: "General")
        
         misc.text=Language.getInstance().getlangauge(key: "misc")
         
@@ -258,15 +258,15 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         
         shutdownTimeLbl.text=Language.getInstance().getlangauge(key: "shutdown_time") + "(s)"
         shutdownTimeTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.shutdownTimeTouchFunction(_:))))
-        screenLockTimeLbl.text=Language.getInstance().getlangauge(key: "screen_lock_time") + "(s)"
+        screenLockTimeLbl.text=Language.getInstance().getlangauge(key: "screen_lock")
         screenLockTimeTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.screenLockTimeTouchFunction(_:))))
-        shaftAlarmLbl.text=Language.getInstance().getlangauge(key: "shaft_alarm") + "(°C)"
+        shaftAlarmLbl.text=Language.getInstance().getlangauge(key: "Shaft_alarm") + "(°C)"
         shaftAlarmTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.shaftAlarmTouchFunction(_:))))
-        gainPLbl.text=Language.getInstance().getlangauge(key: "gain_p")
+        gainPLbl.text=Language.getInstance().getlangauge(key: "Gain_P")
         gainPTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.gainPTouchFunction(_:))))
-        gainILbl.text=Language.getInstance().getlangauge(key: "gain_i")
+        gainILbl.text=Language.getInstance().getlangauge(key: "Gain_I")
         gainITouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.gainITouchFunction(_:))))
-        fanShutdownLbl.text=Language.getInstance().getlangauge(key: "fan_shutdown") + "(%)"
+        fanShutdownLbl.text=Language.getInstance().getlangauge(key: "Fan_shutdown") + "(%)"
         fanShutdownTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.fanShutdownTouchFunction(_:))))
         
         push_firmware.text=Language.getInstance().getlangauge(key: "push_firmware")
