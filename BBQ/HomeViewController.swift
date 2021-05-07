@@ -148,17 +148,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     }
     
     @objc func lockScreenPressed(){
-        
-//        UIView.animate(withDuration: 3.0) {
-//            var loadingNotification : MBProgressHUD!
-//            loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
-//       loadingNotification.mode = MBProgressHUDMode.determinate
-////            loadingNotification.label.text = Language.getInstance().getlangauge(key: "loading")
-//           loadingNotification.detailsLabel.text = Language.getInstance().getlangauge(key: "screen_is_locked")
-//        }
-        
         showToast(message: Language.getInstance().getlangauge(key: "screen_is_locked"))
-
     }
     
     @objc func appWillEnterForeground() {
