@@ -394,14 +394,15 @@ class ViewController: UIViewController,UITextFieldDelegate {
             passwordText.resignFirstResponder()
              serialText.resignFirstResponder()
              if (directRadio.isOn){
-//                if((ssid?.starts(with: "Aduro-"))!)
+                
+                withoutstepBTN.setTitle(Language.getInstance().getlangauge(key: "direct_connection"), for: .normal)
+                
                 if((ssid?.starts(with: "BBQ-"))!)
                  {
                      Util.SetDefaultsBool(key: Constants.directConnectFlag, value: true)
                      directConnect()
                  }else
                  {
-                     
                      let replace = Language.getInstance().getlangauge(key: "wizard_2_subtitle_2_description").replacingOccurrences(of: "{{serial}}", with: serialText.text!)
                      directConnectionAlert.text=replace
                      serialView.isHidden = true
@@ -411,6 +412,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
                
              }else
              {
+                withoutstepBTN.setTitle(Language.getInstance().getlangauge(key: "wizard_2_wifi_button_use_existing"), for: .normal)
+                
                 concurrentQueue.async(flags:.barrier) {
                                                  self.getIP()
                                              }
