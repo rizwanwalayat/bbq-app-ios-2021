@@ -15,6 +15,9 @@ class LanguageViewController: UIViewController {
     @IBOutlet weak var gradient: gradient!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIApplication.shared.isIdleTimerDisabled = true
+
         self.gradient.installGradientwithvounds(frame: self.view.bounds)
       self.gradient.updateGradient(frame: self.view.bounds)
         // Do any additional setup after loading the view.

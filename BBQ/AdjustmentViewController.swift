@@ -101,7 +101,7 @@ class AdjustmentViewController: UIViewController {
         setupSlider(slider: feedLowSlider, valueName: general.feed_low, value: Int(f11Values[general.feed_low] ?? "1" )!, min: 1, max: 10, interval: 1)
         setupSlider(slider: feedHighSlider, valueName: general.feed_high, value: Int(f11Values[general.feed_high] ?? "20" )!, min: 20, max: 80, interval: 1)
         setupSlider(slider: fanLowSlider, valueName: general.fan_low, value: Int(f11Values[general.fan_low] ?? "10" )!, min: 10, max: 50, interval: 1)
-        setupSlider(slider: fanHighSlider, valueName: general.fan_high, value: Int(f11Values[general.fan_high] ?? "2" )!, min: 20, max: 50, interval: 1)
+        setupSlider(slider: fanHighSlider, valueName: general.fan_high, value: Int(f11Values[general.fan_high] ?? "2" )!, min: 20, max: 100, interval: 1)
         setupSlider(slider: smokeFeedSlider, valueName: smoke.feed, value: Int(f11Values[smoke.feed] ?? "1" )!, min: 1, max: 15, interval: 1)
         setupSlider(slider: smokeFanSlider, valueName: smoke.fan, value: Int(f11Values[smoke.fan] ?? "5" )!, min: 5, max: 50, interval: 1)
         setupSlider(slider: smokePauseSlider, valueName: smoke.pause, value: Int(f11Values[smoke.pause] ?? "0" )!, min: 0, max: 50, interval: 1)
@@ -308,11 +308,11 @@ class AdjustmentViewController: UIViewController {
     }
     
     @IBAction func advancedSettingsPressed(_ sender: Any) {
-        guard let sVC = self.storyboard?.instantiateViewController(withIdentifier: "ServiceMenuViewController") as? ServiceMenuViewController else {
-            return
-        }
-        sVC.modalPresentationStyle = .fullScreen
-        self.present(sVC, animated: true, completion: nil)
+//        guard let sVC = self.storyboard?.instantiateViewController(withIdentifier: "ServiceMenuViewController") as? ServiceMenuViewController else {
+//            return
+//        }
+//        sVC.modalPresentationStyle = .fullScreen
+//        self.present(sVC, animated: true, completion: nil)
     }
     
    

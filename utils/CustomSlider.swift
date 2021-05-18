@@ -28,6 +28,7 @@ class CustomSlider: UIView {
     //MARK: - IBOutlets
     @IBOutlet var rangeLabels: [UILabel]!
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var sliderView: UIView!
     @IBOutlet weak var thumbLabel: UILabel!
     @IBOutlet weak var thumbLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var thumbLabelImage: UIImageView!
@@ -58,7 +59,7 @@ class CustomSlider: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.translatesAutoresizingMaskIntoConstraints = true
-        slider.isUserInteractionEnabled = false
+//        slider.isUserInteractionEnabled = true
         addSubview(view)
         setupView()
     }
@@ -110,8 +111,8 @@ class CustomSlider: UIView {
     func setupView() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(sliderTapped))
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(sliderTapped))
-        self.view.addGestureRecognizer(panGesture)
-        self.view.addGestureRecognizer(tapGesture)
+        self.sliderView.addGestureRecognizer(panGesture)
+        self.sliderView.addGestureRecognizer(tapGesture)
         showThumbLabel(false)
     }
     
@@ -126,7 +127,6 @@ class CustomSlider: UIView {
     }
     
     //MARK: - IBActions
- 
 //
 //    @IBAction func sliderValueChanged(_ sender: UISlider) {
 //        updateView()
@@ -146,8 +146,8 @@ class CustomSlider: UIView {
         updateView()
         
         if gestureRecognizer.state == UIGestureRecognizer.State.ended {
-            showThumbLabel(false)
             delegate?.getSliderValue(value: slider.value, sliderName: sliderName)
+            showThumbLabel(false)
         }
     }
     

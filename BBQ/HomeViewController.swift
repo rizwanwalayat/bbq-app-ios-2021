@@ -101,12 +101,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     var simulationMode : Timer!
     
     
-    
     override func viewDidLoad() {
-        ScreenTouchTimer.startIdleTimer()
-
         super.viewDidLoad()
-        
+                
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterbackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
@@ -153,8 +150,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     
     @objc func appWillEnterForeground() {
         print("app in foreground")
-        ScreenTouchTimer.startIdleTimer()
-
         starthandler()
     }
     @objc func appWillEnterbackground() {
@@ -173,7 +168,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     
     override func viewDidAppear(_ animated: Bool) {
         print("start handler")
-        ScreenTouchTimer.startIdleTimer()
         starthandler()
     }
     
@@ -1038,11 +1032,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     }
     
     @IBAction func settingsBtnPressed(_ sender: Any) {
-//        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "AdjustmentViewController") as?
-//                AdjustmentViewController else { return}
-//        sVC.modalPresentationStyle = .fullScreen
-//        sVC.modalTransitionStyle = .crossDissolve
-//        self.present(sVC, animated: true)
+        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "AdjustmentViewController") as?
+                AdjustmentViewController else { return}
+        sVC.modalPresentationStyle = .fullScreen
+        sVC.modalTransitionStyle = .crossDissolve
+        self.present(sVC, animated: true)
     }
     
     @IBAction func wifiBtnPressed(_ sender: Any) {
