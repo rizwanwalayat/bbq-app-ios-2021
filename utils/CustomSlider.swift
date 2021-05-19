@@ -29,6 +29,7 @@ class CustomSlider: UIView {
     @IBOutlet var rangeLabels: [UILabel]!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var sliderView: UIView!
+    
     @IBOutlet weak var thumbLabel: UILabel!
     @IBOutlet weak var thumbLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var thumbLabelImage: UIImageView!
@@ -135,7 +136,8 @@ class CustomSlider: UIView {
     //MARK: - Selectors
     
     @objc public func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
-       showThumbLabel(true)
+        
+    showThumbLabel(true)
         let pointTapped: CGPoint = gestureRecognizer.location(in: self)
         let positionOfSlider: CGPoint = slider!.frame.origin
         let widthOfSlider: CGFloat = slider!.frame.size.width
@@ -219,4 +221,39 @@ class CustomSlider: UIView {
     }
     
     
+}
+
+extension UIPanGestureRecognizer {
+
+    enum GestureDirection {
+        case Up
+        case Down
+        case Left
+        case Right
+    }
+
+    /// Get current vertical direction
+    ///
+    /// - Parameter target: view target
+    /// - Returns: current direction
+    func verticalDirection(target: UIView) -> GestureDirection {
+        return self.velocity(in: target).y > 0 ? .Down : .Up
+    }
+
+    /// Get current horizontal direction
+    ///
+    /// - Parameter target: view target
+    /// - Returns: current direction
+    func horizontalDirection(target: UIView) -> GestureDirection {
+        return self.velocity(in: target).x > 0 ? .Right : .Left
+    }
+
+    /// Get a tuple for current horizontal/vertical direction
+    ///
+    /// - Parameter target: view target
+    /// - Returns: current direction
+    func versus(target: UIView) -> (horizontal: GestureDirection, vertical: GestureDirection) {
+        return (self.horizontalDirection(target: target), self.verticalDirection(target: target))
+    }
+
 }
