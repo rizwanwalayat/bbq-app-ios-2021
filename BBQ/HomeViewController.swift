@@ -474,10 +474,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
                                                                 }
                                                                 else
                                                                 {
-//                                                                    self.concurrentQueue.async
-//                                                                    {
-//                                                                        self.getVersion()
-//                                                                    }
                                                                     self.starthandler()
                                                                 }
                                                                 
@@ -727,6 +723,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     func starthandler()
     {
         print("start handler")
+        ScreenTouchTimer.startIdleTimer()
+
         if(timer == nil)
         {
             
