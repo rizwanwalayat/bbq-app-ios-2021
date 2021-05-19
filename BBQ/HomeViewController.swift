@@ -130,6 +130,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
                 starthandler()
             }else{
                 Checklocation()
+                concurrentQueue.async(flags:.barrier){
+                    self.getVersion()
+                }
             }
         }
         else
@@ -471,6 +474,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
                                                                 }
                                                                 else
                                                                 {
+//                                                                    self.concurrentQueue.async
+//                                                                    {
+//                                                                        self.getVersion()
+//                                                                    }
                                                                     self.starthandler()
                                                                 }
                                                                 
@@ -1028,7 +1035,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         
     }
     @IBAction func alarmIconPressed(_ sender: Any) {
-        showDialogBox(titleText: "Short Text", descriptionText: "Long Text")
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "state_error_shortText"), descriptionText: Language.getInstance().getlangauge(key: "statu_error_"+(f11Values[Values.state] ?? "5")))
     }
     
     @IBAction func settingsBtnPressed(_ sender: Any) {

@@ -204,6 +204,7 @@
     "Fan_Speed_Smoking_text": "Choose the power % of fan during SMOKING MODE.",
     "Fan_Sleep_Smoking_text": "Choose the % of the time the burner fan should pause when in the SMOKING MODE.",
     "Fan_shutdown": "Fan shutdown",
+    "signalCheck": "Signal Quality Indicator",
     "set_value": "Set value",
     "not_in_range": "Value not in range",
     "setting_save": "Save",
