@@ -51,8 +51,16 @@ class Language {
     }
     
     func getlangauge(key:String) -> String {
-        return jsondata[key].rawString() ?? defaultlange[key].rawString() ?? key
+        if let value = jsondata[key].rawString(), value != "null" {
+            return value
+        } else if let defaultValue = defaultlange[key].rawString(), defaultValue != "null"{
+            return defaultValue
+        } else {
+            return key
+        }
+//        return jsondata[key].rawString() ?? defaultlange[key].rawString() ?? key
     }
+    
     func readForm(filename: String)  {
             
       let langauge="aduro_personal_"+filename+".htm"

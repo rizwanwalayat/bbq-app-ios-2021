@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "HomeViewController.getf11Values():HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Util.GetDefaultsString(key: Constants.serialKey)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ScreenTouchTimer.sendEvent(_:):ScreenTouchTimer.swift">
          <PersistentStrings>
             <PersistentString
@@ -13,14 +21,6 @@
             </PersistentString>
             <PersistentString
                value = "event.superclass!">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "HomeViewController.getf11Values():HomeViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "Util.GetDefaultsString(key: Constants.serialKey)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -40,6 +40,14 @@
             </PersistentString>
             <PersistentString
                value = "Date()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeViewController.onOffBtnPressed(_:):HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Language.getInstance().getlangauge(key: textKey)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -106,6 +114,15 @@
       <ContextState
          contextName = "Language.getlangauge(key:):Language.swift">
          <PersistentStrings>
+            <PersistentString
+               value = "jsondata[key]">
+            </PersistentString>
+            <PersistentString
+               value = "jsondata[key].rawString()">
+            </PersistentString>
+            <PersistentString
+               value = "defaultlange[key].rawString()">
+            </PersistentString>
             <PersistentString
                value = "jsondata">
             </PersistentString>

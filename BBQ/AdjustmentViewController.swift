@@ -308,11 +308,11 @@ class AdjustmentViewController: UIViewController {
     }
     
     @IBAction func advancedSettingsPressed(_ sender: Any) {
-//        guard let sVC = self.storyboard?.instantiateViewController(withIdentifier: "ServiceMenuViewController") as? ServiceMenuViewController else {
-//            return
-//        }
-//        sVC.modalPresentationStyle = .fullScreen
-//        self.present(sVC, animated: true, completion: nil)
+        guard let sVC = self.storyboard?.instantiateViewController(withIdentifier: "ServiceMenuViewController") as? ServiceMenuViewController else {
+            return
+        }
+        sVC.modalPresentationStyle = .fullScreen
+        self.present(sVC, animated: true, completion: nil)
     }
     
    

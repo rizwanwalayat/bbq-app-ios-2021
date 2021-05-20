@@ -7412,11 +7412,11 @@
                                         <rect key="frame" x="0.0" y="3" width="390" height="40"/>
                                         <subviews>
                                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="On off icon " translatesAutoresizingMaskIntoConstraints="NO" id="rOq-4H-qun">
-                                                <rect key="frame" x="5" y="7.6666666666666643" width="25" height="25"/>
+                                                <rect key="frame" x="2.6666666666666679" y="5" width="30.000000000000004" height="30"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="ef9-Ut-Og3"/>
-                                                    <constraint firstAttribute="width" constant="25" id="pBd-6D-JOU"/>
+                                                    <constraint firstAttribute="height" constant="30" id="ef9-Ut-Og3"/>
+                                                    <constraint firstAttribute="width" constant="30" id="pBd-6D-JOU"/>
                                                 </constraints>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="dFg-aY-RxV" appends="YES" id="OI1-Tj-eQq"/>
@@ -7463,10 +7463,10 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQB-uT-vvg">
-                                                <rect key="frame" x="194.33333333333334" y="7.6666666666666643" width="25" height="25"/>
+                                                <rect key="frame" x="191.66666666666666" y="5" width="30" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="iSA-oD-bJ8"/>
-                                                    <constraint firstAttribute="width" constant="25" id="zJF-a6-NWZ"/>
+                                                    <constraint firstAttribute="height" constant="30" id="iSA-oD-bJ8"/>
+                                                    <constraint firstAttribute="width" constant="30" id="zJF-a6-NWZ"/>
                                                 </constraints>
                                                 <state key="normal" image="Alarm icon "/>
                                                 <connections>
@@ -7518,10 +7518,10 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yho-EN-sPB" userLabel="Settings Button">
-                                                <rect key="frame" x="333" y="6" width="28" height="28"/>
+                                                <rect key="frame" x="331" y="4" width="32" height="32"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="28" id="8Sr-EB-Feh"/>
-                                                    <constraint firstAttribute="height" constant="28" id="pQH-Yq-FIF"/>
+                                                    <constraint firstAttribute="width" constant="32" id="8Sr-EB-Feh"/>
+                                                    <constraint firstAttribute="height" constant="32" id="pQH-Yq-FIF"/>
                                                 </constraints>
                                                 <state key="normal" image="Setting icon "/>
                                                 <connections>
@@ -7529,10 +7529,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDa-U7-RaD" userLabel="Wifi Button">
-                                                <rect key="frame" x="360.33333333333331" y="6" width="28" height="28"/>
+                                                <rect key="frame" x="358.33333333333331" y="4" width="32" height="32"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="28" id="1sp-QB-jpA"/>
-                                                    <constraint firstAttribute="width" constant="28" id="vg3-I6-xjJ"/>
+                                                    <constraint firstAttribute="height" constant="32" id="1sp-QB-jpA"/>
+                                                    <constraint firstAttribute="width" constant="32" id="vg3-I6-xjJ"/>
                                                 </constraints>
                                                 <state key="normal" image="wifi icon "/>
                                                 <connections>
@@ -7547,7 +7547,6 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" name="screencolour"/>
                                         <constraints>
                                             <constraint firstItem="tSb-Ks-rLq" firstAttribute="centerX" secondItem="8bJ-DB-fep" secondAttribute="centerX" multiplier="0.7" id="2WI-uV-Im9"/>
                                             <constraint firstItem="fjQ-EI-f2b" firstAttribute="centerY" secondItem="8bJ-DB-fep" secondAttribute="centerY" id="42k-7k-0Uw"/>
@@ -8201,7 +8200,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Nwe-2E-JxN"/>
-                        <color key="backgroundColor" name="screencolour"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Nwe-2E-JxN" firstAttribute="bottom" secondItem="7YI-nM-lJ7" secondAttribute="bottom" id="0z6-CI-Vts"/>
                             <constraint firstItem="Nwe-2E-JxN" firstAttribute="trailing" secondItem="7YI-nM-lJ7" secondAttribute="trailing" id="8qN-9f-Bpt"/>
@@ -8877,7 +8876,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2nK-4B-dgh"/>
-                        <color key="backgroundColor" name="screencolour"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VTk-Wi-svr" firstAttribute="bottom" secondItem="2nK-4B-dgh" secondAttribute="bottom" id="612-H5-Q1G"/>
                             <constraint firstItem="VTk-Wi-svr" firstAttribute="top" secondItem="2nK-4B-dgh" secondAttribute="top" id="ELh-fb-8Pj"/>
@@ -8885,15 +8884,6 @@
                             <constraint firstItem="VTk-Wi-svr" firstAttribute="trailing" secondItem="2nK-4B-dgh" secondAttribute="trailing" id="iRG-23-YFQ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" name="end"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="centerColor">
-                                <color key="value" name="start"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" name="end"/>
-                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="angle">
                                 <real key="value" value="90"/>
                             </userDefinedRuntimeAttribute>

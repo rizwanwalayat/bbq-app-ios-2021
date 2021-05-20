@@ -177,13 +177,27 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     
     @objc func lockScreen(){
         lockScreenView.isHidden = false
+        lockScreenView.backgroundColor = .clear
         unlockBtn.isHidden = false
     }
     
     func unlockScreen(){
         lockScreenView.isHidden = true
+        lockScreenView.backgroundColor = .clear
         unlockBtn.isHidden = true
     }
+    
+    func greyScreen(){
+        gradient.backgroundColor = .darkGray
+        gradient.alpha = 0.5
+//        lockScreenView.isHidden = false
+    }
+    
+    func clearGreyScreen(){
+        gradient.backgroundColor = .black
+        gradient.alpha = 1
+    }
+    
     
     func getF11Value(_ key: String)->String?{
         if f11Values[key] != nil {
@@ -249,20 +263,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
             self.meatTemp1Lbl.isHidden = true
             self.meatTemp1UnitLbl.isHidden = true
         } else {
-            self.meatTemp1Lbl.isHidden = false
-            self.meatTemp1UnitLbl.isHidden = false
             self.meatTemp1Lbl.text = "\(meat_temp1)"
             self.meatTemp1UnitLbl.text = temp_unit
+            self.meatTemp1Lbl.isHidden = false
+            self.meatTemp1UnitLbl.isHidden = false
         }
         
         if meat_temp2 > 990 {
             self.meatTemp2Lbl.isHidden = true
             self.meatTemp2UnitLbl.isHidden = true
         } else {
-            self.meatTemp2Lbl.isHidden = false
-            self.meatTemp2UnitLbl.isHidden = false
             self.meatTemp2Lbl.text = "\(meat_temp2)"
             self.meatTemp2UnitLbl.text = temp_unit
+            self.meatTemp2Lbl.isHidden = false
+            self.meatTemp2UnitLbl.isHidden = false
         }
     }
     
@@ -270,8 +284,24 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         self.oldBBQTemp1Lbl.text = f11Values[Values.bbq_temperature_1] ?? "0"
         self.oldBBQTemp2Lbl.text = f11Values[Values.bbq_temperature_2] ?? "0"
         self.oldBBQTemp3Lbl.text = f11Values[Values.bbq_temperature_3] ?? "0"
-        self.oldBBQMeatTemp1Lbl.text = f11Values[Values.meat_temperature_1] ?? "0"
-        self.oldBBQMeatTemp2Lbl.text = f11Values[Values.meat_temperature_2] ?? "0"
+        
+        
+        let meat_temp1 = Int(f11Values[Values.meat_temperature_1] ?? "0")!
+        let meat_temp2 = Int(f11Values[Values.meat_temperature_2] ?? "0")!
+        
+        if meat_temp1 > 990 {
+            self.oldBBQMeatTemp1Lbl.isHidden = true
+        } else {
+            self.oldBBQMeatTemp1Lbl.text = "\(meat_temp1)"
+            self.oldBBQMeatTemp1Lbl.isHidden = false
+        }
+        
+        if meat_temp2 > 990 {
+            self.oldBBQMeatTemp2Lbl.isHidden = true
+        } else {
+            self.oldBBQMeatTemp2Lbl.text = "\(meat_temp2)"
+            self.oldBBQMeatTemp2Lbl.isHidden = false
+        }
     }
     
     func Checklocation() {
@@ -727,7 +757,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
 
         if(timer == nil)
         {
-            
+            var f11NoResponseCount:Int = 0
             timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) {
                 (Timer) in
                 
@@ -735,15 +765,24 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
                     ControllerconnectionImpl.getInstance().requestF11Identified { (ControllerResponseImpl) in
                         if(ControllerResponseImpl.getPayload().contains("nothing"))
                         {
+                            f11NoResponseCount += 1
+                            
+                            if f11NoResponseCount >= 3 {
+                                self.greyScreen()
+                            }
                             print("f11 no response")
                         }
                         else
                         {
-                            
                             DispatchQueue.main.async {
                                 self.f11Values = ControllerResponseImpl.getF11Values()
                                 print(self.f11Values)
                                 self.updateValues()
+                                
+                                if f11NoResponseCount >= 3 {
+                                    self.clearGreyScreen()
+                                }
+                                f11NoResponseCount = 0
                             }
                         }
                         
@@ -1018,20 +1057,31 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     // MARK: - Actions
     
     @IBAction func onOffBtnPressed(_ sender: UITapGestureRecognizer) {
-        showConfirmDialogBox(titleText: "", descriptionText: Language.getInstance().getlangauge(key: "lng_alarmreset_txt")) {
-            let onOffAlarm = Int(self.f11Values[Values.super_state] ?? "-1")
+        
+        if let superState = self.f11Values[Values.super_state] {
+            let onOffAlarm = Int(superState)
+            var textKey:String = ""
+            var payload:String = ""
+            
             if(onOffAlarm==0){
-                self.setvalue(key: misc.start, value: "1")
-            }else if(onOffAlarm==1)
-            {
-                self.setvalue(key: misc.stop, value: "1")
-            }else if(onOffAlarm==2)
-            {
-                self.setvalue(key: misc.reset_alarm, value: "1")
+                textKey = "lng_on_text"
+                payload = misc.start
+            }else if(onOffAlarm==1){
+                textKey = "lng_of_txt"
+                payload = misc.stop
+            }else if(onOffAlarm==2){
+                textKey = "lng_alarmreset_txt"
+                payload = misc.reset_alarm
+            }
+            
+            showConfirmDialogBox(titleText: "", descriptionText: Language.getInstance().getlangauge(key: textKey)) {
+                self.concurrentQueue.async(flags:.barrier) {
+                    self.setvalue(key: payload, value: "1")
+                }
             }
         }
-        
     }
+    
     @IBAction func alarmIconPressed(_ sender: Any) {
         showDialogBox(titleText: Language.getInstance().getlangauge(key: "state_error_shortText"), descriptionText: Language.getInstance().getlangauge(key: "statu_error_"+(f11Values[Values.state] ?? "5")))
     }
