@@ -82,7 +82,7 @@ class ControllerClientFirmware: NSObject,GCDAsyncUdpSocketDelegate
                                                  request.setPort(port: "1901")
                                                  let stringrequest = request.getRawRequestFirmware()
                                                  
-                                                 self.skt.send(stringrequest, toHost: Util.getHostIpAddress(hostDomainNama: receiverAddr as CFString)!, port: 8483, withTimeout: 3, tag: 0)
+                                                 self.skt.send(stringrequest, toHost: Util.getHostIpAddress(hostDomainNama: receiverAddr as CFString)!, port: 8484, withTimeout: 3, tag: 0)
                                                  print("request send " + String(decoding: stringrequest, as: UTF8.self))
                                              }else
                                              {

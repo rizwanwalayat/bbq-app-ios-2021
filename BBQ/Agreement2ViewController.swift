@@ -11,13 +11,19 @@ import UIKit
 class Agreement2ViewController: UIViewController {
     let defaults = UserDefaults.standard
 
+    @IBOutlet weak var termTitleLbl: UILabel!
+    @IBOutlet weak var acceptbtn: UIButton!
+    @IBOutlet weak var declinebtn: UIButton!
     @IBOutlet weak var textAgreement2: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any add        textAgreement.attributedText=Language.getInstance().getFirstTerm().htmlToAttributedString
+        termTitleLbl.text = Language.getInstance().getlangauge(key: "terms_title")
         textAgreement2.attributedText=Language.getInstance().GetWifiTerm().htmlToAttributedString
         textAgreement2.textColor=UIColor.white
+        declinebtn.setTitle(Language.getInstance().getlangauge(key: "decline"), for: .normal)
+        acceptbtn.setTitle(Language.getInstance().getlangauge(key: "accept"), for: .normal)
     }
     
     @IBAction func decline(_ sender: UIButton) {
@@ -36,8 +42,7 @@ class Agreement2ViewController: UIViewController {
             return
             
         }
-        
-       
+        sVC.modalPresentationStyle = .fullScreen
         self.present(sVC, animated: true) {
             
         }

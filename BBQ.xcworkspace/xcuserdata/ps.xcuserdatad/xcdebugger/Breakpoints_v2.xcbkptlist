@@ -334,8 +334,8 @@
             filePath = "BBQ/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "583"
-            endingLineNumber = "583"
+            startingLineNumber = "585"
+            endingLineNumber = "585"
             landmarkName = "setXtea(loadingNotification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -350,8 +350,8 @@
             filePath = "BBQ/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "531"
-            endingLineNumber = "531"
+            startingLineNumber = "533"
+            endingLineNumber = "533"
             landmarkName = "exchangeKeys()"
             landmarkType = "7">
          </BreakpointContent>
@@ -366,8 +366,8 @@
             filePath = "BBQ/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "716"
-            endingLineNumber = "716"
+            startingLineNumber = "718"
+            endingLineNumber = "718"
             landmarkName = "useExistingWifiBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -382,8 +382,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "832"
-            endingLineNumber = "832"
+            startingLineNumber = "829"
+            endingLineNumber = "829"
             landmarkName = "getF11AfterUpdate()"
             landmarkType = "7">
          </BreakpointContent>
@@ -510,8 +510,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "744"
-            endingLineNumber = "744"
+            startingLineNumber = "741"
+            endingLineNumber = "741"
             landmarkName = "setupSlider(slider:valueName:value:min:max:interval:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -526,8 +526,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "629"
-            endingLineNumber = "629"
+            startingLineNumber = "626"
+            endingLineNumber = "626"
             landmarkName = "updateValues()"
             landmarkType = "7">
             <Locations>
@@ -574,8 +574,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "823"
-            endingLineNumber = "823"
+            startingLineNumber = "820"
+            endingLineNumber = "820"
             landmarkName = "getF11AfterUpdate()"
             landmarkType = "7">
          </BreakpointContent>
@@ -654,8 +654,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "853"
-            endingLineNumber = "853"
+            startingLineNumber = "850"
+            endingLineNumber = "850"
             landmarkName = "setvalue(key:value:)"
             landmarkType = "7">
             <Locations>
@@ -702,8 +702,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "847"
-            endingLineNumber = "847"
+            startingLineNumber = "844"
+            endingLineNumber = "844"
             landmarkName = "setvalue(key:value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -718,8 +718,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "848"
-            endingLineNumber = "848"
+            startingLineNumber = "845"
+            endingLineNumber = "845"
             landmarkName = "setvalue(key:value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -734,8 +734,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "855"
-            endingLineNumber = "855"
+            startingLineNumber = "852"
+            endingLineNumber = "852"
             landmarkName = "setvalue(key:value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -750,8 +750,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "854"
-            endingLineNumber = "854"
+            startingLineNumber = "851"
+            endingLineNumber = "851"
             landmarkName = "setvalue(key:value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -766,8 +766,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "868"
-            endingLineNumber = "868"
+            startingLineNumber = "865"
+            endingLineNumber = "865"
             landmarkName = "setvalue(key:value:)"
             landmarkType = "7">
             <Locations>
@@ -830,8 +830,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "827"
-            endingLineNumber = "827"
+            startingLineNumber = "824"
+            endingLineNumber = "824"
             landmarkName = "getF11AfterUpdate()"
             landmarkType = "7">
          </BreakpointContent>
@@ -846,8 +846,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -862,8 +862,8 @@
             filePath = "BBQ/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
             landmarkName = "btnconnect(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -878,8 +878,8 @@
             filePath = "BBQ/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
             landmarkName = "btnconnect(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -894,8 +894,8 @@
             filePath = "BBQ/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "769"
-            endingLineNumber = "769"
+            startingLineNumber = "771"
+            endingLineNumber = "771"
             landmarkName = "getIP()"
             landmarkType = "7">
          </BreakpointContent>
@@ -942,8 +942,8 @@
             filePath = "BBQ/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "786"
-            endingLineNumber = "786"
+            startingLineNumber = "788"
+            endingLineNumber = "788"
             landmarkName = "getIP()"
             landmarkType = "7">
          </BreakpointContent>
@@ -990,8 +990,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1152"
-            endingLineNumber = "1152"
+            startingLineNumber = "1149"
+            endingLineNumber = "1149"
             landmarkName = "getSliderValue(value:sliderName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1006,8 +1006,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1153"
-            endingLineNumber = "1153"
+            startingLineNumber = "1150"
+            endingLineNumber = "1150"
             landmarkName = "getSliderValue(value:sliderName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1022,8 +1022,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "856"
-            endingLineNumber = "856"
+            startingLineNumber = "853"
+            endingLineNumber = "853"
             landmarkName = "setvalue(key:value:)"
             landmarkType = "7">
             <Locations>
@@ -1070,8 +1070,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "HomeViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1086,8 +1086,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1085"
-            endingLineNumber = "1085"
+            startingLineNumber = "1082"
+            endingLineNumber = "1082"
             landmarkName = "alarmIconPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1102,8 +1102,8 @@
             filePath = "BBQ/AdjustmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "setvalue(key:value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1118,8 +1118,8 @@
             filePath = "BBQ/AdjustmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "setvalue(key:value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1134,8 +1134,8 @@
             filePath = "BBQ/AdjustmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "updateUIValues()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1150,8 +1150,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "646"
-            endingLineNumber = "646"
+            startingLineNumber = "643"
+            endingLineNumber = "643"
             landmarkName = "setupBuzzer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1166,8 +1166,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "657"
-            endingLineNumber = "657"
+            startingLineNumber = "654"
+            endingLineNumber = "654"
             landmarkName = "setupBuzzer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1182,8 +1182,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "658"
-            endingLineNumber = "658"
+            startingLineNumber = "655"
+            endingLineNumber = "655"
             landmarkName = "setupBuzzer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1198,8 +1198,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "668"
-            endingLineNumber = "668"
+            startingLineNumber = "665"
+            endingLineNumber = "665"
             landmarkName = "setupBuzzer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1214,8 +1214,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "667"
-            endingLineNumber = "667"
+            startingLineNumber = "664"
+            endingLineNumber = "664"
             landmarkName = "setupBuzzer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1230,8 +1230,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "666"
-            endingLineNumber = "666"
+            startingLineNumber = "663"
+            endingLineNumber = "663"
             landmarkName = "setupBuzzer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1246,8 +1246,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "803"
-            endingLineNumber = "803"
+            startingLineNumber = "800"
+            endingLineNumber = "800"
             landmarkName = "stopHandler()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1262,8 +1262,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "804"
-            endingLineNumber = "804"
+            startingLineNumber = "801"
+            endingLineNumber = "801"
             landmarkName = "stopHandler()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1278,8 +1278,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "onOffButton"
             landmarkType = "24">
          </BreakpointContent>
@@ -1342,8 +1342,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "858"
-            endingLineNumber = "858"
+            startingLineNumber = "855"
+            endingLineNumber = "855"
             landmarkName = "setvalue(key:value:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1466,8 +1466,8 @@
             filePath = "BBQ/AdjustmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "feedHighBtnPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1482,8 +1482,8 @@
             filePath = "BBQ/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "685"
-            endingLineNumber = "685"
+            startingLineNumber = "687"
+            endingLineNumber = "687"
             landmarkName = "checkControllerConnectedToWifi()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1498,8 +1498,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "lockScreen()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1753,8 +1753,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1769,8 +1769,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "362"
-            endingLineNumber = "362"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
             landmarkName = "checkConnectionType()"
             landmarkType = "7">
             <Locations>
@@ -1817,8 +1817,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "433"
-            endingLineNumber = "433"
+            startingLineNumber = "430"
+            endingLineNumber = "430"
             landmarkName = "getIP()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1833,8 +1833,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "420"
-            endingLineNumber = "420"
+            startingLineNumber = "417"
+            endingLineNumber = "417"
             landmarkName = "getIP()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1849,8 +1849,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "331"
-            endingLineNumber = "331"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
             landmarkName = "checkConnectionType()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1865,8 +1865,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
             landmarkName = "checkConnectionType()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1913,8 +1913,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1060"
-            endingLineNumber = "1060"
+            startingLineNumber = "1057"
+            endingLineNumber = "1057"
             landmarkName = "onOffBtnPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1929,8 +1929,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1076"
-            endingLineNumber = "1076"
+            startingLineNumber = "1073"
+            endingLineNumber = "1073"
             landmarkName = "onOffBtnPressed(_:)"
             landmarkType = "7">
             <Locations>
@@ -2009,8 +2009,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1078"
-            endingLineNumber = "1078"
+            startingLineNumber = "1075"
+            endingLineNumber = "1075"
             landmarkName = "onOffBtnPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2025,8 +2025,8 @@
             filePath = "BBQ/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "993"
-            endingLineNumber = "993"
+            startingLineNumber = "990"
+            endingLineNumber = "990"
             landmarkName = "recursive2(start:max:bytesdata:packetSize:remain:totalLength:loader:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -119,8 +119,8 @@ class LanguageViewController: UIViewController {
     @IBAction func danish(_ sender: Any) {
         defaults.set("da", forKey: Constants.languageKey)
         Language.getInstance().readjson(fileName: "da")
-        Language.getInstance().ReadTerm(fileName: "dk")
-        Language.getInstance().ReadTerm2(fileName: "dk")
+        Language.getInstance().ReadTerm(fileName: "da")
+        Language.getInstance().ReadTerm2(fileName: "da")
         if(fromsetting)
               {
                   let serial=defaults.string(forKey: Constants.serialKey)

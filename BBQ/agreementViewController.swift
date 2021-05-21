@@ -27,6 +27,8 @@ class agreementViewController: UIViewController{
         termTitleLbl.text = Language.getInstance().getlangauge(key: "terms_title")
         textAgreement.attributedText=Language.getInstance().getFirstTerm().htmlToAttributedString
         textAgreement.textColor=UIColor.white
+        declinebtn.setTitle(Language.getInstance().getlangauge(key: "decline"), for: .normal)
+        acceptbtn.setTitle(Language.getInstance().getlangauge(key: "accept"), for: .normal)
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {

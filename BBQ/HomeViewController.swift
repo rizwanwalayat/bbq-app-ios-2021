@@ -37,6 +37,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
 
     @IBOutlet weak var mainView: UIView!
     
+    @IBOutlet weak var greyScreenView: UIView!
     @IBOutlet weak var lockScreenView: UIView!
     @IBOutlet weak var unlockBtn: UIButton!
     
@@ -177,24 +178,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     
     @objc func lockScreen(){
         lockScreenView.isHidden = false
-        lockScreenView.backgroundColor = .clear
         unlockBtn.isHidden = false
     }
     
     func unlockScreen(){
         lockScreenView.isHidden = true
-        lockScreenView.backgroundColor = .clear
         unlockBtn.isHidden = true
     }
     
     func greyScreen(){
-        gradient.backgroundColor = .darkGray
-        gradient.alpha = 0.9
+        greyScreenView.isHidden = false
     }
     
     func clearGreyScreen(){
-        gradient.backgroundColor = .black
-        gradient.alpha = 1
+        greyScreenView.isHidden = true
     }
     
     
@@ -1169,7 +1166,7 @@ extension HomeViewController
         toastLabel.layer.cornerRadius = 10;
         toastLabel.clipsToBounds  =  true
         self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 5.0, delay: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()

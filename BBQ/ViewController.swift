@@ -270,6 +270,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         if(showterm==true)
         {
             guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "setupWifiControllerViewController") as? setupWifiControllerViewController else { return}
+            sVC.modalPresentationStyle = .fullScreen
             sVC.currentnetworkvale=currentWifi
             self.present(sVC, animated: true)
             print("show wifi setting")
@@ -277,6 +278,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         }else
         {
             guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "Agreement2ViewController") as? Agreement2ViewController else { return}
+            sVC.modalPresentationStyle = .fullScreen
             self.present(sVC, animated: true)
                         print("show term")
         }

@@ -15,6 +15,9 @@ class AdjustmentViewController: UIViewController {
     let concurrentQueue = DispatchQueue(label: "adjust Queue", attributes: .concurrent)
     var f11Values: [String: String] = [:]
     
+    @IBOutlet weak var infoBtn: UIButton!
+    @IBOutlet weak var advancedSettingsBtn: UIButton!
+    @IBOutlet weak var resetSettingsBtn: UIButton!
     @IBOutlet weak var feedLowBtn: UIButton!
     @IBOutlet weak var feedHighBtn: UIButton!
     @IBOutlet weak var fanLowBtn: UIButton!
@@ -44,12 +47,14 @@ class AdjustmentViewController: UIViewController {
         super.viewDidLoad()
         
         updateUIValues()
-        
-
-        
+    
         concurrentQueue.async(flags:.barrier) {
             self.getF11Values()
         }
+    
+        infoBtn.setAttributedTitle(NSAttributedString(string: Language.getInstance().getlangauge(key:"info_title")), for: .normal)
+        resetSettingsBtn.setAttributedTitle(NSAttributedString(string:Language.getInstance().getlangauge(key:"Reset_settings")), for: .normal)
+        advancedSettingsBtn.setAttributedTitle(NSAttributedString(string:Language.getInstance().getlangauge(key:"advance_setting")), for: .normal)
         
         
         //        self.gradient.installGradientwithvounds(frame: self.view.bounds)
