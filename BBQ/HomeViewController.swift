@@ -189,8 +189,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     
     func greyScreen(){
         gradient.backgroundColor = .darkGray
-        gradient.alpha = 0.5
-//        lockScreenView.isHidden = false
+        gradient.alpha = 0.9
     }
     
     func clearGreyScreen(){
