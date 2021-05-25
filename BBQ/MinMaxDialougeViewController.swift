@@ -16,6 +16,7 @@ class MinMaxDialougeViewController: UIViewController {
     @IBOutlet weak var saveoutlet: RoundButton!
     @IBOutlet weak var canceloutlet: RoundButton!
     @IBOutlet weak var titletext: UILabel!
+    @IBOutlet weak var errorText: UILabel!
     var minimunValue:String!
     var maximumValue:String!
     var payload:String!
@@ -44,6 +45,7 @@ class MinMaxDialougeViewController: UIViewController {
         
         
         textfield.addTarget(self, action: #selector(textFieldTyping), for: .editingChanged)
+        errorText.text = Language.getInstance().getlangauge(key: "not_in_range")
         saveoutlet.setTitle(Language.getInstance().getlangauge(key: "setting_save"), for: .normal)
         canceloutlet.setTitle(Language.getInstance().getlangauge(key: "cancel"), for: .normal)
 
@@ -71,8 +73,13 @@ class MinMaxDialougeViewController: UIViewController {
     }
     @objc func textFieldTyping(textField:UITextField)
     {
-        print(textfield.text)
         //Typing
+        print(textfield.text)
+        if let newValue = textfield.text, !newValue.isEmpty, Int(newValue)! < Int(minimunValue)! || Int(newValue)! > Int(maximumValue)!   {
+            errorText.isHidden = false
+        } else {
+            errorText.isHidden = true
+        }
     }
     @IBAction func save(_ sender: UIButton) {
         if saveInternally {

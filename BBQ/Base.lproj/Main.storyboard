@@ -3840,21 +3840,29 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7x-e6-vSC">
-                                                <rect key="frame" x="8" y="59" width="338" height="50"/>
+                                                <rect key="frame" x="8" y="57.000000000000007" width="338" height="20.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="end"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A24-ud-tUy" userLabel="Error Label">
+                                                <rect key="frame" x="8" y="94" width="338" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="v7x-e6-vSC" secondAttribute="bottom" constant="15" id="35l-dV-pMe"/>
+                                            <constraint firstItem="A24-ud-tUy" firstAttribute="leading" secondItem="0mw-Jz-Chz" secondAttribute="leading" constant="8" id="0De-cs-QkK"/>
                                             <constraint firstItem="ZJq-Fn-IBu" firstAttribute="top" secondItem="0mw-Jz-Chz" secondAttribute="top" constant="8" id="Bic-gV-Ci6"/>
+                                            <constraint firstAttribute="bottom" secondItem="A24-ud-tUy" secondAttribute="bottom" constant="12" id="Cmg-tm-shB"/>
                                             <constraint firstAttribute="trailing" secondItem="v7x-e6-vSC" secondAttribute="trailing" constant="8" id="IDi-Kd-gz7"/>
                                             <constraint firstItem="v7x-e6-vSC" firstAttribute="leading" secondItem="0mw-Jz-Chz" secondAttribute="leading" constant="8" id="Pmb-Rb-u7y"/>
+                                            <constraint firstAttribute="trailing" secondItem="A24-ud-tUy" secondAttribute="trailing" constant="8" id="WVv-6R-SKm"/>
                                             <constraint firstItem="ZJq-Fn-IBu" firstAttribute="leading" secondItem="0mw-Jz-Chz" secondAttribute="leading" constant="8" id="Y14-Rb-wQM"/>
                                             <constraint firstAttribute="trailing" secondItem="ZJq-Fn-IBu" secondAttribute="trailing" constant="8" id="Z0M-zY-9hj"/>
-                                            <constraint firstItem="v7x-e6-vSC" firstAttribute="top" secondItem="ZJq-Fn-IBu" secondAttribute="bottom" constant="17" id="mq5-OI-BjW"/>
+                                            <constraint firstItem="v7x-e6-vSC" firstAttribute="top" secondItem="ZJq-Fn-IBu" secondAttribute="bottom" constant="15" id="mq5-OI-BjW"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="82k-2v-glA">
@@ -3932,6 +3940,7 @@
                     </view>
                     <connections>
                         <outlet property="canceloutlet" destination="9xh-GZ-2SA" id="83G-Ju-8AF"/>
+                        <outlet property="errorText" destination="A24-ud-tUy" id="ta3-I4-OBu"/>
                         <outlet property="minMaxLabel" destination="v7x-e6-vSC" id="TMa-LV-fQS"/>
                         <outlet property="saveoutlet" destination="fBh-29-J9M" id="ncL-cC-Vv8"/>
                         <outlet property="textfield" destination="ZJq-Fn-IBu" id="s4u-bl-k60"/>
@@ -4766,7 +4775,7 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXy-Mf-lqV">
                                 <rect key="frame" x="0.0" y="80" width="390" height="2"/>
-                                <color key="backgroundColor" name="yellowborder"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="xVa-o7-L9u"/>
                                 </constraints>

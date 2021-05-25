@@ -27,7 +27,7 @@ class ScreenTouchTimer: UIApplication {
         super.init()
 //        ScreenTouchTimer.idleTimer = Timer.scheduledTimer(timeInterval: ScreenTouchTimer.timeoutInSeconds+5, target: self, selector: #selector(self.idleTimerExceeded), userInfo: nil, repeats: false)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(resetIdleTimer), name: Notification.Name.TimeOutValueChanged, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(resetIdleTimer), name: Notification.Name.TimeOutValueChanged, object: nil)
     }
     
     // Listen for any touch. If the screen receives a touch, the timer is reset.
@@ -57,8 +57,9 @@ class ScreenTouchTimer: UIApplication {
         if let idleTimer = ScreenTouchTimer.idleTimer {
             idleTimer.invalidate()
         }
+        print("startIdleTimer")
 //        ScreenTouchTimer.idleTimer = Timer.scheduledTimer(timeInterval: timeoutInSeconds+5, target: self, selector: #selector(idleTimerExceeded), userInfo: nil, repeats: false)
-        ScreenTouchTimer.idleTimer = Timer.scheduledTimer(withTimeInterval: timeoutInSeconds+5, repeats: false, block: { (Timer) in
+        ScreenTouchTimer.idleTimer = Timer.scheduledTimer(withTimeInterval: timeoutInSeconds, repeats: false, block: { (Timer) in
             Timer.invalidate()
             NotificationCenter.default.post(name:Notification.Name.TimeOutUserInteraction, object: nil)
 
@@ -70,6 +71,7 @@ class ScreenTouchTimer: UIApplication {
         if let idleTimer = ScreenTouchTimer.idleTimer {
             idleTimer.invalidate()
         }
+        print("stopIdleTimer")
     }
     // Reset the timer because there was some user interaction.
     @objc func resetIdleTimer() {

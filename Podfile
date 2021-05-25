@@ -5,7 +5,7 @@ target 'BBQ' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Aduro
+  # Pods for BBQ
   pod 'CocoaAsyncSocket'
   pod 'SwiftyJSON', '~> 4.0'
   pod "FGRoute"

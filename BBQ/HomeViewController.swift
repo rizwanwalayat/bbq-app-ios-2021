@@ -750,7 +750,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     {
         print("start handler")
         ScreenTouchTimer.startIdleTimer()
-
+        unlockScreen()
         if(timer == nil)
         {
             var f11NoResponseCount:Int = 0

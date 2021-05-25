@@ -417,9 +417,9 @@ class setupWifiControllerViewController: UIViewController , UITableViewDelegate,
     
     func onAvailable() {
         print("Got network")
-        if(Util.GetSSID().contains("Aduro"))
+        if(Util.GetSSID().contains("BBQ"))
         {
-            print("on Aduro")
+            print("on BBQ")
 //            showDialog()
         }
         else
@@ -436,7 +436,7 @@ class setupWifiControllerViewController: UIViewController , UITableViewDelegate,
     func  showDialog()  {
         
            DispatchQueue.main.async {
-        let alert = UIAlertController(title: "Wifi Changed", message: "Wifi Is not connected to Aduro-\(Util.GetDefaultsString(key: Constants.serialKey))", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Wifi Changed", message: "Wifi Is not connected to BBQ-\(Util.GetDefaultsString(key: Constants.serialKey))", preferredStyle: .alert)
         alert.dismiss(animated: true)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             switch action.style{

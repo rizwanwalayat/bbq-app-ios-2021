@@ -246,11 +246,11 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         
         
 //        submenu
-        PowerIgnitionLbl.text=Language.getInstance().getlangauge(key: "ignition_power_ignition") + "(%)"
+        PowerIgnitionLbl.text=Language.getInstance().getlangauge(key: "power_duration_ignition") + "(%)"
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.PowerIgnitionTouchFunction(_:)))
         PowerIgnitionTouch.addGestureRecognizer(tap)
         
-        PowerIgnitionOperationLbl.text=Language.getInstance().getlangauge(key: "ignition_power_operation")
+        PowerIgnitionOperationLbl.text=Language.getInstance().getlangauge(key: "power_duration_operation")
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(self.PowerIgnitionOperationTouchFunction(_:)))
         PowerIgnitionOperationTouch.addGestureRecognizer(tap1)
 //        PowerOperationTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.shaftValueTouch(_:))))
@@ -404,7 +404,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     {
         currentvaluechanging=screenLockTimeValue
         let map = ["screen_lock_time":"5,300"]
-        self.buildDialogue(map: map, payload: general.screen_lock_time, currentValue: screenLockTimeValue.text!)
+        self.buildDialogue(map: map, payload: general.screen_lock_time, currentValue: screenLockTimeValue.text!, true)
     }
     
     @objc func shaftAlarmTouchFunction(_ sender:UITapGestureRecognizer )
@@ -489,7 +489,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         sVC.modalPresentationStyle = .custom
         sVC.modalTransitionStyle = .crossDissolve
         if localSave != nil {
-            sVC.saveInternally = true
+          sVC.saveInternally = localSave!
         }
         sVC.delegate=self
         sVC.minimunValue=min

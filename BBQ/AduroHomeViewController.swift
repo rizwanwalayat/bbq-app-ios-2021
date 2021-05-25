@@ -514,7 +514,7 @@ class AduroHomeViewController: UIViewController,CLLocationManagerDelegate,firmwa
                                 controller.setPassword(password: password)
                                 ControllerconnectionImpl.getInstance().setController(controller: controller)
                                 ControllerconnectionImpl.getInstance().getController().swapToLocal()
-                                print("aduro wifi")
+                                print("bbq wifi")
                                 ControllerconnectionImpl.getInstance().getController().swapToLocal()
                                 concurrentQueue.async(flags:.barrier) {
                                     self.getF11(setip: true, directfourg: false)
@@ -532,7 +532,7 @@ class AduroHomeViewController: UIViewController,CLLocationManagerDelegate,firmwa
 
                             }else
                             {
-                                print("non aduro wifi")
+                                print("non bbq wifi")
                 //                self.f11label.text="not aduro wifi going for discovery"
                                 concurrentQueue.async(flags:.barrier) {
                                     self.getIP()
