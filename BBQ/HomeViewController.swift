@@ -1063,7 +1063,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
                 textKey = "lng_on_text"
                 payload = misc.start
             }else if(onOffAlarm==1){
-                textKey = "lng_of_txt"
+                textKey = "lng_off_txt"
                 payload = misc.stop
             }else if(onOffAlarm==2){
                 textKey = "lng_alarmreset_txt"
