@@ -23,33 +23,25 @@ class Constants {
 }
 
 class Values {
-    static var general_rotation_active: String = "general.rotation_active"
     static var flags_smoke = "flags-smoke"
     static var flags_ignite = "flags-ignite"
     static var state = "state"
     static var flags_sleep = "flags-sleep"
-    static var bbq_fixed_temperature: String = "bbq.fixed_temperature"
-    static var bbq_meat_temp_1: String = "bbq.meat_temp_1"
-    static var bbq_meat_temp_2: String = "bbq.meat_temp_2"
-    static var general_rotation_time: String = "general.rotation_time"
-    static var smoke_level: String = "smoke.level"
-    static var smoke_timer: String = "smoke.timer"
-    static var bbq_fixed_power: String = "bbq.fixed_power"
     static var power_pct: String = "power_pct"
-
     static var bbq_temperature: String = "bbq_temperature"
     static var bbq_temperature_1: String = "bbq_temperature_1"
     static var bbq_temperature_2: String = "bbq_temperature_2"
     static var bbq_temperature_3: String = "bbq_temperature_3"
     static var meat_temperature_1: String = "meat_temperature_1"
     static var meat_temperature_2: String = "meat_temperature_2"
-    
     static var buzzer_1_active: String = "buzzer_1_active"
     static var buzzer_2_active: String = "buzzer_2_active"
     static var super_state: String = "super_state"
 }
 
 class general {
+    static var rotation_active: String = "general.rotation_active"
+    static var rotation_time: String = "general.rotation_time"
     static var feed_low: String = "general.feed_low"
     static var feed_high: String = "general.feed_high"
     static var fan_low: String = "general.fan_low"
@@ -66,6 +58,8 @@ class general {
 }
 
 class smoke {
+    static var level: String = "smoke.level"
+    static var timer: String = "smoke.timer"
     static var feed: String = "smoke.feed"
     static var fan: String = "smoke.fan"
     static var pause: String = "smoke.pause"
@@ -73,11 +67,16 @@ class smoke {
 
 class bbq {
     static var use_buzzer: String = "bbq.use_buzzer"
+    static var fixed_temperature: String = "bbq.fixed_temperature"
+    static var meat_temp_1: String = "bbq.meat_temp_1"
+    static var meat_temp_2: String = "bbq.meat_temp_2"
+    static var fixed_power: String = "bbq.fixed_power"
+
 }
 
 class misc {
     static var temp_unit: String = "misc.temp_unit"
     static var start: String = "misc.start"
-    static var stop: String = "misc.start"
+    static var stop: String = "misc.stop"
     static var reset_alarm: String = "misc.reset_alarm"
 }

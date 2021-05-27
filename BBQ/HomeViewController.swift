@@ -95,12 +95,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     
     @IBOutlet weak var versionText: UILabel!
 
-    
     var timer: Timer!
     var restartTimer:Timer!
     var countDownTimermode1 : Timer!
     var simulationMode : Timer!
-    
+    var tempUnit: String = "C"
+    var sliderValues = [bbq.fixed_temperature:["C":["min":40, "max":300], "F":["min":100, "max":570]], bbq.meat_temp_1:["C":["min":0, "max":90], "F":["min":30, "max":190]], bbq.meat_temp_2:["C":["min":0, "max":90], "F":["min":30, "max":190]]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -248,7 +248,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     }
     
     func setupNewBBQLabels(){
-        let temp_unit =  Int(f11Values[misc.temp_unit] ?? "0") == 1 ? "°F" : "°C"
+        let temp_unit =  "°"+self.tempUnit
         self.bbqTempLbl.text = f11Values[Values.bbq_temperature] ?? "0"
         self.bbqTempUnitLbl.text = temp_unit
         
@@ -622,6 +622,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     }
     
     func updateValues(){
+        self.setTempUnit()
         self.setupBuzzer()
         self.setupSliders()
         self.setCurrentValues()
@@ -629,14 +630,18 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         self.setupBBQView()
     }
     
+    func setTempUnit(){
+        self.tempUnit = Int(f11Values[misc.temp_unit] ?? "0") == 1 ? "F" : "C"
+    }
+    
     func setCurrentValues(){
-        bbqFixedTempBtn.setAttributedTitle(NSAttributedString(string: f11Values[Values.bbq_fixed_temperature] ?? "-"), for: .normal)
-        bbqMeatTemp1Btn.setAttributedTitle(NSAttributedString(string: f11Values[Values.bbq_meat_temp_1] ?? "-"), for: .normal)
-        bbqMeatTemp2Btn.setAttributedTitle(NSAttributedString(string: f11Values[Values.bbq_meat_temp_2] ?? "-"), for: .normal)
-        generalRotationTimeBtn.setAttributedTitle(NSAttributedString(string: f11Values[Values.general_rotation_time] ?? "-"), for: .normal)
-        smokeLevelBtn.setAttributedTitle(NSAttributedString(string: f11Values[Values.smoke_level] ?? "-"), for: .normal)
-        smokeTimerBtn.setAttributedTitle(NSAttributedString(string: f11Values[Values.smoke_timer] ?? "-"), for: .normal)
-        bbqFixedPowerBtn.setAttributedTitle(NSAttributedString(string: f11Values[Values.bbq_fixed_power] ?? "-"), for: .normal)
+        bbqFixedTempBtn.setAttributedTitle(NSAttributedString(string: f11Values[bbq.fixed_temperature] ?? "-"), for: .normal)
+        bbqMeatTemp1Btn.setAttributedTitle(NSAttributedString(string: f11Values[bbq.meat_temp_1] ?? "-"), for: .normal)
+        bbqMeatTemp2Btn.setAttributedTitle(NSAttributedString(string: f11Values[bbq.meat_temp_2] ?? "-"), for: .normal)
+        generalRotationTimeBtn.setAttributedTitle(NSAttributedString(string: f11Values[general.rotation_time] ?? "-"), for: .normal)
+        smokeLevelBtn.setAttributedTitle(NSAttributedString(string: f11Values[smoke.level] ?? "-"), for: .normal)
+        smokeTimerBtn.setAttributedTitle(NSAttributedString(string: f11Values[smoke.timer] ?? "-"), for: .normal)
+        bbqFixedPowerBtn.setAttributedTitle(NSAttributedString(string: f11Values[bbq.fixed_power] ?? "-"), for: .normal)
     }
     
     func setupBuzzer(){
@@ -698,15 +703,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     
     func setupStatusArea(){
         onOffButton.isHidden = f11Values[Values.super_state] == nil
-        generalRotationActiveStatus.isHidden = (Int(f11Values[Values.general_rotation_active] ?? "0") == 0)
+        generalRotationActiveStatus.isHidden = (Int(f11Values[general.rotation_time] ?? "0")! > 0 && Int(f11Values[general.rotation_active] ?? "0")! != 0) ? false : true
         flagsIgniteStatus.isHidden = (Int(f11Values[Values.flags_ignite] ?? "0") == 0) ? true : false
-        smokeTimerStatus.isHidden = !(Int(f11Values[Values.smoke_timer] ?? "0")! > 0 && Int(f11Values[Values.flags_smoke] ?? "0") != 0)
-        smokeTimerCountStatus.text = (Int(f11Values[Values.smoke_timer] ?? "0")! > 0) ? setupSmokeTimer() : "00:00"
+        smokeTimerStatus.isHidden = !(Int(f11Values[smoke.timer] ?? "0")! > 0 && Int(f11Values[Values.flags_smoke] ?? "0") != 0)
+        smokeTimerCountStatus.text = (Int(f11Values[smoke.timer] ?? "0")! > 0) ? setupSmokeTimer() : "00:00"
         smokeTimerCountStatus.isHidden = (Int(f11Values[Values.flags_smoke] ?? "0") != 1)
 //        flagsSmokeStatus.isHidden = (Int(f11Values[Values.flags_smoke] ?? "0")! > 0) ? false : true
         stateStatus.isHidden = (Int(f11Values[Values.state] ?? "0")! >= 5 && Int(f11Values[Values.state] ?? "0")! <= 11 ) ? false : true
         flagsSleepStatus.isHidden = (Int(f11Values[Values.flags_sleep] ?? "0")! != 0) ? false : true
-        bbqFixedPowerStatus.isHidden = (Int(f11Values[Values.bbq_fixed_power] ?? "0")! > 0) ? false : true
+        bbqFixedPowerStatus.isHidden = (Int(f11Values[bbq.fixed_power] ?? "0")! > 0) ? false : true
         if let power_pct = f11Values[Values.power_pct]
          {
             powerPctStatus.text = "\(power_pct)"
@@ -720,7 +725,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     
     func setupSmokeTimer()->String{
         
-        let totalMinutes = Int(f11Values[Values.smoke_timer]!)!
+        let totalMinutes = Int(f11Values[smoke.timer]!)!
         let hours = totalMinutes / 60
         let minutes = totalMinutes - (hours * 60)
         return "\(hours<10 ? "0" : "")\(hours):\(minutes<10 ? "0" : "")\(minutes)"
@@ -729,13 +734,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     
     
     func setupSliders(){
-        setupSlider(slider: bbqFixedTempSlider, valueName: Values.bbq_fixed_temperature, value: Int(f11Values[Values.bbq_fixed_temperature] ?? "40" )!, min:40, max: 300, interval: 10)
-        setupSlider(slider: bbqMeatTemp1Slider, valueName:Values.bbq_meat_temp_1, value: Int(f11Values[Values.bbq_meat_temp_1] ?? "0" )! , min: 0, max: 90, interval: 2)
-        setupSlider(slider: bbqMeatTemp2Slider, valueName: Values.bbq_meat_temp_2,  value: Int(f11Values[Values.bbq_meat_temp_2] ?? "0" )!, min: 0, max: 90, interval: 2)
-        setupSlider(slider: generalRotationTimeSlider, valueName: Values.general_rotation_time,  value: Int(f11Values[Values.general_rotation_time] ?? "0" )!, min: 0, max: 30, interval: 5)
-        setupSlider(slider: smokeLevelSlider, valueName: Values.smoke_level, value: Int(f11Values[Values.smoke_level] ?? "0" )!, min: 0, max: 5, interval: 1)
-        setupSlider(slider: smokeTimerSlider, valueName: Values.smoke_timer, value: Int(f11Values[Values.smoke_timer] ?? "0" )!, min: 0, max: 1200, interval: 15)
-        setupSlider(slider: bbqFixedPower, valueName: Values.bbq_fixed_power, value: Int(f11Values[Values.bbq_fixed_power] ?? "0" )!, min: 0, max: 100, interval: 10)
+        
+        setupSlider(slider: bbqFixedTempSlider, valueName: bbq.fixed_temperature, value: Int(f11Values[bbq.fixed_temperature] ?? "\(sliderValues[bbq.fixed_temperature]![tempUnit]!["min"]!)" )!, min:sliderValues[bbq.fixed_temperature]![tempUnit]!["min"]!, max: sliderValues[bbq.fixed_temperature]![tempUnit]!["max"]!, interval: 10)
+        setupSlider(slider: bbqMeatTemp1Slider, valueName:bbq.meat_temp_1, value: Int(f11Values[bbq.meat_temp_1] ?? "\(sliderValues[bbq.meat_temp_1]![tempUnit]!["min"]!)" )! , min: sliderValues[bbq.meat_temp_1]![tempUnit]!["min"]!, max: sliderValues[bbq.meat_temp_1]![tempUnit]!["max"]!, interval: 2)
+        setupSlider(slider: bbqMeatTemp2Slider, valueName: bbq.meat_temp_2,  value: Int(f11Values[bbq.meat_temp_2] ?? "\(sliderValues[bbq.meat_temp_2]![tempUnit]!["min"]!)" )!, min: sliderValues[bbq.meat_temp_2]![tempUnit]!["min"]!, max: sliderValues[bbq.meat_temp_2]![tempUnit]!["max"]!, interval: 2)
+        setupSlider(slider: generalRotationTimeSlider, valueName: general.rotation_time,  value: Int(f11Values[general.rotation_time] ?? "0" )!, min: 0, max: 30, interval: 5)
+        setupSlider(slider: smokeLevelSlider, valueName: smoke.level, value: Int(f11Values[smoke.level] ?? "0" )!, min: 0, max: 5, interval: 1)
+        setupSlider(slider: smokeTimerSlider, valueName: smoke.timer, value: Int(f11Values[smoke.timer] ?? "0" )!, min: 0, max: 1200, interval: 15)
+        setupSlider(slider: bbqFixedPower, valueName: bbq.fixed_power, value: Int(f11Values[bbq.fixed_power] ?? "0" )!, min: 0, max: 100, interval: 10)
     }
     
     func setupSlider(slider: CustomSlider, valueName: String, value: Int, min: Int, max: Int, interval: Int){
@@ -1099,33 +1105,33 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
     }
     
     @IBAction func fixedTempBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "grill_temp_header")+" "+(getF11Value(Values.bbq_fixed_temperature) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "grill_temp_text"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "grill_temp_header")+" "+(getF11Value(bbq.fixed_temperature) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "grill_temp_text"))
     }
     
     @IBAction func meatTemp1BtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "meat_temp_1_header")+" "+(getF11Value(Values.bbq_meat_temp_1) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "meat_temp_1_text"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "meat_temp_1_header")+" "+(getF11Value(bbq.meat_temp_1) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "meat_temp_1_text"))
     }
     
     
     @IBAction func meatTemp2BtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "meat_temp_2_header")+" "+(getF11Value(Values.bbq_meat_temp_2) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "meat_temp_2_text"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "meat_temp_2_header")+" "+(getF11Value(bbq.meat_temp_2) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "meat_temp_2_text"))
     }
     
     
     @IBAction func rotationTimeBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Rotisserie_Rotation_header")+" "+(getF11Value(Values.general_rotation_time) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Rotisserie_Rotation_text"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Rotisserie_Rotation_header")+" "+(getF11Value(general.rotation_time) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Rotisserie_Rotation_text"))
     }
     
     @IBAction func smokeLevelBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Smoke_Level_header")+" "+(getF11Value(Values.smoke_level) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Smoke_Level_text"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Smoke_Level_header")+" "+(getF11Value(smoke.level) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Smoke_Level_text"))
     }
     
     @IBAction func smokeTimerBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Smoke_Timer_header")+" "+(getF11Value(Values.smoke_timer) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Smoke_Timer_text"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Smoke_Timer_header")+" "+(getF11Value(smoke.timer) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Smoke_Timer_text"))
     }
     
     @IBAction func fixedPowerBtnPressed(_ sender: Any) {
-        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Fixed_Power_header")+" "+(getF11Value(Values.bbq_fixed_power) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Fixed_Power_text"))
+        showDialogBox(titleText: Language.getInstance().getlangauge(key: "Fixed_Power_header")+" "+(getF11Value(bbq.fixed_power) ?? "-"), descriptionText: Language.getInstance().getlangauge(key: "Fixed_Power_text"))
     }
     
     @IBAction func bbqBuzzerBtnPressed(_ sender: Any) {

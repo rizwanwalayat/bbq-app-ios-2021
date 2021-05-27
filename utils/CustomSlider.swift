@@ -23,7 +23,7 @@ class CustomSlider: UIView {
     var interval: Int!
     private var sliderValueUpdated:((Int)->Void)?
     weak var delegate: SliderDelegate?
-    var sliderName: String = Values.bbq_fixed_temperature
+    var sliderName: String!
     
     //MARK: - IBOutlets
     @IBOutlet var rangeLabels: [UILabel]!

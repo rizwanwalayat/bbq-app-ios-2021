@@ -51,7 +51,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     
 //    submenu General
     @IBOutlet weak var  shutdownTimeLbl: UILabel!
-    @IBOutlet weak var screenLockTimeLbl: UILabel!
+    @IBOutlet weak var  screenLockTimeLbl: UILabel!
     
     @IBOutlet weak var  shaftAlarmLbl: UILabel!
     @IBOutlet weak var  gainPLbl: UILabel!
@@ -60,7 +60,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
 
     
     @IBOutlet weak var  shutdownTimeValue: UILabel!
-    @IBOutlet weak var screenLockTimeValue: UILabel!
+    @IBOutlet weak var  screenLockTimeValue: UILabel!
     @IBOutlet weak var  shaftAlarmValue: UILabel!
     @IBOutlet weak var  gainPValue: UILabel!
     @IBOutlet weak var  gainIValue: UILabel!
@@ -86,7 +86,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     @IBOutlet weak var readonly: UILabel!
     @IBOutlet weak var ignition: UILabel!
     @IBOutlet weak var general_header: UILabel!
-    @IBOutlet weak var misc: UILabel!
+    @IBOutlet weak var misc_header: UILabel!
     
     
     var f11Values: [String:String] = [:]
@@ -96,27 +96,26 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     var cleaningValues:[String:String]!
     var boilerValues:[String:String]!
     var fanValues:[String:String]!
+    var tempUnit:String = "C"
     
     @IBOutlet weak var lockbtn: UIButton!
     @IBOutlet var gradient: gradient!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.gradient.installGradientwithvounds(frame: self.view.bounds)
         self.gradient.updateGradient(frame: self.view.bounds)
-        close()
         settext()
+        close()
         let oneFingerTap = UITapGestureRecognizer(target: self, action:#selector(self.oneFingerTapDetected(sender:)))
         oneFingerTap.numberOfTapsRequired = 1
         lockbtn.addGestureRecognizer(oneFingerTap)
         disable()
         
-        
         concurrentQueue.async(flags:.barrier) {
             self.getF11Values()
         }
-        
-        
+
         
 //        concurrentQueue.async(flags:.barrier){
 //
@@ -172,6 +171,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     
     func updateUIValues(){
         self.f11Values = ControllerconnectionImpl.getInstance().getFrontData()
+        self.setShaftAlarmTempUnit()
         self.PowerIgnitionValue.text = self.f11Values[general.ignition_heat] ?? "-"
         self.PowerIgnitionOperationValue.text = self.f11Values[general.operation_heat] ?? "-"
         self.shutdownTimeValue.text = self.f11Values[general.shutdown_time] ?? "-"
@@ -182,6 +182,11 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         self.fanShutdownValue.text = self.f11Values[general.fan_shutdown] ?? "-"
     }
     
+    func setShaftAlarmTempUnit(){
+        self.tempUnit = Int(f11Values[misc.temp_unit] ?? "0") == 1 ? "F" : "C"
+        self.shaftAlarmLbl.text=Language.getInstance().getlangauge(key: "Shaft_alarm") + "(°\(self.tempUnit))"
+    }
+
     func getvaluesFromController(key:String)  {
         var progress: MBProgressHUD!
         DispatchQueue.main.async {
@@ -242,8 +247,9 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         ignition.text=Language.getInstance().getlangauge(key: "ignition_header")
         general_header.text=Language.getInstance().getlangauge(key: "General")
        
-        misc.text=Language.getInstance().getlangauge(key: "misc")
+        misc_header.text=Language.getInstance().getlangauge(key: "misc")
         
+        setShaftAlarmTempUnit()
         
 //        submenu
         PowerIgnitionLbl.text=Language.getInstance().getlangauge(key: "power_duration_ignition") + "(%)"
@@ -260,7 +266,6 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         shutdownTimeTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.shutdownTimeTouchFunction(_:))))
         screenLockTimeLbl.text=Language.getInstance().getlangauge(key: "screen_lock")
         screenLockTimeTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.screenLockTimeTouchFunction(_:))))
-        shaftAlarmLbl.text=Language.getInstance().getlangauge(key: "Shaft_alarm") + "(°C)"
         shaftAlarmTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.shaftAlarmTouchFunction(_:))))
         gainPLbl.text=Language.getInstance().getlangauge(key: "Gain_P")
         gainPTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.gainPTouchFunction(_:))))
