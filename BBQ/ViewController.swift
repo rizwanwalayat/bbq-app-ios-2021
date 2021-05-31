@@ -65,12 +65,13 @@ class ViewController: UIViewController,UITextFieldDelegate {
              let notificationCenter1 = NotificationCenter.default
         notificationCenter1.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.didBecomeActiveNotification, object: nil)
         
-        
-        
         let tapgesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTap))
         torch.addGestureRecognizer(tapgesture)
         torch.isUserInteractionEnabled=true
 
+        setupToHideKeyboardOnTapOnView()
+        
+        
         wizard_2_description.text=Language.getInstance().getlangauge(key: "wizard_2_description")
         wizard_2_subtitle_1.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_1")
         wizard_2_subtitle_2.text=Language.getInstance().getlangauge(key: "wizard_2_subtitle_2")
@@ -93,6 +94,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         btncontinueOutlet.setTitle(Language.getInstance().getlangauge(key: "wizard_2_button"), for: .normal)
         connectButton.setTitle(Language.getInstance().getlangauge(key: "wizard_2_subtitle_2_button"), for: .normal)
         
+        btncontinueOutlet.setBackgroundColor(#colorLiteral(red: 0.9808368087, green: 0.6705261469, blue: 0.6306552887, alpha: 1), for: .highlighted)
         
 //        serialText.text = "38043"
 //        passwordText.text = "9267673412"
@@ -107,14 +109,16 @@ class ViewController: UIViewController,UITextFieldDelegate {
         {
             passwordText.text = passwordvalue
         }
-        PasswordtextFieldDidChange(self.view)
+        
+        PasswordCheck()
+//        PasswordtextFieldDidChange(self.view)
         resultView.isHidden=true
         resultbtntitle.setTitle("+", for: .normal)
         serialbtntitle.setTitle("-", for: .normal)
         connectionView.isHidden=true
-        serialText.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        passwordText.addTarget(self, action: #selector(PasswordtextFieldDidChange(_:)), for: .editingChanged)
-        serialText.returnKeyType=UIReturnKeyType.done
+//        serialText.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+//        passwordText.addTarget(self, action: #selector(PasswordtextFieldDidChange(_:)), for: .editingChanged)
+        serialText.returnKeyType=UIReturnKeyType.next
         passwordText.returnKeyType=UIReturnKeyType.done
         serialText.delegate = self
         passwordText.delegate = self
@@ -163,7 +167,14 @@ class ViewController: UIViewController,UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
 
     }
-      @objc func imageTap()
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
+        view.endEditing(true)
+    }
+
+  
+    @objc func imageTap()
         {
             toggleFlashlight()
             
@@ -209,10 +220,17 @@ class ViewController: UIViewController,UITextFieldDelegate {
 //        countofscreenappear=countofscreenappear+1
 //    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("true")
+        let nextTag = textField.tag + 1
+        if let nextTF = textField.superview?.viewWithTag(nextTag) {
+            nextTF.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
+
+//        print("true")
 //        textField.resignFirstResponder()
-        self.view.endEditing(true)
-        return false
+//        self.view.endEditing(true)
     }
     
     func addDoneButtonOnKeyboard(){
@@ -231,29 +249,38 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @objc func donepassword()  {
 
     }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if(textField.tag == 1)
-        {
+        if(textField.tag == 1){
             serialText.showList()
         }
 //        print("change found")
     }
-@objc func textFieldDidChange(_ sender: UIView) {
-//    print("text change \(serialText.text)")
-//    print("get password of serial in defaults \(defaults.string(forKey: serialText.text!))")
-    if(defaults.string(forKey: serialText.text!)==nil)
-    {
-        print("no password")
-    }else
-    {
-        passwordText.text=defaults.string(forKey: serialText.text!)
-    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField.tag == 1 {
+            if(defaults.string(forKey: serialText.text!)==nil)
+            {
+                print("no password")
+            }else
+            {
+                passwordText.text=defaults.string(forKey: serialText.text!)
+            }
+        }
+            
+            PasswordCheck()
+        
     }
     
-    @objc func PasswordtextFieldDidChange(_ sender: UIView) {
-        if(passwordText.text?.count==10)
+    func PasswordCheck() {
+        if(serialText.text?.count==5 && passwordText.text?.count==10)
         {
+            passwordText.resignFirstResponder()
+            serialText.resignFirstResponder()
+            view.endEditing(true)
+
             btncontinueOutlet.isEnabled=true
+            btncontinueOutlet.isUserInteractionEnabled=true
             btncontinueOutlet.backgroundColor = .systemRed
         }else
         {
@@ -261,6 +288,39 @@ class ViewController: UIViewController,UITextFieldDelegate {
             btncontinueOutlet.backgroundColor=UIColor(red: 47.0/255.0, green: 47.0/255.0, blue: 49.0/255.0, alpha: 1.0)
         }
     }
+    
+    
+//    @objc func textFieldDidChange(_ sender: UIView) {
+//    //    print("text change \(serialText.text)")
+//    //    print("get password of serial in defaults \(defaults.string(forKey: serialText.text!))")
+//        if(defaults.string(forKey: serialText.text!)==nil)
+//        {
+//            print("no password")
+//        }else
+//        {
+//            passwordText.text=defaults.string(forKey: serialText.text!)
+//        }
+//        
+////        if(serialText.text?.count==5){
+////            serialText.resignFirstResponder()
+////            passwordText.becomeFirstResponder()
+////        }
+//        
+//    }
+//    
+//    @objc func PasswordtextFieldDidChange(_ sender: UIView) {
+//        if(passwordText.text?.count==10)
+//        {
+//            passwordText.resignFirstResponder()
+//            btncontinueOutlet.isEnabled=true
+//            btncontinueOutlet.isUserInteractionEnabled=true
+//            btncontinueOutlet.backgroundColor = .systemRed
+//        }else
+//        {
+//            btncontinueOutlet.isEnabled=false
+//            btncontinueOutlet.backgroundColor=UIColor(red: 47.0/255.0, green: 47.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+//        }
+//    }
     
     
     @IBAction func setupwifi(_ sender: Any) {
@@ -824,7 +884,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
 }
 
-
 extension ViewController
 {
     
@@ -846,4 +905,33 @@ extension ViewController
         })
     }
     
+}
+
+extension UIViewController
+{
+    func setupToHideKeyboardOnTapOnView()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
+}
+
+extension UIButton {
+    func setBackgroundColor(_ color: UIColor, for forState: UIControl.State) {
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        UIGraphicsGetCurrentContext()!.setFillColor(color.cgColor)
+        UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+        let colorImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.setBackgroundImage(colorImage, for: forState)
+      }
 }
