@@ -148,7 +148,7 @@ open class DropDown : UITextField{
                 let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
                 let keyboardRectangle = keyboardFrame.cgRectValue
                 self.keyboardHeight = keyboardRectangle.height
-                    if !self.isSelected{
+                    if !self.isSelected && !self.dataArray.isEmpty{
                         self.showList()
                     }
                 }

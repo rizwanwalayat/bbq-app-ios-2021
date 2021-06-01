@@ -149,15 +149,18 @@ class ViewController: UIViewController,UITextFieldDelegate {
             {
                 temp.append(item.serial)
             }
-            serialText.optionArray = temp
-            serialText.textColor=#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            serialText.font = UIFont.systemFont(ofSize: 14)
-            serialText.didSelect { (String, Index, Id) in
-                print(String)
-                self.serialText.text=String
-                self.passwordText.text = self.list[Index].password
-            }
-//            serialText.showList()
+           
+                serialText.optionArray = temp
+                serialText.textColor=#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                serialText.font = UIFont.systemFont(ofSize: 14)
+                serialText.didSelect { (String, Index, Id) in
+                    print(String)
+                    self.serialText.text=String
+                    self.passwordText.text = self.list[Index].password
+                }
+            
+    //            serialText.showList()
+            
 
         }catch
         {
@@ -167,12 +170,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
 
     }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.resignFirstResponder()
-        view.endEditing(true)
-    }
-
   
     @objc func imageTap()
         {
@@ -219,19 +216,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
 //    override func viewDidDisappear(_ animated: Bool) {
 //        countofscreenappear=countofscreenappear+1
 //    }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let nextTag = textField.tag + 1
-        if let nextTF = textField.superview?.viewWithTag(nextTag) {
-            nextTF.becomeFirstResponder()
-        } else {
-            textField.resignFirstResponder()
-        }
-        return true
-
-//        print("true")
-//        textField.resignFirstResponder()
-//        self.view.endEditing(true)
-    }
+   
     
     func addDoneButtonOnKeyboard(){
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
@@ -250,11 +235,33 @@ class ViewController: UIViewController,UITextFieldDelegate {
 
     }
     
+    //MARK: UITextFieldDelegate Methods
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag = textField.tag + 1
+        if let nextTF = textField.superview?.viewWithTag(nextTag) {
+            nextTF.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
+
+//        print("true")
+//        textField.resignFirstResponder()
+//        self.view.endEditing(true)
+    }
+    
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if(textField.tag == 1){
-            serialText.showList()
+//            serialText.showList()
         }
 //        print("change found")
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
+        view.endEditing(true)
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {

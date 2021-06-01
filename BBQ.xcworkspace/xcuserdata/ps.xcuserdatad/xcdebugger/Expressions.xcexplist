@@ -49,6 +49,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ServiceMenuViewController.setTempUnit():ServiceMenuViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "f11Values">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ControllerconnectionImpl.requestDiscovery(controllerResponse:):ControllerConnectionImpl.swift">
          <PersistentStrings>
             <PersistentString
@@ -88,18 +96,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ServiceMenuViewController.setTempUnit():ServiceMenuViewController.swift">
+         contextName = "ViewController.showdropdown():ViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "f11Values">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "HomeViewController.setupBuzzer():HomeViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "alarmSoundTimer">
+               value = "list">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -108,6 +108,14 @@
          <PersistentStrings>
             <PersistentString
                value = "ControllerconnectionImpl.getInstance().getController().getIp()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeViewController.setupBuzzer():HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "alarmSoundTimer">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -157,6 +165,14 @@
          <PersistentStrings>
             <PersistentString
                value = "ControllerResponseImpl">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DropDown.touchAction():iOSDropDown.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "isSelected">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
