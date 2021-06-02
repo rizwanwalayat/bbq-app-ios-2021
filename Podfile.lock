@@ -5,7 +5,6 @@ PODS:
   - CocoaAsyncSocket (7.6.5)
   - ExpandableLabel (0.5.2)
   - FGRoute (1.0.7)
-  - iOSDropDown (0.3.4)
   - MBProgressHUD (1.1.0)
   - ObjectMapper (4.2.0)
   - Sentry (6.0.0):
@@ -21,7 +20,6 @@ DEPENDENCIES:
   - CocoaAsyncSocket
   - ExpandableLabel
   - FGRoute
-  - iOSDropDown
   - MBProgressHUD (~> 1.1.0)
   - ObjectMapper
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `6.0.0`)
@@ -35,7 +33,6 @@ SPEC REPOS:
     - CocoaAsyncSocket
     - ExpandableLabel
     - FGRoute
-    - iOSDropDown
     - MBProgressHUD
     - ObjectMapper
     - SQLite.swift
@@ -57,13 +54,12 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   ExpandableLabel: c2fab6d27860c572d67134b30522a5917746171d
   FGRoute: e46b1ef1a98f74659fb4e25c8473550175799da4
-  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   Sentry: 9f6ac6d0412a09a8d610497f873ccbcf7abbe3f8
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 9a87a7c4cf5deba5c69d50985b917a5d25f5cff3
+PODFILE CHECKSUM: 0d2ab281fc3869581c07b0518ea9f8906f277c07
 
 COCOAPODS: 1.10.1
