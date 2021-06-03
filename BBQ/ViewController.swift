@@ -68,7 +68,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         torch.addGestureRecognizer(tapgesture)
         torch.isUserInteractionEnabled=true
 
-        setupToHideKeyboardOnTapOnView()
+//        setupToHideKeyboardOnTapOnView()
         
         
         wizard_2_description.text=Language.getInstance().getlangauge(key: "wizard_2_description")
@@ -136,7 +136,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
      
 
         showdropdown()
-
+//        serialText.listDidDisappear {
+//            self.serialText.resignFirstResponder()
+//
+//        }
     }
     var list : [Util.ControllerList]!
     func showdropdown()  {
@@ -158,6 +161,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
                     self.passwordText.text = self.list[Index].password
                 }
             
+           
     //            serialText.showList()
             
 
@@ -169,7 +173,12 @@ class ViewController: UIViewController,UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
 
     }
-  
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+                let position = touch.location(in: view)
+                print("touchesBegan",position)
+            }
+    }
     @objc func imageTap()
         {
             toggleFlashlight()
@@ -252,16 +261,18 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if(textField.tag == 1){
+        textField.becomeFirstResponder()
+
+//        if textField.tag == 1 && !list.isEmpty {
 //            serialText.showList()
-        }
+//        }
 //        print("change found")
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.resignFirstResponder()
-        view.endEditing(true)
-    }
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        textField.resignFirstResponder()
+//        view.endEditing(true)
+//    }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if textField.tag == 1 {

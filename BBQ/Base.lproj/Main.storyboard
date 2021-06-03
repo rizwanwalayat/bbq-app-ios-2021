@@ -72,7 +72,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfk-PO-cep" customClass="PaddingLabel" customModule="BBQ_Hybrid" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="8" width="87.666666666666671" height="41"/>
+                                                                        <rect key="frame" x="0.0" y="8" width="97.666666666666671" height="41"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -335,7 +335,7 @@
                                         <rect key="frame" x="8" y="308" width="258" height="118"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vo8-r5-CFN" userLabel="toptext" customClass="PaddingLabel" customModule="BBQ_Hybrid" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="10" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="dMg-zK-Uu3"/>
                                                 </constraints>
@@ -349,24 +349,24 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="345-Ph-rxs" userLabel="main stack for image">
-                                                <rect key="frame" x="8" y="1" width="263" height="31"/>
+                                                <rect key="frame" x="18" y="1" width="253" height="31"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wr1-si-8oH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="87.666666666666671" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="84.333333333333329" height="31"/>
                                                         <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="17"/>
                                                         <state key="normal" title="">
                                                             <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsk-dL-Q3i">
-                                                        <rect key="frame" x="87.666666666666657" y="0.0" width="87.666666666666657" height="31"/>
+                                                        <rect key="frame" x="84.333333333333343" y="0.0" width="84.333333333333343" height="31"/>
                                                         <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
                                                         <state key="normal" title="">
                                                             <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3r-00-w80">
-                                                        <rect key="frame" x="175.33333333333334" y="0.0" width="87.666666666666657" height="31"/>
+                                                        <rect key="frame" x="168.66666666666666" y="0.0" width="84.333333333333343" height="31"/>
                                                         <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="17"/>
                                                         <state key="normal" title="">
                                                             <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -379,7 +379,7 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5A-k1-Ngn" userLabel="bottomtext" customClass="PaddingLabel" customModule="BBQ_Hybrid" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="33.333333333333314" width="0.0" height="27"/>
+                                                <rect key="frame" x="0.0" y="33.333333333333314" width="10" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="AF7-Va-gZh"/>
                                                 </constraints>
@@ -403,7 +403,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYc-7Z-ltY" userLabel="bottomimage">
-                                                <rect key="frame" x="8" y="34" width="257" height="31"/>
+                                                <rect key="frame" x="18" y="34" width="247" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="TqH-rW-doh"/>
                                                     <constraint firstAttribute="height" constant="31" id="Yjd-BF-G76"/>
@@ -5640,6 +5640,7 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="0.0"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="handleKeyboard" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                             <textField opaque="NO" tag="2" contentMode="scaleToFill" verticalHuggingPriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pxB-7V-c7F">
@@ -7161,7 +7162,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eJ2-7z-N7e">
-                                                <rect key="frame" x="88.333333333333343" y="442" width="293.66666666666663" height="34"/>
+                                                <rect key="frame" x="99.333333333333343" y="442" width="282.66666666666663" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="FVE-zg-sv8"/>
@@ -7217,7 +7218,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2b-Fa-Cmx" customClass="PaddingLabel" customModule="BBQ_Hybrid" customModuleProvider="target">
-                                                <rect key="frame" x="44" y="442" width="41.333333333333343" height="34"/>
+                                                <rect key="frame" x="44" y="442" width="52.333333333333343" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="JP9-zl-g9S"/>
@@ -9455,10 +9456,10 @@
             <size key="intrinsicContentSize" width="46" height="30"/>
         </designable>
         <designable name="Cfk-PO-cep">
-            <size key="intrinsicContentSize" width="87.666666666666671" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="97.666666666666671" height="20.333333333333332"/>
         </designable>
         <designable name="Eu7-Tg-H4d">
-            <size key="intrinsicContentSize" width="100" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="110" height="20.333333333333332"/>
         </designable>
         <designable name="H82-Yf-NtQ">
             <size key="intrinsicContentSize" width="108" height="33"/>
@@ -9467,7 +9468,7 @@
             <size key="intrinsicContentSize" width="62" height="30"/>
         </designable>
         <designable name="N2b-Fa-Cmx">
-            <size key="intrinsicContentSize" width="41.333333333333336" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="52.333333333333336" height="20.333333333333332"/>
         </designable>
         <designable name="NIw-Ev-YwB">
             <size key="intrinsicContentSize" width="64" height="64"/>
@@ -9481,7 +9482,9 @@
         <designable name="U6U-eS-V4w">
             <size key="intrinsicContentSize" width="82" height="30"/>
         </designable>
-        <designable name="Vo8-r5-CFN"/>
+        <designable name="Vo8-r5-CFN">
+            <size key="intrinsicContentSize" width="10" height="0.0"/>
+        </designable>
         <designable name="XNs-LH-FEq">
             <size key="intrinsicContentSize" width="32" height="30"/>
         </designable>
@@ -9492,7 +9495,7 @@
             <size key="intrinsicContentSize" width="34" height="30"/>
         </designable>
         <designable name="hZF-5Z-u2g">
-            <size key="intrinsicContentSize" width="75.333333333333329" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="85.333333333333329" height="20.333333333333332"/>
         </designable>
         <designable name="hnO-y5-yMj">
             <size key="intrinsicContentSize" width="58" height="30"/>
@@ -9506,7 +9509,9 @@
         <designable name="jat-Z1-ICS">
             <size key="intrinsicContentSize" width="51" height="33"/>
         </designable>
-        <designable name="k5A-k1-Ngn"/>
+        <designable name="k5A-k1-Ngn">
+            <size key="intrinsicContentSize" width="10" height="0.0"/>
+        </designable>
         <designable name="ppz-9j-aZ3">
             <size key="intrinsicContentSize" width="48" height="30"/>
         </designable>

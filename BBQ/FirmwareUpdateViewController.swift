@@ -50,10 +50,10 @@ class FirmwareUpdateViewController: UIViewController {
         var filePath :String!
         if(neworold == "new")
         {
-            filePath = Bundle.main.path(forResource: "aduro_0705_34_u.dat", ofType: nil)
+            filePath = Bundle.main.path(forResource: "bbq_2_50_u.dat", ofType: nil)
         }else
         {
-            filePath = Bundle.main.path(forResource: "aduro_0705_30_u.dat", ofType: nil)
+            filePath = Bundle.main.path(forResource: "bbq_2_50_u.dat", ofType: nil)
         }
                      
                     let nsdata = NSData(contentsOfFile: filePath!)

@@ -17,8 +17,8 @@ class Constants {
     static var term2Accept="term2"
     static var directConnectFlag="directConnectFlag"
     static var secondtime="secondTime"
-    static var version=705
-    static var build=34
+    static var version=2
+    static var build=50
     static var bbqView = "bbqView"
 }
 
