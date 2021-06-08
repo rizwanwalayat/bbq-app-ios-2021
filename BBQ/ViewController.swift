@@ -119,7 +119,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
 //        passwordText.addTarget(self, action: #selector(PasswordtextFieldDidChange(_:)), for: .editingChanged)
         serialText.returnKeyType=UIReturnKeyType.next
         passwordText.returnKeyType=UIReturnKeyType.done
-        serialText.delegate = self
         passwordText.delegate = self
 
         if(defaults.bool(forKey: Constants.secondtime))
@@ -159,8 +158,17 @@ class ViewController: UIViewController,UITextFieldDelegate {
                     print(String)
                     self.serialText.text=String
                     self.passwordText.text = self.list[Index].password
+                    self.PasswordCheck()
+
                 }
             
+            serialText.textFieldHasReturned {
+                self.passwordText.becomeFirstResponder()
+            }
+            
+            serialText.textFieldHasChanged {
+                self.PasswordCheck()
+            }
            
     //            serialText.showList()
             
@@ -173,12 +181,12 @@ class ViewController: UIViewController,UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
 
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-                let position = touch.location(in: view)
-                print("touchesBegan",position)
-            }
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let touch = touches.first {
+//                let position = touch.location(in: view)
+//                print("touchesBegan",position)
+//            }
+//    }
     @objc func imageTap()
         {
             toggleFlashlight()
@@ -246,28 +254,19 @@ class ViewController: UIViewController,UITextFieldDelegate {
     //MARK: UITextFieldDelegate Methods
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let nextTag = textField.tag + 1
-        if let nextTF = textField.superview?.viewWithTag(nextTag) {
-            nextTF.becomeFirstResponder()
-        } else {
-            textField.resignFirstResponder()
-        }
+        view.endEditing(true)
         return true
-
-//        print("true")
-//        textField.resignFirstResponder()
-//        self.view.endEditing(true)
     }
     
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.becomeFirstResponder()
-
-//        if textField.tag == 1 && !list.isEmpty {
-//            serialText.showList()
-//        }
-//        print("change found")
     }
+////        if textField.tag == 1 && !list.isEmpty {
+////            serialText.showList()
+////        }
+////        print("change found")
+//    }
     
 //    func textFieldDidEndEditing(_ textField: UITextField) {
 //        textField.resignFirstResponder()
@@ -292,9 +291,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     func PasswordCheck() {
         if(serialText.text?.count==5 && passwordText.text?.count==10)
         {
-            passwordText.resignFirstResponder()
-            serialText.resignFirstResponder()
-            view.endEditing(true)
+//            view.endEditing(true)
 
             btncontinueOutlet.isEnabled=true
             btncontinueOutlet.isUserInteractionEnabled=true
@@ -926,20 +923,20 @@ extension ViewController
 
 extension UIViewController
 {
-    func setupToHideKeyboardOnTapOnView()
-    {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(UIViewController.dismissKeyboard))
+//    func setupToHideKeyboardOnTapOnView()
+//    {
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+//            target: self,
+//            action: #selector(UIViewController.dismissKeyboard))
+//
+//        tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+//    }
 
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-
-    @objc func dismissKeyboard()
-    {
-        view.endEditing(true)
-    }
+//    @objc func dismissKeyboard()
+//    {
+//        view.endEditing(true)
+//    }
 }
 
 extension UIButton {

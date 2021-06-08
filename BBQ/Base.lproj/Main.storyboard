@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VMB-GH-O9E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VMB-GH-O9E">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -3307,7 +3307,7 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AvR-Rw-S8E" userLabel="divider">
                                                 <rect key="frame" x="0.0" y="38" width="390" height="1"/>
-                                                <color key="backgroundColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="g22-OS-qMN"/>
                                                 </constraints>
@@ -3330,7 +3330,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcx-bH-w38">
                                                                 <rect key="frame" x="0.0" y="46" width="390" height="2"/>
-                                                                <color key="backgroundColor" name="yellowborder"/>
+                                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="2" id="hRF-fQ-qdP"/>
                                                                 </constraints>
@@ -3383,7 +3383,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tt1-p2-pkS">
                                                                 <rect key="frame" x="0.0" y="46" width="390" height="2"/>
-                                                                <color key="backgroundColor" name="yellowborder"/>
+                                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="2" id="s9d-7d-JRI"/>
                                                                 </constraints>
@@ -3436,7 +3436,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYR-u3-Ffi">
                                                                 <rect key="frame" x="0.0" y="46" width="390" height="2"/>
-                                                                <color key="backgroundColor" name="yellowborder"/>
+                                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="2" id="Qlp-rz-8cw"/>
                                                                 </constraints>
@@ -3489,7 +3489,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uET-vC-SUM">
                                                                 <rect key="frame" x="0.0" y="46" width="390" height="2"/>
-                                                                <color key="backgroundColor" name="yellowborder"/>
+                                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="2" id="zNx-yi-6g5"/>
                                                                 </constraints>
@@ -3542,7 +3542,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ej4-3R-Me8">
                                                                 <rect key="frame" x="0.0" y="46" width="390" height="2"/>
-                                                                <color key="backgroundColor" name="yellowborder"/>
+                                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="2" id="a5B-ln-wy3"/>
                                                                 </constraints>
@@ -3595,7 +3595,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08e-HY-ZAb">
                                                                 <rect key="frame" x="0.0" y="46" width="390" height="2"/>
-                                                                <color key="backgroundColor" name="yellowborder"/>
+                                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="2" id="25r-M1-nav"/>
                                                                 </constraints>
@@ -3648,7 +3648,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdp-Bf-TJP">
                                                                 <rect key="frame" x="0.0" y="46" width="390" height="2"/>
-                                                                <color key="backgroundColor" name="yellowborder"/>
+                                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="2" id="Q0s-Em-z0G"/>
                                                                 </constraints>
@@ -5683,7 +5683,7 @@
                                                                     <action selector="btnconnect:" destination="7Hr-Yh-msm" eventType="touchUpInside" id="d7K-hh-LMS"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="torch_of" translatesAutoresizingMaskIntoConstraints="NO" id="o9I-k5-AW5" userLabel="torch">
+                                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="torch_of" translatesAutoresizingMaskIntoConstraints="NO" id="o9I-k5-AW5" userLabel="torch">
                                                                 <rect key="frame" x="293" y="14" width="57" height="27"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="57" id="myP-np-tJe"/>
@@ -7352,7 +7352,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="epg-OS-N8L">
-                                                <rect key="frame" x="0.0" y="28" width="358" height="43.666667938232422"/>
+                                                <rect key="frame" x="0.0" y="24.333333969116211" width="358" height="43.666667938232422"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="epg-OS-N8L" id="gsf-SB-gP6">
                                                     <rect key="frame" x="0.0" y="0.0" width="358" height="43.666667938232422"/>
@@ -9489,7 +9489,7 @@
             <size key="intrinsicContentSize" width="32" height="30"/>
         </designable>
         <designable name="bs2-r3-pdM">
-            <size key="intrinsicContentSize" width="30" height="32"/>
+            <size key="intrinsicContentSize" width="30" height="29"/>
         </designable>
         <designable name="fBh-29-J9M">
             <size key="intrinsicContentSize" width="34" height="30"/>
@@ -9525,7 +9525,7 @@
             <size key="intrinsicContentSize" width="59" height="30"/>
         </designable>
         <designable name="umb-Cw-6Ci">
-            <size key="intrinsicContentSize" width="30" height="32"/>
+            <size key="intrinsicContentSize" width="30" height="29"/>
         </designable>
         <designable name="xYA-wU-kbI">
             <size key="intrinsicContentSize" width="73" height="34"/>

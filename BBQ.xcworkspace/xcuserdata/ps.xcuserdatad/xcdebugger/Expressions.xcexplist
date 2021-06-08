@@ -123,26 +123,27 @@
          contextName = "closure #1 in DropDown.setupUI():iOSDropDown.swift">
          <PersistentStrings>
             <PersistentString
+               value = "self.isFirstResponder">
+            </PersistentString>
+            <PersistentString
+               value = "handleKeyboard">
+            </PersistentString>
+            <PersistentString
                value = "isSearchEnable">
             </PersistentString>
             <PersistentString
-               value = "handleKeyboard">
+               value = "self.tag">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "DropDown.handleKeyboard.didset:iOSDropDown.swift">
+         contextName = "DropDown.touchAction(_:):iOSDropDown.swift">
          <PersistentStrings>
             <PersistentString
-               value = "handleKeyboard">
+               value = "sender?.view">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #2 in HomeViewController.setvalue(key:value:):HomeViewController.swift">
-         <PersistentStrings>
             <PersistentString
-               value = "ControllerResponseImpl">
+               value = "sender?.view?.tag">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -151,6 +152,14 @@
          <PersistentStrings>
             <PersistentString
                value = "isSelected">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DropDown.handleKeyboard.didset:iOSDropDown.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "handleKeyboard">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -172,6 +181,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #2 in HomeViewController.setvalue(key:value:):HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ControllerResponseImpl">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ControllerconnectionImpl.requestSet(key:value:encryptionMode:requestCompletionHandler:):ControllerConnectionImpl.swift">
          <PersistentStrings>
             <PersistentString
@@ -184,6 +201,20 @@
          <PersistentStrings>
             <PersistentString
                value = "isSelected">
+            </PersistentString>
+            <PersistentString
+               value = "self.isFirstResponder">
+            </PersistentString>
+            <PersistentString
+               value = "self.dataArray.isEmpty">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DropDown.textFieldShouldBeginEditing(_:):iOSDropDown.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "isSearchEnable">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
