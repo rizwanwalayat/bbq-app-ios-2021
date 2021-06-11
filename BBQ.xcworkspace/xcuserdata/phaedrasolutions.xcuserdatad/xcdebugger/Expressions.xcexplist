@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ServiceMenuViewController.openManualTouchAction(_:):ServiceMenuViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Util.GetSSID()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ServiceMenuViewController.manualPlus(_:):ServiceMenuViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "manual_sub.isHidden">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

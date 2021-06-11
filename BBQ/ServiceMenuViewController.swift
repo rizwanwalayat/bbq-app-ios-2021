@@ -28,12 +28,12 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     @IBOutlet weak var ignition_sub: UIView!
     @IBOutlet weak var general_sub: UIView!
     @IBOutlet weak var misc_sub: UIView!
-    
+    @IBOutlet weak var manual_sub: UIView!
     
     @IBOutlet weak var ignition_button: UIButton!
     @IBOutlet weak var general_button: UIButton!
     @IBOutlet weak var misc_button: UIButton!
-    
+    @IBOutlet weak var manual_button: UIButton!
     
     
 //submenu ignition
@@ -74,7 +74,13 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     @IBOutlet weak var  gainITouch: UIView!
     @IBOutlet weak var  fanShutdownTouch: UIView!
  
-
+    
+// submenu manual
+    
+    @IBOutlet weak var open_manualLbl: UILabel!
+    @IBOutlet weak var open_manualValue: UILabel!
+    @IBOutlet weak var open_manualTouch: UIView!
+    
     
 //    submenu misc
     @IBOutlet weak var push_firmware: UILabel!
@@ -87,6 +93,7 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     @IBOutlet weak var ignition: UILabel!
     @IBOutlet weak var general_header: UILabel!
     @IBOutlet weak var misc_header: UILabel!
+    @IBOutlet weak var manual_header: UILabel!
     
     
     var f11Values: [String:String] = [:]
@@ -248,7 +255,8 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         general_header.text=Language.getInstance().getlangauge(key: "General")
        
         misc_header.text=Language.getInstance().getlangauge(key: "misc")
-        
+        manual_header.text=Language.getInstance().getlangauge(key: "manual_header")
+
         setShaftAlarmTempUnit()
         
 //        submenu
@@ -273,6 +281,9 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         gainITouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.gainITouchFunction(_:))))
         fanShutdownLbl.text=Language.getInstance().getlangauge(key: "Fan_shutdown") + "(%)"
         fanShutdownTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.fanShutdownTouchFunction(_:))))
+        open_manualLbl.text=Language.getInstance().getlangauge(key: "open_manual_mode")
+        open_manualValue.text=Language.getInstance().getlangauge(key: "manual_open")
+        open_manualTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.openManualTouchAction(_:))))
         
         push_firmware.text=Language.getInstance().getlangauge(key: "push_firmware")
         push_firmwareTouch.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.push_firmwareTouch(_:))))
@@ -310,6 +321,19 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         }
     }
    
+    
+    @IBAction func manualPlus(_ sender: UIButton) {
+        if(manual_sub.isHidden){
+            close()
+            sender.setTitle("-", for: .normal)
+            manual_sub.isHidden=false
+        }else{
+            close()
+            sender.setTitle("+", for: .normal)
+            manual_sub.isHidden=true
+        }
+    }
+    
     @IBAction func miscPlus(_ sender: UIButton) {
         
         if(misc_sub.isHidden)
@@ -329,12 +353,13 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         ignition_sub.isHidden=true
         general_sub.isHidden=true
         misc_sub.isHidden=true
-        
+        manual_sub.isHidden=true
         
         ignition_button.setTitle("+", for: .normal)
         general_button.setTitle("+", for: .normal)
         misc_button.setTitle("+", for: .normal)
-        
+        manual_button.setTitle("+", for: .normal)
+
     }
     
 
@@ -349,27 +374,30 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
         gainPTouch.isUserInteractionEnabled=false
         gainITouch.isUserInteractionEnabled=false
         fanShutdownTouch.isUserInteractionEnabled=false
-        
+        open_manualTouch.isUserInteractionEnabled=false
         push_firmwareTouch.isUserInteractionEnabled=false
         ignition_sub.alpha=0.4
         general_sub.alpha=0.4
         misc_sub.alpha=0.4
+        manual_sub.alpha=0.4
     }
     func enable() {
 
          PowerIgnitionTouch.isUserInteractionEnabled=true
-        PowerIgnitionOperationTouch.isUserInteractionEnabled=true
+         PowerIgnitionOperationTouch.isUserInteractionEnabled=true
          shutdownTimeTouch.isUserInteractionEnabled=true
          screenLockTimeTouch.isUserInteractionEnabled=true
          shaftAlarmTouch.isUserInteractionEnabled=true
          gainPTouch.isUserInteractionEnabled=true
          gainITouch.isUserInteractionEnabled=true
          fanShutdownTouch.isUserInteractionEnabled=true
-         
+         open_manualTouch.isUserInteractionEnabled=true
          push_firmwareTouch.isUserInteractionEnabled=true
         ignition_sub.alpha=1
         general_sub.alpha=1
         misc_sub.alpha=1
+        manual_sub.alpha=1
+
 
     }
     
@@ -440,15 +468,18 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     
     
     
-    @objc func electric_ignition_Touch(_ sender:UITapGestureRecognizer )
+    @objc func openManualTouchAction(_ sender:UITapGestureRecognizer )
     {
 //        open manual screen
 //        print(Util.getWiFiSsid()!)
-        
-//        print(Util.GetSSID())
-        guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "ManualViewController") as? ManualViewController else { return}
-        sVC.modalPresentationStyle = .fullScreen
-              self.present(sVC, animated: true)
+        if(Util.GetSSID().contains("BBQ-")){
+            guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "ManualViewController") as? ManualViewController else { return}
+            sVC.modalPresentationStyle = .fullScreen
+                  self.present(sVC, animated: true)
+        } else {
+            showToast(message: Language.getInstance().getlangauge(key: "wifi_not_in_range"))
+        }
+     
     }
     @objc func push_firmwareTouch(_ sender:UITapGestureRecognizer )
     {
@@ -526,4 +557,27 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     }
     */
 
+}
+
+extension ServiceMenuViewController
+{
+    
+    func showToast(message : String) {
+        
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
+    
 }
