@@ -269,17 +269,17 @@ class ManualViewController: UIViewController {
         
     }
     func manualMode(mode:Int)  {
-        if(mode==1)
-        {
-            if(manualInfo["l1"] != "Off"){}
-            if(manualInfo["l1"] != "off" && manualInfo["l3"] != "off")
-            {
-                manualMode(mode: 3);
-            }else if(manualInfo["l1"] == "off" && manualInfo["l3"] == "off")
-            {
-                manualMode(mode: 3);
-            }
-        }
+//        if(mode==1)
+//        {
+//            if(manualInfo["l1"] != "Off"){}
+//            if(manualInfo["l1"] != "off" && manualInfo["l3"] != "off")
+//            {
+//                manualMode(mode: 3);
+//            }else if(manualInfo["l1"] == "off" && manualInfo["l3"] == "off")
+//            {
+//                manualMode(mode: 3);
+//            }
+//        }
         
         var currentMode = manualInfo["l"+String(mode)]
         
