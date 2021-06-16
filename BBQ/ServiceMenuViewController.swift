@@ -472,14 +472,14 @@ class ServiceMenuViewController: UIViewController , PopUpDelegate{
     {
 //        open manual screen
 //        print(Util.getWiFiSsid()!)
-        if(Util.GetSSID().contains("BBQ-")){
+//        if(Util.GetSSID().contains("BBQ-")){
             guard  let sVC = self.storyboard?.instantiateViewController(withIdentifier: "ManualViewController") as? ManualViewController else { return}
             sVC.modalPresentationStyle = .fullScreen
                   self.present(sVC, animated: true)
-        } else {
-            showToast(message: Language.getInstance().getlangauge(key: "wifi_not_in_range"))
-        }
-     
+//        } else {
+//            showToast(message: Language.getInstance().getlangauge(key: "wifi_not_in_range"))
+//        }
+//     
     }
     @objc func push_firmwareTouch(_ sender:UITapGestureRecognizer )
     {
