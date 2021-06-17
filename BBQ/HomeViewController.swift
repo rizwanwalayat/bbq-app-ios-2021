@@ -877,7 +877,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, firmwared
         let packetSize = 512
         UIApplication.shared.isIdleTimerDisabled = true
         
-        let filePath = Bundle.main.path(forResource: "bbq_2_53_u.dat", ofType: nil)
+        let filePath = Bundle.main.path(forResource: "bbq_2_54_u.dat", ofType: nil)
         let nsdata = NSData(contentsOfFile: filePath!)
         let stream: InputStream = InputStream(data: nsdata! as Data)
         

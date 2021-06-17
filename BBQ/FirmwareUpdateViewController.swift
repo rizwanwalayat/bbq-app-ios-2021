@@ -50,7 +50,7 @@ class FirmwareUpdateViewController: UIViewController {
         var filePath :String!
         if(neworold == "new")
         {
-            filePath = Bundle.main.path(forResource: "bbq_2_53_u.dat", ofType: nil)
+            filePath = Bundle.main.path(forResource: "bbq_2_54_u.dat", ofType: nil)
         }else
         {
             filePath = Bundle.main.path(forResource: "bbq_2_50_u.dat", ofType: nil)
